@@ -1,0 +1,23 @@
+{
+  "uid": "100000000",
+  "player_info": {
+    "nickname": "TestPlayer",
+    "level": 50,
+    "avatar_id": 1011,
+    "showcase": {
+      "avatar_list": [
+        {
+          "avatar_id": 1011,
+          "level": 60,
+          "weapon": {
+            "id": 20001,
+            "level": 60,
+            "break_level": 1,
+            "upgrade_level": 5
+          },
+          "equip_list": []
+        }
+      ]
+    }
+  }
+}

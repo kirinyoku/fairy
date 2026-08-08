@@ -1,0 +1,778 @@
+{
+    "3110110": {
+        "Id": 3110110,
+        "AvatarId": 1011,
+        "NameKey": "AvatarSkin_Anbi_Name_000",
+        "DescKey": "AvatarSkin_Anbi_Desc_000",
+        "Icon": "IconRole01",
+        "IsDefault": true
+    },
+    "3110210": {
+        "Id": 3110210,
+        "AvatarId": 1021,
+        "NameKey": "AvatarSkin_Tsubaki_Name_000",
+        "DescKey": "AvatarSkin_Tsubaki_Desc_000",
+        "Icon": "IconRole11",
+        "IsDefault": true
+    },
+    "3110310": {
+        "Id": 3110310,
+        "AvatarId": 1031,
+        "NameKey": "AvatarSkin_Nicole_Name_000",
+        "DescKey": "AvatarSkin_Nicole_Desc_000",
+        "Icon": "IconRole12",
+        "IsDefault": true
+    },
+    "3110311": {
+        "Id": 3110311,
+        "AvatarId": 1031,
+        "NameKey": "AvatarSkin_Nicole_Name_001",
+        "DescKey": "AvatarSkin_Nicole_Desc_001",
+        "Icon": "IconRole12_01",
+        "IsDefault": false
+    },
+    "3110410": {
+        "Id": 3110410,
+        "AvatarId": 1041,
+        "NameKey": "AvatarSkin_Longinus_Name_000",
+        "DescKey": "AvatarSkin_Longinus_Desc_000",
+        "Icon": "IconRole05",
+        "IsDefault": true
+    },
+    "3110510": {
+        "Id": 3110510,
+        "AvatarId": 1051,
+        "NameKey": "AvatarSkin_Yidhari_Name_000",
+        "DescKey": "AvatarSkin_Yidhari_Desc_000",
+        "Icon": "IconRole52",
+        "IsDefault": true
+    },
+    "3110610": {
+        "Id": 3110610,
+        "AvatarId": 1061,
+        "NameKey": "AvatarSkin_Corin_Name_000",
+        "DescKey": "AvatarSkin_Corin_Desc_000",
+        "Icon": "IconRole09",
+        "IsDefault": true
+    },
+    "3110710": {
+        "Id": 3110710,
+        "AvatarId": 1071,
+        "NameKey": "AvatarSkin_Caesar_Name_000",
+        "DescKey": "AvatarSkin_Caesar_Desc_000",
+        "Icon": "IconRole25",
+        "IsDefault": true
+    },
+    "3110810": {
+        "Id": 3110810,
+        "AvatarId": 1081,
+        "NameKey": "AvatarSkin_Billy_Name_000",
+        "DescKey": "AvatarSkin_Billy_Desc_000",
+        "Icon": "IconRole10",
+        "IsDefault": true
+    },
+    "3110910": {
+        "Id": 3110910,
+        "AvatarId": 1091,
+        "NameKey": "AvatarSkin_Unagi_Name_000",
+        "DescKey": "AvatarSkin_Unagi_Desc_000",
+        "Icon": "IconRole13",
+        "IsDefault": true
+    },
+    "3110911": {
+        "Id": 3110911,
+        "AvatarId": 1091,
+        "NameKey": "AvatarSkin_Unagi_Name_001",
+        "DescKey": "AvatarSkin_Unagi_Desc_001",
+        "Icon": "IconRole13_01",
+        "IsDefault": false
+    },
+    "3111010": {
+        "Id": 3111010,
+        "AvatarId": 1101,
+        "NameKey": "AvatarSkin_OokumaMari_Name_000",
+        "DescKey": "AvatarSkin_OokumaMari_Desc_000",
+        "Icon": "IconRole14",
+        "IsDefault": true
+    },
+    "3111110": {
+        "Id": 3111110,
+        "AvatarId": 1111,
+        "NameKey": "AvatarSkin_Anton_Name_000",
+        "DescKey": "AvatarSkin_Anton_Desc_000",
+        "Icon": "IconRole15",
+        "IsDefault": true
+    },
+    "3111210": {
+        "Id": 3111210,
+        "AvatarId": 1121,
+        "NameKey": "AvatarSkin_Ben_Name_000",
+        "DescKey": "AvatarSkin_Ben_Desc_000",
+        "Icon": "IconRole16",
+        "IsDefault": true
+    },
+    "3111310": {
+        "Id": 3111310,
+        "AvatarId": 1131,
+        "NameKey": "AvatarSkin_Aokaku_Name_000",
+        "DescKey": "AvatarSkin_Aokaku_Desc_000",
+        "Icon": "IconRole17",
+        "IsDefault": true
+    },
+    "3111410": {
+        "Id": 3111410,
+        "AvatarId": 1141,
+        "NameKey": "AvatarSkin_Lycaon_Name_000",
+        "DescKey": "AvatarSkin_Lycaon_Desc_000",
+        "Icon": "IconRole18",
+        "IsDefault": true
+    },
+    "3111510": {
+        "Id": 3111510,
+        "AvatarId": 1151,
+        "NameKey": "AvatarSkin_Lucy_Name_000",
+        "DescKey": "AvatarSkin_Lucy_Desc_000",
+        "Icon": "IconRole27",
+        "IsDefault": true
+    },
+    "3111511": {
+        "Id": 3111511,
+        "AvatarId": 1151,
+        "NameKey": "AvatarSkin_Lucy_Name_001",
+        "DescKey": "AvatarSkin_Lucy_Desc_001",
+        "Icon": "IconRole27_01",
+        "IsDefault": false
+    },
+    "3111610": {
+        "Id": 3111610,
+        "AvatarId": 1161,
+        "NameKey": "AvatarSkin_Lighter_Name_000",
+        "DescKey": "AvatarSkin_Lighter_Desc_000",
+        "Icon": "IconRole26",
+        "IsDefault": true
+    },
+    "3111710": {
+        "Id": 3111710,
+        "AvatarId": 1171,
+        "NameKey": "AvatarSkin_Burnice_Name_000",
+        "DescKey": "AvatarSkin_Burnice_Desc_000",
+        "Icon": "IconRole32",
+        "IsDefault": true
+    },
+    "3111810": {
+        "Id": 3111810,
+        "AvatarId": 1181,
+        "NameKey": "AvatarSkin_Lisa_Name_000",
+        "DescKey": "AvatarSkin_Lisa_Desc_000",
+        "Icon": "IconRole20",
+        "IsDefault": true
+    },
+    "3111910": {
+        "Id": 3111910,
+        "AvatarId": 1191,
+        "NameKey": "AvatarSkin_Ellen_Name_000",
+        "DescKey": "AvatarSkin_Ellen_Desc_000",
+        "Icon": "IconRole21",
+        "IsDefault": true
+    },
+    "3111911": {
+        "Id": 3111911,
+        "AvatarId": 1191,
+        "NameKey": "AvatarSkin_Ellen_Name_001",
+        "DescKey": "AvatarSkin_Ellen_Desc_001",
+        "Icon": "IconRole21_01",
+        "IsDefault": false
+    },
+    "3112010": {
+        "Id": 3112010,
+        "AvatarId": 1201,
+        "NameKey": "AvatarSkin_Harumasa_Name_000",
+        "DescKey": "AvatarSkin_Harumasa_Desc_000",
+        "Icon": "IconRole35",
+        "IsDefault": true
+    },
+    "3112110": {
+        "Id": 3112110,
+        "AvatarId": 1211,
+        "NameKey": "AvatarSkin_Rina_Name_000",
+        "DescKey": "AvatarSkin_Rina_Desc_000",
+        "Icon": "IconRole22",
+        "IsDefault": true
+    },
+    "3112210": {
+        "Id": 3112210,
+        "AvatarId": 1221,
+        "NameKey": "AvatarSkin_Yanagi_Name_000",
+        "DescKey": "AvatarSkin_Yanagi_Desc_000",
+        "Icon": "IconRole31",
+        "IsDefault": true
+    },
+    "3112410": {
+        "Id": 3112410,
+        "AvatarId": 1241,
+        "NameKey": "AvatarSkin_ZhuYuan_Name_000",
+        "DescKey": "AvatarSkin_ZhuYuan_Desc_000",
+        "Icon": "IconRole23",
+        "IsDefault": true
+    },
+    "3112510": {
+        "Id": 3112510,
+        "AvatarId": 1251,
+        "NameKey": "AvatarSkin_QingYi_Name_000",
+        "DescKey": "AvatarSkin_QingYi_Desc_000",
+        "Icon": "IconRole29",
+        "IsDefault": true
+    },
+    "3112610": {
+        "Id": 3112610,
+        "AvatarId": 1261,
+        "NameKey": "AvatarSkin_JaneDoe_Name_000",
+        "DescKey": "AvatarSkin_JaneDoe_Desc_000",
+        "Icon": "IconRole24",
+        "IsDefault": true
+    },
+    "3112611": {
+        "Id": 3112611,
+        "AvatarId": 1261,
+        "NameKey": "AvatarSkin_JaneDoe_Name_001",
+        "DescKey": "AvatarSkin_JaneDoe_Desc_001",
+        "Icon": "IconRole24_01",
+        "IsDefault": false
+    },
+    "3112710": {
+        "Id": 3112710,
+        "AvatarId": 1271,
+        "NameKey": "AvatarSkin_Seth_Name_000",
+        "DescKey": "AvatarSkin_Seth_Desc_000",
+        "Icon": "IconRole30",
+        "IsDefault": true
+    },
+    "3112810": {
+        "Id": 3112810,
+        "AvatarId": 1281,
+        "NameKey": "AvatarSkin_Clara_Name_000",
+        "DescKey": "AvatarSkin_Clara_Desc_000",
+        "Icon": "IconRole28",
+        "IsDefault": true
+    },
+    "3112910": {
+        "Id": 3112910,
+        "AvatarId": 1291,
+        "NameKey": "AvatarSkin_HugoVlad_Name_000",
+        "DescKey": "AvatarSkin_HugoVlad_Desc_000",
+        "Icon": "IconRole42",
+        "IsDefault": true
+    },
+    "3113010": {
+        "Id": 3113010,
+        "AvatarId": 1301,
+        "NameKey": "AvatarSkin_Brujas_Name_000",
+        "DescKey": "AvatarSkin_Brujas_Desc_000",
+        "Icon": "IconRole49",
+        "IsDefault": true
+    },
+    "3113110": {
+        "Id": 3113110,
+        "AvatarId": 1311,
+        "NameKey": "AvatarSkin_Astra_Name_000",
+        "DescKey": "AvatarSkin_Astra_Desc_000",
+        "Icon": "IconRole36",
+        "IsDefault": true
+    },
+    "3113111": {
+        "Id": 3113111,
+        "AvatarId": 1311,
+        "NameKey": "AvatarSkin_Astra_Name_001",
+        "DescKey": "AvatarSkin_Astra_Desc_001",
+        "Icon": "IconRole36_01",
+        "IsDefault": false
+    },
+    "3113210": {
+        "Id": 3113210,
+        "AvatarId": 1321,
+        "NameKey": "AvatarSkin_Evelyn_Name_000",
+        "DescKey": "AvatarSkin_Evelyn_Desc_000",
+        "Icon": "IconRole37",
+        "IsDefault": true
+    },
+    "3113310": {
+        "Id": 3113310,
+        "AvatarId": 1331,
+        "NameKey": "AvatarSkin_Vivian_Name_000",
+        "DescKey": "AvatarSkin_Vivian_Desc_000",
+        "Icon": "IconRole41",
+        "IsDefault": true
+    },
+    "3113311": {
+        "Id": 3113311,
+        "AvatarId": 1331,
+        "NameKey": "AvatarSkin_Vivian_Name_001",
+        "DescKey": "AvatarSkin_Vivian_Desc_001",
+        "Icon": "IconRole41_01",
+        "IsDefault": false
+    },
+    "3113410": {
+        "Id": 3113410,
+        "AvatarId": 1341,
+        "NameKey": "AvatarSkin_XiaoZhao_Name_000",
+        "DescKey": "AvatarSkin_XiaoZhao_Desc_000",
+        "Icon": "IconRole56",
+        "IsDefault": true
+    },
+    "3113510": {
+        "Id": 3113510,
+        "AvatarId": 1351,
+        "NameKey": "AvatarSkin_Pulchra_Name_000",
+        "DescKey": "AvatarSkin_Pulchra_Desc_000",
+        "Icon": "IconRole38",
+        "IsDefault": true
+    },
+    "3113610": {
+        "Id": 3113610,
+        "AvatarId": 1361,
+        "NameKey": "AvatarSkin_Trigger_Name_000",
+        "DescKey": "AvatarSkin_Trigger_Desc_000",
+        "Icon": "IconRole39",
+        "IsDefault": true
+    },
+    "3113710": {
+        "Id": 3113710,
+        "AvatarId": 1371,
+        "NameKey": "AvatarSkin_Yixuan_Name_000",
+        "DescKey": "AvatarSkin_Yixuan_Desc_000",
+        "Icon": "IconRole44",
+        "IsDefault": true
+    },
+    "3113711": {
+        "Id": 3113711,
+        "AvatarId": 1371,
+        "NameKey": "AvatarSkin_Yixuan_Name_001",
+        "DescKey": "AvatarSkin_Yixuan_Desc_001",
+        "Icon": "IconRole44_01",
+        "IsDefault": false
+    },
+    "3113810": {
+        "Id": 3113810,
+        "AvatarId": 1381,
+        "NameKey": "AvatarSkin_SilverAnby_Name_000",
+        "DescKey": "AvatarSkin_SilverAnby_Desc_000",
+        "Icon": "IconRole40",
+        "IsDefault": true
+    },
+    "3113910": {
+        "Id": 3113910,
+        "AvatarId": 1391,
+        "NameKey": "AvatarSkin_Jufufu_Name_000",
+        "DescKey": "AvatarSkin_Jufufu_Desc_000",
+        "Icon": "IconRole43",
+        "IsDefault": true
+    },
+    "3114010": {
+        "Id": 3114010,
+        "AvatarId": 1401,
+        "NameKey": "AvatarSkin_Alice_Name_000",
+        "DescKey": "AvatarSkin_Alice_Desc_000",
+        "Icon": "IconRole46",
+        "IsDefault": true
+    },
+    "3114011": {
+        "Id": 3114011,
+        "AvatarId": 1401,
+        "NameKey": "AvatarSkin_Alice_Name_001",
+        "DescKey": "AvatarSkin_Alice_Desc_001",
+        "Icon": "IconRole46_01",
+        "IsDefault": false
+    },
+    "3114110": {
+        "Id": 3114110,
+        "AvatarId": 1411,
+        "NameKey": "AvatarSkin_Yuzuha_Name_000",
+        "DescKey": "AvatarSkin_Yuzuha_Desc_000",
+        "Icon": "IconRole47",
+        "IsDefault": true
+    },
+    "3114111": {
+        "Id": 3114111,
+        "AvatarId": 1411,
+        "NameKey": "AvatarSkin_Yuzuha_Name_001",
+        "DescKey": "AvatarSkin_Yuzuha_Desc_001",
+        "Icon": "IconRole47_01",
+        "IsDefault": false
+    },
+    "3114210": {
+        "Id": 3114210,
+        "AvatarId": 1421,
+        "NameKey": "AvatarSkin_PanYinhu_Name_000",
+        "DescKey": "AvatarSkin_PanYinhu_Desc_000",
+        "Icon": "IconRole45",
+        "IsDefault": true
+    },
+    "3114211": {
+        "Id": 3114211,
+        "AvatarId": 1421,
+        "NameKey": "AvatarSkin_PanYinhu_Name_001",
+        "DescKey": "AvatarSkin_PanYinhu_Desc_001",
+        "Icon": "IconRole45_01",
+        "IsDefault": false
+    },
+    "3114310": {
+        "Id": 3114310,
+        "AvatarId": 1431,
+        "NameKey": "AvatarSkin_Zhenzhen_Name_000",
+        "DescKey": "AvatarSkin_Zhenzhen_Desc_000",
+        "Icon": "IconRole55",
+        "IsDefault": true
+    },
+    "3114311": {
+        "Id": 3114311,
+        "AvatarId": 1431,
+        "NameKey": "AvatarSkin_Zhenzhen_Name_001",
+        "DescKey": "AvatarSkin_Zhenzhen_Desc_001",
+        "Icon": "IconRole55_01",
+        "IsDefault": false
+    },
+    "3114410": {
+        "Id": 3114410,
+        "AvatarId": 1441,
+        "NameKey": "AvatarSkin_Norano_Name_000",
+        "DescKey": "AvatarSkin_Norano_Desc_000",
+        "Icon": "IconRole51",
+        "IsDefault": true
+    },
+    "3114411": {
+        "Id": 3114411,
+        "AvatarId": 1441,
+        "NameKey": "AvatarSkin_Norano_Name_001",
+        "DescKey": "AvatarSkin_Norano_Desc_001",
+        "Icon": "IconRole51_01",
+        "IsDefault": false
+    },
+    "3114510": {
+        "Id": 3114510,
+        "AvatarId": 1451,
+        "NameKey": "AvatarSkin_Lucia_Name_000",
+        "DescKey": "AvatarSkin_Lucia_Desc_000",
+        "Icon": "IconRole50",
+        "IsDefault": true
+    },
+    "3114610": {
+        "Id": 3114610,
+        "AvatarId": 1461,
+        "NameKey": "AvatarSkin_Seed_Name_000",
+        "DescKey": "AvatarSkin_Seed_Desc_000",
+        "Icon": "IconRole48",
+        "IsDefault": true
+    },
+    "3114710": {
+        "Id": 3114710,
+        "AvatarId": 1471,
+        "NameKey": "AvatarSkin_BanYue_Name_000",
+        "DescKey": "AvatarSkin_BanYue_Desc_000",
+        "Icon": "IconRole53",
+        "IsDefault": true
+    },
+    "3114810": {
+        "Id": 3114810,
+        "AvatarId": 1481,
+        "NameKey": "AvatarSkin_Azural_Name_000",
+        "DescKey": "AvatarSkin_Azural_Desc_000",
+        "Icon": "IconRole54",
+        "IsDefault": true
+    },
+    "3114910": {
+        "Id": 3114910,
+        "AvatarId": 1491,
+        "NameKey": "AvatarSkin_Summer_Name_000",
+        "DescKey": "AvatarSkin_Summer_Desc_000",
+        "Icon": "IconRole58",
+        "IsDefault": true
+    },
+    "3114911": {
+        "Id": 3114911,
+        "AvatarId": 1491,
+        "NameKey": "AvatarSkin_Summer_Name_001",
+        "DescKey": "AvatarSkin_Summer_Desc_001",
+        "Icon": "IconRole58_01",
+        "IsDefault": false
+    },
+    "3115010": {
+        "Id": 3115010,
+        "AvatarId": 1501,
+        "NameKey": "AvatarSkin_Aria_Name_000",
+        "DescKey": "AvatarSkin_Aria_Desc_000",
+        "Icon": "IconRole57",
+        "IsDefault": true
+    },
+    "3115011": {
+        "Id": 3115011,
+        "AvatarId": 1501,
+        "NameKey": "AvatarSkin_Aria_Name_001",
+        "DescKey": "AvatarSkin_Aria_Desc_001",
+        "Icon": "IconRole57_01",
+        "IsDefault": false
+    },
+    "3115020": {
+        "Id": 3115020,
+        "AvatarId": 1502,
+        "NameKey": "AvatarSkin_Aria_Name_000",
+        "DescKey": "AvatarSkin_Aria_Desc_000",
+        "Icon": "IconRole57_Form2",
+        "IsDefault": true
+    },
+    "3115021": {
+        "Id": 3115021,
+        "AvatarId": 1502,
+        "NameKey": "AvatarSkin_Aria_Name_001",
+        "DescKey": "AvatarSkin_Aria_Desc_001",
+        "Icon": "IconRole57_01_Form2",
+        "IsDefault": false
+    },
+    "3115110": {
+        "Id": 3115110,
+        "AvatarId": 1511,
+        "NameKey": "AvatarSkin_NangongYu_Name_000",
+        "DescKey": "AvatarSkin_NangongYu_Desc_000",
+        "Icon": "IconRole59",
+        "IsDefault": true
+    },
+    "3115111": {
+        "Id": 3115111,
+        "AvatarId": 1511,
+        "NameKey": "AvatarSkin_NangongYu_Name_001",
+        "DescKey": "AvatarSkin_NangongYu_Desc_001",
+        "Icon": "IconRole59_01",
+        "IsDefault": false
+    },
+    "3115210": {
+        "Id": 3115210,
+        "AvatarId": 1521,
+        "NameKey": "AvatarSkin_Cissia_Name_000",
+        "DescKey": "AvatarSkin_Cissia_Desc_000",
+        "Icon": "IconRole60",
+        "IsDefault": true
+    },
+    "3115310": {
+        "Id": 3115310,
+        "AvatarId": 1531,
+        "NameKey": "AvatarSkin_SPBilly_Name_000",
+        "DescKey": "AvatarSkin_SPBilly_Desc_000",
+        "Icon": "IconRole62",
+        "IsDefault": true
+    },
+    "3115410": {
+        "Id": 3115410,
+        "AvatarId": 1541,
+        "NameKey": "AvatarSkin_Promeia_Name_000",
+        "DescKey": "AvatarSkin_Promeia_Desc_000",
+        "Icon": "IconRole61",
+        "IsDefault": true
+    },
+    "3115510": {
+        "Id": 3115510,
+        "AvatarId": 1551,
+        "NameKey": "AvatarSkin_Pyrois_Name_000",
+        "DescKey": "AvatarSkin_Pyrois_Desc_000",
+        "Icon": "IconRole63",
+        "IsDefault": true
+    },
+    "3115610": {
+        "Id": 3115610,
+        "AvatarId": 1561,
+        "NameKey": "AvatarSkin_Velina_Name_000",
+        "DescKey": "AvatarSkin_Velina_Desc_000",
+        "Icon": "IconRole64",
+        "IsDefault": true
+    },
+    "3115611": {
+        "Id": 3115611,
+        "AvatarId": 1561,
+        "NameKey": "AvatarSkin_Velina_Name_001",
+        "DescKey": "AvatarSkin_Velina_Desc_001",
+        "Icon": "IconRole64_01",
+        "IsDefault": false
+    },
+    "3115710": {
+        "Id": 3115710,
+        "AvatarId": 1571,
+        "NameKey": "AvatarSkin_Norma_Name_000",
+        "DescKey": "AvatarSkin_Norma_Desc_000",
+        "Icon": "IconRole65",
+        "IsDefault": true
+    },
+    "3115810": {
+        "Id": 3115810,
+        "AvatarId": 1581,
+        "NameKey": "AvatarSkin_RemielleOrigin_Name_000",
+        "DescKey": "AvatarSkin_RemielleOrigin_Desc_000",
+        "Icon": "IconRole67",
+        "IsDefault": true
+    },
+    "3115811": {
+        "Id": 3115811,
+        "AvatarId": 1581,
+        "NameKey": "AvatarSkin_RemielleOrigin_Name_001",
+        "DescKey": "AvatarSkin_RemielleOrigin_Desc_001",
+        "Icon": "IconRole67_02",
+        "IsDefault": false
+    },
+    "3115812": {
+        "Id": 3115812,
+        "AvatarId": 1581,
+        "NameKey": "AvatarSkin_RemielleOrigin_Name_002",
+        "DescKey": "AvatarSkin_RemielleOrigin_Desc_002",
+        "Icon": "IconRole67_01",
+        "IsDefault": false
+    },
+    "3115813": {
+        "Id": 3115813,
+        "AvatarId": 1581,
+        "NameKey": "AvatarSkin_RemielleOrigin_Name_003",
+        "DescKey": "AvatarSkin_RemielleOrigin_Desc_003",
+        "Icon": "IconRole67_03",
+        "IsDefault": false
+    },
+    "3115910": {
+        "Id": 3115910,
+        "AvatarId": 1591,
+        "NameKey": "AvatarSkin_Sigrid_Name_000",
+        "DescKey": "AvatarSkin_Sigrid_Desc_000",
+        "Icon": "IconRole66",
+        "IsDefault": true
+    },
+    "3115911": {
+        "Id": 3115911,
+        "AvatarId": 1591,
+        "NameKey": "AvatarSkin_Sigrid_Name_001",
+        "DescKey": "AvatarSkin_Sigrid_Desc_001",
+        "Icon": "IconRole66_01",
+        "IsDefault": false
+    },
+    "4120110": {
+        "Id": 4120110,
+        "AvatarId": 2011,
+        "NameKey": "AvatarSkin_Wise_Name__000",
+        "DescKey": "AvatarSkin_Wise_Desc_000",
+        "Icon": "IconRole34",
+        "IsDefault": true
+    },
+    "4120111": {
+        "Id": 4120111,
+        "AvatarId": 2011,
+        "NameKey": "AvatarSkin_Wise_Name__001",
+        "DescKey": "AvatarSkin_Wise_Desc_001",
+        "Icon": "IconRole34_01",
+        "IsDefault": false
+    },
+    "4120112": {
+        "Id": 4120112,
+        "AvatarId": 2011,
+        "NameKey": "AvatarSkin_Wise_Name_002",
+        "DescKey": "AvatarSkin_Wise_Desc_002",
+        "Icon": "IconRole34_02",
+        "IsDefault": false
+    },
+    "4120113": {
+        "Id": 4120113,
+        "AvatarId": 2011,
+        "NameKey": "AvatarSkin_Wise_Name_003",
+        "DescKey": "AvatarSkin_Wise_Desc_003",
+        "Icon": "IconRole34_03",
+        "IsDefault": false
+    },
+    "4120210": {
+        "Id": 4120210,
+        "AvatarId": 2021,
+        "NameKey": "AvatarSkin_Belle_Name_000",
+        "DescKey": "AvatarSkin_Belle_Desc_000",
+        "Icon": "IconRole33",
+        "IsDefault": true
+    },
+    "4120211": {
+        "Id": 4120211,
+        "AvatarId": 2021,
+        "NameKey": "AvatarSkin_Belle_Name_001",
+        "DescKey": "AvatarSkin_Belle_Desc_001",
+        "Icon": "IconRole33_01",
+        "IsDefault": false
+    },
+    "4120212": {
+        "Id": 4120212,
+        "AvatarId": 2021,
+        "NameKey": "AvatarSkin_Belle_Name_002",
+        "DescKey": "AvatarSkin_Belle_Desc_002",
+        "Icon": "IconRole33_02",
+        "IsDefault": false
+    },
+    "4120213": {
+        "Id": 4120213,
+        "AvatarId": 2021,
+        "NameKey": "AvatarSkin_Belle_Name_003",
+        "DescKey": "AvatarSkin_Belle_Desc_003",
+        "Icon": "IconRole33_03",
+        "IsDefault": false
+    },
+    "4120310": {
+        "Id": 4120310,
+        "AvatarId": 2101,
+        "NameKey": "AvatarSkin_Wise_Name__000",
+        "DescKey": "AvatarSkin_Wise_Desc_000",
+        "Icon": "IconRole34",
+        "IsDefault": true
+    },
+    "4120311": {
+        "Id": 4120311,
+        "AvatarId": 2101,
+        "NameKey": "AvatarSkin_Wise_Name__001",
+        "DescKey": "AvatarSkin_Wise_Desc_001",
+        "Icon": "IconRole34_01",
+        "IsDefault": false
+    },
+    "4120312": {
+        "Id": 4120312,
+        "AvatarId": 2101,
+        "NameKey": "AvatarSkin_Wise_Name_002",
+        "DescKey": "AvatarSkin_Wise_Desc_002",
+        "Icon": "IconRole34_02",
+        "IsDefault": false
+    },
+    "4120313": {
+        "Id": 4120313,
+        "AvatarId": 2101,
+        "NameKey": "AvatarSkin_Wise_Name_002",
+        "DescKey": "AvatarSkin_Wise_Desc_001",
+        "Icon": "IconRole34_02",
+        "IsDefault": false
+    },
+    "4120410": {
+        "Id": 4120410,
+        "AvatarId": 2111,
+        "NameKey": "AvatarSkin_Belle_Name_000",
+        "DescKey": "AvatarSkin_Belle_Desc_000",
+        "Icon": "IconRole33",
+        "IsDefault": true
+    },
+    "4120411": {
+        "Id": 4120411,
+        "AvatarId": 2111,
+        "NameKey": "AvatarSkin_Belle_Name_001",
+        "DescKey": "AvatarSkin_Belle_Desc_001",
+        "Icon": "IconRole33_01",
+        "IsDefault": false
+    },
+    "4120412": {
+        "Id": 4120412,
+        "AvatarId": 2111,
+        "NameKey": "AvatarSkin_Belle_Name_002",
+        "DescKey": "AvatarSkin_Belle_Desc_002",
+        "Icon": "IconRole33_02",
+        "IsDefault": false
+    },
+    "4120413": {
+        "Id": 4120413,
+        "AvatarId": 2111,
+        "NameKey": "AvatarSkin_Wise_Name_002",
+        "DescKey": "AvatarSkin_Belle_Desc_002",
+        "Icon": "IconRole34_02",
+        "IsDefault": false
+    }
+}

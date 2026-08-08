@@ -1,0 +1,1997 @@
+{
+  "12001": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_01.png",
+    "ItemName": "Item_Weapon_B_Common_01_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81200101",
+      "Weapon_TalentDes_81200102",
+      "Weapon_TalentDes_81200103",
+      "Weapon_TalentDes_81200104",
+      "Weapon_TalentDes_81200105"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 800
+    }
+  },
+  "12002": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_02.png",
+    "ItemName": "Item_Weapon_B_Common_02_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81200201",
+      "Weapon_TalentDes_81200202",
+      "Weapon_TalentDes_81200203",
+      "Weapon_TalentDes_81200204",
+      "Weapon_TalentDes_81200205"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 800
+    }
+  },
+  "12003": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_03.png",
+    "ItemName": "Item_Weapon_B_Common_03_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81200301",
+      "Weapon_TalentDes_81200302",
+      "Weapon_TalentDes_81200303",
+      "Weapon_TalentDes_81200304",
+      "Weapon_TalentDes_81200305"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 640
+    }
+  },
+  "12004": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_04.png",
+    "ItemName": "Item_Weapon_B_Common_04_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81200401",
+      "Weapon_TalentDes_81200402",
+      "Weapon_TalentDes_81200403",
+      "Weapon_TalentDes_81200404",
+      "Weapon_TalentDes_81200405"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 800
+    }
+  },
+  "12005": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_05.png",
+    "ItemName": "Item_Weapon_B_Common_05_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81200501",
+      "Weapon_TalentDes_81200502",
+      "Weapon_TalentDes_81200503",
+      "Weapon_TalentDes_81200504",
+      "Weapon_TalentDes_81200505"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 1600
+    }
+  },
+  "12006": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_06.png",
+    "ItemName": "Item_Weapon_B_Common_06_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81200601",
+      "Weapon_TalentDes_81200602",
+      "Weapon_TalentDes_81200603",
+      "Weapon_TalentDes_81200604",
+      "Weapon_TalentDes_81200605"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 800
+    }
+  },
+  "12007": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_07.png",
+    "ItemName": "Item_Weapon_B_Common_07_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81200701",
+      "Weapon_TalentDes_81200702",
+      "Weapon_TalentDes_81200703",
+      "Weapon_TalentDes_81200704",
+      "Weapon_TalentDes_81200705"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 800
+    }
+  },
+  "12008": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_08.png",
+    "ItemName": "Item_Weapon_B_Common_08_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81200801",
+      "Weapon_TalentDes_81200802",
+      "Weapon_TalentDes_81200803",
+      "Weapon_TalentDes_81200804",
+      "Weapon_TalentDes_81200805"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 480
+    }
+  },
+  "12009": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_09.png",
+    "ItemName": "Item_Weapon_B_Common_09_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81200901",
+      "Weapon_TalentDes_81200902",
+      "Weapon_TalentDes_81200903",
+      "Weapon_TalentDes_81200904",
+      "Weapon_TalentDes_81200905"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 1600
+    }
+  },
+  "12010": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_10.png",
+    "ItemName": "Item_Weapon_B_Common_10_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81201001",
+      "Weapon_TalentDes_81201002",
+      "Weapon_TalentDes_81201003",
+      "Weapon_TalentDes_81201004",
+      "Weapon_TalentDes_81201005"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 800
+    }
+  },
+  "12011": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_11.png",
+    "ItemName": "Item_Weapon_B_Common_11_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81201101",
+      "Weapon_TalentDes_81201102",
+      "Weapon_TalentDes_81201103",
+      "Weapon_TalentDes_81201104",
+      "Weapon_TalentDes_81201105"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 31203,
+      "PropertyValue": 24
+    }
+  },
+  "12012": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_12.png",
+    "ItemName": "Item_Weapon_B_Common_12_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81201201",
+      "Weapon_TalentDes_81201202",
+      "Weapon_TalentDes_81201203",
+      "Weapon_TalentDes_81201204",
+      "Weapon_TalentDes_81201205"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 23103,
+      "PropertyValue": 640
+    }
+  },
+  "12013": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_13.png",
+    "ItemName": "Item_Weapon_B_Common_13_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81201301",
+      "Weapon_TalentDes_81201302",
+      "Weapon_TalentDes_81201303",
+      "Weapon_TalentDes_81201304",
+      "Weapon_TalentDes_81201305"
+    ],
+    "ProfessionType": "Defense",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 13102,
+      "PropertyValue": 1280
+    }
+  },
+  "12014": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_14.png",
+    "ItemName": "Item_Weapon_B_Common_14_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81201401",
+      "Weapon_TalentDes_81201402",
+      "Weapon_TalentDes_81201403",
+      "Weapon_TalentDes_81201404",
+      "Weapon_TalentDes_81201405"
+    ],
+    "ProfessionType": "Defense",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 13102,
+      "PropertyValue": 1280
+    }
+  },
+  "12015": {
+    "ImagePath": "/ui/zzz/Weapon_B_Common_15.png",
+    "ItemName": "Item_Weapon_B_Common_15_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 32
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81201501",
+      "Weapon_TalentDes_81201502",
+      "Weapon_TalentDes_81201503",
+      "Weapon_TalentDes_81201504",
+      "Weapon_TalentDes_81201505"
+    ],
+    "ProfessionType": "Rupture",
+    "Rarity": 2,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 800
+    }
+  },
+  "13001": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_01.png",
+    "ItemName": "Item_Weapon_A_Common_01_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81300101",
+      "Weapon_TalentDes_81300102",
+      "Weapon_TalentDes_81300103",
+      "Weapon_TalentDes_81300104",
+      "Weapon_TalentDes_81300105"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13002": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_02.png",
+    "ItemName": "Item_Weapon_A_Common_02_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81300201",
+      "Weapon_TalentDes_81300202",
+      "Weapon_TalentDes_81300203",
+      "Weapon_TalentDes_81300204",
+      "Weapon_TalentDes_81300205"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 23103,
+      "PropertyValue": 800
+    }
+  },
+  "13003": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_03.png",
+    "ItemName": "Item_Weapon_A_Common_03_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81300301",
+      "Weapon_TalentDes_81300302",
+      "Weapon_TalentDes_81300303",
+      "Weapon_TalentDes_81300304",
+      "Weapon_TalentDes_81300305"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 31203,
+      "PropertyValue": 30
+    }
+  },
+  "13004": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_04.png",
+    "ItemName": "Item_Weapon_A_Common_04_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81300401",
+      "Weapon_TalentDes_81300402",
+      "Weapon_TalentDes_81300403",
+      "Weapon_TalentDes_81300404",
+      "Weapon_TalentDes_81300405"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13005": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_05.png",
+    "ItemName": "Item_Weapon_A_Common_05_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81300501",
+      "Weapon_TalentDes_81300502",
+      "Weapon_TalentDes_81300503",
+      "Weapon_TalentDes_81300504",
+      "Weapon_TalentDes_81300505"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 2000
+    }
+  },
+  "13006": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_06.png",
+    "ItemName": "Item_Weapon_A_Common_06_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81300601",
+      "Weapon_TalentDes_81300602",
+      "Weapon_TalentDes_81300603",
+      "Weapon_TalentDes_81300604",
+      "Weapon_TalentDes_81300605"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 600
+    }
+  },
+  "13007": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_07.png",
+    "ItemName": "Item_Weapon_A_Common_07_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81300701",
+      "Weapon_TalentDes_81300702",
+      "Weapon_TalentDes_81300703",
+      "Weapon_TalentDes_81300704",
+      "Weapon_TalentDes_81300705"
+    ],
+    "ProfessionType": "Defense",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 1000
+    }
+  },
+  "13008": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_08.png",
+    "ItemName": "Item_Weapon_A_Common_08_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81300801",
+      "Weapon_TalentDes_81300802",
+      "Weapon_TalentDes_81300803",
+      "Weapon_TalentDes_81300804",
+      "Weapon_TalentDes_81300805"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13009": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_09.png",
+    "ItemName": "Item_Weapon_A_Common_09_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81300901",
+      "Weapon_TalentDes_81300902",
+      "Weapon_TalentDes_81300903",
+      "Weapon_TalentDes_81300904",
+      "Weapon_TalentDes_81300905"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 31203,
+      "PropertyValue": 30
+    }
+  },
+  "13010": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_10.png",
+    "ItemName": "Item_Weapon_A_Common_10_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81301001",
+      "Weapon_TalentDes_81301002",
+      "Weapon_TalentDes_81301003",
+      "Weapon_TalentDes_81301004",
+      "Weapon_TalentDes_81301005"
+    ],
+    "ProfessionType": "Defense",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 13102,
+      "PropertyValue": 1600
+    }
+  },
+  "13011": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_11.png",
+    "ItemName": "Item_Weapon_A_Common_11_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81301101",
+      "Weapon_TalentDes_81301102",
+      "Weapon_TalentDes_81301103",
+      "Weapon_TalentDes_81301104",
+      "Weapon_TalentDes_81301105"
+    ],
+    "ProfessionType": "Defense",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13012": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_12.png",
+    "ItemName": "Item_Weapon_A_Common_12_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81301201",
+      "Weapon_TalentDes_81301202",
+      "Weapon_TalentDes_81301203",
+      "Weapon_TalentDes_81301204",
+      "Weapon_TalentDes_81301205"
+    ],
+    "ProfessionType": "Rupture",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13013": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_13.png",
+    "ItemName": "Item_Weapon_A_Common_13_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81301301",
+      "Weapon_TalentDes_81301302",
+      "Weapon_TalentDes_81301303",
+      "Weapon_TalentDes_81301304",
+      "Weapon_TalentDes_81301305"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13014": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_14.png",
+    "ItemName": "Item_Weapon_A_Common_14_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81301401",
+      "Weapon_TalentDes_81301402",
+      "Weapon_TalentDes_81301403",
+      "Weapon_TalentDes_81301404",
+      "Weapon_TalentDes_81301405"
+    ],
+    "ProfessionType": "Rupture",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 1000
+    }
+  },
+  "13015": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_15.png",
+    "ItemName": "Item_Weapon_A_Common_15_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81301501",
+      "Weapon_TalentDes_81301502",
+      "Weapon_TalentDes_81301503",
+      "Weapon_TalentDes_81301504",
+      "Weapon_TalentDes_81301505"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 800
+    }
+  },
+  "13016": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_16.png",
+    "ItemName": "Item_Weapon_A_Common_16_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81301601",
+      "Weapon_TalentDes_81301602",
+      "Weapon_TalentDes_81301603",
+      "Weapon_TalentDes_81301604",
+      "Weapon_TalentDes_81301605"
+    ],
+    "ProfessionType": "Defense",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 600
+    }
+  },
+  "13018": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_18.png",
+    "ItemName": "Item_Weapon_A_Common_18_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81301801",
+      "Weapon_TalentDes_81301802",
+      "Weapon_TalentDes_81301803",
+      "Weapon_TalentDes_81301804",
+      "Weapon_TalentDes_81301805"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 31203,
+      "PropertyValue": 30
+    }
+  },
+  "13019": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_19.png",
+    "ItemName": "Item_Weapon_A_Common_19_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81301901",
+      "Weapon_TalentDes_81301902",
+      "Weapon_TalentDes_81301903",
+      "Weapon_TalentDes_81301904",
+      "Weapon_TalentDes_81301905"
+    ],
+    "ProfessionType": "Rupture",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 1000
+    }
+  },
+  "13020": {
+    "ImagePath": "/ui/zzz/Weapon_A_Common_20.png",
+    "ItemName": "Item_Weapon_A_Common_20_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81302001",
+      "Weapon_TalentDes_81302002",
+      "Weapon_TalentDes_81302003",
+      "Weapon_TalentDes_81302004",
+      "Weapon_TalentDes_81302005"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 600
+    }
+  },
+  "13101": {
+    "ImagePath": "/ui/zzz/Weapon_A_1011.png",
+    "ItemName": "Item_Weapon_A_1011_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81310101",
+      "Weapon_TalentDes_81310102",
+      "Weapon_TalentDes_81310103",
+      "Weapon_TalentDes_81310104",
+      "Weapon_TalentDes_81310105"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 600
+    }
+  },
+  "13103": {
+    "ImagePath": "/ui/zzz/Weapon_A_1031.png",
+    "ItemName": "Item_Weapon_A_1031_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81310301",
+      "Weapon_TalentDes_81310302",
+      "Weapon_TalentDes_81310303",
+      "Weapon_TalentDes_81310304",
+      "Weapon_TalentDes_81310305"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 2000
+    }
+  },
+  "13106": {
+    "ImagePath": "/ui/zzz/Weapon_A_1061.png",
+    "ItemName": "Item_Weapon_A_1061_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81310601",
+      "Weapon_TalentDes_81310602",
+      "Weapon_TalentDes_81310603",
+      "Weapon_TalentDes_81310604",
+      "Weapon_TalentDes_81310605"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13108": {
+    "ImagePath": "/ui/zzz/Weapon_A_1081.png",
+    "ItemName": "Item_Weapon_A_1081_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81310801",
+      "Weapon_TalentDes_81310802",
+      "Weapon_TalentDes_81310803",
+      "Weapon_TalentDes_81310804",
+      "Weapon_TalentDes_81310805"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13111": {
+    "ImagePath": "/ui/zzz/Weapon_A_1111.png",
+    "ItemName": "Item_Weapon_A_1111_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81311101",
+      "Weapon_TalentDes_81311102",
+      "Weapon_TalentDes_81311103",
+      "Weapon_TalentDes_81311104",
+      "Weapon_TalentDes_81311105"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 2000
+    }
+  },
+  "13112": {
+    "ImagePath": "/ui/zzz/Weapon_A_1121.png",
+    "ItemName": "Item_Weapon_A_1121_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81311201",
+      "Weapon_TalentDes_81311202",
+      "Weapon_TalentDes_81311203",
+      "Weapon_TalentDes_81311204",
+      "Weapon_TalentDes_81311205"
+    ],
+    "ProfessionType": "Defense",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 13102,
+      "PropertyValue": 1600
+    }
+  },
+  "13113": {
+    "ImagePath": "/ui/zzz/Weapon_A_1131.png",
+    "ItemName": "Item_Weapon_A_1131_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81311301",
+      "Weapon_TalentDes_81311302",
+      "Weapon_TalentDes_81311303",
+      "Weapon_TalentDes_81311304",
+      "Weapon_TalentDes_81311305"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13115": {
+    "ImagePath": "/ui/zzz/Weapon_A_1151.png",
+    "ItemName": "Item_Weapon_A_1151_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81311501",
+      "Weapon_TalentDes_81311502",
+      "Weapon_TalentDes_81311503",
+      "Weapon_TalentDes_81311504",
+      "Weapon_TalentDes_81311505"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 2000
+    }
+  },
+  "13127": {
+    "ImagePath": "/ui/zzz/Weapon_A_1271.png",
+    "ItemName": "Item_Weapon_A_1271_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81312701",
+      "Weapon_TalentDes_81312702",
+      "Weapon_TalentDes_81312703",
+      "Weapon_TalentDes_81312704",
+      "Weapon_TalentDes_81312705"
+    ],
+    "ProfessionType": "Defense",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13128": {
+    "ImagePath": "/ui/zzz/Weapon_A_1281.png",
+    "ItemName": "Item_Weapon_A_1281_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81312801",
+      "Weapon_TalentDes_81312802",
+      "Weapon_TalentDes_81312803",
+      "Weapon_TalentDes_81312804",
+      "Weapon_TalentDes_81312805"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13135": {
+    "ImagePath": "/ui/zzz/Weapon_A_1351.png",
+    "ItemName": "Item_Weapon_A_1351_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81313501",
+      "Weapon_TalentDes_81313502",
+      "Weapon_TalentDes_81313503",
+      "Weapon_TalentDes_81313504",
+      "Weapon_TalentDes_81313505"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 600
+    }
+  },
+  "13142": {
+    "ImagePath": "/ui/zzz/Weapon_A_1421.png",
+    "ItemName": "Item_Weapon_A_1421_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81314201",
+      "Weapon_TalentDes_81314202",
+      "Weapon_TalentDes_81314203",
+      "Weapon_TalentDes_81314204",
+      "Weapon_TalentDes_81314205"
+    ],
+    "ProfessionType": "Defense",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1000
+    }
+  },
+  "13144": {
+    "ImagePath": "/ui/zzz/Weapon_A_1441.png",
+    "ItemName": "Item_Weapon_A_1441_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 42
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81314401",
+      "Weapon_TalentDes_81314402",
+      "Weapon_TalentDes_81314403",
+      "Weapon_TalentDes_81314404",
+      "Weapon_TalentDes_81314405"
+    ],
+    "ProfessionType": "Rupture",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 1000
+    }
+  },
+  "14001": {
+    "ImagePath": "/ui/zzz/Weapon_S_Common_01.png",
+    "ItemName": "Item_Weapon_S_Common_01_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81400101",
+      "Weapon_TalentDes_81400102",
+      "Weapon_TalentDes_81400103",
+      "Weapon_TalentDes_81400104",
+      "Weapon_TalentDes_81400105"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 800
+    }
+  },
+  "14002": {
+    "ImagePath": "/ui/zzz/Weapon_S_Common_02.png",
+    "ItemName": "Item_Weapon_S_Common_02_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81400201",
+      "Weapon_TalentDes_81400202",
+      "Weapon_TalentDes_81400203",
+      "Weapon_TalentDes_81400204",
+      "Weapon_TalentDes_81400205"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 2000
+    }
+  },
+  "14003": {
+    "ImagePath": "/ui/zzz/Weapon_S_Common_03.png",
+    "ItemName": "Item_Weapon_S_Common_03_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 40
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81400301",
+      "Weapon_TalentDes_81400302",
+      "Weapon_TalentDes_81400303",
+      "Weapon_TalentDes_81400304",
+      "Weapon_TalentDes_81400305"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 3,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 600
+    }
+  },
+  "14102": {
+    "ImagePath": "/ui/zzz/Weapon_S_1021.png",
+    "ItemName": "Item_Weapon_S_1021_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 46
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81410201",
+      "Weapon_TalentDes_81410202",
+      "Weapon_TalentDes_81410203",
+      "Weapon_TalentDes_81410204",
+      "Weapon_TalentDes_81410205"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 960
+    }
+  },
+  "14104": {
+    "ImagePath": "/ui/zzz/Weapon_S_1041.png",
+    "ItemName": "Item_Weapon_S_1041_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 46
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81410401",
+      "Weapon_TalentDes_81410402",
+      "Weapon_TalentDes_81410403",
+      "Weapon_TalentDes_81410404",
+      "Weapon_TalentDes_81410405"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1200
+    }
+  },
+  "14105": {
+    "ImagePath": "/ui/zzz/Weapon_S_1051.png",
+    "ItemName": "Item_Weapon_S_1051_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81410501",
+      "Weapon_TalentDes_81410502",
+      "Weapon_TalentDes_81410503",
+      "Weapon_TalentDes_81410504",
+      "Weapon_TalentDes_81410505"
+    ],
+    "ProfessionType": "Rupture",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 1200
+    }
+  },
+  "14107": {
+    "ImagePath": "/ui/zzz/Weapon_S_1071.png",
+    "ItemName": "Item_Weapon_S_1071_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81410701",
+      "Weapon_TalentDes_81410702",
+      "Weapon_TalentDes_81410703",
+      "Weapon_TalentDes_81410704",
+      "Weapon_TalentDes_81410705"
+    ],
+    "ProfessionType": "Defense",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 720
+    }
+  },
+  "14109": {
+    "ImagePath": "/ui/zzz/Weapon_S_1091.png",
+    "ItemName": "Item_Weapon_S_1091_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 50
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81410901",
+      "Weapon_TalentDes_81410902",
+      "Weapon_TalentDes_81410903",
+      "Weapon_TalentDes_81410904",
+      "Weapon_TalentDes_81410905"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 960
+    }
+  },
+  "14110": {
+    "ImagePath": "/ui/zzz/Weapon_S_1101.png",
+    "ItemName": "Item_Weapon_S_1101_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 46
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81411001",
+      "Weapon_TalentDes_81411002",
+      "Weapon_TalentDes_81411003",
+      "Weapon_TalentDes_81411004",
+      "Weapon_TalentDes_81411005"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 720
+    }
+  },
+  "14114": {
+    "ImagePath": "/ui/zzz/Weapon_S_1141.png",
+    "ItemName": "Item_Weapon_S_1141_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 46
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81411401",
+      "Weapon_TalentDes_81411402",
+      "Weapon_TalentDes_81411403",
+      "Weapon_TalentDes_81411404",
+      "Weapon_TalentDes_81411405"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 720
+    }
+  },
+  "14116": {
+    "ImagePath": "/ui/zzz/Weapon_S_1161.png",
+    "ItemName": "Item_Weapon_S_1161_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81411601",
+      "Weapon_TalentDes_81411602",
+      "Weapon_TalentDes_81411603",
+      "Weapon_TalentDes_81411604",
+      "Weapon_TalentDes_81411605"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 720
+    }
+  },
+  "14117": {
+    "ImagePath": "/ui/zzz/Weapon_S_1171.png",
+    "ItemName": "Item_Weapon_S_1171_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81411701",
+      "Weapon_TalentDes_81411702",
+      "Weapon_TalentDes_81411703",
+      "Weapon_TalentDes_81411704",
+      "Weapon_TalentDes_81411705"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1200
+    }
+  },
+  "14118": {
+    "ImagePath": "/ui/zzz/Weapon_S_1181.png",
+    "ItemName": "Item_Weapon_S_1181_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 46
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81411801",
+      "Weapon_TalentDes_81411802",
+      "Weapon_TalentDes_81411803",
+      "Weapon_TalentDes_81411804",
+      "Weapon_TalentDes_81411805"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 23103,
+      "PropertyValue": 960
+    }
+  },
+  "14119": {
+    "ImagePath": "/ui/zzz/Weapon_S_1191.png",
+    "ItemName": "Item_Weapon_S_1191_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81411901",
+      "Weapon_TalentDes_81411902",
+      "Weapon_TalentDes_81411903",
+      "Weapon_TalentDes_81411904",
+      "Weapon_TalentDes_81411905"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 960
+    }
+  },
+  "14120": {
+    "ImagePath": "/ui/zzz/Weapon_S_1201.png",
+    "ItemName": "Item_Weapon_S_1201_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81412001",
+      "Weapon_TalentDes_81412002",
+      "Weapon_TalentDes_81412003",
+      "Weapon_TalentDes_81412004",
+      "Weapon_TalentDes_81412005"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 21103,
+      "PropertyValue": 1920
+    }
+  },
+  "14121": {
+    "ImagePath": "/ui/zzz/Weapon_S_1211.png",
+    "ItemName": "Item_Weapon_S_1211_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 46
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81412101",
+      "Weapon_TalentDes_81412102",
+      "Weapon_TalentDes_81412103",
+      "Weapon_TalentDes_81412104",
+      "Weapon_TalentDes_81412105"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 23103,
+      "PropertyValue": 960
+    }
+  },
+  "14122": {
+    "ImagePath": "/ui/zzz/Weapon_S_1221.png",
+    "ItemName": "Item_Weapon_S_1221_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81412201",
+      "Weapon_TalentDes_81412202",
+      "Weapon_TalentDes_81412203",
+      "Weapon_TalentDes_81412204",
+      "Weapon_TalentDes_81412205"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1200
+    }
+  },
+  "14124": {
+    "ImagePath": "/ui/zzz/Weapon_S_1241.png",
+    "ItemName": "Item_Weapon_S_1241_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81412401",
+      "Weapon_TalentDes_81412402",
+      "Weapon_TalentDes_81412403",
+      "Weapon_TalentDes_81412404",
+      "Weapon_TalentDes_81412405"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 21103,
+      "PropertyValue": 1920
+    }
+  },
+  "14125": {
+    "ImagePath": "/ui/zzz/Weapon_S_1251.png",
+    "ItemName": "Item_Weapon_S_1251_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81412501",
+      "Weapon_TalentDes_81412502",
+      "Weapon_TalentDes_81412503",
+      "Weapon_TalentDes_81412504",
+      "Weapon_TalentDes_81412505"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12202,
+      "PropertyValue": 720
+    }
+  },
+  "14126": {
+    "ImagePath": "/ui/zzz/Weapon_S_1261.png",
+    "ItemName": "Item_Weapon_S_1261_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81412601",
+      "Weapon_TalentDes_81412602",
+      "Weapon_TalentDes_81412603",
+      "Weapon_TalentDes_81412604",
+      "Weapon_TalentDes_81412605"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 31203,
+      "PropertyValue": 36
+    }
+  },
+  "14129": {
+    "ImagePath": "/ui/zzz/Weapon_S_1291.png",
+    "ItemName": "Item_Weapon_S_1291_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81412901",
+      "Weapon_TalentDes_81412902",
+      "Weapon_TalentDes_81412903",
+      "Weapon_TalentDes_81412904",
+      "Weapon_TalentDes_81412905"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 960
+    }
+  },
+  "14130": {
+    "ImagePath": "/ui/zzz/Weapon_S_1301.png",
+    "ItemName": "Item_Weapon_S_1301_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81413001",
+      "Weapon_TalentDes_81413002",
+      "Weapon_TalentDes_81413003",
+      "Weapon_TalentDes_81413004",
+      "Weapon_TalentDes_81413005"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 2400
+    }
+  },
+  "14131": {
+    "ImagePath": "/ui/zzz/Weapon_S_1311.png",
+    "ItemName": "Item_Weapon_S_1311_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81413101",
+      "Weapon_TalentDes_81413102",
+      "Weapon_TalentDes_81413103",
+      "Weapon_TalentDes_81413104",
+      "Weapon_TalentDes_81413105"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1200
+    }
+  },
+  "14132": {
+    "ImagePath": "/ui/zzz/Weapon_S_1321.png",
+    "ItemName": "Item_Weapon_S_1321_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81413201",
+      "Weapon_TalentDes_81413202",
+      "Weapon_TalentDes_81413203",
+      "Weapon_TalentDes_81413204",
+      "Weapon_TalentDes_81413205"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 960
+    }
+  },
+  "14133": {
+    "ImagePath": "/ui/zzz/Weapon_S_1331.png",
+    "ItemName": "Item_Weapon_S_1331_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81413301",
+      "Weapon_TalentDes_81413302",
+      "Weapon_TalentDes_81413303",
+      "Weapon_TalentDes_81413304",
+      "Weapon_TalentDes_81413305"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 31203,
+      "PropertyValue": 36
+    }
+  },
+  "14134": {
+    "ImagePath": "/ui/zzz/Weapon_S_1341.png",
+    "ItemName": "Item_Weapon_S_1341_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81413401",
+      "Weapon_TalentDes_81413402",
+      "Weapon_TalentDes_81413403",
+      "Weapon_TalentDes_81413404",
+      "Weapon_TalentDes_81413405"
+    ],
+    "ProfessionType": "Defense",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 1200
+    }
+  },
+  "14136": {
+    "ImagePath": "/ui/zzz/Weapon_S_1361.png",
+    "ItemName": "Item_Weapon_S_1361_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81413601",
+      "Weapon_TalentDes_81413602",
+      "Weapon_TalentDes_81413603",
+      "Weapon_TalentDes_81413604",
+      "Weapon_TalentDes_81413605"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 960
+    }
+  },
+  "14137": {
+    "ImagePath": "/ui/zzz/Weapon_S_1371.png",
+    "ItemName": "Item_Weapon_S_1371_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 50
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81413701",
+      "Weapon_TalentDes_81413702",
+      "Weapon_TalentDes_81413703",
+      "Weapon_TalentDes_81413704",
+      "Weapon_TalentDes_81413705"
+    ],
+    "ProfessionType": "Rupture",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 1200
+    }
+  },
+  "14138": {
+    "ImagePath": "/ui/zzz/Weapon_S_1381.png",
+    "ItemName": "Item_Weapon_S_1381_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81413801",
+      "Weapon_TalentDes_81413802",
+      "Weapon_TalentDes_81413803",
+      "Weapon_TalentDes_81413804",
+      "Weapon_TalentDes_81413805"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 21103,
+      "PropertyValue": 1920
+    }
+  },
+  "14139": {
+    "ImagePath": "/ui/zzz/Weapon_S_1391.png",
+    "ItemName": "Item_Weapon_S_1391_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81413901",
+      "Weapon_TalentDes_81413902",
+      "Weapon_TalentDes_81413903",
+      "Weapon_TalentDes_81413904",
+      "Weapon_TalentDes_81413905"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1200
+    }
+  },
+  "14140": {
+    "ImagePath": "/ui/zzz/Weapon_S_1401.png",
+    "ItemName": "Item_Weapon_S_1401_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81414001",
+      "Weapon_TalentDes_81414002",
+      "Weapon_TalentDes_81414003",
+      "Weapon_TalentDes_81414004",
+      "Weapon_TalentDes_81414005"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1200
+    }
+  },
+  "14141": {
+    "ImagePath": "/ui/zzz/Weapon_S_1411.png",
+    "ItemName": "Item_Weapon_S_1411_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81414101",
+      "Weapon_TalentDes_81414102",
+      "Weapon_TalentDes_81414103",
+      "Weapon_TalentDes_81414104",
+      "Weapon_TalentDes_81414105"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 2400
+    }
+  },
+  "14143": {
+    "ImagePath": "/ui/zzz/Weapon_S_1431.png",
+    "ItemName": "Item_Weapon_S_1431_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 50
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81414301",
+      "Weapon_TalentDes_81414302",
+      "Weapon_TalentDes_81414303",
+      "Weapon_TalentDes_81414304",
+      "Weapon_TalentDes_81414305"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 21103,
+      "PropertyValue": 1920
+    }
+  },
+  "14145": {
+    "ImagePath": "/ui/zzz/Weapon_S_1451.png",
+    "ItemName": "Item_Weapon_S_1451_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81414501",
+      "Weapon_TalentDes_81414502",
+      "Weapon_TalentDes_81414503",
+      "Weapon_TalentDes_81414504",
+      "Weapon_TalentDes_81414505"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 1200
+    }
+  },
+  "14146": {
+    "ImagePath": "/ui/zzz/Weapon_S_1461.png",
+    "ItemName": "Item_Weapon_S_1461_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81414601",
+      "Weapon_TalentDes_81414602",
+      "Weapon_TalentDes_81414603",
+      "Weapon_TalentDes_81414604",
+      "Weapon_TalentDes_81414605"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 960
+    }
+  },
+  "14147": {
+    "ImagePath": "/ui/zzz/Weapon_S_1471.png",
+    "ItemName": "Item_Weapon_S_1471_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81414701",
+      "Weapon_TalentDes_81414702",
+      "Weapon_TalentDes_81414703",
+      "Weapon_TalentDes_81414704",
+      "Weapon_TalentDes_81414705"
+    ],
+    "ProfessionType": "Rupture",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 1200
+    }
+  },
+  "14148": {
+    "ImagePath": "/ui/zzz/Weapon_S_1481.png",
+    "ItemName": "Item_Weapon_S_1481_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81414801",
+      "Weapon_TalentDes_81414802",
+      "Weapon_TalentDes_81414803",
+      "Weapon_TalentDes_81414804",
+      "Weapon_TalentDes_81414805"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 960
+    }
+  },
+  "14149": {
+    "ImagePath": "/ui/zzz/Weapon_S_1491.png",
+    "ItemName": "Item_Weapon_S_1491_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81414901",
+      "Weapon_TalentDes_81414902",
+      "Weapon_TalentDes_81414903",
+      "Weapon_TalentDes_81414904",
+      "Weapon_TalentDes_81414905"
+    ],
+    "ProfessionType": "Support",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 2400
+    }
+  },
+  "14150": {
+    "ImagePath": "/ui/zzz/Weapon_S_1501.png",
+    "ItemName": "Item_Weapon_S_1501_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81415001",
+      "Weapon_TalentDes_81415002",
+      "Weapon_TalentDes_81415003",
+      "Weapon_TalentDes_81415004",
+      "Weapon_TalentDes_81415005"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 31402,
+      "PropertyValue": 1200
+    }
+  },
+  "14151": {
+    "ImagePath": "/ui/zzz/Weapon_S_1511.png",
+    "ItemName": "Item_Weapon_S_1511_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81415101",
+      "Weapon_TalentDes_81415102",
+      "Weapon_TalentDes_81415103",
+      "Weapon_TalentDes_81415104",
+      "Weapon_TalentDes_81415105"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 31402,
+      "PropertyValue": 1200
+    }
+  },
+  "14152": {
+    "ImagePath": "/ui/zzz/Weapon_S_1521.png",
+    "ItemName": "Item_Weapon_S_1521_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81415201",
+      "Weapon_TalentDes_81415202",
+      "Weapon_TalentDes_81415203",
+      "Weapon_TalentDes_81415204",
+      "Weapon_TalentDes_81415205"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 2400
+    }
+  },
+  "14153": {
+    "ImagePath": "/ui/zzz/Weapon_S_1531.png",
+    "ItemName": "Item_Weapon_S_1531_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81415301",
+      "Weapon_TalentDes_81415302",
+      "Weapon_TalentDes_81415303",
+      "Weapon_TalentDes_81415304",
+      "Weapon_TalentDes_81415305"
+    ],
+    "ProfessionType": "Rupture",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 11102,
+      "PropertyValue": 1200
+    }
+  },
+  "14154": {
+    "ImagePath": "/ui/zzz/Weapon_S_1541.png",
+    "ItemName": "Item_Weapon_S_1541_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81415401",
+      "Weapon_TalentDes_81415402",
+      "Weapon_TalentDes_81415403",
+      "Weapon_TalentDes_81415404",
+      "Weapon_TalentDes_81415405"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 31402,
+      "PropertyValue": 1200
+    }
+  },
+  "14155": {
+    "ImagePath": "/ui/zzz/Weapon_S_Common_04.png",
+    "ItemName": "Item_Weapon_S_Common_04_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81415501",
+      "Weapon_TalentDes_81415502",
+      "Weapon_TalentDes_81415503",
+      "Weapon_TalentDes_81415504",
+      "Weapon_TalentDes_81415505"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1200
+    }
+  },
+  "14156": {
+    "ImagePath": "/ui/zzz/Weapon_S_1561.png",
+    "ItemName": "Item_Weapon_S_1561_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81415601",
+      "Weapon_TalentDes_81415602",
+      "Weapon_TalentDes_81415603",
+      "Weapon_TalentDes_81415604",
+      "Weapon_TalentDes_81415605"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 30502,
+      "PropertyValue": 2400
+    }
+  },
+  "14157": {
+    "ImagePath": "/ui/zzz/Weapon_S_1571.png",
+    "ItemName": "Item_Weapon_S_1571_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81415701",
+      "Weapon_TalentDes_81415702",
+      "Weapon_TalentDes_81415703",
+      "Weapon_TalentDes_81415704",
+      "Weapon_TalentDes_81415705"
+    ],
+    "ProfessionType": "Stun",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 20103,
+      "PropertyValue": 960
+    }
+  },
+  "14158": {
+    "ImagePath": "/ui/zzz/Weapon_S_1581.png",
+    "ItemName": "Item_Weapon_S_1581_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 50
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81415801",
+      "Weapon_TalentDes_81415802",
+      "Weapon_TalentDes_81415803",
+      "Weapon_TalentDes_81415804",
+      "Weapon_TalentDes_81415805"
+    ],
+    "ProfessionType": "Anomaly",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 12102,
+      "PropertyValue": 1440
+    }
+  },
+  "14159": {
+    "ImagePath": "/ui/zzz/Weapon_S_1591.png",
+    "ItemName": "Item_Weapon_S_1591_Name",
+    "MainStat": {
+      "PropertyId": 12101,
+      "PropertyValue": 48
+    },
+    "PassiveDescKeys": [
+      "Weapon_TalentDes_81415901",
+      "Weapon_TalentDes_81415902",
+      "Weapon_TalentDes_81415903",
+      "Weapon_TalentDes_81415904",
+      "Weapon_TalentDes_81415905"
+    ],
+    "ProfessionType": "Attack",
+    "Rarity": 4,
+    "SecondaryStat": {
+      "PropertyId": 21103,
+      "PropertyValue": 1920
+    }
+  }
+}

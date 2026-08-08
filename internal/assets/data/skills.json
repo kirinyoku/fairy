@@ -1,0 +1,7110 @@
+{
+  "1011": [
+    {
+      "NameKey": "Anbi_Skill_Normal_Title",
+      "DescKey": "Anbi_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Anbi_Skill_Branch_Title",
+      "DescKey": "Anbi_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "Anbi_Skill_Special_Title",
+      "DescKey": "Anbi_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Anbi_Skill_ExSpecial_Title",
+      "DescKey": "Anbi_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Anbi_Skill_Evade_Title",
+      "DescKey": "Anbi_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Anbi_Skill_Rush_Title",
+      "DescKey": "Anbi_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Anbi_Skill_Counter_Title",
+      "DescKey": "Anbi_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Anbi_Skill_QTE_Title",
+      "DescKey": "Anbi_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Anbi_Skill_ExQTE_Title",
+      "DescKey": "Anbi_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Anbi_Skill_BeHitAid_Title",
+      "DescKey": "Anbi_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Anbi_Skill_ParryAid_Title",
+      "DescKey": "Anbi_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Anbi_Skill_AssaultAid_Title",
+      "DescKey": "Anbi_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Anbi_UniqueSkill_Title",
+      "DescKey": "Anbi_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Anbi_MathSkill_Title",
+      "DescKey": "Anbi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anbi_UniqueSkill_Title",
+      "DescKey": "Anbi_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Anbi_MathSkill_Title",
+      "DescKey": "Anbi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anbi_UniqueSkill_Title",
+      "DescKey": "Anbi_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Anbi_MathSkill_Title",
+      "DescKey": "Anbi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anbi_UniqueSkill_Title",
+      "DescKey": "Anbi_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Anbi_MathSkill_Title",
+      "DescKey": "Anbi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anbi_UniqueSkill_Title",
+      "DescKey": "Anbi_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Anbi_MathSkill_Title",
+      "DescKey": "Anbi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anbi_UniqueSkill_Title",
+      "DescKey": "Anbi_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Anbi_MathSkill_Title",
+      "DescKey": "Anbi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anbi_UniqueSkill_Title",
+      "DescKey": "Anbi_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Anbi_MathSkill_Title",
+      "DescKey": "Anbi_MathSkill_Desc"
+    }
+  ],
+  "1021": [
+    {
+      "NameKey": "Tsubaki_Skill_Normal_Title",
+      "DescKey": "Tsubaki_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_Normal_Title",
+      "DescKey": "Tsubaki_Skill_Normal_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_Branch_Title",
+      "DescKey": "Tsubaki_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_Branch_Title",
+      "DescKey": "Tsubaki_Skill_Normal_Branch_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_Special_Title",
+      "DescKey": "Tsubaki_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_Special_Enhance_Title",
+      "DescKey": "Tsubaki_Skill_Special_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_ExSpecial_Title",
+      "DescKey": "Tsubaki_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_ExSpecial_Enhance_Title",
+      "DescKey": "Tsubaki_Skill_ExSpecial_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_Evade_Title",
+      "DescKey": "Tsubaki_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_EvadeSpecial_Title",
+      "DescKey": "Tsubaki_Skill_EvadeSpecial_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_Rush_Title",
+      "DescKey": "Tsubaki_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_Counter_Title",
+      "DescKey": "Tsubaki_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_ExSpecial_EvadeSpecialBranch_Title",
+      "DescKey": "Tsubaki_Skill_ExSpecial_EvadeSpecialBranch_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_QTE_Title",
+      "DescKey": "Tsubaki_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_ExQTE_Title",
+      "DescKey": "Tsubaki_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_BeHitAid_Title",
+      "DescKey": "Tsubaki_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_ParryAid_Title",
+      "DescKey": "Tsubaki_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_Skill_AssaultAid_Title",
+      "DescKey": "Tsubaki_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_01_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_02_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_03_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_04_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_05_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_06_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_UniqueSkill_Title",
+      "DescKey": "Tsubaki_UniqueSkill_07_Enhance_Desc"
+    },
+    {
+      "NameKey": "Tsubaki_MathSkill_Title",
+      "DescKey": "Tsubaki_MathSkill_Enhance_Desc"
+    }
+  ],
+  "1031": [
+    {
+      "NameKey": "Nostradamus_Skill_Normal_Title",
+      "DescKey": "Nostradamus_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_Skill_Branch_Title",
+      "DescKey": "Nostradamus_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_Skill_Special_Title",
+      "DescKey": "Nostradamus_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_Skill_ExSpecial_Title",
+      "DescKey": "Nostradamus_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_Skill_Evade_Title",
+      "DescKey": "Nostradamus_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_Skill_Rush_Title",
+      "DescKey": "Nostradamus_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_Skill_Counter_Title",
+      "DescKey": "Nostradamus_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_Skill_QTE_Title",
+      "DescKey": "Nostradamus_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_Skill_ExQTE_Title",
+      "DescKey": "Nostradamus_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_Skill_BeHitAid_Title",
+      "DescKey": "Nostradamus_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_Skill_ParryAid_Title",
+      "DescKey": "Nostradamus_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_Skill_AssaultAid_Title",
+      "DescKey": "Nostradamus_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_UniqueSkill_Title",
+      "DescKey": "Nostradamus_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_MathSkill_Title",
+      "DescKey": "Nostradamus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_UniqueSkill_Title",
+      "DescKey": "Nostradamus_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_MathSkill_Title",
+      "DescKey": "Nostradamus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_UniqueSkill_Title",
+      "DescKey": "Nostradamus_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_MathSkill_Title",
+      "DescKey": "Nostradamus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_UniqueSkill_Title",
+      "DescKey": "Nostradamus_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_MathSkill_Title",
+      "DescKey": "Nostradamus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_UniqueSkill_Title",
+      "DescKey": "Nostradamus_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_MathSkill_Title",
+      "DescKey": "Nostradamus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_UniqueSkill_Title",
+      "DescKey": "Nostradamus_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_MathSkill_Title",
+      "DescKey": "Nostradamus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_UniqueSkill_Title",
+      "DescKey": "Nostradamus_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Nostradamus_MathSkill_Title",
+      "DescKey": "Nostradamus_MathSkill_Desc"
+    }
+  ],
+  "1041": [
+    {
+      "NameKey": "Longinus_Skill_Normal_Title",
+      "DescKey": "Longinus_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_Normal_Enhance_Title",
+      "DescKey": "Longinus_Skill_Normal_Enhance_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_Normal_Enhance_Title",
+      "DescKey": "Longinus_Skill_Normal_Enhance_Upgrade01_Desc"
+    },
+    {
+      "NameKey": "Longinus_Property_Normal_Counter_Attack",
+      "DescKey": "Longinus_Skill_Normal_Counter_Upgrade01_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_Special_Title",
+      "DescKey": "Longinus_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_ExSpecial_Title",
+      "DescKey": "Longinus_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_ExSpecial_Title",
+      "DescKey": "Longinus_Skill_ExSpecial_Upgrade01_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_Evade_Title",
+      "DescKey": "Longinus_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_Rush_Title",
+      "DescKey": "Longinus_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_Rush_Enhance_Title",
+      "DescKey": "Longinus_Skill_Rush_Enhance_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_Counter_Title",
+      "DescKey": "Longinus_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_QTE_Title",
+      "DescKey": "Longinus_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_QTE_Title",
+      "DescKey": "Longinus_Skill_QTE_Upgrade01_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_ExQTE_Title",
+      "DescKey": "Longinus_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_ExQTE_Title",
+      "DescKey": "Longinus_Skill_ExQTE_Upgrade01_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_BeHitAid_Title",
+      "DescKey": "Longinus_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_ParryAid_Title",
+      "DescKey": "Longinus_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Longinus_Skill_AssaultAid_Title",
+      "DescKey": "Longinus_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Longinus_UniqueSkill_Title",
+      "DescKey": "Longinus_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Longinus_MathSkill_Title",
+      "DescKey": "Longinus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Longinus_UniqueSkill_Title",
+      "DescKey": "Longinus_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Longinus_MathSkill_Title",
+      "DescKey": "Longinus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Longinus_UniqueSkill_Title",
+      "DescKey": "Longinus_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Longinus_MathSkill_Title",
+      "DescKey": "Longinus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Longinus_UniqueSkill_Title",
+      "DescKey": "Longinus_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Longinus_MathSkill_Title",
+      "DescKey": "Longinus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Longinus_UniqueSkill_Title",
+      "DescKey": "Longinus_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Longinus_MathSkill_Title",
+      "DescKey": "Longinus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Longinus_UniqueSkill_Title",
+      "DescKey": "Longinus_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Longinus_MathSkill_Title",
+      "DescKey": "Longinus_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Longinus_UniqueSkill_Title",
+      "DescKey": "Longinus_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Longinus_MathSkill_Title",
+      "DescKey": "Longinus_MathSkill_Desc"
+    }
+  ],
+  "1051": [
+    {
+      "NameKey": "Yidhari_Skill_Normal_Title",
+      "DescKey": "Yidhari_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_Branch_01_Title",
+      "DescKey": "Yidhari_Skill_Branch_01_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_Branch_02_Title",
+      "DescKey": "Yidhari_Skill_Branch_02_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_Special_01_Title",
+      "DescKey": "Yidhari_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_ExSpecial_01_Title",
+      "DescKey": "Yidhari_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_Special_02_Title",
+      "DescKey": "Yidhari_Skill_Special_02_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_ExSpecial_02_Title",
+      "DescKey": "Yidhari_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_Evade_Title",
+      "DescKey": "Yidhari_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_Rush_Title",
+      "DescKey": "Yidhari_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_Counter_Title",
+      "DescKey": "Yidhari_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_QTE_Title",
+      "DescKey": "Yidhari_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_Space_Title",
+      "DescKey": "Yidhari_Skill_Space_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_ExQTE_Title",
+      "DescKey": "Yidhari_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_BeHitAid_Title",
+      "DescKey": "Yidhari_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_ParryAid_Title",
+      "DescKey": "Yidhari_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Yidhari_Skill_AssaultAid_Title",
+      "DescKey": "Yidhari_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Yidhari_UniqueSkill_Title",
+      "DescKey": "Yidhari_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Yidhari_MathSkill_Title",
+      "DescKey": "Yidhari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yidhari_UniqueSkill_Title",
+      "DescKey": "Yidhari_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Yidhari_MathSkill_Title",
+      "DescKey": "Yidhari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yidhari_UniqueSkill_Title",
+      "DescKey": "Yidhari_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Yidhari_MathSkill_Title",
+      "DescKey": "Yidhari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yidhari_UniqueSkill_Title",
+      "DescKey": "Yidhari_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Yidhari_MathSkill_Title",
+      "DescKey": "Yidhari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yidhari_UniqueSkill_Title",
+      "DescKey": "Yidhari_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Yidhari_MathSkill_Title",
+      "DescKey": "Yidhari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yidhari_UniqueSkill_Title",
+      "DescKey": "Yidhari_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Yidhari_MathSkill_Title",
+      "DescKey": "Yidhari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yidhari_UniqueSkill_Title",
+      "DescKey": "Yidhari_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Yidhari_MathSkill_Title",
+      "DescKey": "Yidhari_MathSkill_Desc"
+    }
+  ],
+  "1061": [
+    {
+      "NameKey": "Corin_Skill_Normal_Title",
+      "DescKey": "Corin_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Corin_Skill_Special_Title",
+      "DescKey": "Corin_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Corin_Skill_ExSpecial_Title",
+      "DescKey": "Corin_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Corin_Skill_Evade_Title",
+      "DescKey": "Corin_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Corin_Skill_Rush_Title",
+      "DescKey": "Corin_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Corin_Skill_Counter_Title",
+      "DescKey": "Corin_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Corin_Skill_QTE_Title",
+      "DescKey": "Corin_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Corin_Skill_ExQTE_Title",
+      "DescKey": "Corin_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Corin_Skill_BeHitAid_Title",
+      "DescKey": "Corin_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Corin_Skill_ParryAid_Title",
+      "DescKey": "Corin_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Corin_Skill_AssaultAid_Title",
+      "DescKey": "Corin_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Corin_UniqueSkill_Title",
+      "DescKey": "Corin_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Corin_MathSkill_Title",
+      "DescKey": "Corin_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Corin_UniqueSkill_Title",
+      "DescKey": "Corin_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Corin_MathSkill_Title",
+      "DescKey": "Corin_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Corin_UniqueSkill_Title",
+      "DescKey": "Corin_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Corin_MathSkill_Title",
+      "DescKey": "Corin_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Corin_UniqueSkill_Title",
+      "DescKey": "Corin_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Corin_MathSkill_Title",
+      "DescKey": "Corin_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Corin_UniqueSkill_Title",
+      "DescKey": "Corin_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Corin_MathSkill_Title",
+      "DescKey": "Corin_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Corin_UniqueSkill_Title",
+      "DescKey": "Corin_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Corin_MathSkill_Title",
+      "DescKey": "Corin_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Corin_UniqueSkill_Title",
+      "DescKey": "Corin_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Corin_MathSkill_Title",
+      "DescKey": "Corin_MathSkill_Desc"
+    }
+  ],
+  "1071": [
+    {
+      "NameKey": "Caesar_Skill_Normal_Title",
+      "DescKey": "Caesar_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_Normal_Branch_01_Title",
+      "DescKey": "Caesar_Skill_Normal_Branch_01_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_Special_01_Title",
+      "DescKey": "Caesar_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_Special_02_Title",
+      "DescKey": "Caesar_Skill_Special_02_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_ExSpecial_01_Title",
+      "DescKey": "Caesar_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_ExSpecial_02_Title",
+      "DescKey": "Caesar_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_Revenge_Title",
+      "DescKey": "Caesar_Skill_Revenge_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_Evade_Title",
+      "DescKey": "Caesar_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_Rush_Title",
+      "DescKey": "Caesar_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_Counter_Title",
+      "DescKey": "Caesar_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_QTE_Title",
+      "DescKey": "Caesar_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_ExQTE_Title",
+      "DescKey": "Caesar_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_BeHitAid_Title",
+      "DescKey": "Caesar_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_ParryAid_Title",
+      "DescKey": "Caesar_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Caesar_Skill_AssaultAid_Title",
+      "DescKey": "Caesar_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Caesar_UniqueSkill_Title",
+      "DescKey": "Caesar_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Caesar_MathSkill_Title",
+      "DescKey": "Caesar_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Caesar_UniqueSkill_Title",
+      "DescKey": "Caesar_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Caesar_MathSkill_Title",
+      "DescKey": "Caesar_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Caesar_UniqueSkill_Title",
+      "DescKey": "Caesar_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Caesar_MathSkill_Title",
+      "DescKey": "Caesar_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Caesar_UniqueSkill_Title",
+      "DescKey": "Caesar_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Caesar_MathSkill_Title",
+      "DescKey": "Caesar_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Caesar_UniqueSkill_Title",
+      "DescKey": "Caesar_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Caesar_MathSkill_Title",
+      "DescKey": "Caesar_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Caesar_UniqueSkill_Title",
+      "DescKey": "Caesar_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Caesar_MathSkill_Title",
+      "DescKey": "Caesar_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Caesar_UniqueSkill_Title",
+      "DescKey": "Caesar_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Caesar_MathSkill_Title",
+      "DescKey": "Caesar_MathSkill_Desc"
+    }
+  ],
+  "1081": [
+    {
+      "NameKey": "Billy_Skill_Normal_Title",
+      "DescKey": "Billy_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Billy_Skill_Special_Title",
+      "DescKey": "Billy_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Billy_Skill_ExSpecial_Title",
+      "DescKey": "Billy_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Billy_Skill_Evade_Title",
+      "DescKey": "Billy_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Billy_Skill_Rush_Title",
+      "DescKey": "Billy_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Billy_Skill_Counter_Title",
+      "DescKey": "Billy_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Billy_Skill_QTE_Title",
+      "DescKey": "Billy_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Billy_Skill_ExQTE_Title",
+      "DescKey": "Billy_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Billy_Skill_BeHitAid_Title",
+      "DescKey": "Billy_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Billy_Skill_EvadeAid_Title",
+      "DescKey": "Billy_Skill_EvadeAid_Desc"
+    },
+    {
+      "NameKey": "Billy_Skill_AssaultAid_Title",
+      "DescKey": "Billy_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Billy_UniqueSkill_Title",
+      "DescKey": "Billy_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Billy_MathSkill_Title",
+      "DescKey": "Billy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Billy_UniqueSkill_Title",
+      "DescKey": "Billy_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Billy_MathSkill_Title",
+      "DescKey": "Billy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Billy_UniqueSkill_Title",
+      "DescKey": "Billy_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Billy_MathSkill_Title",
+      "DescKey": "Billy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Billy_UniqueSkill_Title",
+      "DescKey": "Billy_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Billy_MathSkill_Title",
+      "DescKey": "Billy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Billy_UniqueSkill_Title",
+      "DescKey": "Billy_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Billy_MathSkill_Title",
+      "DescKey": "Billy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Billy_UniqueSkill_Title",
+      "DescKey": "Billy_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Billy_MathSkill_Title",
+      "DescKey": "Billy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Billy_UniqueSkill_Title",
+      "DescKey": "Billy_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Billy_MathSkill_Title",
+      "DescKey": "Billy_MathSkill_Desc"
+    }
+  ],
+  "1091": [
+    {
+      "NameKey": "Unagi_Skill_Normal_Title",
+      "DescKey": "Unagi_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Unagi_Skill_ChargeAttack_Title",
+      "DescKey": "Unagi_Skill_ChargeAttack_Desc"
+    },
+    {
+      "NameKey": "Unagi_Skill_Special_Title",
+      "DescKey": "Unagi_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Unagi_Skill_ExSpecial_Title",
+      "DescKey": "Unagi_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Unagi_Skill_Evade_Title",
+      "DescKey": "Unagi_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Unagi_Skill_Rush_Title",
+      "DescKey": "Unagi_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Unagi_Skill_Counter_Title",
+      "DescKey": "Unagi_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Unagi_Skill_QTE_Title",
+      "DescKey": "Unagi_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Unagi_Skill_ExQTE_Title",
+      "DescKey": "Unagi_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Unagi_Skill_BeHitAid_Title",
+      "DescKey": "Unagi_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Unagi_Skill_ParryAid_Title",
+      "DescKey": "Unagi_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Unagi_Skill_AssaultAid_Title",
+      "DescKey": "Unagi_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Unagi_UniqueSkill_Title",
+      "DescKey": "Unagi_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Unagi_MathSkill_Title",
+      "DescKey": "Unagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Unagi_UniqueSkill_Title",
+      "DescKey": "Unagi_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Unagi_MathSkill_Title",
+      "DescKey": "Unagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Unagi_UniqueSkill_Title",
+      "DescKey": "Unagi_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Unagi_MathSkill_Title",
+      "DescKey": "Unagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Unagi_UniqueSkill_Title",
+      "DescKey": "Unagi_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Unagi_MathSkill_Title",
+      "DescKey": "Unagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Unagi_UniqueSkill_Title",
+      "DescKey": "Unagi_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Unagi_MathSkill_Title",
+      "DescKey": "Unagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Unagi_UniqueSkill_Title",
+      "DescKey": "Unagi_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Unagi_MathSkill_Title",
+      "DescKey": "Unagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Unagi_UniqueSkill_Title",
+      "DescKey": "Unagi_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Unagi_MathSkill_Title",
+      "DescKey": "Unagi_MathSkill_Desc"
+    }
+  ],
+  "1101": [
+    {
+      "NameKey": "OokumaMari_Skill_Normal_Title",
+      "DescKey": "OokumaMari_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_Skill_Special_Title",
+      "DescKey": "OokumaMari_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_Skill_ExSpecial_Title",
+      "DescKey": "OokumaMari_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_Skill_Evade_Title",
+      "DescKey": "OokumaMari_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_Skill_Rush_Title",
+      "DescKey": "OokumaMari_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_Skill_Counter_Title",
+      "DescKey": "OokumaMari_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_Skill_QTE_Title",
+      "DescKey": "OokumaMari_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_Skill_ExQTE_Title",
+      "DescKey": "OokumaMari_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_Skill_BeHitAid_Title",
+      "DescKey": "OokumaMari_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_Skill_ParryAid_Title",
+      "DescKey": "OokumaMari_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_Skill_AssaultAid_Title",
+      "DescKey": "OokumaMari_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_UniqueSkill_Title",
+      "DescKey": "OokumaMari_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_MathSkill_Title",
+      "DescKey": "OokumaMari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_UniqueSkill_Title",
+      "DescKey": "OokumaMari_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_MathSkill_Title",
+      "DescKey": "OokumaMari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_UniqueSkill_Title",
+      "DescKey": "OokumaMari_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_MathSkill_Title",
+      "DescKey": "OokumaMari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_UniqueSkill_Title",
+      "DescKey": "OokumaMari_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_MathSkill_Title",
+      "DescKey": "OokumaMari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_UniqueSkill_Title",
+      "DescKey": "OokumaMari_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_MathSkill_Title",
+      "DescKey": "OokumaMari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_UniqueSkill_Title",
+      "DescKey": "OokumaMari_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_MathSkill_Title",
+      "DescKey": "OokumaMari_MathSkill_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_UniqueSkill_Title",
+      "DescKey": "OokumaMari_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "OokumaMari_MathSkill_Title",
+      "DescKey": "OokumaMari_MathSkill_Desc"
+    }
+  ],
+  "1111": [
+    {
+      "NameKey": "Anton_Skill_Normal_Title",
+      "DescKey": "Anton_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_Normal_Enhance_Title",
+      "DescKey": "Anton_Skill_Normal_Enhance_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_Special_Title",
+      "DescKey": "Anton_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_ExSpecial_Title",
+      "DescKey": "Anton_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_Special_Enhance_Title",
+      "DescKey": "Anton_Skill_Special_Enhance_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_Evade_Title",
+      "DescKey": "Anton_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_Rush_Title",
+      "DescKey": "Anton_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_Counter_Title",
+      "DescKey": "Anton_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_Counter_Enhance_Title",
+      "DescKey": "Anton_Skill_Counter_Enhance_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_QTE_Title",
+      "DescKey": "Anton_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_ExQTE_Title",
+      "DescKey": "Anton_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_BeHitAid_Title",
+      "DescKey": "Anton_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_BeHitAid_Enhance_Title",
+      "DescKey": "Anton_Skill_BeHitAid_Enhance_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_ParryAid_Title",
+      "DescKey": "Anton_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Anton_Skill_AssaultAid_Title",
+      "DescKey": "Anton_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Anton_UniqueSkill_Title",
+      "DescKey": "Anton_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Anton_MathSkill_Title",
+      "DescKey": "Anton_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anton_UniqueSkill_Title",
+      "DescKey": "Anton_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Anton_MathSkill_Title",
+      "DescKey": "Anton_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anton_UniqueSkill_Title",
+      "DescKey": "Anton_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Anton_MathSkill_Title",
+      "DescKey": "Anton_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anton_UniqueSkill_Title",
+      "DescKey": "Anton_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Anton_MathSkill_Title",
+      "DescKey": "Anton_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anton_UniqueSkill_Title",
+      "DescKey": "Anton_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Anton_MathSkill_Title",
+      "DescKey": "Anton_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anton_UniqueSkill_Title",
+      "DescKey": "Anton_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Anton_MathSkill_Title",
+      "DescKey": "Anton_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Anton_UniqueSkill_Title",
+      "DescKey": "Anton_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Anton_MathSkill_Title",
+      "DescKey": "Anton_MathSkill_Desc"
+    }
+  ],
+  "1121": [
+    {
+      "NameKey": "Ben_Skill_Normal_Title",
+      "DescKey": "Ben_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Ben_Skill_Special_Title",
+      "DescKey": "Ben_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Ben_Skill_ExSpecial_Title",
+      "DescKey": "Ben_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Ben_Skill_Evade_Title",
+      "DescKey": "Ben_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Ben_Skill_Rush_Title",
+      "DescKey": "Ben_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Ben_Skill_Counter_Title",
+      "DescKey": "Ben_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Ben_Skill_QTE_Title",
+      "DescKey": "Ben_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Ben_Skill_ExQTE_Title",
+      "DescKey": "Ben_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Ben_Skill_BeHitAid_Title",
+      "DescKey": "Ben_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Ben_Skill_ParryAid_Title",
+      "DescKey": "Ben_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Ben_Skill_AssaultAid_Title",
+      "DescKey": "Ben_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Ben_UniqueSkill_Title",
+      "DescKey": "Ben_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Ben_MathSkill_Title",
+      "DescKey": "Ben_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ben_UniqueSkill_Title",
+      "DescKey": "Ben_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Ben_MathSkill_Title",
+      "DescKey": "Ben_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ben_UniqueSkill_Title",
+      "DescKey": "Ben_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Ben_MathSkill_Title",
+      "DescKey": "Ben_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ben_UniqueSkill_Title",
+      "DescKey": "Ben_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Ben_MathSkill_Title",
+      "DescKey": "Ben_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ben_UniqueSkill_Title",
+      "DescKey": "Ben_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Ben_MathSkill_Title",
+      "DescKey": "Ben_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ben_UniqueSkill_Title",
+      "DescKey": "Ben_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Ben_MathSkill_Title",
+      "DescKey": "Ben_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ben_UniqueSkill_Title",
+      "DescKey": "Ben_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Ben_MathSkill_Title",
+      "DescKey": "Ben_MathSkill_Desc"
+    }
+  ],
+  "1131": [
+    {
+      "NameKey": "Aokaku_Skill_Normal_Title",
+      "DescKey": "Aokaku_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_Normal_Enhance_Title",
+      "DescKey": "Aokaku_Skill_Normal_Enhance_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_Special_Title",
+      "DescKey": "Aokaku_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_ExSpecial_Title",
+      "DescKey": "Aokaku_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_Special_Flag_Title",
+      "DescKey": "Aokaku_Skill_Special_Flag_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_Evade_Title",
+      "DescKey": "Aokaku_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_Rush_Title",
+      "DescKey": "Aokaku_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_Rush_Enhance_Title",
+      "DescKey": "Aokaku_Skill_Rush_Enhance_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_Counter_Title",
+      "DescKey": "Aokaku_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_QTE_Title",
+      "DescKey": "Aokaku_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_ExQTE_Title",
+      "DescKey": "Aokaku_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_BeHitAid_Title",
+      "DescKey": "Aokaku_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_ParryAid_Title",
+      "DescKey": "Aokaku_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Aokaku_Skill_AssaultAid_Title",
+      "DescKey": "Aokaku_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Aokaku_UniqueSkill_Title",
+      "DescKey": "Aokaku_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Aokaku_MathSkill_Title",
+      "DescKey": "Aokaku_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aokaku_UniqueSkill_Title",
+      "DescKey": "Aokaku_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Aokaku_MathSkill_Title",
+      "DescKey": "Aokaku_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aokaku_UniqueSkill_Title",
+      "DescKey": "Aokaku_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Aokaku_MathSkill_Title",
+      "DescKey": "Aokaku_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aokaku_UniqueSkill_Title",
+      "DescKey": "Aokaku_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Aokaku_MathSkill_Title",
+      "DescKey": "Aokaku_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aokaku_UniqueSkill_Title",
+      "DescKey": "Aokaku_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Aokaku_MathSkill_Title",
+      "DescKey": "Aokaku_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aokaku_UniqueSkill_Title",
+      "DescKey": "Aokaku_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Aokaku_MathSkill_Title",
+      "DescKey": "Aokaku_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aokaku_UniqueSkill_Title",
+      "DescKey": "Aokaku_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Aokaku_MathSkill_Title",
+      "DescKey": "Aokaku_MathSkill_Desc"
+    }
+  ],
+  "1141": [
+    {
+      "NameKey": "Lycaon_Skill_Normal_Title",
+      "DescKey": "Lycaon_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_Special_Title",
+      "DescKey": "Lycaon_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_ExSpecial_Title",
+      "DescKey": "Lycaon_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_Evade_Title",
+      "DescKey": "Lycaon_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_Rush_Title",
+      "DescKey": "Lycaon_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_Counter_Title",
+      "DescKey": "Lycaon_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_QTE_Title",
+      "DescKey": "Lycaon_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_ExQTE_Title",
+      "DescKey": "Lycaon_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_BeHitAid_Title",
+      "DescKey": "Lycaon_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_ParryAid_Title",
+      "DescKey": "Lycaon_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_ParryAid_Title",
+      "DescKey": "Lycaon_Skill_ParryAid_Enhance_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_AssaultAid_Title",
+      "DescKey": "Lycaon_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Lycaon_Skill_AssaultAid_Enhance_Title",
+      "DescKey": "Lycaon_Skill_AssaultAid_Enhance_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_01_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_02_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_03_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_04_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_05_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_06_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_UniqueSkill_Title",
+      "DescKey": "Lycaon_UniqueSkill_07_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lycaon_MathSkill_Title",
+      "DescKey": "Lycaon_MathSkill_Upgrade_Desc"
+    }
+  ],
+  "1151": [
+    {
+      "NameKey": "Lucy_Skill_Normal_Title",
+      "DescKey": "Lucy_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Lucy_Wood_Skill_Normal_01_Title",
+      "DescKey": "Lucy_Wood_Skill_Normal_01_Desc"
+    },
+    {
+      "NameKey": "Lucy_Wood_Skill_SyncAttack_02_Title",
+      "DescKey": "Lucy_Wood_Skill_SyncAttack_02_Desc"
+    },
+    {
+      "NameKey": "Lucy_Skill_Special_Title",
+      "DescKey": "Lucy_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Lucy_Skill_ExSpecial_Title",
+      "DescKey": "Lucy_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Lucy_Wood_Skill_Encourage_Title",
+      "DescKey": "Lucy_Wood_Skill_Encourage_Desc"
+    },
+    {
+      "NameKey": "Lucy_Skill_Evade_Title",
+      "DescKey": "Lucy_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Lucy_Skill_Rush_Title",
+      "DescKey": "Lucy_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Lucy_Skill_Counter_Title",
+      "DescKey": "Lucy_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Lucy_Skill_QTE_Title",
+      "DescKey": "Lucy_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Lucy_Skill_ExQTE_Title",
+      "DescKey": "Lucy_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Lucy_Skill_BeHitAid_Title",
+      "DescKey": "Lucy_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Lucy_Skill_ParryAid_Title",
+      "DescKey": "Lucy_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Lucy_Skill_AssaultAid_Title",
+      "DescKey": "Lucy_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Lucy_UniqueSkill_Title",
+      "DescKey": "Lucy_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Lucy_MathSkill_Title",
+      "DescKey": "Lucy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucy_UniqueSkill_Title",
+      "DescKey": "Lucy_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Lucy_MathSkill_Title",
+      "DescKey": "Lucy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucy_UniqueSkill_Title",
+      "DescKey": "Lucy_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Lucy_MathSkill_Title",
+      "DescKey": "Lucy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucy_UniqueSkill_Title",
+      "DescKey": "Lucy_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Lucy_MathSkill_Title",
+      "DescKey": "Lucy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucy_UniqueSkill_Title",
+      "DescKey": "Lucy_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Lucy_MathSkill_Title",
+      "DescKey": "Lucy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucy_UniqueSkill_Title",
+      "DescKey": "Lucy_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Lucy_MathSkill_Title",
+      "DescKey": "Lucy_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucy_UniqueSkill_Title",
+      "DescKey": "Lucy_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Lucy_MathSkill_Title",
+      "DescKey": "Lucy_MathSkill_Desc"
+    }
+  ],
+  "1161": [
+    {
+      "NameKey": "Lighter_Skill_Normal_Title",
+      "DescKey": "Lighter_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Lighter_Skill_Special_Title",
+      "DescKey": "Lighter_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Lighter_Skill_ExSpecial_Title",
+      "DescKey": "Lighter_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Lighter_Skill_Evade_Title",
+      "DescKey": "Lighter_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Lighter_Skill_Rush_Title",
+      "DescKey": "Lighter_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Lighter_Skill_Counter_Title",
+      "DescKey": "Lighter_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Lighter_Skill_QTE_Title",
+      "DescKey": "Lighter_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Lighter_Skill_ExQTE_Title",
+      "DescKey": "Lighter_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Lighter_Skill_BeHitAid_Title",
+      "DescKey": "Lighter_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Lighter_Skill_ParryAid_Title",
+      "DescKey": "Lighter_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Lighter_Skill_AssaultAid_Title",
+      "DescKey": "Lighter_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Lighter_UniqueSkill_Title",
+      "DescKey": "Lighter_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Lighter_MathSkill_Title",
+      "DescKey": "Lighter_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lighter_UniqueSkill_Title",
+      "DescKey": "Lighter_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Lighter_MathSkill_Title",
+      "DescKey": "Lighter_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lighter_UniqueSkill_Title",
+      "DescKey": "Lighter_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Lighter_MathSkill_Title",
+      "DescKey": "Lighter_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lighter_UniqueSkill_Title",
+      "DescKey": "Lighter_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Lighter_MathSkill_Title",
+      "DescKey": "Lighter_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lighter_UniqueSkill_Title",
+      "DescKey": "Lighter_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Lighter_MathSkill_Title",
+      "DescKey": "Lighter_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lighter_UniqueSkill_Title",
+      "DescKey": "Lighter_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Lighter_MathSkill_Title",
+      "DescKey": "Lighter_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lighter_UniqueSkill_Title",
+      "DescKey": "Lighter_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Lighter_MathSkill_Title",
+      "DescKey": "Lighter_MathSkill_Desc"
+    }
+  ],
+  "1171": [
+    {
+      "NameKey": "Burnice_Skill_Normal_Title",
+      "DescKey": "Burnice_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_Normal_Enhance_Title",
+      "DescKey": "Burnice_Skill_Normal_Enhance_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_Normal_Enhance_Title",
+      "DescKey": "Burnice_Skill_Normal_Enhance_UpGrade_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_Special_Title",
+      "DescKey": "Burnice_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_ExSpecial_01_Title",
+      "DescKey": "Burnice_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_ExSpecial_01_Title",
+      "DescKey": "Burnice_Skill_ExSpecial_01_UpGrade_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_ExSpecial_02_Title",
+      "DescKey": "Burnice_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_ExSpecial_02_Title",
+      "DescKey": "Burnice_Skill_ExSpecial_02_UpGrade_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_UpGrade_02_Title",
+      "DescKey": "Burnice_Skill_UpGrade_02_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_Evade_Title",
+      "DescKey": "Burnice_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_Rush_Title",
+      "DescKey": "Burnice_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_Counter_Title",
+      "DescKey": "Burnice_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_QTE_Title",
+      "DescKey": "Burnice_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_ExQTE_Title",
+      "DescKey": "Burnice_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_BeHitAid_Title",
+      "DescKey": "Burnice_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_BeHitAid_Title",
+      "DescKey": "Burnice_Skill_BeHitAid_UpGrade_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_ParryAid_Title",
+      "DescKey": "Burnice_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Burnice_Skill_AssaultAid_Title",
+      "DescKey": "Burnice_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Burnice_UniqueSkill_Title",
+      "DescKey": "Burnice_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Burnice_MathSkill_Title",
+      "DescKey": "Burnice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Burnice_UniqueSkill_Title",
+      "DescKey": "Burnice_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Burnice_MathSkill_Title",
+      "DescKey": "Burnice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Burnice_UniqueSkill_Title",
+      "DescKey": "Burnice_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Burnice_MathSkill_Title",
+      "DescKey": "Burnice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Burnice_UniqueSkill_Title",
+      "DescKey": "Burnice_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Burnice_MathSkill_Title",
+      "DescKey": "Burnice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Burnice_UniqueSkill_Title",
+      "DescKey": "Burnice_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Burnice_MathSkill_Title",
+      "DescKey": "Burnice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Burnice_UniqueSkill_Title",
+      "DescKey": "Burnice_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Burnice_MathSkill_Title",
+      "DescKey": "Burnice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Burnice_UniqueSkill_Title",
+      "DescKey": "Burnice_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Burnice_MathSkill_Title",
+      "DescKey": "Burnice_MathSkill_Desc"
+    }
+  ],
+  "1181": [
+    {
+      "NameKey": "Lisa_Skill_Normal_Title",
+      "DescKey": "Lisa_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_Normal_Title",
+      "DescKey": "Lisa_Skill_Normal_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_Special_Title",
+      "DescKey": "Lisa_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_Special_Title",
+      "DescKey": "Lisa_Skill_Special_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_ExSpecial_Title",
+      "DescKey": "Lisa_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_ExSpecial_Title",
+      "DescKey": "Lisa_Skill_ExSpecial_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_OverloadState_Upgrade_Title",
+      "DescKey": "Lisa_Skill_OverloadState_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_Special_Upgrade_Title",
+      "DescKey": "Lisa_Skill_Special_OverloadState_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_Evade_Title",
+      "DescKey": "Lisa_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_Rush_Title",
+      "DescKey": "Lisa_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_Counter_Title",
+      "DescKey": "Lisa_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_Counter_Title",
+      "DescKey": "Lisa_Skill_Counter_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_QTE_Title",
+      "DescKey": "Lisa_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_ExQTE_Title",
+      "DescKey": "Lisa_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_ExQTE_Title",
+      "DescKey": "Lisa_Skill_ExQTE_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_BeHitAid_Title",
+      "DescKey": "Lisa_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_EvadeAid_Title",
+      "DescKey": "Lisa_Skill_EvadeAid_Desc"
+    },
+    {
+      "NameKey": "Lisa_Skill_AssaultAid_Title",
+      "DescKey": "Lisa_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Lisa_UniqueSkill_Title",
+      "DescKey": "Lisa_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Lisa_MathSkill_Title",
+      "DescKey": "Lisa_MathSkill_Upgrade_Desc"
+    }
+  ],
+  "1191": [
+    {
+      "NameKey": "Ellen_Skill_Normal_Title",
+      "DescKey": "Ellen_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_Normal_Enhance_Title",
+      "DescKey": "Ellen_Skill_Normal_Enhance_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_Normal_02_03_Title",
+      "DescKey": "Ellen_Skill_Normal_02_03_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_Normal_Upgrade_01_Title",
+      "DescKey": "Ellen_Skill_Normal_Upgrade_01_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_Special_Title",
+      "DescKey": "Ellen_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_ExSpecial_01_Title",
+      "DescKey": "Ellen_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_ExSpecial_02_Title",
+      "DescKey": "Ellen_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_Evade_Title",
+      "DescKey": "Ellen_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_Dash_Title",
+      "DescKey": "Ellen_Skill_Dash_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_Dash_Slash_Title",
+      "DescKey": "Ellen_Skill_Dash_Slash_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_Dash_Slash_Title",
+      "DescKey": "Ellen_Skill_Dash_Slash_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_EnhanceCount_Title",
+      "DescKey": "Ellen_Skill_EnhanceCount_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_Rush_Title",
+      "DescKey": "Ellen_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_Rush_Enhance_Title",
+      "DescKey": "Ellen_Skill_Rush_Enhance_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_Counter_Title",
+      "DescKey": "Ellen_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_QTE_Title",
+      "DescKey": "Ellen_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_ExQTE_Title",
+      "DescKey": "Ellen_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_BeHitAid_Title",
+      "DescKey": "Ellen_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_ParryAid_Title",
+      "DescKey": "Ellen_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Ellen_Skill_AssaultAid_Title",
+      "DescKey": "Ellen_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_Upgrade_01_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_Upgrade_02_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_Upgrade_03_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_Upgrade_04_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_Upgrade_05_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_Upgrade_06_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Ellen_UniqueSkill_Title",
+      "DescKey": "Ellen_UniqueSkill_Upgrade_07_Desc"
+    },
+    {
+      "NameKey": "Ellen_MathSkill_Title",
+      "DescKey": "Ellen_MathSkill_Upgrade_Desc"
+    }
+  ],
+  "1201": [
+    {
+      "NameKey": "Harumasa_Skill_Normal_Title",
+      "DescKey": "Harumasa_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_MoveAttack_Title",
+      "DescKey": "Harumasa_Skill_MoveAttack_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_AimAttack_Title",
+      "DescKey": "Harumasa_Skill_AimAttack_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_TriggerAttack_Title",
+      "DescKey": "Harumasa_Skill_TriggerAttack_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_Special_Title",
+      "DescKey": "Harumasa_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_ExSpecial_Title",
+      "DescKey": "Harumasa_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_ExSpecial_Upgrade_Title",
+      "DescKey": "Harumasa_Skill_ExSpecial_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_Evade_Title",
+      "DescKey": "Harumasa_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_Rush_Title",
+      "DescKey": "Harumasa_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_Counter_Title",
+      "DescKey": "Harumasa_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_QTE_Title",
+      "DescKey": "Harumasa_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_ExQTE_Title",
+      "DescKey": "Harumasa_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_ExQTE_Upgrade_Title",
+      "DescKey": "Harumasa_Skill_ExQTE_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_BeHitAid_Title",
+      "DescKey": "Harumasa_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_ParryAid_Title",
+      "DescKey": "Harumasa_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_AssaultAid_Title",
+      "DescKey": "Harumasa_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_FinishingSlash_Title",
+      "DescKey": "Harumasa_Skill_FinishingSlash_Desc"
+    },
+    {
+      "NameKey": "Harumasa_Skill_FinishingSlash_Title",
+      "DescKey": "Harumasa_Skill_FinishingSlash_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_01_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_02_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_03_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_04_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_05_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_06_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Harumasa_UniqueSkill_Title",
+      "DescKey": "Harumasa_UniqueSkill_07_Upgrade_Desc"
+    },
+    {
+      "NameKey": "Harumasa_MathSkill_Title",
+      "DescKey": "Harumasa_MathSkill_Desc"
+    }
+  ],
+  "1211": [
+    {
+      "NameKey": "Rina_Skill_Normal_Title",
+      "DescKey": "Rina_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_Branch_Title",
+      "DescKey": "Rina_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_Special_Title",
+      "DescKey": "Rina_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_ExSpecial_Title",
+      "DescKey": "Rina_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_Evade_Title",
+      "DescKey": "Rina_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_Rush_Title",
+      "DescKey": "Rina_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_Counter_Title",
+      "DescKey": "Rina_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_QTE_Title",
+      "DescKey": "Rina_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_ExQTE_Title",
+      "DescKey": "Rina_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_BeHitAid_Title",
+      "DescKey": "Rina_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_EvadeAid_Title",
+      "DescKey": "Rina_Skill_EvadeAid_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_AssaultAid_Title",
+      "DescKey": "Rina_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_FollowAttack_Normal_Title",
+      "DescKey": "Rina_Skill_FollowAttack_Normal_Desc"
+    },
+    {
+      "NameKey": "Rina_Skill_FollowAttack_ExNormal_Title",
+      "DescKey": "Rina_Skill_FollowAttack_ExNormal_Desc"
+    },
+    {
+      "NameKey": "Rina_UniqueSkill_Title",
+      "DescKey": "Rina_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Rina_MathSkill_Title",
+      "DescKey": "Rina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Rina_UniqueSkill_Title",
+      "DescKey": "Rina_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Rina_MathSkill_Title",
+      "DescKey": "Rina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Rina_UniqueSkill_Title",
+      "DescKey": "Rina_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Rina_MathSkill_Title",
+      "DescKey": "Rina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Rina_UniqueSkill_Title",
+      "DescKey": "Rina_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Rina_MathSkill_Title",
+      "DescKey": "Rina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Rina_UniqueSkill_Title",
+      "DescKey": "Rina_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Rina_MathSkill_Title",
+      "DescKey": "Rina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Rina_UniqueSkill_Title",
+      "DescKey": "Rina_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Rina_MathSkill_Title",
+      "DescKey": "Rina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Rina_UniqueSkill_Title",
+      "DescKey": "Rina_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Rina_MathSkill_Title",
+      "DescKey": "Rina_MathSkill_Desc"
+    }
+  ],
+  "1221": [
+    {
+      "NameKey": "Yanagi_Skill_Normal_Title",
+      "DescKey": "Yanagi_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Yanagi_Skill_Special_Title",
+      "DescKey": "Yanagi_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Yanagi_Skill_ExSpecial_Title",
+      "DescKey": "Yanagi_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Yanagi_Skill_Evade_Title",
+      "DescKey": "Yanagi_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Yanagi_Skill_Rush_Title",
+      "DescKey": "Yanagi_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Yanagi_Skill_Counter_Title",
+      "DescKey": "Yanagi_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Yanagi_Skill_QTE_Title",
+      "DescKey": "Yanagi_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Yanagi_Skill_ExQTE_Title",
+      "DescKey": "Yanagi_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Yanagi_Skill_BeHitAid_Title",
+      "DescKey": "Yanagi_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Yanagi_Skill_ParryAid_Title",
+      "DescKey": "Yanagi_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Yanagi_Skill_AssaultAid_Title",
+      "DescKey": "Yanagi_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Yanagi_UniqueSkill_Title",
+      "DescKey": "Yanagi_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Yanagi_MathSkill_Title",
+      "DescKey": "Yanagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yanagi_UniqueSkill_Title",
+      "DescKey": "Yanagi_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Yanagi_MathSkill_Title",
+      "DescKey": "Yanagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yanagi_UniqueSkill_Title",
+      "DescKey": "Yanagi_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Yanagi_MathSkill_Title",
+      "DescKey": "Yanagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yanagi_UniqueSkill_Title",
+      "DescKey": "Yanagi_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Yanagi_MathSkill_Title",
+      "DescKey": "Yanagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yanagi_UniqueSkill_Title",
+      "DescKey": "Yanagi_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Yanagi_MathSkill_Title",
+      "DescKey": "Yanagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yanagi_UniqueSkill_Title",
+      "DescKey": "Yanagi_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Yanagi_MathSkill_Title",
+      "DescKey": "Yanagi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yanagi_UniqueSkill_Title",
+      "DescKey": "Yanagi_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Yanagi_MathSkill_Title",
+      "DescKey": "Yanagi_MathSkill_Desc"
+    }
+  ],
+  "1241": [
+    {
+      "NameKey": "ZhuYuan_Skill_Normal_Pistol_Title",
+      "DescKey": "ZhuYuan_Skill_Normal_Pistol_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_Normal_Shotgun_Title",
+      "DescKey": "ZhuYuan_Skill_Normal_Shotgun_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_Special_Title",
+      "DescKey": "ZhuYuan_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_ExSpecial_Title",
+      "DescKey": "ZhuYuan_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_Evade_Title",
+      "DescKey": "ZhuYuan_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_Rush_Pistol_Title",
+      "DescKey": "ZhuYuan_Skill_Rush_Pistol_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_Rush_Shotgun_Title",
+      "DescKey": "ZhuYuan_Skill_Rush_Shotgun_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_Counter_Title",
+      "DescKey": "ZhuYuan_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_QTE_Title",
+      "DescKey": "ZhuYuan_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_ExQTE_Title",
+      "DescKey": "ZhuYuan_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_BeHitAid_Title",
+      "DescKey": "ZhuYuan_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_EvadeAid_Title",
+      "DescKey": "ZhuYuan_Skill_EvadeAid_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_Skill_AssaultAid_Title",
+      "DescKey": "ZhuYuan_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_UniqueSkill_Title",
+      "DescKey": "ZhuYuan_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_MathSkill_Title",
+      "DescKey": "ZhuYuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_UniqueSkill_Title",
+      "DescKey": "ZhuYuan_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_MathSkill_Title",
+      "DescKey": "ZhuYuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_UniqueSkill_Title",
+      "DescKey": "ZhuYuan_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_MathSkill_Title",
+      "DescKey": "ZhuYuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_UniqueSkill_Title",
+      "DescKey": "ZhuYuan_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_MathSkill_Title",
+      "DescKey": "ZhuYuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_UniqueSkill_Title",
+      "DescKey": "ZhuYuan_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_MathSkill_Title",
+      "DescKey": "ZhuYuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_UniqueSkill_Title",
+      "DescKey": "ZhuYuan_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_MathSkill_Title",
+      "DescKey": "ZhuYuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_UniqueSkill_Title",
+      "DescKey": "ZhuYuan_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "ZhuYuan_MathSkill_Title",
+      "DescKey": "ZhuYuan_MathSkill_Desc"
+    }
+  ],
+  "1251": [
+    {
+      "NameKey": "QingYi_Skill_Normal_Title",
+      "DescKey": "QingYi_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_Branch_Title",
+      "DescKey": "QingYi_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "QingYi_Enhance_Title",
+      "DescKey": "QingYi_Enhance_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_Branch_Enhance_Title",
+      "DescKey": "QingYi_Skill_Branch_Enhance_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_Special_Title",
+      "DescKey": "QingYi_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_ExSpecial_Title",
+      "DescKey": "QingYi_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_Evade_Title",
+      "DescKey": "QingYi_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_Rush_Title",
+      "DescKey": "QingYi_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_Counter_Title",
+      "DescKey": "QingYi_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_QTE_Title",
+      "DescKey": "QingYi_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_ExQTE_Title",
+      "DescKey": "QingYi_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_BeHitAid_Title",
+      "DescKey": "QingYi_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_ParryAid_Title",
+      "DescKey": "QingYi_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "QingYi_Skill_AssaultAid_Title",
+      "DescKey": "QingYi_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "QingYi_UniqueSkill_Title",
+      "DescKey": "QingYi_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "QingYi_MathSkill_Title",
+      "DescKey": "QingYi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "QingYi_UniqueSkill_Title",
+      "DescKey": "QingYi_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "QingYi_MathSkill_Title",
+      "DescKey": "QingYi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "QingYi_UniqueSkill_Title",
+      "DescKey": "QingYi_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "QingYi_MathSkill_Title",
+      "DescKey": "QingYi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "QingYi_UniqueSkill_Title",
+      "DescKey": "QingYi_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "QingYi_MathSkill_Title",
+      "DescKey": "QingYi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "QingYi_UniqueSkill_Title",
+      "DescKey": "QingYi_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "QingYi_MathSkill_Title",
+      "DescKey": "QingYi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "QingYi_UniqueSkill_Title",
+      "DescKey": "QingYi_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "QingYi_MathSkill_Title",
+      "DescKey": "QingYi_MathSkill_Desc"
+    },
+    {
+      "NameKey": "QingYi_UniqueSkill_Title",
+      "DescKey": "QingYi_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "QingYi_MathSkill_Title",
+      "DescKey": "QingYi_MathSkill_Desc"
+    }
+  ],
+  "1261": [
+    {
+      "NameKey": "JaneDoe_Skill_Normal_Title",
+      "DescKey": "JaneDoe_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_Normal_Title",
+      "DescKey": "JaneDoe_Skill_Normal_Upgrade_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Enhance_Title",
+      "DescKey": "JaneDoe_Enhance_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_Branch_Title",
+      "DescKey": "JaneDoe_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_Branch_Title",
+      "DescKey": "JaneDoe_Skill_Branch_Upgrade_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_Special_Title",
+      "DescKey": "JaneDoe_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_ExSpecial_Title",
+      "DescKey": "JaneDoe_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_ExSpecial_Title",
+      "DescKey": "JaneDoe_Skill_ExSpecial_Upgrade_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_ExSpecial_Upgrade_Title",
+      "DescKey": "JaneDoe_Skill_ExSpecial_New_Upgrade_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_Evade_Title",
+      "DescKey": "JaneDoe_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_Rush_Title",
+      "DescKey": "JaneDoe_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_Rush_Enhance_Title",
+      "DescKey": "JaneDoe_Skill_Rush_Enhance_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_Counter_Title",
+      "DescKey": "JaneDoe_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_Counter_Enhance_Title",
+      "DescKey": "JaneDoe_Skill_Counter_Enhance_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_QTE_Title",
+      "DescKey": "JaneDoe_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_ExQTE_Title",
+      "DescKey": "JaneDoe_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_BeHitAid_Title",
+      "DescKey": "JaneDoe_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_BeHitAid_Enhance_Title",
+      "DescKey": "JaneDoe_Skill_BeHitAid_Enhance_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_ParryAid_Title",
+      "DescKey": "JaneDoe_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_Skill_AssaultAid_Title",
+      "DescKey": "JaneDoe_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_UniqueSkill_Title",
+      "DescKey": "JaneDoe_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_MathSkill_Title",
+      "DescKey": "JaneDoe_MathSkill_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_UniqueSkill_Title",
+      "DescKey": "JaneDoe_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_MathSkill_Title",
+      "DescKey": "JaneDoe_MathSkill_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_UniqueSkill_Title",
+      "DescKey": "JaneDoe_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_MathSkill_Title",
+      "DescKey": "JaneDoe_MathSkill_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_UniqueSkill_Title",
+      "DescKey": "JaneDoe_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_MathSkill_Title",
+      "DescKey": "JaneDoe_MathSkill_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_UniqueSkill_Title",
+      "DescKey": "JaneDoe_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_MathSkill_Title",
+      "DescKey": "JaneDoe_MathSkill_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_UniqueSkill_Title",
+      "DescKey": "JaneDoe_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_MathSkill_Title",
+      "DescKey": "JaneDoe_MathSkill_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_UniqueSkill_Title",
+      "DescKey": "JaneDoe_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "JaneDoe_MathSkill_Title",
+      "DescKey": "JaneDoe_MathSkill_Desc"
+    }
+  ],
+  "1271": [
+    {
+      "NameKey": "Seth_Skill_Normal_Title",
+      "DescKey": "Seth_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Seth_Skill_Normal_Enhance_Title",
+      "DescKey": "Seth_Skill_Normal_Enhance_Desc"
+    },
+    {
+      "NameKey": "Seth_Skill_Special_Title",
+      "DescKey": "Seth_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Seth_Skill_ExSpecial_Title",
+      "DescKey": "Seth_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Seth_Skill_Evade_Title",
+      "DescKey": "Seth_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Seth_Skill_Rush_Title",
+      "DescKey": "Seth_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Seth_Skill_Counter_Title",
+      "DescKey": "Seth_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Seth_Skill_QTE_Title",
+      "DescKey": "Seth_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Seth_Skill_ExQTE_Title",
+      "DescKey": "Seth_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Seth_Skill_BeHitAid_Title",
+      "DescKey": "Seth_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Seth_Skill_ParryAid_Title",
+      "DescKey": "Seth_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Seth_Skill_AssaultAid_Title",
+      "DescKey": "Seth_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Seth_UniqueSkill_Title",
+      "DescKey": "Seth_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Seth_MathSkill_Title",
+      "DescKey": "Seth_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seth_UniqueSkill_Title",
+      "DescKey": "Seth_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Seth_MathSkill_Title",
+      "DescKey": "Seth_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seth_UniqueSkill_Title",
+      "DescKey": "Seth_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Seth_MathSkill_Title",
+      "DescKey": "Seth_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seth_UniqueSkill_Title",
+      "DescKey": "Seth_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Seth_MathSkill_Title",
+      "DescKey": "Seth_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seth_UniqueSkill_Title",
+      "DescKey": "Seth_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Seth_MathSkill_Title",
+      "DescKey": "Seth_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seth_UniqueSkill_Title",
+      "DescKey": "Seth_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Seth_MathSkill_Title",
+      "DescKey": "Seth_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seth_UniqueSkill_Title",
+      "DescKey": "Seth_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Seth_MathSkill_Title",
+      "DescKey": "Seth_MathSkill_Desc"
+    }
+  ],
+  "1281": [
+    {
+      "NameKey": "Clara_Skill_Normal_Title",
+      "DescKey": "Clara_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_Special_01_Title",
+      "DescKey": "Clara_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_Special_02_Title",
+      "DescKey": "Clara_Skill_Special_02_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_ExSpecial_01_Title",
+      "DescKey": "Clara_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_ExSpecial_02_Title",
+      "DescKey": "Clara_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_Evade_Title",
+      "DescKey": "Clara_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_Rush_Title",
+      "DescKey": "Clara_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_Counter_Title",
+      "DescKey": "Clara_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_QTE_Title",
+      "DescKey": "Clara_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_ExQTE_Title",
+      "DescKey": "Clara_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_BeHitAid_Title",
+      "DescKey": "Clara_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_ParryAid_Title",
+      "DescKey": "Clara_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Clara_Skill_AssaultAid_Title",
+      "DescKey": "Clara_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Clara_UniqueSkill_Title",
+      "DescKey": "Clara_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Clara_MathSkill_Title",
+      "DescKey": "Clara_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Clara_UniqueSkill_Title",
+      "DescKey": "Clara_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Clara_MathSkill_Title",
+      "DescKey": "Clara_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Clara_UniqueSkill_Title",
+      "DescKey": "Clara_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Clara_MathSkill_Title",
+      "DescKey": "Clara_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Clara_UniqueSkill_Title",
+      "DescKey": "Clara_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Clara_MathSkill_Title",
+      "DescKey": "Clara_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Clara_UniqueSkill_Title",
+      "DescKey": "Clara_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Clara_MathSkill_Title",
+      "DescKey": "Clara_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Clara_UniqueSkill_Title",
+      "DescKey": "Clara_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Clara_MathSkill_Title",
+      "DescKey": "Clara_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Clara_UniqueSkill_Title",
+      "DescKey": "Clara_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Clara_MathSkill_Title",
+      "DescKey": "Clara_MathSkill_Desc"
+    }
+  ],
+  "1291": [
+    {
+      "NameKey": "HugoVlad_Skill_Normal_Title",
+      "DescKey": "HugoVlad_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_Skill_Normal_Enhance_Title",
+      "DescKey": "HugoVlad_Skill_Normal_Enhance_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_Skill_Special_Title",
+      "DescKey": "HugoVlad_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_Skill_ExSpecial_02_Title",
+      "DescKey": "HugoVlad_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_Skill_Evade_Title",
+      "DescKey": "HugoVlad_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_Skill_Rush_Title",
+      "DescKey": "HugoVlad_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_Skill_Counter_Title",
+      "DescKey": "HugoVlad_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_Skill_QTE_Title",
+      "DescKey": "HugoVlad_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_Skill_ExQTE_Title",
+      "DescKey": "HugoVlad_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_Skill_BeHitAid_Title",
+      "DescKey": "HugoVlad_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_Skill_ParryAid_Title",
+      "DescKey": "HugoVlad_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_Skill_AssaultAid_Title",
+      "DescKey": "HugoVlad_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_UniqueSkill_Title",
+      "DescKey": "HugoVlad_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_MathSkill_Title",
+      "DescKey": "HugoVlad_MathSkill_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_UniqueSkill_Title",
+      "DescKey": "HugoVlad_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_MathSkill_Title",
+      "DescKey": "HugoVlad_MathSkill_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_UniqueSkill_Title",
+      "DescKey": "HugoVlad_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_MathSkill_Title",
+      "DescKey": "HugoVlad_MathSkill_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_UniqueSkill_Title",
+      "DescKey": "HugoVlad_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_MathSkill_Title",
+      "DescKey": "HugoVlad_MathSkill_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_UniqueSkill_Title",
+      "DescKey": "HugoVlad_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_MathSkill_Title",
+      "DescKey": "HugoVlad_MathSkill_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_UniqueSkill_Title",
+      "DescKey": "HugoVlad_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_MathSkill_Title",
+      "DescKey": "HugoVlad_MathSkill_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_UniqueSkill_Title",
+      "DescKey": "HugoVlad_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "HugoVlad_MathSkill_Title",
+      "DescKey": "HugoVlad_MathSkill_Desc"
+    }
+  ],
+  "1301": [
+    {
+      "NameKey": "Brujas_Skill_Normal_Title",
+      "DescKey": "Brujas_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_Special_Title",
+      "DescKey": "Brujas_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_ChainAttack_01_Title",
+      "DescKey": "Brujas_Skill_ChainAttack_01_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_ExSpecial_01_Title",
+      "DescKey": "Brujas_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_ExSpecial_02_Title",
+      "DescKey": "Brujas_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_ExSpecial_03_Title",
+      "DescKey": "Brujas_Skill_ExSpecial_03_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_QTE_01_Title",
+      "DescKey": "Brujas_Skill_QTE_01_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_Evade_Title",
+      "DescKey": "Brujas_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_Rush_Title",
+      "DescKey": "Brujas_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_Counter_Title",
+      "DescKey": "Brujas_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_QTE_Title",
+      "DescKey": "Brujas_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_ExQTE_Title",
+      "DescKey": "Brujas_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_BeHitAid_Title",
+      "DescKey": "Brujas_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_ParryAid_Title",
+      "DescKey": "Brujas_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Brujas_Skill_AssaultAid_Title",
+      "DescKey": "Brujas_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Brujas_UniqueSkill_Title",
+      "DescKey": "Brujas_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Brujas_MathSkill_Title",
+      "DescKey": "Brujas_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Brujas_UniqueSkill_Title",
+      "DescKey": "Brujas_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Brujas_MathSkill_Title",
+      "DescKey": "Brujas_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Brujas_UniqueSkill_Title",
+      "DescKey": "Brujas_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Brujas_MathSkill_Title",
+      "DescKey": "Brujas_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Brujas_UniqueSkill_Title",
+      "DescKey": "Brujas_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Brujas_MathSkill_Title",
+      "DescKey": "Brujas_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Brujas_UniqueSkill_Title",
+      "DescKey": "Brujas_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Brujas_MathSkill_Title",
+      "DescKey": "Brujas_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Brujas_UniqueSkill_Title",
+      "DescKey": "Brujas_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Brujas_MathSkill_Title",
+      "DescKey": "Brujas_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Brujas_UniqueSkill_Title",
+      "DescKey": "Brujas_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Brujas_MathSkill_Title",
+      "DescKey": "Brujas_MathSkill_Desc"
+    }
+  ],
+  "1311": [
+    {
+      "NameKey": "Astra_Skill_Normal_Title",
+      "DescKey": "Astra_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_Normal_Singing_Title",
+      "DescKey": "Astra_Skill_Normal_Singing_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_Normal_Singing_Perfect_Title",
+      "DescKey": "Astra_Skill_Normal_Singing_Perfect_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_Normal_Singing_Exit_Title",
+      "DescKey": "Astra_Skill_Normal_Singing_Exit_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_Special_Title",
+      "DescKey": "Astra_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_Singing_Title",
+      "DescKey": "Astra_Skill_Singing_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_Charge_Title",
+      "DescKey": "Astra_Skill_Charge_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_Evade_Title",
+      "DescKey": "Astra_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_Rush_Title",
+      "DescKey": "Astra_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_Counter_Title",
+      "DescKey": "Astra_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_QTE_Title",
+      "DescKey": "Astra_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_ExQTE_Title",
+      "DescKey": "Astra_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_BeHitAid_Title",
+      "DescKey": "Astra_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_EvadeAid_Title",
+      "DescKey": "Astra_Skill_EvadeAid_Desc"
+    },
+    {
+      "NameKey": "Astra_Skill_AssaultAid_Title",
+      "DescKey": "Astra_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Astra_UniqueSkill_Title",
+      "DescKey": "Astra_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Astra_MathSkill_Title",
+      "DescKey": "Astra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Astra_UniqueSkill_Title",
+      "DescKey": "Astra_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Astra_MathSkill_Title",
+      "DescKey": "Astra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Astra_UniqueSkill_Title",
+      "DescKey": "Astra_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Astra_MathSkill_Title",
+      "DescKey": "Astra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Astra_UniqueSkill_Title",
+      "DescKey": "Astra_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Astra_MathSkill_Title",
+      "DescKey": "Astra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Astra_UniqueSkill_Title",
+      "DescKey": "Astra_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Astra_MathSkill_Title",
+      "DescKey": "Astra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Astra_UniqueSkill_Title",
+      "DescKey": "Astra_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Astra_MathSkill_Title",
+      "DescKey": "Astra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Astra_UniqueSkill_Title",
+      "DescKey": "Astra_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Astra_MathSkill_Title",
+      "DescKey": "Astra_MathSkill_Desc"
+    }
+  ],
+  "1321": [
+    {
+      "NameKey": "Evelyn_Skill_Normal_Title",
+      "DescKey": "Evelyn_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_Enhance_Title",
+      "DescKey": "Evelyn_Skill_Enhance_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_Branch_01_Title",
+      "DescKey": "Evelyn_Skill_Branch_01_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_Branch_02_Title",
+      "DescKey": "Evelyn_Skill_Branch_02_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_RopeSpecial_Title",
+      "DescKey": "Evelyn_Skill_RopeSpecial_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_Special_Title",
+      "DescKey": "Evelyn_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_ExSpecial_Title",
+      "DescKey": "Evelyn_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_Evade_Title",
+      "DescKey": "Evelyn_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_Rush_Title",
+      "DescKey": "Evelyn_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_Counter_Title",
+      "DescKey": "Evelyn_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_QTE_Title",
+      "DescKey": "Evelyn_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_ExQTE_Title",
+      "DescKey": "Evelyn_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_ExQTE_02_Title",
+      "DescKey": "Evelyn_Skill_ExQTE_02_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_BeHitAid_Title",
+      "DescKey": "Evelyn_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_ParryAid_Title",
+      "DescKey": "Evelyn_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Evelyn_Skill_AssaultAid_Title",
+      "DescKey": "Evelyn_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Evelyn_UniqueSkill_Title",
+      "DescKey": "Evelyn_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Evelyn_MathSkill_Title",
+      "DescKey": "Evelyn_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Evelyn_UniqueSkill_Title",
+      "DescKey": "Evelyn_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Evelyn_MathSkill_Title",
+      "DescKey": "Evelyn_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Evelyn_UniqueSkill_Title",
+      "DescKey": "Evelyn_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Evelyn_MathSkill_Title",
+      "DescKey": "Evelyn_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Evelyn_UniqueSkill_Title",
+      "DescKey": "Evelyn_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Evelyn_MathSkill_Title",
+      "DescKey": "Evelyn_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Evelyn_UniqueSkill_Title",
+      "DescKey": "Evelyn_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Evelyn_MathSkill_Title",
+      "DescKey": "Evelyn_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Evelyn_UniqueSkill_Title",
+      "DescKey": "Evelyn_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Evelyn_MathSkill_Title",
+      "DescKey": "Evelyn_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Evelyn_UniqueSkill_Title",
+      "DescKey": "Evelyn_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Evelyn_MathSkill_Title",
+      "DescKey": "Evelyn_MathSkill_Desc"
+    }
+  ],
+  "1331": [
+    {
+      "NameKey": "Vivian_Skill_Normal_Title",
+      "DescKey": "Vivian_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_Branch_Ground_Title",
+      "DescKey": "Vivian_Skill_Branch_Ground_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_Branch_Air_Title",
+      "DescKey": "Vivian_Skill_Branch_Air_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_Branch_Extra_Title",
+      "DescKey": "Vivian_Skill_Branch_Extra_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_Special_Title",
+      "DescKey": "Vivian_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_ExSpecial_Title",
+      "DescKey": "Vivian_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_Evade_Title",
+      "DescKey": "Vivian_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_Rush_Title",
+      "DescKey": "Vivian_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_Counter_Title",
+      "DescKey": "Vivian_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_AutoEvade_Title",
+      "DescKey": "Vivian_Skill_AutoEvade_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_QTE_Title",
+      "DescKey": "Vivian_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_ExQTE_Title",
+      "DescKey": "Vivian_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_BeHitAid_Title",
+      "DescKey": "Vivian_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_ParryAid_Title",
+      "DescKey": "Vivian_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Vivian_Skill_AssaultAid_Title",
+      "DescKey": "Vivian_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Vivian_UniqueSkill_Title",
+      "DescKey": "Vivian_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Vivian_MathSkill_Title",
+      "DescKey": "Vivian_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Vivian_UniqueSkill_Title",
+      "DescKey": "Vivian_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Vivian_MathSkill_Title",
+      "DescKey": "Vivian_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Vivian_UniqueSkill_Title",
+      "DescKey": "Vivian_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Vivian_MathSkill_Title",
+      "DescKey": "Vivian_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Vivian_UniqueSkill_Title",
+      "DescKey": "Vivian_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Vivian_MathSkill_Title",
+      "DescKey": "Vivian_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Vivian_UniqueSkill_Title",
+      "DescKey": "Vivian_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Vivian_MathSkill_Title",
+      "DescKey": "Vivian_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Vivian_UniqueSkill_Title",
+      "DescKey": "Vivian_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Vivian_MathSkill_Title",
+      "DescKey": "Vivian_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Vivian_UniqueSkill_Title",
+      "DescKey": "Vivian_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Vivian_MathSkill_Title",
+      "DescKey": "Vivian_MathSkill_Desc"
+    }
+  ],
+  "1341": [
+    {
+      "NameKey": "XiaoZhao_Skill_Normal_Title",
+      "DescKey": "XiaoZhao_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_Branch_Title",
+      "DescKey": "XiaoZhao_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_Special_Title",
+      "DescKey": "XiaoZhao_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_ExSpecial_Title",
+      "DescKey": "XiaoZhao_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_Evade_Title",
+      "DescKey": "XiaoZhao_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_Rush_Title",
+      "DescKey": "XiaoZhao_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_Counter_Title",
+      "DescKey": "XiaoZhao_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_QTE_Title",
+      "DescKey": "XiaoZhao_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_ExQTE_Title",
+      "DescKey": "XiaoZhao_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_SpecialAid_Title",
+      "DescKey": "XiaoZhao_Skill_SpecialAid_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_BeHitAid_Title",
+      "DescKey": "XiaoZhao_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_ParryAid_Title",
+      "DescKey": "XiaoZhao_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_Skill_AssaultAid_Title",
+      "DescKey": "XiaoZhao_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_UniqueSkill_Title",
+      "DescKey": "XiaoZhao_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_MathSkill_Title",
+      "DescKey": "XiaoZhao_MathSkill_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_UniqueSkill_Title",
+      "DescKey": "XiaoZhao_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_MathSkill_Title",
+      "DescKey": "XiaoZhao_MathSkill_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_UniqueSkill_Title",
+      "DescKey": "XiaoZhao_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_MathSkill_Title",
+      "DescKey": "XiaoZhao_MathSkill_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_UniqueSkill_Title",
+      "DescKey": "XiaoZhao_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_MathSkill_Title",
+      "DescKey": "XiaoZhao_MathSkill_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_UniqueSkill_Title",
+      "DescKey": "XiaoZhao_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_MathSkill_Title",
+      "DescKey": "XiaoZhao_MathSkill_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_UniqueSkill_Title",
+      "DescKey": "XiaoZhao_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_MathSkill_Title",
+      "DescKey": "XiaoZhao_MathSkill_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_UniqueSkill_Title",
+      "DescKey": "XiaoZhao_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "XiaoZhao_MathSkill_Title",
+      "DescKey": "XiaoZhao_MathSkill_Desc"
+    }
+  ],
+  "1351": [
+    {
+      "NameKey": "Pulchra_Skill_Normal_Title",
+      "DescKey": "Pulchra_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_Normal_Charge_Title",
+      "DescKey": "Pulchra_Skill_Normal_Charge_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_Special_Title",
+      "DescKey": "Pulchra_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_Special_ChainAttack_Title",
+      "DescKey": "Pulchra_Skill_Special_ChainAttack_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_ExSpecial_Title",
+      "DescKey": "Pulchra_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_Evade_Title",
+      "DescKey": "Pulchra_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_Rush_Title",
+      "DescKey": "Pulchra_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_Counter_Title",
+      "DescKey": "Pulchra_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_QTE_Title",
+      "DescKey": "Pulchra_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_ExQTE_Title",
+      "DescKey": "Pulchra_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_BeHitAid_Title",
+      "DescKey": "Pulchra_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_EvadeAid_Title",
+      "DescKey": "Pulchra_Skill_EvadeAid_Desc"
+    },
+    {
+      "NameKey": "Pulchra_Skill_AssaultAid_Title",
+      "DescKey": "Pulchra_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Pulchra_UniqueSkill_Title",
+      "DescKey": "Pulchra_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Pulchra_MathSkill_Title",
+      "DescKey": "Pulchra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pulchra_UniqueSkill_Title",
+      "DescKey": "Pulchra_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Pulchra_MathSkill_Title",
+      "DescKey": "Pulchra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pulchra_UniqueSkill_Title",
+      "DescKey": "Pulchra_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Pulchra_MathSkill_Title",
+      "DescKey": "Pulchra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pulchra_UniqueSkill_Title",
+      "DescKey": "Pulchra_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Pulchra_MathSkill_Title",
+      "DescKey": "Pulchra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pulchra_UniqueSkill_Title",
+      "DescKey": "Pulchra_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Pulchra_MathSkill_Title",
+      "DescKey": "Pulchra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pulchra_UniqueSkill_Title",
+      "DescKey": "Pulchra_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Pulchra_MathSkill_Title",
+      "DescKey": "Pulchra_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pulchra_UniqueSkill_Title",
+      "DescKey": "Pulchra_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Pulchra_MathSkill_Title",
+      "DescKey": "Pulchra_MathSkill_Desc"
+    }
+  ],
+  "1361": [
+    {
+      "NameKey": "Trigger_Skill_Normal_Title",
+      "DescKey": "Trigger_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Trigger_Skill_Normal_ChargeAttack_Title",
+      "DescKey": "Trigger_Skill_Normal_ChargeAttack_Desc"
+    },
+    {
+      "NameKey": "Trigger_Skill_Normal_ChainAttack_Title_01",
+      "DescKey": "Trigger_Skill_Normal_ChainAttack_Desc_01"
+    },
+    {
+      "NameKey": "Trigger_Skill_Normal_ChainAttack_Title_02",
+      "DescKey": "Trigger_Skill_Normal_ChainAttack_Desc_02"
+    },
+    {
+      "NameKey": "Trigger_Skill_Special_Title",
+      "DescKey": "Trigger_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Trigger_Skill_ExSpecial_Title",
+      "DescKey": "Trigger_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Trigger_Skill_Evade_Title",
+      "DescKey": "Trigger_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Trigger_Skill_Rush_Title",
+      "DescKey": "Trigger_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Trigger_Skill_Counter_Title",
+      "DescKey": "Trigger_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Trigger_Skill_QTE_Title",
+      "DescKey": "Trigger_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Trigger_Skill_ExQTE_Title",
+      "DescKey": "Trigger_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Trigger_Skill_BeHitAid_Title",
+      "DescKey": "Trigger_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Trigger_Skill_ParryAid_Title",
+      "DescKey": "Trigger_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Trigger_Skill_AssaultAid_Title",
+      "DescKey": "Trigger_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Trigger_UniqueSkill_Title",
+      "DescKey": "Trigger_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Trigger_MathSkill_Title",
+      "DescKey": "Trigger_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Trigger_UniqueSkill_Title",
+      "DescKey": "Trigger_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Trigger_MathSkill_Title",
+      "DescKey": "Trigger_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Trigger_UniqueSkill_Title",
+      "DescKey": "Trigger_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Trigger_MathSkill_Title",
+      "DescKey": "Trigger_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Trigger_UniqueSkill_Title",
+      "DescKey": "Trigger_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Trigger_MathSkill_Title",
+      "DescKey": "Trigger_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Trigger_UniqueSkill_Title",
+      "DescKey": "Trigger_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Trigger_MathSkill_Title",
+      "DescKey": "Trigger_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Trigger_UniqueSkill_Title",
+      "DescKey": "Trigger_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Trigger_MathSkill_Title",
+      "DescKey": "Trigger_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Trigger_UniqueSkill_Title",
+      "DescKey": "Trigger_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Trigger_MathSkill_Title",
+      "DescKey": "Trigger_MathSkill_Desc"
+    }
+  ],
+  "1371": [
+    {
+      "NameKey": "YiXuan_Skill_Normal_Title",
+      "DescKey": "YiXuan_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_Normal_Enhance_Title",
+      "DescKey": "YiXuan_Skill_Normal_Enhance_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_Normal_Enhance_02_Title",
+      "DescKey": "YiXuan_Skill_Normal_Enhance_02_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_Normal_05_Enhance_Title",
+      "DescKey": "YiXuan_Skill_Normal_05_Enhance_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_Special_Title",
+      "DescKey": "YiXuan_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_ExSpecial_01_Title",
+      "DescKey": "YiXuan_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_ExSpecial_02_Title",
+      "DescKey": "YiXuan_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_ExSpecial_03_Title",
+      "DescKey": "YiXuan_Skill_ExSpecial_03_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_Evade_Title",
+      "DescKey": "YiXuan_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_Rush_Title",
+      "DescKey": "YiXuan_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_Dash_Title",
+      "DescKey": "YiXuan_Skill_Dash_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_Counter_Title",
+      "DescKey": "YiXuan_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_QTE_Title",
+      "DescKey": "YiXuan_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_ExQTE_Title",
+      "DescKey": "YiXuan_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_ExQTE_02_Title",
+      "DescKey": "YiXuan_Skill_ExQTE_02_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_BeHitAid_Title",
+      "DescKey": "YiXuan_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_ParryAid_Title",
+      "DescKey": "YiXuan_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "YiXuan_Skill_AssaultAid_Title",
+      "DescKey": "YiXuan_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "YiXuan_UniqueSkill_Title",
+      "DescKey": "YiXuan_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "YiXuan_MathSkill_Title",
+      "DescKey": "YiXuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "YiXuan_UniqueSkill_Title",
+      "DescKey": "YiXuan_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "YiXuan_MathSkill_Title",
+      "DescKey": "YiXuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "YiXuan_UniqueSkill_Title",
+      "DescKey": "YiXuan_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "YiXuan_MathSkill_Title",
+      "DescKey": "YiXuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "YiXuan_UniqueSkill_Title",
+      "DescKey": "YiXuan_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "YiXuan_MathSkill_Title",
+      "DescKey": "YiXuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "YiXuan_UniqueSkill_Title",
+      "DescKey": "YiXuan_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "YiXuan_MathSkill_Title",
+      "DescKey": "YiXuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "YiXuan_UniqueSkill_Title",
+      "DescKey": "YiXuan_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "YiXuan_MathSkill_Title",
+      "DescKey": "YiXuan_MathSkill_Desc"
+    },
+    {
+      "NameKey": "YiXuan_UniqueSkill_Title",
+      "DescKey": "YiXuan_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "YiXuan_MathSkill_Title",
+      "DescKey": "YiXuan_MathSkill_Desc"
+    }
+  ],
+  "1381": [
+    {
+      "NameKey": "SilverAnby_Skill_Normal_Title",
+      "DescKey": "SilverAnby_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_Normal_Title",
+      "DescKey": "SilverAnby_Skill_Normal_Upgrade_01_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_Special_Title",
+      "DescKey": "SilverAnby_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_Special_Mark01_Title",
+      "DescKey": "SilverAnby_Skill_Special_Mark01_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_Special_Thunder_Title",
+      "DescKey": "SilverAnby_Skill_Special_Thunder_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_Special_ThunderExecute_Title",
+      "DescKey": "SilverAnby_Skill_Special_Mark01_Upgrade_01_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_ExSpecial_Title",
+      "DescKey": "SilverAnby_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_Evade_Title",
+      "DescKey": "SilverAnby_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_Rush_Title",
+      "DescKey": "SilverAnby_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_Counter_Title",
+      "DescKey": "SilverAnby_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_Counter_Title",
+      "DescKey": "SilverAnby_Skill_Counter_Upgrade_01_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_QTE_Title",
+      "DescKey": "SilverAnby_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_ExQTE_Title",
+      "DescKey": "SilverAnby_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_BeHitAid_Title",
+      "DescKey": "SilverAnby_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_ParryAid_Title",
+      "DescKey": "SilverAnby_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_Skill_AssaultAid_Title",
+      "DescKey": "SilverAnby_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_Upgrade_01_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_Upgrade_02_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_Upgrade_03_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_Upgrade_04_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_Upgrade_05_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_Upgrade_06_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Upgrade_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_UniqueSkill_Title",
+      "DescKey": "SilverAnby_UniqueSkill_Upgrade_07_Desc"
+    },
+    {
+      "NameKey": "SilverAnby_MathSkill_Title",
+      "DescKey": "SilverAnby_MathSkill_Upgrade_Desc"
+    }
+  ],
+  "1391": [
+    {
+      "NameKey": "Jufufu_Skill_Normal_Title",
+      "DescKey": "Jufufu_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_Normal_Pot_Title",
+      "DescKey": "Jufufu_Skill_Normal_Pot_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_Special_Title",
+      "DescKey": "Jufufu_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_ExSpecial_Title",
+      "DescKey": "Jufufu_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_Evade_Title",
+      "DescKey": "Jufufu_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_Rush_Title",
+      "DescKey": "Jufufu_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_Rush_Spin_Title",
+      "DescKey": "Jufufu_Skill_Rush_Spin_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_Counter_Title",
+      "DescKey": "Jufufu_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_QTE_Title",
+      "DescKey": "Jufufu_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_QTE_02_Title",
+      "DescKey": "Jufufu_Skill_QTE_02_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_ExQTE_Title",
+      "DescKey": "Jufufu_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_BeHitAid_Title",
+      "DescKey": "Jufufu_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_ParryAid_Title",
+      "DescKey": "Jufufu_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Jufufu_Skill_AssaultAid_Title",
+      "DescKey": "Jufufu_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Jufufu_UniqueSkill_Title",
+      "DescKey": "Jufufu_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Jufufu_MathSkill_Title",
+      "DescKey": "Jufufu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Jufufu_UniqueSkill_Title",
+      "DescKey": "Jufufu_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Jufufu_MathSkill_Title",
+      "DescKey": "Jufufu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Jufufu_UniqueSkill_Title",
+      "DescKey": "Jufufu_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Jufufu_MathSkill_Title",
+      "DescKey": "Jufufu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Jufufu_UniqueSkill_Title",
+      "DescKey": "Jufufu_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Jufufu_MathSkill_Title",
+      "DescKey": "Jufufu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Jufufu_UniqueSkill_Title",
+      "DescKey": "Jufufu_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Jufufu_MathSkill_Title",
+      "DescKey": "Jufufu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Jufufu_UniqueSkill_Title",
+      "DescKey": "Jufufu_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Jufufu_MathSkill_Title",
+      "DescKey": "Jufufu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Jufufu_UniqueSkill_Title",
+      "DescKey": "Jufufu_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Jufufu_MathSkill_Title",
+      "DescKey": "Jufufu_MathSkill_Desc"
+    }
+  ],
+  "1401": [
+    {
+      "NameKey": "Alice_Skill_Normal_Title",
+      "DescKey": "Alice_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_Normal_Branch_Title",
+      "DescKey": "Alice_Skill_Normal_Branch_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_Special_Title",
+      "DescKey": "Alice_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_ExSpecial_Title",
+      "DescKey": "Alice_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_Special_02_Title",
+      "DescKey": "Alice_Skill_Special_02_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_Evade_Title",
+      "DescKey": "Alice_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_Rush_Title",
+      "DescKey": "Alice_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_Counter_Title",
+      "DescKey": "Alice_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_QTE_Title",
+      "DescKey": "Alice_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_ExQTE_Title",
+      "DescKey": "Alice_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_BeHitAid_Title",
+      "DescKey": "Alice_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_ParryAid_Title",
+      "DescKey": "Alice_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Alice_Skill_AssaultAid_Title",
+      "DescKey": "Alice_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Alice_UniqueSkill_Title",
+      "DescKey": "Alice_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Alice_MathSkill_Title",
+      "DescKey": "Alice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Alice_UniqueSkill_Title",
+      "DescKey": "Alice_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Alice_MathSkill_Title",
+      "DescKey": "Alice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Alice_UniqueSkill_Title",
+      "DescKey": "Alice_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Alice_MathSkill_Title",
+      "DescKey": "Alice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Alice_UniqueSkill_Title",
+      "DescKey": "Alice_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Alice_MathSkill_Title",
+      "DescKey": "Alice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Alice_UniqueSkill_Title",
+      "DescKey": "Alice_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Alice_MathSkill_Title",
+      "DescKey": "Alice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Alice_UniqueSkill_Title",
+      "DescKey": "Alice_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Alice_MathSkill_Title",
+      "DescKey": "Alice_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Alice_UniqueSkill_Title",
+      "DescKey": "Alice_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Alice_MathSkill_Title",
+      "DescKey": "Alice_MathSkill_Desc"
+    }
+  ],
+  "1411": [
+    {
+      "NameKey": "Yuzuha_Skill_Normal_Title",
+      "DescKey": "Yuzuha_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_Normal_Branch_Title",
+      "DescKey": "Yuzuha_Skill_Normal_Branch_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_Normal_Chain_Title",
+      "DescKey": "Yuzuha_Skill_Normal_Chain_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_Normal_Sugar_Title",
+      "DescKey": "Yuzuha_Skill_Normal_Sugar_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_Normal_SuperSugar_Title",
+      "DescKey": "Yuzuha_Skill_Normal_SuperSugar_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_Normal_Kuriaki_Title",
+      "DescKey": "Yuzuha_Skill_Normal_Kuriaki_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_Special_Title",
+      "DescKey": "Yuzuha_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_ExSpecial_Title",
+      "DescKey": "Yuzuha_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_ExSpecial_02_Title",
+      "DescKey": "Yuzuha_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_Scar_Title",
+      "DescKey": "Yuzuha_Skill_Scar_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_Evade_Title",
+      "DescKey": "Yuzuha_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_Rush_Title",
+      "DescKey": "Yuzuha_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_Counter_Title",
+      "DescKey": "Yuzuha_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_QTE_Title",
+      "DescKey": "Yuzuha_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_ExQTE_Title",
+      "DescKey": "Yuzuha_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_BeHitAid_Title",
+      "DescKey": "Yuzuha_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_ParryAid_Title",
+      "DescKey": "Yuzuha_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_AssaultAid_Title",
+      "DescKey": "Yuzuha_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_Skill_AssaultAid_Branch_Title",
+      "DescKey": "Yuzuha_Skill_AssaultAid_Branch_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_UniqueSkill_Title",
+      "DescKey": "Yuzuha_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_MathSkill_Title",
+      "DescKey": "Yuzuha_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_UniqueSkill_Title",
+      "DescKey": "Yuzuha_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_MathSkill_Title",
+      "DescKey": "Yuzuha_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_UniqueSkill_Title",
+      "DescKey": "Yuzuha_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_MathSkill_Title",
+      "DescKey": "Yuzuha_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_UniqueSkill_Title",
+      "DescKey": "Yuzuha_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_MathSkill_Title",
+      "DescKey": "Yuzuha_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_UniqueSkill_Title",
+      "DescKey": "Yuzuha_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_MathSkill_Title",
+      "DescKey": "Yuzuha_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_UniqueSkill_Title",
+      "DescKey": "Yuzuha_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_MathSkill_Title",
+      "DescKey": "Yuzuha_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_UniqueSkill_Title",
+      "DescKey": "Yuzuha_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Yuzuha_MathSkill_Title",
+      "DescKey": "Yuzuha_MathSkill_Desc"
+    }
+  ],
+  "1421": [
+    {
+      "NameKey": "PanYinhu_Skill_Normal_Title",
+      "DescKey": "PanYinhu_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_Skill_Special_Title",
+      "DescKey": "PanYinhu_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_Skill_Special_02_Title",
+      "DescKey": "PanYinhu_Skill_Special_02_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_Skill_ExSpecial_Title",
+      "DescKey": "PanYinhu_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_Skill_Evade_Title",
+      "DescKey": "PanYinhu_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_Skill_Rush_Title",
+      "DescKey": "PanYinhu_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_Skill_Counter_Title",
+      "DescKey": "PanYinhu_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_Skill_QTE_Title",
+      "DescKey": "PanYinhu_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_Skill_ExQTE_Title",
+      "DescKey": "PanYinhu_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_Skill_BeHitAid_Title",
+      "DescKey": "PanYinhu_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_Skill_ParryAid_Title",
+      "DescKey": "PanYinhu_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_Skill_AssaultAid_Title",
+      "DescKey": "PanYinhu_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_UniqueSkill_Title",
+      "DescKey": "PanYinhu_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_MathSkill_Title",
+      "DescKey": "PanYinhu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_UniqueSkill_Title",
+      "DescKey": "PanYinhu_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_MathSkill_Title",
+      "DescKey": "PanYinhu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_UniqueSkill_Title",
+      "DescKey": "PanYinhu_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_MathSkill_Title",
+      "DescKey": "PanYinhu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_UniqueSkill_Title",
+      "DescKey": "PanYinhu_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_MathSkill_Title",
+      "DescKey": "PanYinhu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_UniqueSkill_Title",
+      "DescKey": "PanYinhu_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_MathSkill_Title",
+      "DescKey": "PanYinhu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_UniqueSkill_Title",
+      "DescKey": "PanYinhu_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_MathSkill_Title",
+      "DescKey": "PanYinhu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_UniqueSkill_Title",
+      "DescKey": "PanYinhu_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "PanYinhu_MathSkill_Title",
+      "DescKey": "PanYinhu_MathSkill_Desc"
+    }
+  ],
+  "1431": [
+    {
+      "NameKey": "Zhenzhen_Skill_Normal_P1_Title",
+      "DescKey": "Zhenzhen_Skill_Normal_P1_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Normal_P1_04_Title",
+      "DescKey": "Zhenzhen_Skill_Normal_P1_04_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Normal_P2_Ground_Title",
+      "DescKey": "Zhenzhen_Skill_Normal_P2_Ground_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Normal_P2_Ground_04_Title",
+      "DescKey": "Zhenzhen_Skill_Normal_P2_Ground_04_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Normal_P2_Ground_03_02_Title",
+      "DescKey": "Zhenzhen_Skill_Normal_P2_Ground_03_02_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Normal_P2_InAir_Title",
+      "DescKey": "Zhenzhen_Skill_Normal_P2_InAir_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Normal_P2_InAir_03_Title",
+      "DescKey": "Zhenzhen_Skill_Normal_P2_InAir_03_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Normal_P2_ExtraExSP01_Title",
+      "DescKey": "Zhenzhen_Skill_Normal_P2_ExtraExSP01_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Special_P1_Title",
+      "DescKey": "Zhenzhen_Skill_Special_P1_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_ExSpecial_P1_Title",
+      "DescKey": "Zhenzhen_Skill_ExSpecial_P1_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Special_P2_Title",
+      "DescKey": "Zhenzhen_Skill_Special_P2_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_ExSpecial_P2_01_Title",
+      "DescKey": "Zhenzhen_Skill_ExSpecial_P2_01_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_ExSpecial_P2_02_Title",
+      "DescKey": "Zhenzhen_Skill_ExSpecial_P2_02_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Evade_Title",
+      "DescKey": "Zhenzhen_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Dash_Title",
+      "DescKey": "Zhenzhen_Skill_Dash_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Rush_P1_Title",
+      "DescKey": "Zhenzhen_Skill_Rush_P1_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_Counter_Title",
+      "DescKey": "Zhenzhen_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_QTE_P1_Title",
+      "DescKey": "Zhenzhen_Skill_QTE_P1_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_ExQTE_P1_Title",
+      "DescKey": "Zhenzhen_Skill_ExQTE_P1_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_QTE_P2_Title",
+      "DescKey": "Zhenzhen_Skill_QTE_P2_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_ExQTE_P2_Title",
+      "DescKey": "Zhenzhen_Skill_ExQTE_P2_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_SwitchPhase_Title",
+      "DescKey": "Zhenzhen_Skill_SwitchPhase_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_BeHitAid_Title",
+      "DescKey": "Zhenzhen_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_AssaultAid_P1_Title",
+      "DescKey": "Zhenzhen_Skill_AssaultAid_P1_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_ParryAid_Title",
+      "DescKey": "Zhenzhen_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_BeHitAid_P2_Title",
+      "DescKey": "Zhenzhen_Skill_BeHitAid_P2_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_Skill_AssaultAid_P2_Title",
+      "DescKey": "Zhenzhen_Skill_AssaultAid_P2_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_UniqueSkill_Title",
+      "DescKey": "Zhenzhen_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_MathSkill_Title",
+      "DescKey": "Zhenzhen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_UniqueSkill_Title",
+      "DescKey": "Zhenzhen_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_MathSkill_Title",
+      "DescKey": "Zhenzhen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_UniqueSkill_Title",
+      "DescKey": "Zhenzhen_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_MathSkill_Title",
+      "DescKey": "Zhenzhen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_UniqueSkill_Title",
+      "DescKey": "Zhenzhen_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_MathSkill_Title",
+      "DescKey": "Zhenzhen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_UniqueSkill_Title",
+      "DescKey": "Zhenzhen_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_MathSkill_Title",
+      "DescKey": "Zhenzhen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_UniqueSkill_Title",
+      "DescKey": "Zhenzhen_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_MathSkill_Title",
+      "DescKey": "Zhenzhen_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_UniqueSkill_Title",
+      "DescKey": "Zhenzhen_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Zhenzhen_MathSkill_Title",
+      "DescKey": "Zhenzhen_MathSkill_Desc"
+    }
+  ],
+  "1441": [
+    {
+      "NameKey": "Norano_Skill_Normal_Title",
+      "DescKey": "Norano_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_Normal_Enhance_Title",
+      "DescKey": "Norano_Skill_Normal_Enhance_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_Special_Title",
+      "DescKey": "Norano_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_Special_02_Title",
+      "DescKey": "Norano_Skill_Special_02_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_ExSpecial_Title",
+      "DescKey": "Norano_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_Evade_Title",
+      "DescKey": "Norano_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_Rush_Title",
+      "DescKey": "Norano_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_Counter_Title",
+      "DescKey": "Norano_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_QTE_Title",
+      "DescKey": "Norano_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_ExQTE_Title",
+      "DescKey": "Norano_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_BeHitAid_Title",
+      "DescKey": "Norano_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_ParryAid_Title",
+      "DescKey": "Norano_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Norano_Skill_AssaultAid_Title",
+      "DescKey": "Norano_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Norano_UniqueSkill_Title",
+      "DescKey": "Norano_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Norano_MathSkill_Title",
+      "DescKey": "Norano_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norano_UniqueSkill_Title",
+      "DescKey": "Norano_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Norano_MathSkill_Title",
+      "DescKey": "Norano_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norano_UniqueSkill_Title",
+      "DescKey": "Norano_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Norano_MathSkill_Title",
+      "DescKey": "Norano_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norano_UniqueSkill_Title",
+      "DescKey": "Norano_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Norano_MathSkill_Title",
+      "DescKey": "Norano_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norano_UniqueSkill_Title",
+      "DescKey": "Norano_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Norano_MathSkill_Title",
+      "DescKey": "Norano_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norano_UniqueSkill_Title",
+      "DescKey": "Norano_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Norano_MathSkill_Title",
+      "DescKey": "Norano_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norano_UniqueSkill_Title",
+      "DescKey": "Norano_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Norano_MathSkill_Title",
+      "DescKey": "Norano_MathSkill_Desc"
+    }
+  ],
+  "1451": [
+    {
+      "NameKey": "Lucia_Skill_Normal_Title",
+      "DescKey": "Lucia_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Lucia_Skill_Special_Title",
+      "DescKey": "Lucia_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Lucia_Skill_ExSpecial_Title",
+      "DescKey": "Lucia_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Lucia_Skill_Evade_Title",
+      "DescKey": "Lucia_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Lucia_Skill_Rush_Title",
+      "DescKey": "Lucia_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Lucia_Skill_Counter_Title",
+      "DescKey": "Lucia_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Lucia_Skill_QTE_Title",
+      "DescKey": "Lucia_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Lucia_Skill_ExQTE_Title",
+      "DescKey": "Lucia_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Lucia_Skill_BeHitAid_Title",
+      "DescKey": "Lucia_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Lucia_Skill_ParryAid_Title",
+      "DescKey": "Lucia_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Lucia_Skill_AssaultAid_Title",
+      "DescKey": "Lucia_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Lucia_UniqueSkill_Title",
+      "DescKey": "Lucia_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Lucia_MathSkill_Title",
+      "DescKey": "Lucia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucia_UniqueSkill_Title",
+      "DescKey": "Lucia_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Lucia_MathSkill_Title",
+      "DescKey": "Lucia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucia_UniqueSkill_Title",
+      "DescKey": "Lucia_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Lucia_MathSkill_Title",
+      "DescKey": "Lucia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucia_UniqueSkill_Title",
+      "DescKey": "Lucia_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Lucia_MathSkill_Title",
+      "DescKey": "Lucia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucia_UniqueSkill_Title",
+      "DescKey": "Lucia_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Lucia_MathSkill_Title",
+      "DescKey": "Lucia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucia_UniqueSkill_Title",
+      "DescKey": "Lucia_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Lucia_MathSkill_Title",
+      "DescKey": "Lucia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Lucia_UniqueSkill_Title",
+      "DescKey": "Lucia_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Lucia_MathSkill_Title",
+      "DescKey": "Lucia_MathSkill_Desc"
+    }
+  ],
+  "1461": [
+    {
+      "NameKey": "Seed_Skill_Normal_Title",
+      "DescKey": "Seed_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_Normal_Robot_01_Title",
+      "DescKey": "Seed_Skill_Normal_Robot_01_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_Normal_Robot_04_Title",
+      "DescKey": "Seed_Skill_Normal_Robot_02_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_Special_Title",
+      "DescKey": "Seed_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_ExSpecial_Title",
+      "DescKey": "Seed_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_ExSpecial_Final_Title",
+      "DescKey": "Seed_Skill_ExSpecial_Final_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_Evade_Title",
+      "DescKey": "Seed_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_Rush_Title",
+      "DescKey": "Seed_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_Counter_Title",
+      "DescKey": "Seed_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_QTE_Title",
+      "DescKey": "Seed_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_ExQTE_Title",
+      "DescKey": "Seed_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_BeHitAid_Title",
+      "DescKey": "Seed_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_ParryAid_Title",
+      "DescKey": "Seed_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Seed_Skill_AssaultAid_Title",
+      "DescKey": "Seed_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Seed_UniqueSkill_Title",
+      "DescKey": "Seed_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Seed_MathSkill_Title",
+      "DescKey": "Seed_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seed_UniqueSkill_Title",
+      "DescKey": "Seed_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Seed_MathSkill_Title",
+      "DescKey": "Seed_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seed_UniqueSkill_Title",
+      "DescKey": "Seed_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Seed_MathSkill_Title",
+      "DescKey": "Seed_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seed_UniqueSkill_Title",
+      "DescKey": "Seed_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Seed_MathSkill_Title",
+      "DescKey": "Seed_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seed_UniqueSkill_Title",
+      "DescKey": "Seed_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Seed_MathSkill_Title",
+      "DescKey": "Seed_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seed_UniqueSkill_Title",
+      "DescKey": "Seed_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Seed_MathSkill_Title",
+      "DescKey": "Seed_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Seed_UniqueSkill_Title",
+      "DescKey": "Seed_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Seed_MathSkill_Title",
+      "DescKey": "Seed_MathSkill_Desc"
+    }
+  ],
+  "1471": [
+    {
+      "NameKey": "BanYue_Skill_Normal_Light_Title",
+      "DescKey": "BanYue_Skill_Normal_Light_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_Normal_Heavy_Title",
+      "DescKey": "BanYue_Skill_Normal_Heavy_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_Normal_EnterAngry_Title",
+      "DescKey": "BanYue_Skill_Normal_EnterAngry_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_Normal_Charge_Title",
+      "DescKey": "BanYue_Skill_Normal_Charge_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_Normal_FinalAttack_Title",
+      "DescKey": "BanYue_Skill_Normal_FinalAttack_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_Normal_FinalAttack_Enhance_Title",
+      "DescKey": "BanYue_Skill_Normal_FinalAttack_Enhance_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_ExSpecial_Defense_Title",
+      "DescKey": "BanYue_Skill_ExSpecial_Defense_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_ExSpecial_02_Title",
+      "DescKey": "BanYue_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_ExSpecial_01_Title",
+      "DescKey": "BanYue_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_ExSpecial_04_Title",
+      "DescKey": "BanYue_Skill_ExSpecial_04_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_ExSpecial_03_Title",
+      "DescKey": "BanYue_Skill_ExSpecial_03_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_ExSpecial_01_Enhance_Title",
+      "DescKey": "BanYue_Skill_ExSpecial_01_Enhance_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_ExSpecial_03_Enhance_Title",
+      "DescKey": "BanYue_Skill_ExSpecial_03_Enhance_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_ExSpecial_Cancel_Title",
+      "DescKey": "BanYue_Skill_ExSpecial_Cancel_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_Evade_Title",
+      "DescKey": "BanYue_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_Evade_Taunt_Title",
+      "DescKey": "BanYue_Skill_Evade_Taunt_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_Rush_Title",
+      "DescKey": "BanYue_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_Counter_Title",
+      "DescKey": "BanYue_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_QTE_Title",
+      "DescKey": "BanYue_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_ExQTE_Title",
+      "DescKey": "BanYue_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_BeHitAid_Title",
+      "DescKey": "BanYue_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_ParryAid_Title",
+      "DescKey": "BanYue_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_AssaultAid_Title",
+      "DescKey": "BanYue_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "BanYue_Skill_AssaultAid_Light_Title",
+      "DescKey": "BanYue_Skill_AssaultAid_Light_Desc"
+    },
+    {
+      "NameKey": "BanYue_UniqueSkill_Title",
+      "DescKey": "BanYue_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "BanYue_MathSkill_Title",
+      "DescKey": "BanYue_MathSkill_Desc"
+    },
+    {
+      "NameKey": "BanYue_UniqueSkill_Title",
+      "DescKey": "BanYue_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "BanYue_MathSkill_Title",
+      "DescKey": "BanYue_MathSkill_Desc"
+    },
+    {
+      "NameKey": "BanYue_UniqueSkill_Title",
+      "DescKey": "BanYue_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "BanYue_MathSkill_Title",
+      "DescKey": "BanYue_MathSkill_Desc"
+    },
+    {
+      "NameKey": "BanYue_UniqueSkill_Title",
+      "DescKey": "BanYue_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "BanYue_MathSkill_Title",
+      "DescKey": "BanYue_MathSkill_Desc"
+    },
+    {
+      "NameKey": "BanYue_UniqueSkill_Title",
+      "DescKey": "BanYue_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "BanYue_MathSkill_Title",
+      "DescKey": "BanYue_MathSkill_Desc"
+    },
+    {
+      "NameKey": "BanYue_UniqueSkill_Title",
+      "DescKey": "BanYue_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "BanYue_MathSkill_Title",
+      "DescKey": "BanYue_MathSkill_Desc"
+    },
+    {
+      "NameKey": "BanYue_UniqueSkill_Title",
+      "DescKey": "BanYue_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "BanYue_MathSkill_Title",
+      "DescKey": "BanYue_MathSkill_Desc"
+    }
+  ],
+  "1481": [
+    {
+      "NameKey": "Azural_Skill_Normal_Title",
+      "DescKey": "Azural_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_Normal_Enhance_01_Title",
+      "DescKey": "Azural_Skill_Normal_Enhance_01_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_Normal_Enhance_02_Title",
+      "DescKey": "Azural_Skill_Normal_Enhance_02_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_Special_Title",
+      "DescKey": "Azural_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_ExSpecial_01_Title",
+      "DescKey": "Azural_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_ExSpecial_02_Title",
+      "DescKey": "Azural_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_ExSpecial_03_Title",
+      "DescKey": "Azural_Skill_ExSpecial_03_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_Evade_Title",
+      "DescKey": "Azural_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_Rush_Title",
+      "DescKey": "Azural_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_Counter_Title",
+      "DescKey": "Azural_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_QTE_Title",
+      "DescKey": "Azural_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_ExQTE_Title",
+      "DescKey": "Azural_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_BeHitAid_Title",
+      "DescKey": "Azural_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_ParryAid_Title",
+      "DescKey": "Azural_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Azural_Skill_AssaultAid_Title",
+      "DescKey": "Azural_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Azural_UniqueSkill_Title",
+      "DescKey": "Azural_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Azural_MathSkill_Title",
+      "DescKey": "Azural_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Azural_UniqueSkill_Title",
+      "DescKey": "Azural_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Azural_MathSkill_Title",
+      "DescKey": "Azural_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Azural_UniqueSkill_Title",
+      "DescKey": "Azural_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Azural_MathSkill_Title",
+      "DescKey": "Azural_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Azural_UniqueSkill_Title",
+      "DescKey": "Azural_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Azural_MathSkill_Title",
+      "DescKey": "Azural_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Azural_UniqueSkill_Title",
+      "DescKey": "Azural_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Azural_MathSkill_Title",
+      "DescKey": "Azural_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Azural_UniqueSkill_Title",
+      "DescKey": "Azural_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Azural_MathSkill_Title",
+      "DescKey": "Azural_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Azural_UniqueSkill_Title",
+      "DescKey": "Azural_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Azural_MathSkill_Title",
+      "DescKey": "Azural_MathSkill_Desc"
+    }
+  ],
+  "1491": [
+    {
+      "NameKey": "Summer_Skill_Normal_Title",
+      "DescKey": "Summer_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_Branch_Title",
+      "DescKey": "Summer_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_Special_Title",
+      "DescKey": "Summer_Skill_Special_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_ExSpecial_01_Title",
+      "DescKey": "Summer_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_ExSpecial_02_Title",
+      "DescKey": "Summer_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_Evade_Title",
+      "DescKey": "Summer_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_Rush_Title",
+      "DescKey": "Summer_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_Counter_Title",
+      "DescKey": "Summer_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_QTE_Title",
+      "DescKey": "Summer_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_ExQTE_Title",
+      "DescKey": "Summer_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_BeHitAid_Title",
+      "DescKey": "Summer_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_ParryAid_Title",
+      "DescKey": "Summer_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Summer_Skill_AssaultAid_Title",
+      "DescKey": "Summer_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Summer_UniqueSkill_Title",
+      "DescKey": "Summer_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Summer_MathSkill_Title",
+      "DescKey": "Summer_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Summer_UniqueSkill_Title",
+      "DescKey": "Summer_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Summer_MathSkill_Title",
+      "DescKey": "Summer_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Summer_UniqueSkill_Title",
+      "DescKey": "Summer_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Summer_MathSkill_Title",
+      "DescKey": "Summer_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Summer_UniqueSkill_Title",
+      "DescKey": "Summer_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Summer_MathSkill_Title",
+      "DescKey": "Summer_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Summer_UniqueSkill_Title",
+      "DescKey": "Summer_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Summer_MathSkill_Title",
+      "DescKey": "Summer_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Summer_UniqueSkill_Title",
+      "DescKey": "Summer_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Summer_MathSkill_Title",
+      "DescKey": "Summer_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Summer_UniqueSkill_Title",
+      "DescKey": "Summer_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Summer_MathSkill_Title",
+      "DescKey": "Summer_MathSkill_Desc"
+    }
+  ],
+  "1501": [
+    {
+      "NameKey": "Aria_Skill_Normal_Title",
+      "DescKey": "Aria_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_ChargeAttack_Title",
+      "DescKey": "Aria_Skill_ChargeAttack_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_Special_01_Title",
+      "DescKey": "Aria_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_Special_02_Title",
+      "DescKey": "Aria_Skill_Special_02_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_ExSpecial_01_Title",
+      "DescKey": "Aria_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_ExSpecial_02_Title",
+      "DescKey": "Aria_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_Evade_Title",
+      "DescKey": "Aria_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_Rush_Title",
+      "DescKey": "Aria_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_Counter_Title",
+      "DescKey": "Aria_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_QTE_Title",
+      "DescKey": "Aria_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_ExQTE_Title",
+      "DescKey": "Aria_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_BeHitAid_Title",
+      "DescKey": "Aria_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_ParryAid_Title",
+      "DescKey": "Aria_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Aria_Skill_AssaultAid_Title",
+      "DescKey": "Aria_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Aria_UniqueSkill_Title",
+      "DescKey": "Aria_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Aria_MathSkill_Title",
+      "DescKey": "Aria_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aria_UniqueSkill_Title",
+      "DescKey": "Aria_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Aria_MathSkill_Title",
+      "DescKey": "Aria_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aria_UniqueSkill_Title",
+      "DescKey": "Aria_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Aria_MathSkill_Title",
+      "DescKey": "Aria_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aria_UniqueSkill_Title",
+      "DescKey": "Aria_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Aria_MathSkill_Title",
+      "DescKey": "Aria_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aria_UniqueSkill_Title",
+      "DescKey": "Aria_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Aria_MathSkill_Title",
+      "DescKey": "Aria_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aria_UniqueSkill_Title",
+      "DescKey": "Aria_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Aria_MathSkill_Title",
+      "DescKey": "Aria_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Aria_UniqueSkill_Title",
+      "DescKey": "Aria_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Aria_MathSkill_Title",
+      "DescKey": "Aria_MathSkill_Desc"
+    }
+  ],
+  "1511": [
+    {
+      "NameKey": "NangongYu_Skill_Normal_Title",
+      "DescKey": "NangongYu_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "NangongYu_Skill_Branch_Title",
+      "DescKey": "NangongYu_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "NangongYu_Skill_Special_01_Title",
+      "DescKey": "NangongYu_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "NangongYu_Skill_ExSpecial_01_Title",
+      "DescKey": "NangongYu_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "NangongYu_Skill_Evade_Title",
+      "DescKey": "NangongYu_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "NangongYu_Skill_Rush_Title",
+      "DescKey": "NangongYu_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "NangongYu_Skill_Counter_Title",
+      "DescKey": "NangongYu_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "NangongYu_Skill_QTE_Title",
+      "DescKey": "NangongYu_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "NangongYu_Skill_ExQTE_Title",
+      "DescKey": "NangongYu_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "NangongYu_Skill_BeHitAid_Title",
+      "DescKey": "NangongYu_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "NangongYu_Skill_ParryAid_Title",
+      "DescKey": "NangongYu_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "NangongYu_Skill_AssaultAid_Title",
+      "DescKey": "NangongYu_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "NangongYu_UniqueSkill_Title",
+      "DescKey": "NangongYu_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "NangongYu_MathSkill_Title",
+      "DescKey": "NangongYu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "NangongYu_UniqueSkill_Title",
+      "DescKey": "NangongYu_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "NangongYu_MathSkill_Title",
+      "DescKey": "NangongYu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "NangongYu_UniqueSkill_Title",
+      "DescKey": "NangongYu_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "NangongYu_MathSkill_Title",
+      "DescKey": "NangongYu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "NangongYu_UniqueSkill_Title",
+      "DescKey": "NangongYu_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "NangongYu_MathSkill_Title",
+      "DescKey": "NangongYu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "NangongYu_UniqueSkill_Title",
+      "DescKey": "NangongYu_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "NangongYu_MathSkill_Title",
+      "DescKey": "NangongYu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "NangongYu_UniqueSkill_Title",
+      "DescKey": "NangongYu_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "NangongYu_MathSkill_Title",
+      "DescKey": "NangongYu_MathSkill_Desc"
+    },
+    {
+      "NameKey": "NangongYu_UniqueSkill_Title",
+      "DescKey": "NangongYu_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "NangongYu_MathSkill_Title",
+      "DescKey": "NangongYu_MathSkill_Desc"
+    }
+  ],
+  "1521": [
+    {
+      "NameKey": "Cissia_Skill_Normal_Title",
+      "DescKey": "Cissia_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_Branch_Title",
+      "DescKey": "Cissia_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_CurseBurst_Title",
+      "DescKey": "Cissia_Skill_CurseBurst_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_Special_01_Title",
+      "DescKey": "Cissia_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_ExSpecial_01_Title",
+      "DescKey": "Cissia_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_Evade_Title",
+      "DescKey": "Cissia_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_Rush_Title",
+      "DescKey": "Cissia_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_Counter_Title",
+      "DescKey": "Cissia_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_QTE_Title",
+      "DescKey": "Cissia_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_ExQTE_Title",
+      "DescKey": "Cissia_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_BeHitAid_Title",
+      "DescKey": "Cissia_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_ParryAid_Title",
+      "DescKey": "Cissia_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Cissia_Skill_AssaultAid_Title",
+      "DescKey": "Cissia_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Cissia_UniqueSkill_Title",
+      "DescKey": "Cissia_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Cissia_MathSkill_Title",
+      "DescKey": "Cissia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Cissia_UniqueSkill_Title",
+      "DescKey": "Cissia_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Cissia_MathSkill_Title",
+      "DescKey": "Cissia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Cissia_UniqueSkill_Title",
+      "DescKey": "Cissia_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Cissia_MathSkill_Title",
+      "DescKey": "Cissia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Cissia_UniqueSkill_Title",
+      "DescKey": "Cissia_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Cissia_MathSkill_Title",
+      "DescKey": "Cissia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Cissia_UniqueSkill_Title",
+      "DescKey": "Cissia_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Cissia_MathSkill_Title",
+      "DescKey": "Cissia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Cissia_UniqueSkill_Title",
+      "DescKey": "Cissia_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Cissia_MathSkill_Title",
+      "DescKey": "Cissia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Cissia_UniqueSkill_Title",
+      "DescKey": "Cissia_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Cissia_MathSkill_Title",
+      "DescKey": "Cissia_MathSkill_Desc"
+    }
+  ],
+  "1531": [
+    {
+      "NameKey": "SPBilly_Skill_Normal_Title",
+      "DescKey": "SPBilly_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_Branch_01_Title",
+      "DescKey": "SPBilly_Skill_Branch_01_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_Special_01_Title",
+      "DescKey": "SPBilly_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_Special_01_GetOff_Title",
+      "DescKey": "SPBilly_Skill_Special_01_GetOff_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_GPSuccess_Title",
+      "DescKey": "SPBilly_Skill_GPSuccess_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_ExSpecial_01_Title",
+      "DescKey": "SPBilly_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_ExSpecial_02_Title",
+      "DescKey": "SPBilly_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_Evade_01_Title",
+      "DescKey": "SPBilly_Skill_Evade_01_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_Evade_02_Title",
+      "DescKey": "SPBilly_Skill_Evade_02_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_Rush_Title",
+      "DescKey": "SPBilly_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_Counter_01_Title",
+      "DescKey": "SPBilly_Skill_Counter_01_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_Counter_02_Title",
+      "DescKey": "SPBilly_Skill_Counter_02_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_QTE_Title",
+      "DescKey": "SPBilly_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_ExQTE_Title",
+      "DescKey": "SPBilly_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_BeHitAid_01_Title",
+      "DescKey": "SPBilly_Skill_BeHitAid_01_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_ParryAid_Title",
+      "DescKey": "SPBilly_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "SPBilly_Skill_AssaultAid_Title",
+      "DescKey": "SPBilly_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "SPBilly_UniqueSkill_Title",
+      "DescKey": "SPBilly_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "SPBilly_MathSkill_Title",
+      "DescKey": "SPBilly_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SPBilly_UniqueSkill_Title",
+      "DescKey": "SPBilly_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "SPBilly_MathSkill_Title",
+      "DescKey": "SPBilly_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SPBilly_UniqueSkill_Title",
+      "DescKey": "SPBilly_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "SPBilly_MathSkill_Title",
+      "DescKey": "SPBilly_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SPBilly_UniqueSkill_Title",
+      "DescKey": "SPBilly_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "SPBilly_MathSkill_Title",
+      "DescKey": "SPBilly_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SPBilly_UniqueSkill_Title",
+      "DescKey": "SPBilly_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "SPBilly_MathSkill_Title",
+      "DescKey": "SPBilly_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SPBilly_UniqueSkill_Title",
+      "DescKey": "SPBilly_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "SPBilly_MathSkill_Title",
+      "DescKey": "SPBilly_MathSkill_Desc"
+    },
+    {
+      "NameKey": "SPBilly_UniqueSkill_Title",
+      "DescKey": "SPBilly_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "SPBilly_MathSkill_Title",
+      "DescKey": "SPBilly_MathSkill_Desc"
+    }
+  ],
+  "1541": [
+    {
+      "NameKey": "Promeia_Skill_Normal_Title",
+      "DescKey": "Promeia_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_Branch_Title",
+      "DescKey": "Promeia_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_Buff_Title",
+      "DescKey": "Promeia_Skill_Buff_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_Special_01_Title",
+      "DescKey": "Promeia_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_ExSpecial_01_Title",
+      "DescKey": "Promeia_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_ExSpecial_02_Title",
+      "DescKey": "Promeia_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_ExSpecial_03_Title",
+      "DescKey": "Promeia_Skill_ExSpecial_03_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_ExSpecial_04_Title",
+      "DescKey": "Promeia_Skill_ExSpecial_04_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_ExSpecial_06_Title",
+      "DescKey": "Promeia_Skill_ExSpecial_06_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_Evade_Title",
+      "DescKey": "Promeia_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_Rush_Title",
+      "DescKey": "Promeia_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_Counter_Title",
+      "DescKey": "Promeia_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_QTE_Title",
+      "DescKey": "Promeia_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_ExQTE_Title",
+      "DescKey": "Promeia_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_BeHitAid_Title",
+      "DescKey": "Promeia_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_ParryAid_Title",
+      "DescKey": "Promeia_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Promeia_Skill_AssaultAid_Title",
+      "DescKey": "Promeia_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Promeia_UniqueSkill_Title",
+      "DescKey": "Promeia_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Promeia_MathSkill_Title",
+      "DescKey": "Promeia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Promeia_UniqueSkill_Title",
+      "DescKey": "Promeia_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Promeia_MathSkill_Title",
+      "DescKey": "Promeia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Promeia_UniqueSkill_Title",
+      "DescKey": "Promeia_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Promeia_MathSkill_Title",
+      "DescKey": "Promeia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Promeia_UniqueSkill_Title",
+      "DescKey": "Promeia_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Promeia_MathSkill_Title",
+      "DescKey": "Promeia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Promeia_UniqueSkill_Title",
+      "DescKey": "Promeia_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Promeia_MathSkill_Title",
+      "DescKey": "Promeia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Promeia_UniqueSkill_Title",
+      "DescKey": "Promeia_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Promeia_MathSkill_Title",
+      "DescKey": "Promeia_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Promeia_UniqueSkill_Title",
+      "DescKey": "Promeia_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Promeia_MathSkill_Title",
+      "DescKey": "Promeia_MathSkill_Desc"
+    }
+  ],
+  "1551": [
+    {
+      "NameKey": "Pyrois_Skill_Normal_Title",
+      "DescKey": "Pyrois_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_Normal_Enhance_Title",
+      "DescKey": "Pyrois_Skill_Normal_Enhance_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_Special_01_Title",
+      "DescKey": "Pyrois_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_ExSpecial_01_Title",
+      "DescKey": "Pyrois_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_BelleShoot_Title",
+      "DescKey": "Pyrois_Skill_BelleShoot_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_Evade_Title",
+      "DescKey": "Pyrois_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_Rush_Title",
+      "DescKey": "Pyrois_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_Counter_Title",
+      "DescKey": "Pyrois_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_QTE_Title",
+      "DescKey": "Pyrois_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_ExQTE_01_Title",
+      "DescKey": "Pyrois_Skill_ExQTE_01_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_ExQTE_02_Title",
+      "DescKey": "Pyrois_Skill_ExQTE_02_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_ExQTE_03_Title",
+      "DescKey": "Pyrois_Skill_ExQTE_03_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_ExQTE_04_Title",
+      "DescKey": "Pyrois_Skill_ExQTE_04_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_BeHitAid_Title",
+      "DescKey": "Pyrois_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_ParryAid_Title",
+      "DescKey": "Pyrois_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Pyrois_Skill_AssaultAid_Title",
+      "DescKey": "Pyrois_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Pyrois_UniqueSkill_Title",
+      "DescKey": "Pyrois_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Pyrois_MathSkill_Title",
+      "DescKey": "Pyrois_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pyrois_UniqueSkill_Title",
+      "DescKey": "Pyrois_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Pyrois_MathSkill_Title",
+      "DescKey": "Pyrois_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pyrois_UniqueSkill_Title",
+      "DescKey": "Pyrois_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Pyrois_MathSkill_Title",
+      "DescKey": "Pyrois_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pyrois_UniqueSkill_Title",
+      "DescKey": "Pyrois_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Pyrois_MathSkill_Title",
+      "DescKey": "Pyrois_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pyrois_UniqueSkill_Title",
+      "DescKey": "Pyrois_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Pyrois_MathSkill_Title",
+      "DescKey": "Pyrois_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pyrois_UniqueSkill_Title",
+      "DescKey": "Pyrois_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Pyrois_MathSkill_Title",
+      "DescKey": "Pyrois_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Pyrois_UniqueSkill_Title",
+      "DescKey": "Pyrois_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Pyrois_MathSkill_Title",
+      "DescKey": "Pyrois_MathSkill_Desc"
+    }
+  ],
+  "1561": [
+    {
+      "NameKey": "Velina_Skill_Normal_Title",
+      "DescKey": "Velina_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_Special_01_Title",
+      "DescKey": "Velina_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_ExSpecial_01_Title",
+      "DescKey": "Velina_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_ExSpecial_02_Title",
+      "DescKey": "Velina_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_Branch_Title",
+      "DescKey": "Velina_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_Evade_Title",
+      "DescKey": "Velina_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_Rush_Title",
+      "DescKey": "Velina_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_Counter_Title",
+      "DescKey": "Velina_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_QTE_Title",
+      "DescKey": "Velina_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_ExQTE_Title",
+      "DescKey": "Velina_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_BeHitAid_Title",
+      "DescKey": "Velina_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_ParryAid_Title",
+      "DescKey": "Velina_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Velina_Skill_AssaultAid_Title",
+      "DescKey": "Velina_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Velina_UniqueSkill_Title",
+      "DescKey": "Velina_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Velina_MathSkill_Title",
+      "DescKey": "Velina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Velina_UniqueSkill_Title",
+      "DescKey": "Velina_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Velina_MathSkill_Title",
+      "DescKey": "Velina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Velina_UniqueSkill_Title",
+      "DescKey": "Velina_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Velina_MathSkill_Title",
+      "DescKey": "Velina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Velina_UniqueSkill_Title",
+      "DescKey": "Velina_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Velina_MathSkill_Title",
+      "DescKey": "Velina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Velina_UniqueSkill_Title",
+      "DescKey": "Velina_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Velina_MathSkill_Title",
+      "DescKey": "Velina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Velina_UniqueSkill_Title",
+      "DescKey": "Velina_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Velina_MathSkill_Title",
+      "DescKey": "Velina_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Velina_UniqueSkill_Title",
+      "DescKey": "Velina_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Velina_MathSkill_Title",
+      "DescKey": "Velina_MathSkill_Desc"
+    }
+  ],
+  "1571": [
+    {
+      "NameKey": "Norma_Skill_Normal_Title",
+      "DescKey": "Norma_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Norma_Skill_Branch_Title",
+      "DescKey": "Norma_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "Norma_Skill_Special_01_Title",
+      "DescKey": "Norma_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "Norma_Skill_ExSpecial_01_Title",
+      "DescKey": "Norma_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Norma_Weapon_Skill_01_Title",
+      "DescKey": "Norma_Weapon_Skill_01_Desc"
+    },
+    {
+      "NameKey": "Norma_Weapon_Skill_02_Title",
+      "DescKey": "Norma_Weapon_Skill_02_Desc"
+    },
+    {
+      "NameKey": "Norma_Skill_Evade_Title",
+      "DescKey": "Norma_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Norma_Skill_Rush_Title",
+      "DescKey": "Norma_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Norma_Skill_Counter_Title",
+      "DescKey": "Norma_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Norma_Skill_QTE_Title",
+      "DescKey": "Norma_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Norma_Skill_ExQTE_Title",
+      "DescKey": "Norma_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Norma_Skill_BeHitAid_Title",
+      "DescKey": "Norma_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Norma_Skill_ParryAid_Title",
+      "DescKey": "Norma_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Norma_Skill_AssaultAid_Title",
+      "DescKey": "Norma_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Norma_UniqueSkill_Title",
+      "DescKey": "Norma_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Norma_MathSkill_Title",
+      "DescKey": "Norma_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norma_UniqueSkill_Title",
+      "DescKey": "Norma_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Norma_MathSkill_Title",
+      "DescKey": "Norma_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norma_UniqueSkill_Title",
+      "DescKey": "Norma_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Norma_MathSkill_Title",
+      "DescKey": "Norma_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norma_UniqueSkill_Title",
+      "DescKey": "Norma_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Norma_MathSkill_Title",
+      "DescKey": "Norma_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norma_UniqueSkill_Title",
+      "DescKey": "Norma_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Norma_MathSkill_Title",
+      "DescKey": "Norma_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norma_UniqueSkill_Title",
+      "DescKey": "Norma_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Norma_MathSkill_Title",
+      "DescKey": "Norma_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Norma_UniqueSkill_Title",
+      "DescKey": "Norma_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Norma_MathSkill_Title",
+      "DescKey": "Norma_MathSkill_Desc"
+    }
+  ],
+  "1581": [
+    {
+      "NameKey": "Remielle_Skill_Normal_Title",
+      "DescKey": "Remielle_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_Normal_02_Title",
+      "DescKey": "Remielle_Skill_Normal_02_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_Normal_03_Title",
+      "DescKey": "Remielle_Skill_Normal_03_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_Normal_04_Title",
+      "DescKey": "Remielle_Skill_Normal_04_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_Special_01_Title",
+      "DescKey": "Remielle_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_ExSpecial_Title",
+      "DescKey": "Remielle_Skill_ExSpecial_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_Special_02_Title",
+      "DescKey": "Remielle_Skill_Special_02_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_Evade_Title",
+      "DescKey": "Remielle_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_Rush_Title",
+      "DescKey": "Remielle_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_Counter_Title",
+      "DescKey": "Remielle_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_QTE_Title",
+      "DescKey": "Remielle_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_ExQTE_02_Title",
+      "DescKey": "Remielle_Skill_ExQTE_02_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_BeHitAid_Title",
+      "DescKey": "Remielle_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_ParryAid_Title",
+      "DescKey": "Remielle_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_AssaultAid_Title",
+      "DescKey": "Remielle_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Remielle_Skill_FinishEx_Title",
+      "DescKey": "Remielle_Skill_FinishEx_Desc"
+    },
+    {
+      "NameKey": "Remielle_UniqueSkill_Title",
+      "DescKey": "Remielle_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Remielle_MathSkill_Title",
+      "DescKey": "Remielle_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Remielle_UniqueSkill_Title",
+      "DescKey": "Remielle_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Remielle_MathSkill_Title",
+      "DescKey": "Remielle_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Remielle_UniqueSkill_Title",
+      "DescKey": "Remielle_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Remielle_MathSkill_Title",
+      "DescKey": "Remielle_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Remielle_UniqueSkill_Title",
+      "DescKey": "Remielle_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Remielle_MathSkill_Title",
+      "DescKey": "Remielle_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Remielle_UniqueSkill_Title",
+      "DescKey": "Remielle_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Remielle_MathSkill_Title",
+      "DescKey": "Remielle_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Remielle_UniqueSkill_Title",
+      "DescKey": "Remielle_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Remielle_MathSkill_Title",
+      "DescKey": "Remielle_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Remielle_UniqueSkill_Title",
+      "DescKey": "Remielle_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Remielle_MathSkill_Title",
+      "DescKey": "Remielle_MathSkill_Desc"
+    }
+  ],
+  "1591": [
+    {
+      "NameKey": "Sigrid_Skill_Normal_Title",
+      "DescKey": "Sigrid_Skill_Normal_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_Branch_Title",
+      "DescKey": "Sigrid_Skill_Branch_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_Special_01_Title",
+      "DescKey": "Sigrid_Skill_Special_01_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_ExSpecial_01_Title",
+      "DescKey": "Sigrid_Skill_ExSpecial_01_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_ExSpecial_02_Title",
+      "DescKey": "Sigrid_Skill_ExSpecial_02_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_Evade_Title",
+      "DescKey": "Sigrid_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_Rush_Title",
+      "DescKey": "Sigrid_Skill_Rush_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_Counter_Title",
+      "DescKey": "Sigrid_Skill_Counter_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_QTE_Title",
+      "DescKey": "Sigrid_Skill_QTE_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_ExQTE_Title",
+      "DescKey": "Sigrid_Skill_ExQTE_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_BeHitAid_Title",
+      "DescKey": "Sigrid_Skill_BeHitAid_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_ParryAid_Title",
+      "DescKey": "Sigrid_Skill_ParryAid_Desc"
+    },
+    {
+      "NameKey": "Sigrid_Skill_AssaultAid_Title",
+      "DescKey": "Sigrid_Skill_AssaultAid_Desc"
+    },
+    {
+      "NameKey": "Sigrid_UniqueSkill_Title",
+      "DescKey": "Sigrid_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Sigrid_MathSkill_Title",
+      "DescKey": "Sigrid_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Sigrid_UniqueSkill_Title",
+      "DescKey": "Sigrid_UniqueSkill_02_Desc"
+    },
+    {
+      "NameKey": "Sigrid_MathSkill_Title",
+      "DescKey": "Sigrid_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Sigrid_UniqueSkill_Title",
+      "DescKey": "Sigrid_UniqueSkill_03_Desc"
+    },
+    {
+      "NameKey": "Sigrid_MathSkill_Title",
+      "DescKey": "Sigrid_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Sigrid_UniqueSkill_Title",
+      "DescKey": "Sigrid_UniqueSkill_04_Desc"
+    },
+    {
+      "NameKey": "Sigrid_MathSkill_Title",
+      "DescKey": "Sigrid_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Sigrid_UniqueSkill_Title",
+      "DescKey": "Sigrid_UniqueSkill_05_Desc"
+    },
+    {
+      "NameKey": "Sigrid_MathSkill_Title",
+      "DescKey": "Sigrid_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Sigrid_UniqueSkill_Title",
+      "DescKey": "Sigrid_UniqueSkill_06_Desc"
+    },
+    {
+      "NameKey": "Sigrid_MathSkill_Title",
+      "DescKey": "Sigrid_MathSkill_Desc"
+    },
+    {
+      "NameKey": "Sigrid_UniqueSkill_Title",
+      "DescKey": "Sigrid_UniqueSkill_07_Desc"
+    },
+    {
+      "NameKey": "Sigrid_MathSkill_Title",
+      "DescKey": "Sigrid_MathSkill_Desc"
+    }
+  ]
+}
