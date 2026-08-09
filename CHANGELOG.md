@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.0] - 2026-08-09
+
+### Added
+- Added `UID` field to `WEngine` and `DriveDisc` structs to allow tracking specific instances of equipment across agents.
+
 ## [0.1.0] - 2026-08-08
 
 ### Added
