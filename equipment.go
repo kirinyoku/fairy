@@ -3,6 +3,7 @@ package fairy
 // WEngine represents an enriched W-Engine equipped by an agent.
 type WEngine struct {
 	ID                 int       `json:"id"`                  // The internal ID of the W-Engine.
+	UID                string    `json:"uid"`                 // The unique instance ID of this specific W-Engine.
 	Name               string    `json:"name"`                // The localized name of the W-Engine.
 	Level              int       `json:"level"`               // The current level of the W-Engine (1-60).
 	Phase              int       `json:"phase"`               // The star level from the API (ascension phase).
@@ -26,6 +27,7 @@ type Set struct {
 // DriveDisc represents an enriched Drive Disc (artifact/equipment).
 type DriveDisc struct {
 	ID       int         `json:"id"`        // The internal ID of the specific disc variation.
+	UID      string      `json:"uid"`       // The unique instance ID of this specific Drive Disc.
 	Set      Set         `json:"set"`       // The equipment set this disc belongs to.
 	Slot     int         `json:"slot"`      // The equip slot number (1 to 6). Slots 1-3 have fixed main stats, while 4-6 are randomized.
 	Level    int         `json:"level"`     // The upgrade level of the disc (0-15).

@@ -243,6 +243,7 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 func (m *profileMapper) mapWEngine(raw *zzz.Weapon) *WEngine {
 	w := &WEngine{
 		ID:           raw.ID,
+		UID:          strconv.Itoa(raw.UID),
 		Level:        raw.Level,
 		Phase:        raw.BreakLevel,
 		Modification: raw.UpgradeLevel,
@@ -279,6 +280,7 @@ func (m *profileMapper) mapWEngine(raw *zzz.Weapon) *WEngine {
 func (m *profileMapper) mapDriveDisc(raw *zzz.Equipment, slot int) *DriveDisc {
 	d := &DriveDisc{
 		ID:    raw.ID,
+		UID:   strconv.Itoa(raw.UID),
 		Slot:  slot,
 		Level: raw.Level,
 	}
