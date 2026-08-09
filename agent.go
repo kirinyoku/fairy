@@ -1,30 +1,46 @@
 package fairy
 
-// Attribute represents the elemental damage type of an agent.
+// Attribute represents the elemental attribute of an agent.
 type Attribute string
 
 const (
-	AttributePhysical  Attribute = "Physical"
+	// AttributePhysical represents the agent's Physical attribute.
+	AttributePhysical Attribute = "Physical"
+	// AttributeHonedEdge represents the agent's Honed Edge attribute.
 	AttributeHonedEdge Attribute = "HonedEdge"
-	AttributeFire      Attribute = "Fire"
-	AttributeIce       Attribute = "Ice"
-	AttributeFrost     Attribute = "Frost"
-	AttributeElectric  Attribute = "Electric"
-	AttributeEther     Attribute = "Ether"
-	AttributeAuricInk  Attribute = "AuricInk"
-	AttributeWind      Attribute = "Wind"
-	AttributeLumiflux  Attribute = "Lumiflux"
+	// AttributeFire represents the agent's Fire attribute.
+	AttributeFire Attribute = "Fire"
+	// AttributeIce represents the agent's Ice attribute.
+	AttributeIce Attribute = "Ice"
+	// AttributeFrost represents the agent's Frost attribute.
+	AttributeFrost Attribute = "Frost"
+	// AttributeElectric represents the agent's Electric attribute.
+	AttributeElectric Attribute = "Electric"
+	// AttributeEther represents the agent's Ether attribute.
+	AttributeEther Attribute = "Ether"
+	// AttributeAuricInk represents the agent's Auric Ink attribute.
+	AttributeAuricInk Attribute = "AuricInk"
+	// AttributeWind represents the agent's Wind attribute.
+	AttributeWind Attribute = "Wind"
+	// AttributeLumiflux represents the agent's Lumiflux attribute.
+	AttributeLumiflux Attribute = "Lumiflux"
 )
 
 // Specialty represents the combat role or class of an agent.
 type Specialty string
 
 const (
-	SpecialtyAttack  Specialty = "Attack"
-	SpecialtyStun    Specialty = "Stun"
+	// SpecialtyAttack represents the Attack combat role.
+	SpecialtyAttack Specialty = "Attack"
+	// SpecialtyStun represents the Stun combat role.
+	SpecialtyStun Specialty = "Stun"
+	// SpecialtyAnomaly represents the Anomaly combat role.
 	SpecialtyAnomaly Specialty = "Anomaly"
+	// SpecialtySupport represents the Support combat role.
 	SpecialtySupport Specialty = "Support"
+	// SpecialtyDefense represents the Defense combat role.
 	SpecialtyDefense Specialty = "Defense"
+	// SpecialtyRupture represents the Rupture combat role.
 	SpecialtyRupture Specialty = "Rupture"
 )
 
@@ -32,8 +48,11 @@ const (
 type Rarity string
 
 const (
+	// RarityS represents the S-rank tier.
 	RarityS Rarity = "S"
+	// RarityA represents the A-rank tier.
 	RarityA Rarity = "A"
+	// RarityB represents the B-rank tier.
 	RarityB Rarity = "B"
 )
 

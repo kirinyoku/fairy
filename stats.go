@@ -10,51 +10,73 @@ import "fmt"
 type PropertyID int
 
 const (
-	// Health properties
-	PropBaseHP         PropertyID = 11101
-	PropHPPercent      PropertyID = 11102
-	PropHPFlat         PropertyID = 11103
+	// PropBaseHP represents the base Health Points stat.
+	PropBaseHP PropertyID = 11101
+	// PropHPPercent represents a percentage increase to Health Points.
+	PropHPPercent PropertyID = 11102
+	// PropHPFlat represents a flat increase to Health Points.
+	PropHPFlat PropertyID = 11103
+	// PropHPPercentBonus represents an additional percentage bonus to Health Points.
 	PropHPPercentBonus PropertyID = 11104
-	PropHPFlatBonus    PropertyID = 11105
+	// PropHPFlatBonus represents an additional flat bonus to Health Points.
+	PropHPFlatBonus PropertyID = 11105
 
-	// Attack properties
-	PropBaseATK    PropertyID = 12101
+	// PropBaseATK represents the base Attack stat.
+	PropBaseATK PropertyID = 12101
+	// PropATKPercent represents a percentage increase to Attack.
 	PropATKPercent PropertyID = 12102
-	PropATKFlat    PropertyID = 12103
+	// PropATKFlat represents a flat increase to Attack.
+	PropATKFlat PropertyID = 12103
 
-	// Defense properties
-	PropBaseDEF    PropertyID = 13101
+	// PropBaseDEF represents the base Defense stat.
+	PropBaseDEF PropertyID = 13101
+	// PropDEFPercent represents a percentage increase to Defense.
 	PropDEFPercent PropertyID = 13102
-	PropDEFFlat    PropertyID = 13103
+	// PropDEFFlat represents a flat increase to Defense.
+	PropDEFFlat PropertyID = 13103
 
-	// Impact properties
-	PropBaseImpact    PropertyID = 12201
+	// PropBaseImpact represents the base Impact stat.
+	PropBaseImpact PropertyID = 12201
+	// PropImpactPercent represents a percentage increase to Impact.
 	PropImpactPercent PropertyID = 12202
-	PropImpactFlat    PropertyID = 12203
+	// PropImpactFlat represents a flat increase to Impact.
+	PropImpactFlat PropertyID = 12203
 
-	// Critical properties
+	// PropBaseCritRate represents the base Critical Rate stat.
 	PropBaseCritRate PropertyID = 20101
-	PropCritRate     PropertyID = 20103
-	PropBaseCritDMG  PropertyID = 21101
-	PropCritDMG      PropertyID = 21103
+	// PropCritRate represents an increase to Critical Rate.
+	PropCritRate PropertyID = 20103
+	// PropBaseCritDMG represents the base Critical Damage stat.
+	PropBaseCritDMG PropertyID = 21101
+	// PropCritDMG represents an increase to Critical Damage.
+	PropCritDMG PropertyID = 21103
 
-	// Penetration properties
+	// PropBasePENRatio represents the base Penetration Ratio stat.
 	PropBasePENRatio PropertyID = 23101
-	PropPENRatio     PropertyID = 23103
-	PropBasePENFlat  PropertyID = 23201
-	PropPENFlat      PropertyID = 23203
+	// PropPENRatio represents an increase to Penetration Ratio.
+	PropPENRatio PropertyID = 23103
+	// PropBasePENFlat represents the base flat Penetration stat.
+	PropBasePENFlat PropertyID = 23201
+	// PropPENFlat represents an increase to flat Penetration.
+	PropPENFlat PropertyID = 23203
 
-	// Energy properties
-	PropBaseEnergyRegen    PropertyID = 30501
+	// PropBaseEnergyRegen represents the base Energy Regeneration stat.
+	PropBaseEnergyRegen PropertyID = 30501
+	// PropEnergyRegenPercent represents a percentage increase to Energy Regeneration.
 	PropEnergyRegenPercent PropertyID = 30502
-	PropEnergyRegen        PropertyID = 30503
+	// PropEnergyRegen represents an increase to Energy Regeneration.
+	PropEnergyRegen PropertyID = 30503
 
-	// Anomaly properties
-	PropBaseAnomalyMastery        PropertyID = 31201
-	PropAnomalyMastery            PropertyID = 31203
-	PropBaseAnomalyProficiency    PropertyID = 31401
+	// PropBaseAnomalyMastery represents the base Anomaly Mastery stat.
+	PropBaseAnomalyMastery PropertyID = 31201
+	// PropAnomalyMastery represents an increase to Anomaly Mastery.
+	PropAnomalyMastery PropertyID = 31203
+	// PropBaseAnomalyProficiency represents the base Anomaly Proficiency stat.
+	PropBaseAnomalyProficiency PropertyID = 31401
+	// PropAnomalyProficiencyPercent represents a percentage increase to Anomaly Proficiency.
 	PropAnomalyProficiencyPercent PropertyID = 31402
-	PropAnomalyProficiency        PropertyID = 31403
+	// PropAnomalyProficiency represents an increase to Anomaly Proficiency.
+	PropAnomalyProficiency PropertyID = 31403
 )
 
 // StatValue represents a single combat stat (main or sub stat).

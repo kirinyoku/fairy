@@ -49,9 +49,9 @@ type Client struct {
 }
 
 // NewClient creates a new instance of Client.
-// If opts.Store is nil, it will automatically load the default EmbeddedStore.
+// If opts.Store is nil, it will automatically load the default store via store.Default().
 // If opts.DefaultLang is empty, it defaults to LangEN.
-// Returns an error if the fallback EmbeddedStore fails to load its internal files.
+// Returns an error if the fallback default store fails to load its internal files.
 func NewClient(opts ...Option) (*Client, error) {
 	var options Options
 	for _, opt := range opts {
