@@ -2,9 +2,7 @@
   <img src=".github/assets/fairy.png" alt="Fairy — Zenless Zone Zero profile library" width="100%">
 </div>
 
-<br>
-
-**Fairy** is a Go library for fetching, enriching, and calculating [Zenless Zone Zero](https://zenless.hoyoverse.com) player game profiles via the [EnkaNetwork API](https://enka.network). Just like the AI assistant from New Eridu, she handles all the heavy lifting — mapping raw game IDs into localized names, building asset URLs, and computing final combat stats from first principles.
+**Fairy** is a Go library for fetching, enriching, and calculating [Zenless Zone Zero](https://zenless.hoyoverse.com) player game profiles via the [EnkaNetwork API](https://enka.network). Just like the AI assistant from New Eridu, it handles all the heavy lifting — mapping raw game IDs to localized names, building asset URLs, and computing final combat stats from scratch.
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/kirinyoku/fairy.svg)](https://pkg.go.dev/github.com/kirinyoku/fairy)
 [![Go Version](https://img.shields.io/github/go-mod/go-version/kirinyoku/fairy)](https://golang.org/doc/devel/release.html)
@@ -12,20 +10,25 @@
 
 ## Table of Contents
 
-- [Why Fairy?](#-why-fairy)
-- [Features](#-features)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Supported Languages](#-supported-languages)
-- [License](#-license)
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Fetching a profile](#fetching-a-profile)
+  - [Custom client](#custom-client)
+  - [Stat breakdown for UI](#stat-breakdown-for-ui)
+  - [Drive Disc analysis](#drive-disc-analysis)
+  - [Localize raw data yourself](#localize-raw-data-yourself)
+- [Supported Languages](#supported-languages)
+- [License](#license)
 
-<br>
+## Overview
 
-## 🤔 Why Fairy?
+The EnkaNetwork API returns player profiles as raw data — agents, W-Engines, and Drive Discs are represented by internal numeric IDs, stat values have no names, and there are no image URLs. To build anything user-facing, you'd need to maintain your own mapping tables, host localization files, implement stat calculations, and keep up with every game patch.
 
-The raw EnkaNetwork API returns internal game IDs and raw scaled integers, instead of readable names and values. Fairy maps all of it automatically.
+Fairy eliminates this entire layer. It takes a single UID, fetches the raw profile from Enka, and returns a fully enriched model — human-readable names in 13 languages, ready-to-use asset URLs, computed final stats, and Drive Disc roll analysis. One function call, zero boilerplate.
 
-<br>
+The comparison below shows what this looks like in practice: a raw API response on the left versus the enriched output Fairy produces on the right.
 
 <table>
 <tr>
@@ -114,19 +117,26 @@ The raw EnkaNetwork API returns internal game IDs and raw scaled integers, inste
 </tr>
 </table>
 
-## ✨ Features
+> [!NOTE]
+> The JSON examples above are **simplified and shortened** to highlight the key differences. The actual API responses and Fairy's models contain significantly more data.
 
-| Feature | Description |
-|---|---|
-| 🧮 **Stat Calculation** | Computes final stats from base values, W-Engine scalings, drive disc main stats, and substat rolls |
-| 🎨 **UI-Ready Formatting** | `FormattedStats` and `UIStats` (Base + Added) match the in-game stat panel exactly |
-| 🔍 **Drive Disc Analysis** | `SubStatTotals()` and `CountEffectiveRolls()` to evaluate drive disc quality in one call |
-| 🌍 **13 Languages** | Full localization of agent names, skills, drive disc sets, stats, and titles |
-| 🖼️ **Asset URLs** | Auto-resolved URLs for splash arts, icons, namecards, avatars, and badges |
-| 📦 **Embedded Data** | Ships with all game metadata built-in — no extra setup or database required |
-| 🧩 **Modular Client** | Configurable HTTP options, custom User-Agent, built-in API caching, and per-request language overrides |
+## Features
 
-## 📦 Installation
+- 🧮 **Stat Calculation** — Computes final combat stats (HP, ATK, DEF, CRIT, PEN, Energy Regen, and more) by combining agent base values, W-Engine scaling, Drive Disc main/sub stats, and set bonuses. All percentage stats are stored as decimals internally and can be formatted for display with a single call.
+
+- 🎨 **UI-Ready Stat Breakdown** — `FormattedUIStats()` splits every stat into **Base**, **Added**, and **Total** components, pre-formatted as strings — matching exactly what players see in the in-game stat panel. `Stats.Formatted()` gives you a simpler flat view when you don't need the breakdown.
+
+- 🔍 **Drive Disc Analysis** — `SubStatTotals()` aggregates sub-stats across all six discs, grouping by property and summing values and rolls. `CountEffectiveRolls()` counts how many rolls landed on the stats you care about — available on both the agent (all discs) and individual disc level.
+
+- 🌍 **13 Languages** — Every string in the output — agent names, skill descriptions, stat labels, W-Engine passives, set bonus text, titles, and badges — is fully localized. Fetch raw data once, then call `Localize()` to produce the same profile in any supported language without extra network calls.
+
+- 🖼️ **Asset URLs** — Generates ready-to-use image URLs for agent splash arts, skins, W-Engine icons, Drive Disc icons, profile avatars, namecards, and badges. No manual URL construction needed.
+
+- 📦 **Zero-Config Data** — All game metadata (stat scaling tables, localization strings, item definitions) is embedded in the binary via `go:embed`. No external files, no database, no CDN — just `go get` and start building.
+
+- 🧩 **Flexible Client** — Functional options let you configure the default language, swap in a custom `MetadataStore` implementation, and pass through HTTP settings (timeouts, retries, User-Agent, caching) to the underlying [`enkanetwork-go`](https://github.com/kirinyoku/enkanetwork-go) client.
+
+## Installation
 
 Requires **Go 1.22+**
 
@@ -134,12 +144,11 @@ Requires **Go 1.22+**
 go get github.com/kirinyoku/fairy
 ```
 
-## 🚀 Usage
+## Usage
 
 ### Fetching a profile
 
-The simplest way to get started is with the package-level `GetProfile` function.
-It uses a shared default client with **English** localization and embedded game data.
+The easiest way to get started is with the `GetProfile` function. It uses a default client with **English** localization and built-in game data.
 
 ```go
 package main
@@ -170,23 +179,24 @@ func main() {
 
 ### Custom client
 
-Use `NewClient` when you need a specific language, custom HTTP settings, caching, or a custom User-Agent header (required by Enka.Network's API guidelines).
+Use `NewClient` to set a different default language, configure HTTP settings, retries, caching, or a custom User-Agent header (required by Enka.Network).
 
 ```go
-// You can use the built-in memory cache from the enkanetwork-go library
-// to prevent rate-limiting and speed up duplicate profile requests.
-import "github.com/kirinyoku/enkanetwork-go/cache"
-
 client, err := fairy.NewClient(
+    // Change default language for all requests
     fairy.WithDefaultLang(fairy.LangJA),
+    
+    // Configure the underlying `github.com/kirinyoku/enkanetwork-go/client/zzz` client
     fairy.WithEnkaOptions(zzz.Options{
         UserAgent: "MyApp/1.0 (github.com/you/myapp)",
-        Cache:     cache.NewMemoryCache(),
+        HTTPClient: &http.Client{Timeout: 10 * time.Second},
+        Retry:      &zzz.RetryOptions{MaxAttempts: 2, Delay: 2 * time.Second},
+        Cache:      myCacheInstance,
     }),
 )
 ```
 
-You can also override the language per-request without recreating the client:
+You can also override the language on a per-request basis without recreating the client:
 
 ```go
 // Use the shared global client, but respond in Korean for this call
@@ -197,7 +207,7 @@ profile, err := fairy.GetProfileWithLang(ctx, "1504687050", fairy.LangKO)
 
 ### Stat breakdown for UI
 
-`FormattedUIStats()` returns every stat split into **Base**, **Added**, and **Total** — formatted as strings exactly like the in-game stat panel.
+`FormattedUIStats()` returns every stat split into **Base**, **Added**, and **Total**, formatted exactly as they appear in the in-game stat panel.
 
 ```go
 agent := profile.Agents[0]
@@ -212,14 +222,14 @@ fmt.Printf("PEN Ratio: %s  (base %s + %s)\n", ui.PenRatio.Total,  ui.PenRatio.Ba
 
 ---
 
-### Disc analysis
+### Drive Disc analysis
 
-Count how many sub-stat rolls landed on stats that actually matter for your agent's build.
+Measure how many sub-stat rolls landed on stats that actually matter for your agent.
 
 ```go
 agent := profile.Agents[0]
 
-// Count effective rolls for ATK specialized agent:
+// Count effective rolls for an Attack agent:
 usefulRolls := agent.CountEffectiveRolls(
     fairy.PropCritRate,
     fairy.PropCritDMG,
@@ -237,7 +247,7 @@ for _, stat := range agent.SubStatTotals() {
 
 ### Localize raw data yourself
 
-If you need to display the same profile in multiple languages, you can make a single HTTP request to fetch the raw data, and then localize it efficiently in memory:
+To display the same profile in multiple languages, fetch the raw data once and localize it in memory — no extra network calls needed:
 
 ```go
 // 1. Fetch the raw data from the API just once
@@ -251,7 +261,7 @@ enProfile, _ := client.Localize(rawProfile, fairy.LangEN)
 jaProfile, _ := client.Localize(rawProfile, fairy.LangJA)
 ```
 
-## 🌍 Supported Languages
+## Supported Languages
 
 | Language | Language |
 |----------|----------|
@@ -263,6 +273,6 @@ jaProfile, _ := client.Localize(rawProfile, fairy.LangJA)
 | 🇮🇩 Indonesian | 🇹🇼 Chinese (Traditional) |
 | 🇯🇵 Japanese | |
 
-## ⚖️ License
+## License
 
 Licensed under the [MIT License](LICENSE).
