@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.1] - 2026-08-09
+
+### Changed
+- Improved package documentation for `pkg.go.dev` by adding individual docstrings to `Attribute`, `Specialty`, `Rarity`, and `PropertyID` constants.
+- Clarified the default behavior of the metadata store in `NewClient` documentation.
+
 ## [0.2.0] - 2026-08-09
 
 ### Added
