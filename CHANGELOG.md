@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.3.0] - 2026-08-10
+
+### Added
+- Exported domain sentinel errors (`ErrRateLimit`, `ErrProfileNotFound`, `ErrMaintenance`, `ErrNetwork`) from `internal/api` to the root `fairy` package.
+
 ## [0.2.1] - 2026-08-09
 
 ### Changed
