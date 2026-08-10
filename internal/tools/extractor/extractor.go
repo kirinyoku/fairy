@@ -42,10 +42,29 @@ func main() {
 	var locs map[string]map[string]string
 	readJSON(filepath.Join(assetsDir, "locs.json"), &locs)
 
-	// 2. Load TextMaps
-	var enText, ruText map[string]string
-	readJSON(filepath.Join(zenlessDir, "TextMap", "TextMap_ENTemplateTb.json"), &enText)
-	readJSON(filepath.Join(zenlessDir, "TextMap", "TextMap_RUTemplateTb.json"), &ruText)
+	// 2. Load TextMaps for all supported languages
+	langFiles := map[string]string{
+		"de":    "TextMap_DETemplateTb.json",
+		"en":    "TextMap_ENTemplateTb.json",
+		"es":    "TextMap_ESTemplateTb.json",
+		"fr":    "TextMap_FRTemplateTb.json",
+		"id":    "TextMap_IDTemplateTb.json",
+		"ja":    "TextMap_JATemplateTb.json",
+		"ko":    "TextMap_KOTemplateTb.json",
+		"pt":    "TextMap_PTTemplateTb.json",
+		"ru":    "TextMap_RUTemplateTb.json",
+		"th":    "TextMap_THTemplateTb.json",
+		"vi":    "TextMap_VITemplateTb.json",
+		"zh-cn": "TextMapTemplateTb.json",
+		"zh-tw": "TextMap_CHTTemplateTb.json",
+	}
+
+	textMaps := make(map[string]map[string]string)
+	for lang, filename := range langFiles {
+		var tm map[string]string
+		readJSON(filepath.Join(zenlessDir, "TextMap", filename), &tm)
+		textMaps[lang] = tm
+	}
 
 	keysToExtract := make(map[string]bool)
 
@@ -131,27 +150,45 @@ func main() {
 	}
 	writeJSON(filepath.Join(assetsDir, "skills.json"), skillsOutput)
 
-	// 6. Update Locs
-	if locs["en"] == nil {
-		locs["en"] = make(map[string]string)
+	// 5.5 Process Professions
+	type ProfessionItem struct {
+		NameKey string `json:"PCPJBDFHKNK"`
+		DescKey string `json:"OLBIEFEPDLC"`
 	}
-	if locs["ru"] == nil {
-		locs["ru"] = make(map[string]string)
+	var professionData struct {
+		Items []ProfessionItem `json:"MLOEFHJHCID"`
+	}
+	readJSON(filepath.Join(zenlessDir, "FileCfg", "AvatarProfessionTemplateTb.json"), &professionData)
+
+	for _, item := range professionData.Items {
+		if item.NameKey != "" {
+			keysToExtract[item.NameKey] = true
+		}
+		if item.DescKey != "" {
+			keysToExtract[item.DescKey] = true
+		}
 	}
 
-	addedEn := 0
-	addedRu := 0
-	for k := range keysToExtract {
-		if val, ok := enText[k]; ok {
-			locs["en"][k] = val
-			addedEn++
+	// 6. Update Locs
+	addedStats := make(map[string]int)
+	for lang := range langFiles {
+		if locs[lang] == nil {
+			locs[lang] = make(map[string]string)
 		}
-		if val, ok := ruText[k]; ok {
-			locs["ru"][k] = val
-			addedRu++
+	}
+
+	for k := range keysToExtract {
+		for lang, tm := range textMaps {
+			if val, ok := tm[k]; ok {
+				locs[lang][k] = val
+				addedStats[lang]++
+			}
 		}
 	}
 
 	writeJSON(filepath.Join(assetsDir, "locs.json"), locs)
-	fmt.Printf("Extraction complete. Added %d EN strings and %d RU strings.\n", addedEn, addedRu)
+	fmt.Printf("Extraction complete. Processed %d keys across %d languages.\n", len(keysToExtract), len(langFiles))
+	for lang, count := range addedStats {
+		fmt.Printf("  - %s: %d strings\n", lang, count)
+	}
 }

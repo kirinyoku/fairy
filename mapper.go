@@ -11,8 +11,6 @@ import (
 
 // profileMapper is responsible for translating raw EnkaNetwork API data into
 // clean fairy domain models using a specific language and metadata store.
-// NOTE: This acts as an Anti-Corruption Layer (ACL), decoupling the rest of the application
-// from the idiosyncrasies of the upstream Enka API data structures.
 type profileMapper struct {
 	store store.MetadataStore
 	lang  Language
@@ -27,8 +25,6 @@ func newMapper(s store.MetadataStore, lang Language) *profileMapper {
 }
 
 // ToProfile converts a raw zzz.Profile into an enriched Profile.
-// NOTE: It employs a strict nil-safety pattern since the raw API response might
-// omit sections if the player hasn't unlocked them or has hidden their profile.
 func (m *profileMapper) ToProfile(raw *zzz.Profile) (*Profile, error) {
 	if raw == nil {
 		return nil, fmt.Errorf("raw profile is nil")
@@ -191,7 +187,7 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 	agent.ActiveSetBonuses = m.detectSetBonuses(agent.DriveDiscs)
 
 	if skillsMeta, ok := m.store.AvatarSkillsMeta(raw.ID); ok {
-		// NOTE: Skill mapping logic is complex because the API returns only 5 skill levels
+		// Skill mapping logic is complex because the API returns only 5 skill levels
 		// (0: Basic, 1: Dodge, 2: Assist, 3: Special, 4: Chain) in the raw `SkillLevelList`,
 		// but the game's datamined template `AvatarSkillDesTemplateTb` contains 12+ active skills.
 		// `groupMap` is used to map a specific template skill index back to the appropriate skill group index
@@ -237,7 +233,7 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 }
 
 // mapWEngine converts raw weapon data into a WEngine domain object.
-// IMPORTANT: `PassiveDescKeys` from WeaponMeta contains a slice of description keys
+// `PassiveDescKeys` from WeaponMeta contains a slice of description keys
 // corresponding to the weapon's phase/refinement level (0-4). We use the (1-indexed)
 // Modification level - 1 to look up the correct description text.
 func (m *profileMapper) mapWEngine(raw *zzz.Weapon) *WEngine {
@@ -273,7 +269,7 @@ func (m *profileMapper) mapWEngine(raw *zzz.Weapon) *WEngine {
 }
 
 // mapDriveDisc converts raw equipment data into a DriveDisc domain object.
-// ZZZ Math Quirk: The main stat scaling works differently here. The raw API provides
+// The main stat scaling works differently here. The raw API provides
 // only the base value of the main stat at Level 0. We must look up the correct
 // level modifier from the EquipmentLevelTemplate and apply it (LevelMod / 10000)
 // to calculate the actual main stat value at the current disc level.
@@ -323,7 +319,7 @@ func (m *profileMapper) mapDriveDisc(raw *zzz.Equipment, slot int) *DriveDisc {
 }
 
 // mapStat creates a StatValue from a property ID, raw value, and roll count.
-// NOTE: It detects whether a stat is a percentage by inspecting the `Format` string
+// It detects whether a stat is a percentage by inspecting the `Format` string
 // in the PropertyMeta (e.g., "{0:0.#}%"). If it is a percentage, the raw integer
 // value is divided by 10000.0, as per the game's internal representation convention.
 func (m *profileMapper) mapStat(propID int, rawValue int, rolls int) StatValue {
@@ -348,7 +344,7 @@ func (m *profileMapper) mapStat(propID int, rawValue int, rolls int) StatValue {
 }
 
 // detectSetBonuses returns the active set bonuses from equipped drive discs.
-// IMPORTANT: We only report the highest achieved set bonus (2pc or 4pc) in the UI text,
+// We only report the highest achieved set bonus (2pc or 4pc) in the UI text,
 // hence the if/else logic below. However, note that in stat calculations (calc.go),
 // BOTH 2pc and 4pc property bonuses are accumulated behind the scenes.
 func (m *profileMapper) detectSetBonuses(discs []DriveDisc) []DriveDiscSetBonus {
@@ -401,18 +397,13 @@ func mapSpecialtyLocKey(raw string) string {
 	case "Defense":
 		return "ProfessionName_Defence"
 	case "Rupture":
-		// NOTE: "Rupture" is a newer specialty. Unlike others, it has no dedicated
-		// localization key in locs.json (e.g. "ProfessionName_Rupture" doesn't exist).
-		// We return the raw string directly as a fallback until Enka adds it.
-		return raw
+		return "ProfessionName_Rupture"
 	default:
 		return "ProfessionName_" + raw
 	}
 }
 
 // mapRawToAttribute maps the internal element type string to the domain Attribute enum.
-// NOTE: It handles datamined alias mappings like "FireFrost" to "Frost"
-// and "ZhenZhenAssault" to "HonedEdge".
 func mapRawToAttribute(raw string) Attribute {
 	switch raw {
 	case "FireFrost":
@@ -429,7 +420,6 @@ func mapRawToAttribute(raw string) Attribute {
 }
 
 // mapRarity maps the internal integer rarity tier to the string enum.
-// NOTE: Internally, the game uses 4 for S-rank, 3 for A-rank, and 2 for B-rank.
 func mapRarity(raw int) Rarity {
 	switch raw {
 	case 4:
@@ -462,8 +452,6 @@ func mapRegion(raw string) Region {
 }
 
 // buildEnkaURL constructs a full URL to the Enka.network ZZZ image asset.
-// NOTE: It handles the convention where the CDN path provided in metadata might
-// omit the leading slash or domain.
 func buildEnkaURL(path string) string {
 	if path == "" {
 		return ""
