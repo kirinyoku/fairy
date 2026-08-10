@@ -38,12 +38,8 @@ func (c *Client) GetProfile(ctx context.Context, uid string) (*zzz.Profile, erro
 	return rawProfile, nil
 }
 
-// Domain-specific error sentinels.
-// NOTE: These are wrapped with upstream errors using errors.Join, meaning that
-// clients can check for them using errors.Is(err, api.ErrProfileNotFound) while
-// still having access to the original underlying error string.
 var (
-	ErrProfileNotFound = errors.New("profile not found or hidden")
+	ErrProfileNotFound = errors.New("profile not found")
 	ErrRateLimit       = errors.New("rate limited by enkanetwork API")
 	ErrMaintenance     = errors.New("enkanetwork API is under maintenance or temporarily unavailable")
 	ErrNetwork         = errors.New("network error while contacting enkanetwork API")
