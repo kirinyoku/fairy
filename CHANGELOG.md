@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.5.0] - 2026-08-11
+
+### Added
+- Added `IconURL()` method to `Attribute`, `Specialty`, and `Rarity` types for obtaining visual icon URLs.
+- Added `SVG()` method to `Attribute` returning clean, W3C-compliant vector SVG markup for all 10 ZZZ attributes.
+- Implemented Unity Rich Text formatting parser (`FormatHTML`, `FormatPlainText`, `FormatMarkdown`) supporting `<color>`, `{CAL:...}`, and `<IconMap:...>` tags.
+- Added `FormatHTML()`, `FormatPlainText()`, and `FormatMarkdown()` methods to `Skill` struct.
+
+### Fixed
+- Fixed W-Engine passive description property key extraction and missing localizations.
+- Fixed missing assist skill localizations for Ramielle.
+
 ## [0.4.1] - 2026-08-11
 
 ### Fixed
