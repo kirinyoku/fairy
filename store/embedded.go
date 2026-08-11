@@ -356,16 +356,16 @@ func (s *EmbeddedStore) Localize(hash string, lang string) string {
 	if s.locs == nil {
 		return hash
 	}
-	langDict, ok := s.locs[lang]
-	if !ok {
-		// Fallback to EN if language not found
-		langDict, ok = s.locs["en"]
-		if !ok {
-			return hash
+	if langDict, ok := s.locs[lang]; ok {
+		if text, found := langDict[hash]; found && text != "" {
+			return text
 		}
 	}
-	if text, found := langDict[hash]; found {
-		return text
+	// Fallback to English dictionary if key is missing in target language
+	if enDict, ok := s.locs["en"]; ok {
+		if text, found := enDict[hash]; found && text != "" {
+			return text
+		}
 	}
 	return hash
 }

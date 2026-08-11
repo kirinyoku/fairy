@@ -29,8 +29,8 @@ func writeJSON(path string, v interface{}) {
 }
 
 func main() {
-	assetsDir := filepath.Join("..", "..", "assets", "data")
-	zenlessDir := filepath.Join("..", "..", "..", "zenlessdata")
+	assetsDir := filepath.Join("internal", "assets", "data")
+	zenlessDir := "zenlessdata"
 
 	// 1. Load targets
 	var weapons map[string]map[string]interface{}
@@ -69,14 +69,39 @@ func main() {
 	keysToExtract := make(map[string]bool)
 
 	// 3. Process Weapons
-	for id, w := range weapons {
-		var keys []string
-		for i := 1; i <= 5; i++ {
-			key := fmt.Sprintf("Weapon_TalentDes_8%s0%d", id, i)
-			keys = append(keys, key)
-			keysToExtract[key] = true
+	type WeaponTalentItem struct {
+		WeaponID int    `json:"COEEBFOBGND"`
+		Phase    int    `json:"APAEMLCPFID"`
+		DescKey  string `json:"POLEJGCKKFI"`
+	}
+	var weaponTalentData struct {
+		Items []WeaponTalentItem `json:"MLOEFHJHCID"`
+	}
+	readJSON(filepath.Join(zenlessDir, "FileCfg", "WeaponTalentTemplateTb.json"), &weaponTalentData)
+
+	wtMap := make(map[string][]string)
+	for _, item := range weaponTalentData.Items {
+		wid := fmt.Sprintf("%d", item.WeaponID)
+		if item.DescKey != "" {
+			wtMap[wid] = append(wtMap[wid], item.DescKey)
 		}
-		w["PassiveDescKeys"] = keys
+	}
+
+	for id, w := range weapons {
+		if keys, ok := wtMap[id]; ok && len(keys) > 0 {
+			w["PassiveDescKeys"] = keys
+			for _, k := range keys {
+				keysToExtract[k] = true
+			}
+		} else {
+			var keys []string
+			for i := 1; i <= 5; i++ {
+				key := fmt.Sprintf("Weapon_TalentDes_8%s0%d", id, i)
+				keys = append(keys, key)
+				keysToExtract[key] = true
+			}
+			w["PassiveDescKeys"] = keys
+		}
 	}
 	writeJSON(filepath.Join(assetsDir, "weapons.json"), weapons)
 
