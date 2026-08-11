@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.4.0] - 2026-08-11
+
+### Added
+- Added support for `SheerForce` stat in `Stats`, `FormattedStats`, and `UIStats`.
+- Implemented HP and ATK stat scaling for Rupture specialty agents.
+
 ## [0.3.2] - 2026-08-11
 
 ### Changed
