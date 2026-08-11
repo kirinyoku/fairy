@@ -71,6 +71,30 @@ type Skill struct {
 	Description string `json:"description"` // The localized description of the skill.
 }
 
+// EvaluatedDescription returns the skill description with all scaling formulas ({CAL:...})
+// evaluated for the skill's current level.
+func (s Skill) EvaluatedDescription() string {
+	return EvaluateFormulas(s.Description, s.Level)
+}
+
+// FormatHTML returns the skill description formatted as HTML with inline CSS colors,
+// semantic icon spans, and scaling formulas evaluated for the skill's current level.
+func (s Skill) FormatHTML() string {
+	return FormatHTML(s.Description, s.Level)
+}
+
+// FormatPlainText returns the skill description as clean plain text with all tags stripped
+// and scaling formulas evaluated for the skill's current level.
+func (s Skill) FormatPlainText() string {
+	return FormatPlainText(s.Description, s.Level)
+}
+
+// FormatMarkdown returns the skill description formatted in Markdown (bold tags for colored values)
+// with scaling formulas evaluated for the skill's current level.
+func (s Skill) FormatMarkdown() string {
+	return FormatMarkdown(s.Description, s.Level)
+}
+
 // Agent represents an enriched agent (character) showcased on a player's profile.
 // A profile can showcase a maximum of 6 agents. It contains the agent's combat
 // metadata, equipped gear, and final stats.
