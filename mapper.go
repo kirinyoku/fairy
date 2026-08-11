@@ -42,7 +42,7 @@ func (m *profileMapper) ToProfile(raw *zzz.Profile) (*Profile, error) {
 			p.UID = strconv.FormatInt(pd.UID, 10)
 
 			p.Title = m.mapTitle(pd.Title)
-			p.Avatar = m.mapAvatar(pd.AvatarID)
+			p.Avatar = m.mapAvatar(pd.ProfileID, pd.AvatarID)
 			p.Namecard = m.mapNamecard(pd.CallingCardID)
 		}
 
@@ -80,15 +80,38 @@ func (m *profileMapper) mapTitle(id int) *Title {
 	}
 }
 
-func (m *profileMapper) mapAvatar(id int) *Avatar {
-	meta, ok := m.store.PfpMeta(id)
-	if !ok {
-		return &Avatar{ID: id}
+func (m *profileMapper) mapAvatar(profileID, avatarID int) *Avatar {
+	if meta, ok := m.store.PfpMeta(profileID); ok && meta.Icon != "" {
+		return &Avatar{
+			ID:  profileID,
+			URL: buildEnkaURL(meta.Icon),
+		}
 	}
-	return &Avatar{
-		ID:  id,
-		URL: meta.Icon,
+	if meta, ok := m.store.PfpMeta(avatarID); ok && meta.Icon != "" {
+		return &Avatar{
+			ID:  avatarID,
+			URL: buildEnkaURL(meta.Icon),
+		}
 	}
+	if avatarMeta, ok := m.store.AvatarMeta(avatarID); ok && avatarMeta.CircleIcon != "" {
+		return &Avatar{
+			ID:  avatarID,
+			URL: buildEnkaURL(avatarMeta.CircleIcon),
+		}
+	}
+	if skinMeta, ok := m.store.SkinMeta(avatarID); ok && skinMeta.Icon != "" {
+		return &Avatar{
+			ID:  avatarID,
+			URL: buildEnkaURL(skinMeta.Icon),
+		}
+	}
+	if defaultSkin, ok := m.store.DefaultSkinMeta(avatarID); ok && defaultSkin.Icon != "" {
+		return &Avatar{
+			ID:  avatarID,
+			URL: buildEnkaURL(defaultSkin.Icon),
+		}
+	}
+	return &Avatar{ID: profileID}
 }
 
 func (m *profileMapper) mapNamecard(id int) *Namecard {
@@ -98,7 +121,7 @@ func (m *profileMapper) mapNamecard(id int) *Namecard {
 	}
 	return &Namecard{
 		ID:  id,
-		URL: meta.Icon,
+		URL: buildEnkaURL(meta.Icon),
 	}
 }
 
@@ -111,7 +134,7 @@ func (m *profileMapper) mapBadge(raw zzz.Medal) *Badge {
 		ID:      raw.MedalIcon,
 		Title:   m.store.Localize(meta.Name, string(m.lang)),
 		Value:   raw.Value,
-		IconURL: meta.Icon,
+		IconURL: buildEnkaURL(meta.Icon),
 	}
 }
 
@@ -458,8 +481,15 @@ func buildEnkaURL(path string) string {
 	if strings.HasPrefix(path, "http") {
 		return path
 	}
-	if path[0] != '/' {
-		path = "/" + path
+	if !strings.HasPrefix(path, "/") {
+		if !strings.HasPrefix(path, "ui/") {
+			path = "/ui/zzz/" + path
+		} else {
+			path = "/" + path
+		}
+	}
+	if !strings.HasSuffix(path, ".png") && !strings.HasSuffix(path, ".jpg") && !strings.HasSuffix(path, ".webp") {
+		path = path + ".png"
 	}
 	return "https://enka.network" + path
 }
