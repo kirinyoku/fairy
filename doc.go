@@ -5,7 +5,7 @@
 // Fairy takes care of the heavy lifting by replacing raw IDs with full localized names for agents,
 // weapons, discs, and skills, building full URLs for splash arts, icons, and avatars, and
 // calculating precise final combat stats taking into account base stats, weapon scalings,
-// disc substat rolls, and set bonuses.
+// disc substat rolls, and set bonuses across 13 supported languages.
 //
 // # Quick Start
 //

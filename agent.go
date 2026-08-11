@@ -125,9 +125,6 @@ func (a *Agent) SubStatTotals() []StatValue {
 
 // CountEffectiveRolls returns the total number of sub-stat rolls across all Drive Discs
 // that match any of the provided target property IDs (also known as "effective" or "useful" rolls).
-// Example usage for an Attack agent:
-//
-//	effective := agent.CountEffectiveRolls(fairy.PropCritRate, fairy.PropCritDMG, fairy.PropATKPercent)
 func (a *Agent) CountEffectiveRolls(targetProps ...PropertyID) int {
 	total := 0
 	targetMap := make(map[PropertyID]bool)

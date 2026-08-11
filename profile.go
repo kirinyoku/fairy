@@ -25,14 +25,12 @@ type Profile struct {
 }
 
 // Avatar represents a selectable proxy avatar (profile picture).
-// See: https://zenless-zone-zero.fandom.com/wiki/Avatar
 type Avatar struct {
 	ID  int    `json:"id"`  // The internal ID of the avatar.
 	URL string `json:"url"` // The URL to the avatar's image asset.
 }
 
 // Namecard represents a profile background image.
-// See: https://zenless-zone-zero.fandom.com/wiki/Namecard
 type Namecard struct {
 	ID  int    `json:"id"`  // The internal ID of the namecard.
 	URL string `json:"url"` // The URL to the namecard's background asset.
@@ -41,7 +39,6 @@ type Namecard struct {
 // Title represents an achievement or status title chosen by the player.
 // Titles often have gradients represented by two hex colors. To properly display
 // this gradient, use the PrimaryColorHex() and SecondaryColorHex() helpers.
-// See: https://zenless-zone-zero.fandom.com/wiki/Titles
 type Title struct {
 	ID             int    `json:"id"`              // The internal ID of the title.
 	Text           string `json:"text"`            // The localized text of the title.
@@ -66,7 +63,6 @@ func (t *Title) SecondaryColorHex() string {
 }
 
 // Badge represents a collectible medal or badge displayed on the profile.
-// See: https://zenless-zone-zero.fandom.com/wiki/Badge
 type Badge struct {
 	ID      int    `json:"id"`       // The internal ID of the badge.
 	Title   string `json:"title"`    // The localized name/title of the badge.

@@ -11,7 +11,7 @@ import (
 )
 
 // EmbeddedStore implements MetadataStore using the embedded JSON files.
-// NOTE: It relies on the go:embed feature to package large JSON datamined files
+// It relies on the go:embed feature to package large JSON datamined files
 // directly into the binary. This ensures that the library requires no external
 // file dependencies at runtime and loads instantaneously into memory.
 type EmbeddedStore struct {
@@ -43,7 +43,7 @@ var (
 )
 
 // Default returns a lazily initialized singleton EmbeddedStore.
-// NOTE: We use the singleton pattern here with sync.Once because parsing the embedded
+// Uses the singleton pattern with sync.Once because parsing the embedded
 // JSON files takes some CPU and memory. Since the store is completely read-only
 // after initialization, sharing a single instance across the entire application is safe.
 func Default() (*EmbeddedStore, error) {
@@ -73,8 +73,8 @@ func readJSON[T any](fsys fs.FS, path string) (T, error) {
 }
 
 // parseStore builds the EmbeddedStore by loading all embedded JSON files.
-// IMPORTANT: It loads all files sequentially. Currently, we return an error if ANY
-// file fails to load to ensure data consistency, as missing a file (e.g., weapon templates)
+// It loads all files sequentially. Currently, it returns an error if any
+// file fails to load to ensure data consistency, as missing a file
 // would result in silently incorrect stat calculations.
 func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 	s := &EmbeddedStore{
@@ -96,7 +96,7 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 	}
 
 	// parseID is a helper closure for DRYing up string-to-int conversion.
-	// NOTE: It injects contextual error messages to make debugging malformed JSONs easier.
+	// It injects contextual error messages to make debugging malformed JSONs easier.
 	parseID := func(str string, context string) (int, error) {
 		id, err := strconv.Atoi(str)
 		if err != nil {
@@ -116,8 +116,8 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 			return nil, err
 		}
 
-		// NOTE: BaseProps, GrowthProps, PromotionProps, and CoreEnhancementProps all come
-		// as string-keyed maps from JSON. We manually convert them to integer-keyed maps
+		// BaseProps, GrowthProps, PromotionProps, and CoreEnhancementProps all come
+		// as string-keyed maps from JSON. Convert them to integer-keyed maps
 		// to avoid expensive string conversions during hot-path stat calculations.
 		baseProps := make(map[int]int, len(rec.BaseProps))
 		for k, v := range rec.BaseProps {
@@ -269,8 +269,6 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 	}
 
 	// Skins
-	// NOTE: We iterate through all skins. If a skin is marked as `IsDefault`, we populate
-	// the `defaultSkins` map so we can perform fast O(1) lookups by AvatarID later.
 	skins, err := readJSON[map[string]SkinMeta](fsys, "skins.json")
 	if err != nil {
 		return nil, err
@@ -287,9 +285,6 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 	}
 
 	// Skills
-	// NOTE: The JSON represents skills as an ordered list per AvatarID. We map
-	// the AvatarID to this slice `[]SkillMeta`. The list ordering matches the
-	// AvatarSkillDesTemplateTb template indices.
 	skills, err := readJSON[map[string][]SkillMeta](fsys, "skills.json")
 	if err != nil {
 		return nil, err
@@ -357,7 +352,6 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 }
 
 // Localize translates a text hash into the specified language.
-// NOTE: It uses a fallback chain: Requested Language -> English ("en") -> Raw Hash String.
 func (s *EmbeddedStore) Localize(hash string, lang string) string {
 	if s.locs == nil {
 		return hash
@@ -422,7 +416,6 @@ func (s *EmbeddedStore) SkinMeta(id int) (SkinMeta, bool) {
 }
 
 // DefaultSkinMeta returns the default skin metadata for an agent by their avatar ID.
-// NOTE: This uses the pre-built `defaultSkins` index for fast O(1) retrieval.
 func (s *EmbeddedStore) DefaultSkinMeta(avatarID int) (SkinMeta, bool) {
 	skin, ok := s.defaultSkins[avatarID]
 	return skin, ok

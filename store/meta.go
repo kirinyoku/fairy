@@ -15,10 +15,10 @@ type AvatarMeta struct {
 	// GrowthProps maps PropertyID to the stat growth coefficient per level.
 	GrowthProps map[int]int
 	// PromotionProps contains flat stat additions for ascension tiers.
-	// NOTE: It is indexed by (promotion level - 1).
+	// It is indexed by (promotion level - 1).
 	PromotionProps []map[int]int
 	// CoreEnhancementProps contains flat stat additions for core skill upgrades.
-	// NOTE: It is indexed by core enhancement level (0-based). Level 0 means "no enhancement".
+	// It is indexed by core enhancement level (0-based). Level 0 means "no enhancement".
 	CoreEnhancementProps []map[int]int
 	Image                string
 	CircleIcon           string
@@ -37,8 +37,6 @@ func (a *AvatarMeta) GrowthStat(propID int) (int, bool) {
 }
 
 // PromotionStat returns the promotion property value for the given promotionLevel and propID.
-// NOTE: promotionLevel is 1-indexed in the API (1-6), so we subtract 1 for array access.
-// Boundary checks are necessary because some profiles might have invalid data.
 func (a *AvatarMeta) PromotionStat(promotionLevel, propID int) (int, bool) {
 	if promotionLevel > 0 && promotionLevel-1 < len(a.PromotionProps) {
 		val, ok := a.PromotionProps[promotionLevel-1][propID]
@@ -48,8 +46,6 @@ func (a *AvatarMeta) PromotionStat(promotionLevel, propID int) (int, bool) {
 }
 
 // CoreEnhancementStat returns the core enhancement property value.
-// NOTE: coreEnhancement is 0-indexed in the API (0-6).
-// Array boundary checks prevent panics on out-of-bounds enhancements.
 func (a *AvatarMeta) CoreEnhancementStat(coreEnhancement, propID int) (int, bool) {
 	if coreEnhancement > 0 && coreEnhancement < len(a.CoreEnhancementProps) {
 		val, ok := a.CoreEnhancementProps[coreEnhancement][propID]
@@ -74,7 +70,6 @@ type WeaponMeta struct {
 	SecondaryStat  PropertyStat
 	ImagePath      string
 	// PassiveDescKeys contains localization keys for the weapon's passive ability description.
-	// NOTE: It is indexed by modification phase (0-4).
 	PassiveDescKeys []string
 }
 
@@ -177,10 +172,6 @@ type SkinMeta struct {
 	IsDefault bool   `json:"IsDefault"`
 }
 
-// Internal DTOs for JSON parsing
-// NOTE: JSON inherently uses strings for object keys. We use these DTOs to decode
-// the string-keyed raw data, and then convert them into our domain models with integer
-// keys (like map[int]int for properties) to allow for fast O(1) numerical lookups.
 type avatarRecord struct {
 	Name                 string           `json:"Name"`
 	Rarity               int              `json:"Rarity"`

@@ -11,8 +11,8 @@ import (
 )
 
 // Fetcher defines the interface for fetching raw data from the EnkaNetwork API.
-// NOTE: This interface primarily exists for testability, allowing us to mock
-// network calls during unit tests.
+// This interface primarily exists for testability, allowing mocks to be used
+// during unit tests.
 type Fetcher interface {
 	GetProfile(ctx context.Context, uid string) (*zzz.Profile, error)
 }
@@ -39,16 +39,16 @@ func (c *Client) GetProfile(ctx context.Context, uid string) (*zzz.Profile, erro
 }
 
 var (
+	// ErrProfileNotFound is returned when the player profile is not found.
 	ErrProfileNotFound = errors.New("profile not found")
-	ErrRateLimit       = errors.New("rate limited by enkanetwork API")
-	ErrMaintenance     = errors.New("enkanetwork API is under maintenance or temporarily unavailable")
-	ErrNetwork         = errors.New("network error while contacting enkanetwork API")
+	// ErrRateLimit is returned when the player is rate limited by the EnkaNetwork API.
+	ErrRateLimit = errors.New("rate limited by enkanetwork API")
+	// ErrMaintenance is returned when the EnkaNetwork API is under maintenance or temporarily unavailable.
+	ErrMaintenance = errors.New("enkanetwork API is under maintenance or temporarily unavailable")
+	// ErrNetwork is returned when there is a network error while contacting the EnkaNetwork API.
+	ErrNetwork = errors.New("network error while contacting enkanetwork API")
 )
 
-// mapEnkaError translates raw HTTP/Enka errors into domain-specific errors.
-// NOTE: We map typed errors exposed by the upstream enkanetwork-go client
-// to our own domain errors. Previously, this might have used brittle string matching
-// on the error message, but now we use standard errors.Is() checks.
 func mapEnkaError(err error) error {
 	if err == nil {
 		return nil

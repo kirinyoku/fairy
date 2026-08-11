@@ -14,7 +14,7 @@ type WEngine struct {
 	IconURL            string    `json:"icon_url"`            // The URL to the W-Engine's visual icon.
 	MainStat           StatValue `json:"main_stat"`           // The primary stat provided by the W-Engine.
 	SecondaryStat      StatValue `json:"secondary_stat"`      // The secondary stat provided by the W-Engine.
-	PassiveDescription string    `json:"passive_description"` // The localized description of the passive skill. Note: Changes based on Modification phase.
+	PassiveDescription string    `json:"passive_description"` // The localized description of the passive skill.
 }
 
 // Set represents a specific Drive Disc equipment set.
@@ -39,9 +39,6 @@ type DriveDisc struct {
 
 // CountEffectiveRolls returns the total number of sub-stat rolls on this specific Drive Disc
 // that match any of the provided target property IDs.
-// Example usage for an Anomaly agent's disc:
-//
-//	usefulRolls := disc.CountEffectiveRolls(fairy.PropAnomalyProficiency, fairy.PropATKPercent)
 func (d *DriveDisc) CountEffectiveRolls(targetProps ...PropertyID) int {
 	total := 0
 	targetMap := make(map[PropertyID]bool)

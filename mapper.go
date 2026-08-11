@@ -123,7 +123,7 @@ func (m *profileMapper) mapBadge(raw zzz.Medal) *Badge {
 // 4. Equipment mapping (W-Engine and Drive Discs)
 // 5. Set bonus calculation based on equipped Discs
 // 6. Skill level mapping (handling mismatches between raw levels and template skills)
-// 7. Final stat calculation
+// 7. Final stat calculation.
 func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 	if raw == nil {
 		return nil
@@ -344,9 +344,8 @@ func (m *profileMapper) mapStat(propID int, rawValue int, rolls int) StatValue {
 }
 
 // detectSetBonuses returns the active set bonuses from equipped drive discs.
-// We only report the highest achieved set bonus (2pc or 4pc) in the UI text,
-// hence the if/else logic below. However, note that in stat calculations (calc.go),
-// BOTH 2pc and 4pc property bonuses are accumulated behind the scenes.
+// This reports the highest achieved set bonus (2pc or 4pc) in the UI text,
+// but both 2pc and 4pc property bonuses are accumulated behind the scenes.
 func (m *profileMapper) detectSetBonuses(discs []DriveDisc) []DriveDiscSetBonus {
 	counts := make(map[int]int)
 	names := make(map[int]string)

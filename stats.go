@@ -4,7 +4,7 @@ import "fmt"
 
 // PropertyID represents a strongly-typed ID for combat properties.
 // The naming convention follows:
-// - Base: The character's innate foundational stat (e.g., PropBaseHP).
+// - Base: The character's innate foundational stat.
 // - Percent / PercentBonus: A percentage modifier applied to the base stat.
 // - Flat / FlatBonus: A direct numerical addition applied after percentages.
 type PropertyID int
@@ -99,7 +99,7 @@ func (s StatValue) DisplayValue() string {
 
 // Stats represents the aggregated combat stats of an agent.
 // This structure keeps fields minimal and flat for easy access.
-// NOTE: Internal representation of percentages is in decimal form (e.g., CritRate 0.05 = 5%).
+// Internal representation of percentages is in decimal form (e.g., CritRate 0.05 = 5%).
 // EnergyRegen is also represented as its divided final value (e.g., 1.20).
 // Precise calculations and final formulas are opt-in via the calc package.
 type Stats struct {
@@ -118,7 +118,6 @@ type Stats struct {
 
 // FormattedStats contains the agent's combat stats pre-formatted as human-readable strings.
 // This is extremely useful for UI/Frontend developers who just want to display the values.
-// Note: JSON tags intentionally match those in UIStats for frontend consistency.
 type FormattedStats struct {
 	HP                 string `json:"hp"`
 	ATK                string `json:"atk"`
