@@ -158,5 +158,6 @@ func (a *Agent) FormattedUIStats() UIStats {
 		PenRatio:           formatBreakdown(a.BaseStats.PenRatio, a.Stats.PenRatio, true, 0, 1),
 		PenFlat:            formatBreakdown(a.BaseStats.PenFlat, a.Stats.PenFlat, false, 0, 1),
 		EnergyRegen:        formatBreakdown(a.BaseStats.EnergyRegen, a.Stats.EnergyRegen, false, 2, 2),
+		SheerForce:         formatBreakdown(a.BaseStats.SheerForce, a.Stats.SheerForce, false, 0, 1),
 	}
 }

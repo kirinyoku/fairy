@@ -77,6 +77,11 @@ const (
 	PropAnomalyProficiencyPercent PropertyID = 31402
 	// PropAnomalyProficiency represents an increase to Anomaly Proficiency.
 	PropAnomalyProficiency PropertyID = 31403
+
+	// PropBaseSheerForce represents the base Sheer Force stat (for Rupture agents).
+	PropBaseSheerForce PropertyID = 12301
+	// PropSheerForce represents an increase to Sheer Force.
+	PropSheerForce PropertyID = 12303
 )
 
 // StatValue represents a single combat stat (main or sub stat).
@@ -114,6 +119,7 @@ type Stats struct {
 	PenRatio           float64 `json:"pen_ratio"`           // Penetration Ratio (ignores a percentage of enemy DEF).
 	PenFlat            float64 `json:"pen_flat"`            // Flat Penetration (ignores a flat amount of enemy DEF).
 	EnergyRegen        float64 `json:"energy_regen"`        // Energy Regeneration rate (as a decimal, e.g., 1.20).
+	SheerForce         float64 `json:"sheer_force"`         // Sheer Force (damage multiplier for Rupture agents, ignoring DEF).
 }
 
 // FormattedStats contains the agent's combat stats pre-formatted as human-readable strings.
@@ -130,6 +136,7 @@ type FormattedStats struct {
 	PenRatio           string `json:"pen_ratio"`
 	PenFlat            string `json:"pen_flat"`
 	EnergyRegen        string `json:"energy_regen"`
+	SheerForce         string `json:"sheer_force"`
 }
 
 // FormattedStatBreakdown represents a single stat broken down into its base and added components,
@@ -154,6 +161,7 @@ type UIStats struct {
 	PenRatio           FormattedStatBreakdown `json:"pen_ratio"`
 	PenFlat            FormattedStatBreakdown `json:"pen_flat"`
 	EnergyRegen        FormattedStatBreakdown `json:"energy_regen"`
+	SheerForce         FormattedStatBreakdown `json:"sheer_force"`
 }
 
 // Formatted returns a new FormattedStats struct where all numerical stats
@@ -171,6 +179,7 @@ func (s *Stats) Formatted() FormattedStats {
 		PenRatio:           fmt.Sprintf("%.1f%%", s.PenRatio*100),
 		PenFlat:            fmt.Sprintf("%.0f", s.PenFlat),
 		EnergyRegen:        fmt.Sprintf("%.2f", s.EnergyRegen), // usually something like 1.20
+		SheerForce:         fmt.Sprintf("%.0f", s.SheerForce),
 	}
 }
 

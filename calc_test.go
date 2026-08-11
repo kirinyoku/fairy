@@ -132,3 +132,19 @@ func TestCalcWEngineSecondaryStat(t *testing.T) {
 		})
 	}
 }
+
+func TestCalcSheerForce(t *testing.T) {
+	meta := store.AvatarMeta{
+		BaseProps: map[int]int{
+			int(PropBaseSheerForce): 200,
+		},
+		GrowthProps: map[int]int{
+			int(PropBaseSheerForce): 10000, // 1 per level
+		},
+	}
+
+	val := calcAgentBaseStat(meta, int(PropBaseSheerForce), 10, 0, 0)
+	if val != 209.0 {
+		t.Errorf("expected 209.0 base SheerForce, got %v", val)
+	}
+}

@@ -100,6 +100,7 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	baseAnomalyMastery := calcAgentBaseStat(meta, int(PropBaseAnomalyMastery), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 	baseAnomalyProficiency := calcAgentBaseStat(meta, int(PropBaseAnomalyProficiency), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 	baseEnergyRegen := calcAgentBaseStat(meta, int(PropBaseEnergyRegen), agent.Level, agent.Promotion, agent.CoreSkillEnhancement) / 100.0
+	baseSheerForce := calcAgentBaseStat(meta, int(PropBaseSheerForce), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 
 	// Fixed Base stats
 	baseCritRate := 0.05
@@ -161,6 +162,10 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	baseAnomalyMastery = math.Floor(baseAnomalyMastery)
 	baseAnomalyProficiency = math.Floor(baseAnomalyProficiency)
 	basePenFlat = math.Floor(basePenFlat)
+	baseSheerForce = math.Floor(baseSheerForce)
+	if meta.ProfessionType == "Rupture" || agent.Specialty == SpecialtyRupture {
+		baseSheerForce += math.Floor(baseHp*0.1) + math.Floor(baseAtk*0.3)
+	}
 
 	agent.BaseStats = Stats{
 		HP:                 math.Floor(baseHp),
@@ -174,6 +179,7 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		PenRatio:           basePenRatio,
 		PenFlat:            basePenFlat,
 		EnergyRegen:        baseEnergyRegen,
+		SheerForce:         baseSheerForce,
 	}
 
 	// Add Drive Disc stats
@@ -213,9 +219,17 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	// 1. Multiply the aggregated Base Stat by (1 + sum of all Percent Multipliers).
 	// 2. Add the sum of all Flat Bonuses.
 	// 3. Most stats are floored, but CritRate, CritDMG, PenRatio, and EnergyRegen are NOT floored.
+	totalHp := math.Floor(baseHp*(1.0+bonuses[int(PropHPPercent)]+bonuses[int(PropHPPercentBonus)]) + bonuses[int(PropHPFlat)] + bonuses[int(PropHPFlatBonus)])
+	totalAtk := math.Floor(baseAtk*(1.0+bonuses[int(PropATKPercent)]) + bonuses[int(PropATKFlat)])
+
+	totalSheerForce := math.Floor(bonuses[int(PropBaseSheerForce)] + bonuses[int(PropSheerForce)])
+	if meta.ProfessionType == "Rupture" || agent.Specialty == SpecialtyRupture {
+		totalSheerForce += math.Floor(totalHp*0.1) + math.Floor(totalAtk*0.3)
+	}
+
 	agent.Stats = Stats{
-		HP:                 math.Floor(baseHp*(1.0+bonuses[int(PropHPPercent)]+bonuses[int(PropHPPercentBonus)]) + bonuses[int(PropHPFlat)] + bonuses[int(PropHPFlatBonus)]),
-		ATK:                math.Floor(baseAtk*(1.0+bonuses[int(PropATKPercent)]) + bonuses[int(PropATKFlat)]),
+		HP:                 totalHp,
+		ATK:                totalAtk,
 		DEF:                math.Floor(baseDef*(1.0+bonuses[int(PropDEFPercent)]) + bonuses[int(PropDEFFlat)]),
 		Impact:             math.Floor(baseImpact*(1.0+bonuses[int(PropImpactPercent)]) + bonuses[int(PropImpactFlat)]),
 		CritRate:           baseCritRate + bonuses[int(PropBaseCritRate)] + bonuses[int(PropCritRate)],
@@ -225,5 +239,6 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		PenRatio:           basePenRatio + bonuses[int(PropBasePENRatio)] + bonuses[int(PropPENRatio)],
 		PenFlat:            math.Floor(basePenFlat + bonuses[int(PropBasePENFlat)] + bonuses[int(PropPENFlat)]),
 		EnergyRegen:        baseEnergyRegen*(1.0+bonuses[int(PropEnergyRegenPercent)]) + bonuses[int(PropBaseEnergyRegen)] + bonuses[int(PropEnergyRegen)],
+		SheerForce:         totalSheerForce,
 	}
 }
