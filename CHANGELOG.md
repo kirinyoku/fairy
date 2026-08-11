@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.4.1] - 2026-08-11
+
+### Fixed
+- Fixed profile avatar, namecard background, and badge asset URL resolution.
+- Fixed profile avatar mapping by prioritizing `ProfileID` over `AvatarID` to resolve in-game Inter-Knot avatars properly.
+
 ## [0.4.0] - 2026-08-11
 
 ### Added
