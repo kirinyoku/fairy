@@ -234,7 +234,7 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		Impact:             math.Floor(baseImpact*(1.0+bonuses[int(PropImpactPercent)]) + bonuses[int(PropImpactFlat)]),
 		CritRate:           baseCritRate + bonuses[int(PropBaseCritRate)] + bonuses[int(PropCritRate)],
 		CritDMG:            baseCritDMG + bonuses[int(PropBaseCritDMG)] + bonuses[int(PropCritDMG)],
-		AnomalyMastery:     math.Floor(baseAnomalyMastery + bonuses[int(PropBaseAnomalyMastery)] + bonuses[int(PropAnomalyMastery)]),
+		AnomalyMastery:     math.Floor(baseAnomalyMastery*(1.0+bonuses[int(PropAnomalyMasteryPercent)]) + bonuses[int(PropBaseAnomalyMastery)] + bonuses[int(PropAnomalyMastery)]),
 		AnomalyProficiency: math.Floor(baseAnomalyProficiency*(1.0+bonuses[int(PropAnomalyProficiencyPercent)]) + bonuses[int(PropBaseAnomalyProficiency)] + bonuses[int(PropAnomalyProficiency)]),
 		PenRatio:           basePenRatio + bonuses[int(PropBasePENRatio)] + bonuses[int(PropPENRatio)],
 		PenFlat:            math.Floor(basePenFlat + bonuses[int(PropBasePENFlat)] + bonuses[int(PropPENFlat)]),

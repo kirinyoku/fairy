@@ -67,16 +67,19 @@ const (
 	// PropEnergyRegen represents an increase to Energy Regeneration.
 	PropEnergyRegen PropertyID = 30503
 
-	// PropBaseAnomalyMastery represents the base Anomaly Mastery stat.
-	PropBaseAnomalyMastery PropertyID = 31201
-	// PropAnomalyMastery represents an increase to Anomaly Mastery.
-	PropAnomalyMastery PropertyID = 31203
 	// PropBaseAnomalyProficiency represents the base Anomaly Proficiency stat.
-	PropBaseAnomalyProficiency PropertyID = 31401
+	PropBaseAnomalyProficiency PropertyID = 31201
 	// PropAnomalyProficiencyPercent represents a percentage increase to Anomaly Proficiency.
-	PropAnomalyProficiencyPercent PropertyID = 31402
+	PropAnomalyProficiencyPercent PropertyID = 31202
 	// PropAnomalyProficiency represents an increase to Anomaly Proficiency.
-	PropAnomalyProficiency PropertyID = 31403
+	PropAnomalyProficiency PropertyID = 31203
+
+	// PropBaseAnomalyMastery represents the base Anomaly Mastery stat.
+	PropBaseAnomalyMastery PropertyID = 31401
+	// PropAnomalyMasteryPercent represents a percentage increase to Anomaly Mastery.
+	PropAnomalyMasteryPercent PropertyID = 31402
+	// PropAnomalyMastery represents an increase to Anomaly Mastery.
+	PropAnomalyMastery PropertyID = 31403
 
 	// PropBaseSheerForce represents the base Sheer Force stat (for Rupture agents).
 	PropBaseSheerForce PropertyID = 12301
