@@ -228,20 +228,20 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	}
 
 	// Calculate Attribute DMG Bonus matching the agent's elemental attribute
-	totalAttrDMG := sumPropVariants(bonuses, PropGroupGeneralDMG)
+	totalAttrDMG := sumPropVariants(bonuses, propGroupGeneralDMG)
 	switch agent.Attribute.BaseAttribute() {
 	case AttributePhysical:
-		totalAttrDMG += sumPropVariants(bonuses, PropGroupPhysicalDMG)
+		totalAttrDMG += sumPropVariants(bonuses, propGroupPhysicalDMG)
 	case AttributeFire:
-		totalAttrDMG += sumPropVariants(bonuses, PropGroupFireDMG)
+		totalAttrDMG += sumPropVariants(bonuses, propGroupFireDMG)
 	case AttributeIce:
-		totalAttrDMG += sumPropVariants(bonuses, PropGroupIceDMG)
+		totalAttrDMG += sumPropVariants(bonuses, propGroupIceDMG)
 	case AttributeElectric:
-		totalAttrDMG += sumPropVariants(bonuses, PropGroupElectricDMG)
+		totalAttrDMG += sumPropVariants(bonuses, propGroupElectricDMG)
 	case AttributeEther:
-		totalAttrDMG += sumPropVariants(bonuses, PropGroupEtherDMG)
+		totalAttrDMG += sumPropVariants(bonuses, propGroupEtherDMG)
 	case AttributeWind:
-		totalAttrDMG += sumPropVariants(bonuses, PropGroupWindDMG)
+		totalAttrDMG += sumPropVariants(bonuses, propGroupWindDMG)
 	}
 
 	agent.Stats = Stats{

@@ -93,38 +93,40 @@ const (
 	PropElectricDMGBonus PropertyID = 31805
 	PropEtherDMGBonus    PropertyID = 31905
 	PropWindDMGBonus     PropertyID = 32305
-
-	// PropertyID base group prefixes for damage bonuses.
-	PropGroupGeneralDMG  PropertyID = 31000
-	PropGroupPhysicalDMG PropertyID = 31500
-	PropGroupFireDMG     PropertyID = 31600
-	PropGroupIceDMG      PropertyID = 31700
-	PropGroupElectricDMG PropertyID = 31800
-	PropGroupEtherDMG    PropertyID = 31900
-	PropGroupWindDMG     PropertyID = 32300
 )
 
-// Datamined property localization keys in locs.json / property.json.
+// Property group base prefixes for damage bonuses.
 const (
-	LocKeyHP                 = "HpMax"
-	LocKeyATK                = "Atk"
-	LocKeyDEF                = "Def"
-	LocKeyImpact             = "BreakStun"
-	LocKeyCritRate           = "Crit"
-	LocKeyCritDMG            = "CritDmg"
-	LocKeyAnomalyMastery     = "ElementAbnormalPower"
-	LocKeyAnomalyProficiency = "ElementMystery"
-	LocKeyPenRatio           = "PenRatio"
-	LocKeyPenFlat            = "PenDelta"
-	LocKeyEnergyRegen        = "SpRecover"
-	LocKeySheerForce         = "SkipDefAtk"
+	propGroupGeneralDMG  PropertyID = 31000
+	propGroupPhysicalDMG PropertyID = 31500
+	propGroupFireDMG     PropertyID = 31600
+	propGroupIceDMG      PropertyID = 31700
+	propGroupElectricDMG PropertyID = 31800
+	propGroupEtherDMG    PropertyID = 31900
+	propGroupWindDMG     PropertyID = 32300
+)
 
-	LocKeyPhysicalDMGBonus = "AddedDamageRatio_Physics"
-	LocKeyFireDMGBonus     = "AddedDamageRatio_Fire"
-	LocKeyIceDMGBonus      = "AddedDamageRatio_Ice"
-	LocKeyElectricDMGBonus = "AddedDamageRatio_Elec"
-	LocKeyEtherDMGBonus    = "AddedDamageRatio_Ether"
-	LocKeyWindDMGBonus     = "AddedDamageRatio_Wind"
+// Datamined property localization keys in locs.json.
+const (
+	locKeyHP                 = "HpMax"
+	locKeyATK                = "Atk"
+	locKeyDEF                = "Def"
+	locKeyImpact             = "BreakStun"
+	locKeyCritRate           = "Crit"
+	locKeyCritDMG            = "CritDmg"
+	locKeyAnomalyMastery     = "ElementAbnormalPower"
+	locKeyAnomalyProficiency = "ElementMystery"
+	locKeyPenRatio           = "PenRatio"
+	locKeyPenFlat            = "PenDelta"
+	locKeyEnergyRegen        = "SpRecover"
+	locKeySheerForce         = "SkipDefAtk"
+
+	locKeyPhysicalDMGBonus = "AddedDamageRatio_Physics"
+	locKeyFireDMGBonus     = "AddedDamageRatio_Fire"
+	locKeyIceDMGBonus      = "AddedDamageRatio_Ice"
+	locKeyElectricDMGBonus = "AddedDamageRatio_Elec"
+	locKeyEtherDMGBonus    = "AddedDamageRatio_Ether"
+	locKeyWindDMGBonus     = "AddedDamageRatio_Wind"
 )
 
 // StatValue represents a single combat stat (main or sub stat).

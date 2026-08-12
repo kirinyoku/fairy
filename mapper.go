@@ -204,17 +204,17 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 
 			switch agent.Attribute.BaseAttribute() {
 			case AttributePhysical:
-				agent.AttributeDMGName = m.store.Localize(LocKeyPhysicalDMGBonus, string(m.lang))
+				agent.AttributeDMGName = m.store.Localize(locKeyPhysicalDMGBonus, string(m.lang))
 			case AttributeFire:
-				agent.AttributeDMGName = m.store.Localize(LocKeyFireDMGBonus, string(m.lang))
+				agent.AttributeDMGName = m.store.Localize(locKeyFireDMGBonus, string(m.lang))
 			case AttributeIce:
-				agent.AttributeDMGName = m.store.Localize(LocKeyIceDMGBonus, string(m.lang))
+				agent.AttributeDMGName = m.store.Localize(locKeyIceDMGBonus, string(m.lang))
 			case AttributeElectric:
-				agent.AttributeDMGName = m.store.Localize(LocKeyElectricDMGBonus, string(m.lang))
+				agent.AttributeDMGName = m.store.Localize(locKeyElectricDMGBonus, string(m.lang))
 			case AttributeEther:
-				agent.AttributeDMGName = m.store.Localize(LocKeyEtherDMGBonus, string(m.lang))
+				agent.AttributeDMGName = m.store.Localize(locKeyEtherDMGBonus, string(m.lang))
 			case AttributeWind:
-				agent.AttributeDMGName = m.store.Localize(LocKeyWindDMGBonus, string(m.lang))
+				agent.AttributeDMGName = m.store.Localize(locKeyWindDMGBonus, string(m.lang))
 			}
 		}
 

@@ -270,18 +270,18 @@ func (a *Agent) FormattedUIStats(lang ...Language) UIStats {
 
 	st, _ := store.Default()
 
-	hpName := getStatName(st, LocKeyHP, l)
-	atkName := getStatName(st, LocKeyATK, l)
-	defName := getStatName(st, LocKeyDEF, l)
-	impactName := getStatName(st, LocKeyImpact, l)
-	critRateName := getStatName(st, LocKeyCritRate, l)
-	critDMGName := getStatName(st, LocKeyCritDMG, l)
-	anomalyMasteryName := getStatName(st, LocKeyAnomalyMastery, l)
-	anomalyProficiencyName := getStatName(st, LocKeyAnomalyProficiency, l)
-	penRatioName := getStatName(st, LocKeyPenRatio, l)
-	penFlatName := getStatName(st, LocKeyPenFlat, l)
-	energyRegenName := getStatName(st, LocKeyEnergyRegen, l)
-	sheerForceName := getStatName(st, LocKeySheerForce, l)
+	hpName := getStatName(st, locKeyHP, l)
+	atkName := getStatName(st, locKeyATK, l)
+	defName := getStatName(st, locKeyDEF, l)
+	impactName := getStatName(st, locKeyImpact, l)
+	critRateName := getStatName(st, locKeyCritRate, l)
+	critDMGName := getStatName(st, locKeyCritDMG, l)
+	anomalyMasteryName := getStatName(st, locKeyAnomalyMastery, l)
+	anomalyProficiencyName := getStatName(st, locKeyAnomalyProficiency, l)
+	penRatioName := getStatName(st, locKeyPenRatio, l)
+	penFlatName := getStatName(st, locKeyPenFlat, l)
+	energyRegenName := getStatName(st, locKeyEnergyRegen, l)
+	sheerForceName := getStatName(st, locKeySheerForce, l)
 
 	return UIStats{
 		HP:                 formatBreakdown(hpName, a.BaseStats.HP, a.Stats.HP, false, 0, 1),
