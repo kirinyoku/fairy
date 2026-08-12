@@ -198,6 +198,9 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 
 	// Add Set Bonuses
 	for _, bonus := range agent.ActiveSetBonuses {
+		if bonus.Count < 2 {
+			continue
+		}
 		if suitMeta, ok := s.EquipmentSuitMeta(bonus.Set.ID); ok {
 			for propID, val := range suitMeta.SetBonusProps {
 				isPercent := false

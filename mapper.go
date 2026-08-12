@@ -414,24 +414,36 @@ func (m *profileMapper) detectSetBonuses(discs []DriveDisc) []DriveDiscSetBonus 
 
 	var bonuses []DriveDiscSetBonus
 	for setID, count := range counts {
+		if count < 2 {
+			continue
+		}
+
 		var setMeta store.EquipmentSuitMeta
 		if meta, ok := m.store.EquipmentSuitMeta(setID); ok {
 			setMeta = meta
 		}
 
-		if count >= 4 {
-			bonuses = append(bonuses, DriveDiscSetBonus{
-				Set:         Set{ID: setID, Name: names[setID]},
-				PieceCount:  4,
-				Description: m.store.Localize(setMeta.Set4DescKey, string(m.lang)),
-			})
-		} else if count >= 2 {
-			bonuses = append(bonuses, DriveDiscSetBonus{
-				Set:         Set{ID: setID, Name: names[setID]},
+		var effects []SetEffect
+		if setMeta.Set2DescKey != "" {
+			effects = append(effects, SetEffect{
 				PieceCount:  2,
 				Description: m.store.Localize(setMeta.Set2DescKey, string(m.lang)),
+				IsActive:    count >= 2,
 			})
 		}
+		if setMeta.Set4DescKey != "" {
+			effects = append(effects, SetEffect{
+				PieceCount:  4,
+				Description: m.store.Localize(setMeta.Set4DescKey, string(m.lang)),
+				IsActive:    count >= 4,
+			})
+		}
+
+		bonuses = append(bonuses, DriveDiscSetBonus{
+			Set:     Set{ID: setID, Name: names[setID]},
+			Count:   count,
+			Effects: effects,
+		})
 	}
 
 	return bonuses

@@ -78,24 +78,31 @@ func (d *DriveDisc) CountEffectiveRolls(targetProps ...PropertyID) int {
 	return total
 }
 
-// DriveDiscSetBonus represents an active set bonus from equipped Drive Discs.
+// DriveDiscSetBonus represents a grouped drive disc set equipped on an agent.
 type DriveDiscSetBonus struct {
-	Set         Set    `json:"set"`         // The set granting the bonus.
-	PieceCount  int    `json:"piece_count"` // The number of pieces equipped from this set (typically 2 or 4).
-	Description string `json:"description"` // The localized HTML description of the set bonus from game data.
+	Set     Set         `json:"set"`     // The set metadata (ID and localized name).
+	Count   int         `json:"count"`   // The total number of pieces equipped from this set (e.g. 2, 4, 5).
+	Effects []SetEffect `json:"effects"` // The 2-piece and 4-piece set effects with their activation status.
 }
 
-// FormatHTML returns the set bonus description formatted with HTML tags for web rendering.
-func (sb DriveDiscSetBonus) FormatHTML() string {
-	return FormatHTML(sb.Description)
+// SetEffect represents a specific set effect threshold (2-piece or 4-piece).
+type SetEffect struct {
+	PieceCount  int    `json:"piece_count"` // The required piece count threshold (2 or 4).
+	Description string `json:"description"` // The localized description of the set bonus.
+	IsActive    bool   `json:"is_active"`   // Indicates whether this effect is currently active (Count >= PieceCount).
 }
 
-// FormatPlainText returns the set bonus description stripped of Rich Text formatting.
-func (sb DriveDiscSetBonus) FormatPlainText() string {
-	return FormatPlainText(sb.Description)
+// FormatHTML returns the set effect description formatted with HTML tags for web rendering.
+func (e SetEffect) FormatHTML() string {
+	return FormatHTML(e.Description)
 }
 
-// FormatMarkdown returns the set bonus description formatted with Markdown syntax.
-func (sb DriveDiscSetBonus) FormatMarkdown() string {
-	return FormatMarkdown(sb.Description)
+// FormatPlainText returns the set effect description stripped of Rich Text formatting.
+func (e SetEffect) FormatPlainText() string {
+	return FormatPlainText(e.Description)
+}
+
+// FormatMarkdown returns the set effect description formatted with Markdown syntax.
+func (e SetEffect) FormatMarkdown() string {
+	return FormatMarkdown(e.Description)
 }
