@@ -460,6 +460,18 @@ func mapSpecialtyLocKey(raw string) string {
 // mapRawToAttribute maps the internal element type string to the domain Attribute enum.
 func mapRawToAttribute(raw string) Attribute {
 	switch raw {
+	case "Physics":
+		return AttributePhysical
+	case "Elec":
+		return AttributeElectric
+	case "Fire":
+		return AttributeFire
+	case "Ice":
+		return AttributeIce
+	case "Ether":
+		return AttributeEther
+	case "Wind":
+		return AttributeWind
 	case "FireFrost":
 		return AttributeFrost
 	case "ZhenZhenAssault":
