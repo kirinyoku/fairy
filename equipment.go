@@ -17,6 +17,30 @@ type WEngine struct {
 	PassiveDescription string    `json:"passive_description"` // The localized description of the passive skill.
 }
 
+// FormatHTML returns the W-Engine passive description formatted with HTML tags for web rendering.
+func (w *WEngine) FormatHTML() string {
+	if w == nil {
+		return ""
+	}
+	return FormatHTML(w.PassiveDescription)
+}
+
+// FormatPlainText returns the W-Engine passive description stripped of Rich Text formatting.
+func (w *WEngine) FormatPlainText() string {
+	if w == nil {
+		return ""
+	}
+	return FormatPlainText(w.PassiveDescription)
+}
+
+// FormatMarkdown returns the W-Engine passive description formatted with Markdown syntax.
+func (w *WEngine) FormatMarkdown() string {
+	if w == nil {
+		return ""
+	}
+	return FormatMarkdown(w.PassiveDescription)
+}
+
 // Set represents a specific Drive Disc equipment set.
 // A Set grants bonus effects when an agent equips 2 or 4 pieces of the same set.
 type Set struct {
@@ -59,4 +83,19 @@ type DriveDiscSetBonus struct {
 	Set         Set    `json:"set"`         // The set granting the bonus.
 	PieceCount  int    `json:"piece_count"` // The number of pieces equipped from this set (typically 2 or 4).
 	Description string `json:"description"` // The localized HTML description of the set bonus from game data.
+}
+
+// FormatHTML returns the set bonus description formatted with HTML tags for web rendering.
+func (sb DriveDiscSetBonus) FormatHTML() string {
+	return FormatHTML(sb.Description)
+}
+
+// FormatPlainText returns the set bonus description stripped of Rich Text formatting.
+func (sb DriveDiscSetBonus) FormatPlainText() string {
+	return FormatPlainText(sb.Description)
+}
+
+// FormatMarkdown returns the set bonus description formatted with Markdown syntax.
+func (sb DriveDiscSetBonus) FormatMarkdown() string {
+	return FormatMarkdown(sb.Description)
 }
