@@ -85,6 +85,46 @@ const (
 	PropBaseSheerForce PropertyID = 12301
 	// PropSheerForce represents an increase to Sheer Force.
 	PropSheerForce PropertyID = 12303
+
+	// PropertyIDs for elemental damage bonuses.
+	PropPhysicalDMGBonus PropertyID = 31505
+	PropFireDMGBonus     PropertyID = 31605
+	PropIceDMGBonus      PropertyID = 31705
+	PropElectricDMGBonus PropertyID = 31805
+	PropEtherDMGBonus    PropertyID = 31905
+	PropWindDMGBonus     PropertyID = 32305
+
+	// PropertyID base group prefixes for damage bonuses.
+	PropGroupGeneralDMG  PropertyID = 31000
+	PropGroupPhysicalDMG PropertyID = 31500
+	PropGroupFireDMG     PropertyID = 31600
+	PropGroupIceDMG      PropertyID = 31700
+	PropGroupElectricDMG PropertyID = 31800
+	PropGroupEtherDMG    PropertyID = 31900
+	PropGroupWindDMG     PropertyID = 32300
+)
+
+// Datamined property localization keys in locs.json / property.json.
+const (
+	LocKeyHP                 = "HpMax"
+	LocKeyATK                = "Atk"
+	LocKeyDEF                = "Def"
+	LocKeyImpact             = "BreakStun"
+	LocKeyCritRate           = "Crit"
+	LocKeyCritDMG            = "CritDmg"
+	LocKeyAnomalyMastery     = "ElementAbnormalPower"
+	LocKeyAnomalyProficiency = "ElementMystery"
+	LocKeyPenRatio           = "PenRatio"
+	LocKeyPenFlat            = "PenDelta"
+	LocKeyEnergyRegen        = "SpRecover"
+	LocKeySheerForce         = "SkipDefAtk"
+
+	LocKeyPhysicalDMGBonus = "AddedDamageRatio_Physics"
+	LocKeyFireDMGBonus     = "AddedDamageRatio_Fire"
+	LocKeyIceDMGBonus      = "AddedDamageRatio_Ice"
+	LocKeyElectricDMGBonus = "AddedDamageRatio_Elec"
+	LocKeyEtherDMGBonus    = "AddedDamageRatio_Ether"
+	LocKeyWindDMGBonus     = "AddedDamageRatio_Wind"
 )
 
 // StatValue represents a single combat stat (main or sub stat).
@@ -117,6 +157,7 @@ type Stats struct {
 	Impact             float64 `json:"impact"`              // Impact (influences Daze build-up).
 	CritRate           float64 `json:"crit_rate"`           // Critical Hit Rate (as a decimal, e.g., 0.05 for 5%).
 	CritDMG            float64 `json:"crit_dmg"`            // Critical Hit Damage (as a decimal, e.g., 1.50 for 150%).
+	AttributeDMGBonus  float64 `json:"attribute_dmg_bonus"` // Attribute DMG Bonus (as a decimal, e.g., 0.30 for 30%).
 	AnomalyMastery     float64 `json:"anomaly_mastery"`     // Anomaly Mastery (influences Anomaly Buildup rate).
 	AnomalyProficiency float64 `json:"anomaly_proficiency"` // Anomaly Proficiency (influences Anomaly Damage).
 	PenRatio           float64 `json:"pen_ratio"`           // Penetration Ratio (ignores a percentage of enemy DEF).
@@ -134,6 +175,7 @@ type FormattedStats struct {
 	Impact             string `json:"impact"`
 	CritRate           string `json:"crit_rate"`
 	CritDMG            string `json:"crit_dmg"`
+	AttributeDMGBonus  string `json:"attribute_dmg_bonus"`
 	AnomalyMastery     string `json:"anomaly_mastery"`
 	AnomalyProficiency string `json:"anomaly_proficiency"`
 	PenRatio           string `json:"pen_ratio"`
@@ -145,9 +187,10 @@ type FormattedStats struct {
 // FormattedStatBreakdown represents a single stat broken down into its base and added components,
 // pre-formatted as human-readable strings for UI display.
 type FormattedStatBreakdown struct {
-	Base  string `json:"base"`
-	Added string `json:"added"`
-	Total string `json:"total"`
+	Name  string `json:"name"`  // Localized stat display name (e.g., "HP", "ATK" / "Сила атаки", "Fire DMG Bonus" / "Бонус огненного урона").
+	Base  string `json:"base"`  // Base stat value (pre-formatted string).
+	Added string `json:"added"` // Added stat value from gear/buffs (pre-formatted string).
+	Total string `json:"total"` // Final combat stat value (pre-formatted string).
 }
 
 // UIStats contains all combat stats broken down into base and added components,
@@ -159,6 +202,7 @@ type UIStats struct {
 	Impact             FormattedStatBreakdown `json:"impact"`
 	CritRate           FormattedStatBreakdown `json:"crit_rate"`
 	CritDMG            FormattedStatBreakdown `json:"crit_dmg"`
+	AttributeDMGBonus  FormattedStatBreakdown `json:"attribute_dmg_bonus"`
 	AnomalyMastery     FormattedStatBreakdown `json:"anomaly_mastery"`
 	AnomalyProficiency FormattedStatBreakdown `json:"anomaly_proficiency"`
 	PenRatio           FormattedStatBreakdown `json:"pen_ratio"`
@@ -177,6 +221,7 @@ func (s *Stats) Formatted() FormattedStats {
 		Impact:             fmt.Sprintf("%.0f", s.Impact),
 		CritRate:           fmt.Sprintf("%.1f%%", s.CritRate*100),
 		CritDMG:            fmt.Sprintf("%.1f%%", s.CritDMG*100),
+		AttributeDMGBonus:  fmt.Sprintf("%.1f%%", s.AttributeDMGBonus*100),
 		AnomalyMastery:     fmt.Sprintf("%.0f", s.AnomalyMastery),
 		AnomalyProficiency: fmt.Sprintf("%.0f", s.AnomalyProficiency),
 		PenRatio:           fmt.Sprintf("%.1f%%", s.PenRatio*100),
@@ -188,11 +233,12 @@ func (s *Stats) Formatted() FormattedStats {
 
 // formatBreakdown is an internal helper to format a single stat breakdown.
 // precisionFlat and precisionPercent determine the number of decimal places used.
-func formatBreakdown(base, total float64, isPercent bool, precisionFlat int, precisionPercent int) FormattedStatBreakdown {
+func formatBreakdown(name string, base, total float64, isPercent bool, precisionFlat int, precisionPercent int) FormattedStatBreakdown {
 	added := total - base
 	if isPercent {
 		format := fmt.Sprintf("%%.%df%%%%", precisionPercent)
 		return FormattedStatBreakdown{
+			Name:  name,
 			Base:  fmt.Sprintf(format, base*100),
 			Added: fmt.Sprintf(format, added*100),
 			Total: fmt.Sprintf(format, total*100),
@@ -200,6 +246,7 @@ func formatBreakdown(base, total float64, isPercent bool, precisionFlat int, pre
 	}
 	format := fmt.Sprintf("%%.%df", precisionFlat)
 	return FormattedStatBreakdown{
+		Name:  name,
 		Base:  fmt.Sprintf(format, base),
 		Added: fmt.Sprintf(format, added),
 		Total: fmt.Sprintf(format, total),

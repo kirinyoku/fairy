@@ -2,6 +2,8 @@ package fairy
 
 import (
 	"encoding/base64"
+
+	"github.com/kirinyoku/fairy/store"
 )
 
 // Attribute represents the elemental attribute of an agent.
@@ -71,6 +73,21 @@ var attributeSVGMap = map[Attribute]string{
 	AttributePhysical:  `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="SvgIcon AddedDamageRatio_Physics" viewBox="0 0 14 14"><defs><linearGradient href="#zzz-AddedDamageRatio_Physics__a" id="zzz-AddedDamageRatio_Physics__b" x1="12.046" x2="12.046" y1="278.603" y2="299.007" gradientTransform="translate(-1.265 -191.16)scale(.68614)" gradientUnits="userSpaceOnUse"/><linearGradient id="zzz-AddedDamageRatio_Physics__a"><stop offset="0" style="stop-color:#e78801;stop-opacity:1"/><stop offset="1" style="stop-color:#efd400;stop-opacity:1"/></linearGradient></defs><path d="M9.013.217c-.87 1.096-2.116 2.47-3.595 2.36-.822-.06-2.224-.78-2.348-.663-.119.148.464 1.196.444 1.806C3.442 5.958 0 6.851 0 6.971c0 .127 1.243.482 1.805.865 1.862 1.266.612 2.894.182 4.554 1.503-.514 2.918-1.891 4.504-.761.8.57 1.173 1.273 1.817 2.186.755-2.82.996-3.654 2.71-4.18.897-.277 2.053-.178 2.982-.178-.45-.435-.988-1.001-1.404-1.583-1.44-2.013.221-3.08 1.311-4.696-1.88.059-3.876.534-4.562-1.806-.106-.36-.128-.776-.14-1.148 0 0-.058-.037-.092-.039-.034-.001-.1.034-.1.034zm-.986 3c.213 1.86 1.299 1.586 2.449 1.587 0 0-.813.657-.813 1.625s.813 1.626.813 1.626c-1.877-.12-2.618.594-2.752 2.273C6.78 8.834 6.3 8.476 4.515 9.319c.848-1.776.097-2.214-1.344-2.606 1.176-.488 2.515-1.09 1.886-2.632 1.565.642 2.184.209 2.97-.863" style="fill:url(#zzz-AddedDamageRatio_Physics__b);stroke:none;stroke-width:0.686135"/></svg>`,
 	AttributeWind:      `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="SvgIcon AddedDamageRatio_Wind" viewBox="0 0 14 14"><defs><linearGradient id="zzz-AddedDamageRatio_Wind__a"><stop offset="0" style="stop-color:#61a3ff;stop-opacity:1"/><stop offset="1" style="stop-color:#97e3fa;stop-opacity:1"/></linearGradient><linearGradient href="#zzz-AddedDamageRatio_Wind__a" id="zzz-AddedDamageRatio_Wind__b" x1="1862.372" x2="1908.889" y1="1828.644" y2="1900.273" gradientUnits="userSpaceOnUse"/><linearGradient href="#zzz-AddedDamageRatio_Wind__a" id="zzz-AddedDamageRatio_Wind__c" x1="1862.372" x2="1908.889" y1="1828.644" y2="1900.273" gradientUnits="userSpaceOnUse"/></defs><g style="fill:url(#zzz-AddedDamageRatio_Wind__b)"><path fill="#FFF" d="M1870.45 1829q10.4-.95 17.85.6 6.65 1.4 10.4 4.6-12.85-5.45-27.25-1.45-15.65 4.35-24.5 18.15-5.25 8.15-3.65 18.25 2-7.9 6.4-13.65 4.9-6.45 12.35-9.65-23.2 18.7-11.3 39.95 7.95 14.1 25.85 16.75 16.85 2.45 29.45-6.4-13.55 1.95-22.2.05-10.3-2.25-16.55-10.35 9.2 7.1 22 6.35 11.7-.7 22.2-7.5 10.55-6.85 14.7-16.65 4.55-10.75-.6-21.1-.789 17.455-14.05 25 9.75-10.45 9.55-20.85-.2-9.35-8.05-16.3-7.6-6.65-19.1-8.4-12.1-1.9-23.5 2.6m26.35 43.15q-7.2 5.35-15.8 5.35-8.55 0-13.55-5.35-4.9-5.4-3.25-12.9 1.65-7.55 8.95-13 7.25-5.3 15.85-5.3 8.55 0 13.45 5.3 5 5.45 3.35 13-1.65 7.5-9 12.9" style="fill:url(#zzz-AddedDamageRatio_Wind__c)" transform="translate(-299.382 -295.987)scale(.16249)"/></g></svg>`,
 	AttributeHonedEdge: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="SvgIcon AddedDamageRatio_ZhenZhenAssault" viewBox="0 0 24 24"><defs><radialGradient href="#zzz-AddedDamageRatio_ZhenZhenAssault__a" id="zzz-AddedDamageRatio_ZhenZhenAssault__b" cx="10.919" cy="8.958" r="10.566" fx="10.919" fy="8.958" gradientTransform="matrix(.89188 -.48417 .5089 .93742 -3.489 6.33)" gradientUnits="userSpaceOnUse"/><linearGradient id="zzz-AddedDamageRatio_ZhenZhenAssault__a"><stop offset="0" style="stop-color:#dfddf0;stop-opacity:1"/><stop offset=".682" style="stop-color:#869eee;stop-opacity:1"/><stop offset="1" style="stop-color:#8177b9;stop-opacity:1"/></linearGradient></defs><path d="M11.394 2.224c-.81 1.422-1.723 2.978-1.98 4.516.59-.25 1.076-.414 1.473-.36-.004.743.1 1.306.414 1.698 0 0 .511-1.042 1.71-1.936 1.2-.893 2.31-1.267 2.31-1.267-3.453.111-3.927-2.65-3.927-2.65m8.199 2.584c-1.866.459-3.645.722-5.32 1.74.575.297.925.703 1.092 1.08-.744.593-1.164 1.006-1.38 1.585 0 0 1.082-.325 2.665-.189 1.582.137 2.977 1.067 2.977 1.067-2.227-3.634-.034-5.283-.034-5.283M8.87 5.19c-2.76 2.026-4.864.855-4.864.855.534 1.357 1.097 2.86 2.158 3.912.257-.54.502-.963.856-1.2.607.428 1.152.68 1.719.693 0 0-.429-1.048-.42-2.047S8.87 5.19 8.87 5.19m2.463 3.07-.551 1.92-1.89-.608 1.18 1.565-1.696 1.13 2 .02-.22 2.01 1.313-1.529 1.53 1.29-.476-1.843 2.104-.237-1.879-.933 1.095-1.714-1.87.808zM4.427 9.63c-.192 3.398-2.754 4.364-2.754 4.364 1.592.39 3.335.845 5.037.634-.295-.527-.494-.974-.448-1.397.819-.224 1.436-.505 1.856-.946 0 0-1.29-.257-2.193-.926-.903-.67-1.498-1.73-1.498-1.73m13.206.964a2 2 0 0 0-.146.01c.098.373.038.747-.04 1.087-1.57-.04-2.038.052-2.589.288 0 0 1.116.62 1.999 1.893.882 1.272.9 3.253.9 3.253 1.384-4.238 5.049-3.667 5.049-3.667-1.55-1.083-3.64-2.905-5.173-2.864m-4.575 3.643s.171 1.267-.318 2.736c-.49 1.47-2.066 2.67-2.066 2.67 4.223-1.433 6.175 1.996 6.175 1.996-.063-1.95-.038-5.806-.856-6.227-.515.459-.774.7-1.453.629-.243-.908-.963-1.504-1.482-1.804m-3.006.355s-1.083.9-2.347 1.175-2.64.13-2.64.13c2.671 2.462 1.633 5.446 1.633 5.446a13.7 13.7 0 0 0 4.26-4.074c-.64-.121-1.043-.074-1.36-.397.409-.702.524-1.644.454-2.28" style="fill:url(#zzz-AddedDamageRatio_ZhenZhenAssault__b);stroke-width:1.67595;stroke-linecap:square;stroke-dashoffset:3.77952"/></svg>`,
+}
+
+// BaseAttribute returns the core elemental attribute that this attribute deals damage as.
+// For example, AuricInk deals Ether DMG, HonedEdge deals Physical DMG, and Frost deals Ice DMG.
+func (a Attribute) BaseAttribute() Attribute {
+	switch a {
+	case AttributeAuricInk:
+		return AttributeEther
+	case AttributeHonedEdge:
+		return AttributePhysical
+	case AttributeFrost:
+		return AttributeIce
+	default:
+		return a
+	}
 }
 
 // SVG returns the raw inline SVG markup string for the attribute.
@@ -172,6 +189,7 @@ type Agent struct {
 	CoreSkillEnhancement int                 `json:"core_skill_enhancement"` // The Core Skill enhancement level (0-6).
 	Attribute            Attribute           `json:"attribute"`              // The elemental damage type (e.g., Ice).
 	AttributeName        string              `json:"attribute_name"`         // The localized name of the attribute.
+	AttributeDMGName     string              `json:"attribute_dmg_name"`     // The localized display name of the attribute damage bonus stat (e.g., "Ether DMG" / "Эфирный урон"). Empty for attributes without elemental damage bonus.
 	Specialty            Specialty           `json:"specialty"`              // The combat role (e.g., Attack).
 	SpecialtyName        string              `json:"specialty_name"`         // The localized name of the specialty.
 	Rarity               Rarity              `json:"rarity"`                 // The rarity tier (S or A).
@@ -231,22 +249,53 @@ func (a *Agent) CountEffectiveRolls(targetProps ...PropertyID) int {
 	return total
 }
 
+func getStatName(st store.MetadataStore, key string, lang Language) string {
+	if st != nil {
+		if val := st.Localize(key, string(lang)); val != "" && val != key {
+			return val
+		}
+	}
+	return key
+}
+
 // FormattedUIStats generates a complete breakdown of base vs added stats for UI display.
+// Stat names are localized according to the optional lang parameter (defaults to LangEN).
 // This structure precisely matches the visual representation and layout seen in the in-game
 // stat panel or on platforms like Enka.Network.
-func (a *Agent) FormattedUIStats() UIStats {
+func (a *Agent) FormattedUIStats(lang ...Language) UIStats {
+	l := LangEN
+	if len(lang) > 0 {
+		l = lang[0]
+	}
+
+	st, _ := store.Default()
+
+	hpName := getStatName(st, LocKeyHP, l)
+	atkName := getStatName(st, LocKeyATK, l)
+	defName := getStatName(st, LocKeyDEF, l)
+	impactName := getStatName(st, LocKeyImpact, l)
+	critRateName := getStatName(st, LocKeyCritRate, l)
+	critDMGName := getStatName(st, LocKeyCritDMG, l)
+	anomalyMasteryName := getStatName(st, LocKeyAnomalyMastery, l)
+	anomalyProficiencyName := getStatName(st, LocKeyAnomalyProficiency, l)
+	penRatioName := getStatName(st, LocKeyPenRatio, l)
+	penFlatName := getStatName(st, LocKeyPenFlat, l)
+	energyRegenName := getStatName(st, LocKeyEnergyRegen, l)
+	sheerForceName := getStatName(st, LocKeySheerForce, l)
+
 	return UIStats{
-		HP:                 formatBreakdown(a.BaseStats.HP, a.Stats.HP, false, 0, 1),
-		ATK:                formatBreakdown(a.BaseStats.ATK, a.Stats.ATK, false, 0, 1),
-		DEF:                formatBreakdown(a.BaseStats.DEF, a.Stats.DEF, false, 0, 1),
-		Impact:             formatBreakdown(a.BaseStats.Impact, a.Stats.Impact, false, 0, 1),
-		CritRate:           formatBreakdown(a.BaseStats.CritRate, a.Stats.CritRate, true, 0, 1),
-		CritDMG:            formatBreakdown(a.BaseStats.CritDMG, a.Stats.CritDMG, true, 0, 1),
-		AnomalyMastery:     formatBreakdown(a.BaseStats.AnomalyMastery, a.Stats.AnomalyMastery, false, 0, 1),
-		AnomalyProficiency: formatBreakdown(a.BaseStats.AnomalyProficiency, a.Stats.AnomalyProficiency, false, 0, 1),
-		PenRatio:           formatBreakdown(a.BaseStats.PenRatio, a.Stats.PenRatio, true, 0, 1),
-		PenFlat:            formatBreakdown(a.BaseStats.PenFlat, a.Stats.PenFlat, false, 0, 1),
-		EnergyRegen:        formatBreakdown(a.BaseStats.EnergyRegen, a.Stats.EnergyRegen, false, 2, 2),
-		SheerForce:         formatBreakdown(a.BaseStats.SheerForce, a.Stats.SheerForce, false, 0, 1),
+		HP:                 formatBreakdown(hpName, a.BaseStats.HP, a.Stats.HP, false, 0, 1),
+		ATK:                formatBreakdown(atkName, a.BaseStats.ATK, a.Stats.ATK, false, 0, 1),
+		DEF:                formatBreakdown(defName, a.BaseStats.DEF, a.Stats.DEF, false, 0, 1),
+		Impact:             formatBreakdown(impactName, a.BaseStats.Impact, a.Stats.Impact, false, 0, 1),
+		CritRate:           formatBreakdown(critRateName, a.BaseStats.CritRate, a.Stats.CritRate, true, 0, 1),
+		CritDMG:            formatBreakdown(critDMGName, a.BaseStats.CritDMG, a.Stats.CritDMG, true, 0, 1),
+		AttributeDMGBonus:  formatBreakdown(a.AttributeDMGName, a.BaseStats.AttributeDMGBonus, a.Stats.AttributeDMGBonus, true, 0, 1),
+		AnomalyMastery:     formatBreakdown(anomalyMasteryName, a.BaseStats.AnomalyMastery, a.Stats.AnomalyMastery, false, 0, 1),
+		AnomalyProficiency: formatBreakdown(anomalyProficiencyName, a.BaseStats.AnomalyProficiency, a.Stats.AnomalyProficiency, false, 0, 1),
+		PenRatio:           formatBreakdown(penRatioName, a.BaseStats.PenRatio, a.Stats.PenRatio, true, 0, 1),
+		PenFlat:            formatBreakdown(penFlatName, a.BaseStats.PenFlat, a.Stats.PenFlat, false, 0, 1),
+		EnergyRegen:        formatBreakdown(energyRegenName, a.BaseStats.EnergyRegen, a.Stats.EnergyRegen, false, 2, 2),
+		SheerForce:         formatBreakdown(sheerForceName, a.BaseStats.SheerForce, a.Stats.SheerForce, false, 0, 1),
 	}
 }

@@ -201,6 +201,21 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 		if len(meta.ElementTypes) > 0 {
 			agent.Attribute = mapRawToAttribute(meta.ElementTypes[0])
 			agent.AttributeName = m.store.Localize("ElementType_"+meta.ElementTypes[0], string(m.lang))
+
+			switch agent.Attribute.BaseAttribute() {
+			case AttributePhysical:
+				agent.AttributeDMGName = m.store.Localize(LocKeyPhysicalDMGBonus, string(m.lang))
+			case AttributeFire:
+				agent.AttributeDMGName = m.store.Localize(LocKeyFireDMGBonus, string(m.lang))
+			case AttributeIce:
+				agent.AttributeDMGName = m.store.Localize(LocKeyIceDMGBonus, string(m.lang))
+			case AttributeElectric:
+				agent.AttributeDMGName = m.store.Localize(LocKeyElectricDMGBonus, string(m.lang))
+			case AttributeEther:
+				agent.AttributeDMGName = m.store.Localize(LocKeyEtherDMGBonus, string(m.lang))
+			case AttributeWind:
+				agent.AttributeDMGName = m.store.Localize(LocKeyWindDMGBonus, string(m.lang))
+			}
 		}
 
 		agent.Specialty = Specialty(meta.ProfessionType)

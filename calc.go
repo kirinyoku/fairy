@@ -227,6 +227,23 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		totalSheerForce += math.Floor(totalHp*0.1) + math.Floor(totalAtk*0.3)
 	}
 
+	// Calculate Attribute DMG Bonus matching the agent's elemental attribute
+	totalAttrDMG := sumPropVariants(bonuses, PropGroupGeneralDMG)
+	switch agent.Attribute.BaseAttribute() {
+	case AttributePhysical:
+		totalAttrDMG += sumPropVariants(bonuses, PropGroupPhysicalDMG)
+	case AttributeFire:
+		totalAttrDMG += sumPropVariants(bonuses, PropGroupFireDMG)
+	case AttributeIce:
+		totalAttrDMG += sumPropVariants(bonuses, PropGroupIceDMG)
+	case AttributeElectric:
+		totalAttrDMG += sumPropVariants(bonuses, PropGroupElectricDMG)
+	case AttributeEther:
+		totalAttrDMG += sumPropVariants(bonuses, PropGroupEtherDMG)
+	case AttributeWind:
+		totalAttrDMG += sumPropVariants(bonuses, PropGroupWindDMG)
+	}
+
 	agent.Stats = Stats{
 		HP:                 totalHp,
 		ATK:                totalAtk,
@@ -234,6 +251,7 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		Impact:             math.Floor(baseImpact*(1.0+bonuses[int(PropImpactPercent)]) + bonuses[int(PropImpactFlat)]),
 		CritRate:           baseCritRate + bonuses[int(PropBaseCritRate)] + bonuses[int(PropCritRate)],
 		CritDMG:            baseCritDMG + bonuses[int(PropBaseCritDMG)] + bonuses[int(PropCritDMG)],
+		AttributeDMGBonus:  totalAttrDMG,
 		AnomalyMastery:     math.Floor(baseAnomalyMastery*(1.0+bonuses[int(PropAnomalyMasteryPercent)]) + bonuses[int(PropBaseAnomalyMastery)] + bonuses[int(PropAnomalyMastery)]),
 		AnomalyProficiency: math.Floor(baseAnomalyProficiency*(1.0+bonuses[int(PropAnomalyProficiencyPercent)]) + bonuses[int(PropBaseAnomalyProficiency)] + bonuses[int(PropAnomalyProficiency)]),
 		PenRatio:           basePenRatio + bonuses[int(PropBasePENRatio)] + bonuses[int(PropPENRatio)],
@@ -241,4 +259,15 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		EnergyRegen:        baseEnergyRegen*(1.0+bonuses[int(PropEnergyRegenPercent)]) + bonuses[int(PropBaseEnergyRegen)] + bonuses[int(PropEnergyRegen)],
 		SheerForce:         totalSheerForce,
 	}
+}
+
+// sumPropVariants sums all property variations (base, percent, flat, percent bonus, flat bonus)
+// for a given base property group ID.
+func sumPropVariants(bonuses map[int]float64, baseGroup PropertyID) float64 {
+	var total float64
+	baseID := int(baseGroup)
+	for i := 1; i <= 5; i++ {
+		total += bonuses[baseID+i]
+	}
+	return total
 }
