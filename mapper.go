@@ -281,6 +281,19 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 		}
 	}
 
+	if msMeta, ok := m.store.AvatarMindscapesMeta(raw.ID); ok {
+		mindscapes := make([]MindscapeNode, 0, len(msMeta))
+		for _, mn := range msMeta {
+			mindscapes = append(mindscapes, MindscapeNode{
+				Rank:        mn.Rank,
+				Name:        m.store.Localize(mn.TitleKey, string(m.lang)),
+				Description: m.store.Localize(mn.DescKey, string(m.lang)),
+				Unlocked:    raw.TalentLevel >= mn.Rank,
+			})
+		}
+		agent.Mindscapes = mindscapes
+	}
+
 	// Calculate final stats
 	calculateAgentStats(agent, m.store)
 

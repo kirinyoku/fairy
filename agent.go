@@ -195,11 +195,35 @@ type Agent struct {
 	Skin                 *Skin               `json:"skin"`                   // The currently equipped skin (can be nil if not found).
 	SplashArtURL         string              `json:"splash_art_url"`         // The URL to the agent's splash art.
 	Skills               []Skill             `json:"skills"`                 // The agent's skills and passives.
+	Mindscapes           []MindscapeNode     `json:"mindscapes"`             // The agent's Mindscape Cinema levels (1-6).
 	WEngine              *WEngine            `json:"w_engine"`               // The currently equipped W-Engine (can be nil).
 	DriveDiscs           []DriveDisc         `json:"drive_discs"`            // The equipped Drive Discs (up to 6).
 	ActiveSetBonuses     []DriveDiscSetBonus `json:"active_set_bonuses"`     // The active 2-piece or 4-piece set bonuses.
 	BaseStats            Stats               `json:"base_stats"`             // The agent's base combat stats before gear/buffs.
 	Stats                Stats               `json:"stats"`                  // The agent's final combat stats including all gear/buffs.
+}
+
+// MindscapeNode represents a single Mindscape Cinema level (1-6) for an Agent.
+type MindscapeNode struct {
+	Rank        int    `json:"rank"`        // Cinema level (1 to 6).
+	Name        string `json:"name"`        // Localized name of the Mindscape Cinema.
+	Description string `json:"description"` // Localized description of the effect.
+	Unlocked    bool   `json:"unlocked"`    // True if unlocked (MindscapeCinema >= Rank).
+}
+
+// FormatHTML returns the Mindscape description formatted as HTML with inline CSS colors.
+func (m MindscapeNode) FormatHTML() string {
+	return FormatHTML(m.Description)
+}
+
+// FormatPlainText returns the Mindscape description stripped of Rich Text formatting.
+func (m MindscapeNode) FormatPlainText() string {
+	return FormatPlainText(m.Description)
+}
+
+// FormatMarkdown returns the Mindscape description formatted with Markdown syntax.
+func (m MindscapeNode) FormatMarkdown() string {
+	return FormatMarkdown(m.Description)
 }
 
 // SubStatTotals calculates the sum of all sub-stats across all equipped Drive Discs.

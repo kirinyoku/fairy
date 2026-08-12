@@ -230,3 +230,10 @@ type titleContainer struct {
 	Titles        map[string]TitleMeta `json:"Titles"`
 	TitleVariants map[string]TitleMeta `json:"TitleVariants"`
 }
+
+// MindscapeMeta represents immutable metadata for a Mindscape Cinema node.
+type MindscapeMeta struct {
+	Rank     int    `json:"Rank"`
+	TitleKey string `json:"TitleKey"`
+	DescKey  string `json:"DescKey"`
+}

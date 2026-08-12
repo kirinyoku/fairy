@@ -1,0 +1,1858 @@
+{
+  "1011": [
+    {
+      "Rank": 1,
+      "TitleKey": "Anbi_Talent_01_Title",
+      "DescKey": "Anbi_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Anbi_Talent_02_Title",
+      "DescKey": "Anbi_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Anbi_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Anbi_Talent_04_Title",
+      "DescKey": "Anbi_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Anbi_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Anbi_Talent_06_Title",
+      "DescKey": "Anbi_Talent_06_Desc_01"
+    }
+  ],
+  "1021": [
+    {
+      "Rank": 1,
+      "TitleKey": "Tsubaki_Talent_01_Title",
+      "DescKey": "Tsubaki_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Tsubaki_Talent_02_Title",
+      "DescKey": "Tsubaki_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Tsubaki_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Tsubaki_Talent_04_Title",
+      "DescKey": "Tsubaki_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Tsubaki_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Tsubaki_Talent_06_Title",
+      "DescKey": "Tsubaki_Talent_06_Desc_01"
+    }
+  ],
+  "1031": [
+    {
+      "Rank": 1,
+      "TitleKey": "Nostradamus_Talent_01_Title",
+      "DescKey": "Nostradamus_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Nostradamus_Talent_02_Title",
+      "DescKey": "Nostradamus_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Nostradamus_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Nostradamus_Talent_04_Title",
+      "DescKey": "Nostradamus_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Nostradamus_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Nostradamus_Talent_06_Title",
+      "DescKey": "Nostradamus_Talent_06_Desc_01"
+    }
+  ],
+  "1041": [
+    {
+      "Rank": 1,
+      "TitleKey": "Longinus_Talent_01_Title",
+      "DescKey": "Longinus_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Longinus_Talent_02_Title",
+      "DescKey": "Longinus_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Longinus_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Longinus_Talent_04_Title",
+      "DescKey": "Longinus_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Longinus_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Longinus_Talent_06_Title",
+      "DescKey": "Longinus_Talent_06_Desc_01"
+    }
+  ],
+  "1051": [
+    {
+      "Rank": 1,
+      "TitleKey": "Yidhari_Talent_01_Title",
+      "DescKey": "Yidhari_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Yidhari_Talent_02_Title",
+      "DescKey": "Yidhari_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Yidhari_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Yidhari_Talent_04_Title",
+      "DescKey": "Yidhari_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Yidhari_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Yidhari_Talent_06_Title",
+      "DescKey": "Yidhari_Talent_06_Desc_01"
+    }
+  ],
+  "1061": [
+    {
+      "Rank": 1,
+      "TitleKey": "Corin_Talent_01_Title",
+      "DescKey": "Corin_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Corin_Talent_02_Title",
+      "DescKey": "Corin_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Corin_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Corin_Talent_04_Title",
+      "DescKey": "Corin_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Corin_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Corin_Talent_06_Title",
+      "DescKey": "Corin_Talent_06_Desc_01"
+    }
+  ],
+  "1071": [
+    {
+      "Rank": 1,
+      "TitleKey": "Caesar_Talent_01_Title",
+      "DescKey": "Caesar_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Caesar_Talent_02_Title",
+      "DescKey": "Caesar_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Caesar_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Caesar_Talent_04_Title",
+      "DescKey": "Caesar_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Caesar_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Caesar_Talent_06_Title",
+      "DescKey": "Caesar_Talent_06_Desc_01"
+    }
+  ],
+  "1081": [
+    {
+      "Rank": 1,
+      "TitleKey": "Billy_Talent_01_Title",
+      "DescKey": "Billy_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Billy_Talent_02_Title",
+      "DescKey": "Billy_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Billy_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Billy_Talent_04_Title",
+      "DescKey": "Billy_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Billy_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Billy_Talent_06_Title",
+      "DescKey": "Billy_Talent_06_Desc_01"
+    }
+  ],
+  "1091": [
+    {
+      "Rank": 1,
+      "TitleKey": "Unagi_Talent_01_Title",
+      "DescKey": "Unagi_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Unagi_Talent_02_Title",
+      "DescKey": "Unagi_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Unagi_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Unagi_Talent_04_Title",
+      "DescKey": "Unagi_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Unagi_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Unagi_Talent_06_Title",
+      "DescKey": "Unagi_Talent_06_Desc_01"
+    }
+  ],
+  "1101": [
+    {
+      "Rank": 1,
+      "TitleKey": "OokumaMari_Talent_01_Title",
+      "DescKey": "OokumaMari_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "OokumaMari_Talent_02_Title",
+      "DescKey": "OokumaMari_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "OokumaMari_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "OokumaMari_Talent_04_Title",
+      "DescKey": "OokumaMari_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "OokumaMari_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "OokumaMari_Talent_06_Title",
+      "DescKey": "OokumaMari_Talent_06_Desc_01"
+    }
+  ],
+  "1111": [
+    {
+      "Rank": 1,
+      "TitleKey": "Anton_Talent_01_Title",
+      "DescKey": "Anton_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Anton_Talent_02_Title",
+      "DescKey": "Anton_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Anton_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Anton_Talent_04_Title",
+      "DescKey": "Anton_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Anton_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Anton_Talent_06_Title",
+      "DescKey": "Anton_Talent_06_Desc_01"
+    }
+  ],
+  "1121": [
+    {
+      "Rank": 1,
+      "TitleKey": "Ben_Talent_01_Title",
+      "DescKey": "Ben_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Ben_Talent_02_Title",
+      "DescKey": "Ben_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Ben_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Ben_Talent_04_Title",
+      "DescKey": "Ben_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Ben_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Ben_Talent_06_Title",
+      "DescKey": "Ben_Talent_06_Desc_01"
+    }
+  ],
+  "1131": [
+    {
+      "Rank": 1,
+      "TitleKey": "Aokaku_Talent_01_Title",
+      "DescKey": "Aokaku_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Aokaku_Talent_02_Title",
+      "DescKey": "Aokaku_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Aokaku_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Aokaku_Talent_04_Title",
+      "DescKey": "Aokaku_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Aokaku_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Aokaku_Talent_06_Title",
+      "DescKey": "Aokaku_Talent_06_Desc_01"
+    }
+  ],
+  "1141": [
+    {
+      "Rank": 1,
+      "TitleKey": "Lycaon_Talent_01_Title",
+      "DescKey": "Lycaon_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Lycaon_Talent_02_Title",
+      "DescKey": "Lycaon_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Lycaon_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Lycaon_Talent_04_Title",
+      "DescKey": "Lycaon_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Lycaon_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Lycaon_Talent_06_Title",
+      "DescKey": "Lycaon_Talent_06_Desc_01"
+    }
+  ],
+  "1151": [
+    {
+      "Rank": 1,
+      "TitleKey": "Lucy_Talent_01_Title",
+      "DescKey": "Lucy_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Lucy_Talent_02_Title",
+      "DescKey": "Lucy_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Lucy_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Lucy_Talent_04_Title",
+      "DescKey": "Lucy_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Lucy_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Lucy_Talent_06_Title",
+      "DescKey": "Lucy_Talent_06_Desc_01"
+    }
+  ],
+  "1161": [
+    {
+      "Rank": 1,
+      "TitleKey": "Lighter_Talent_01_Title",
+      "DescKey": "Lighter_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Lighter_Talent_02_Title",
+      "DescKey": "Lighter_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Lighter_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Lighter_Talent_04_Title",
+      "DescKey": "Lighter_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Lighter_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Lighter_Talent_06_Title",
+      "DescKey": "Lighter_Talent_06_Desc_01"
+    }
+  ],
+  "1171": [
+    {
+      "Rank": 1,
+      "TitleKey": "Burnice_Talent_01_Title",
+      "DescKey": "Burnice_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Burnice_Talent_02_Title",
+      "DescKey": "Burnice_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Burnice_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Burnice_Talent_04_Title",
+      "DescKey": "Burnice_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Burnice_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Burnice_Talent_06_Title",
+      "DescKey": "Burnice_Talent_06_Desc_01"
+    }
+  ],
+  "1181": [
+    {
+      "Rank": 1,
+      "TitleKey": "Lisa_Talent_01_Title",
+      "DescKey": "Lisa_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Lisa_Talent_02_Title",
+      "DescKey": "Lisa_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Lisa_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Lisa_Talent_04_Title",
+      "DescKey": "Lisa_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Lisa_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Lisa_Talent_06_Title",
+      "DescKey": "Lisa_Talent_06_Desc_01"
+    }
+  ],
+  "1191": [
+    {
+      "Rank": 1,
+      "TitleKey": "Ellen_Talent_01_Title",
+      "DescKey": "Ellen_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Ellen_Talent_02_Title",
+      "DescKey": "Ellen_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Ellen_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Ellen_Talent_04_Title",
+      "DescKey": "Ellen_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Ellen_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Ellen_Talent_06_Title",
+      "DescKey": "Ellen_Talent_06_Desc_01"
+    }
+  ],
+  "1201": [
+    {
+      "Rank": 1,
+      "TitleKey": "Harumasa_Talent_01_Title",
+      "DescKey": "Harumasa_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Harumasa_Talent_02_Title",
+      "DescKey": "Harumasa_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Harumasa_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Harumasa_Talent_04_Title",
+      "DescKey": "Harumasa_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Harumasa_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Harumasa_Talent_06_Title",
+      "DescKey": "Harumasa_Talent_06_Desc_01"
+    }
+  ],
+  "1211": [
+    {
+      "Rank": 1,
+      "TitleKey": "Rina_Talent_01_Title",
+      "DescKey": "Rina_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Rina_Talent_02_Title",
+      "DescKey": "Rina_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Rina_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Rina_Talent_04_Title",
+      "DescKey": "Rina_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Rina_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Rina_Talent_06_Title",
+      "DescKey": "Rina_Talent_06_Desc_01"
+    }
+  ],
+  "1221": [
+    {
+      "Rank": 1,
+      "TitleKey": "Yanagi_Talent_01_Title",
+      "DescKey": "Yanagi_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Yanagi_Talent_02_Title",
+      "DescKey": "Yanagi_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Yanagi_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Yanagi_Talent_04_Title",
+      "DescKey": "Yanagi_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Yanagi_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Yanagi_Talent_06_Title",
+      "DescKey": "Yanagi_Talent_06_Desc_01"
+    }
+  ],
+  "1241": [
+    {
+      "Rank": 1,
+      "TitleKey": "ZhuYuan_Talent_01_Title",
+      "DescKey": "ZhuYuan_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "ZhuYuan_Talent_02_Title",
+      "DescKey": "ZhuYuan_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "ZhuYuan_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "ZhuYuan_Talent_04_Title",
+      "DescKey": "ZhuYuan_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "ZhuYuan_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "ZhuYuan_Talent_06_Title",
+      "DescKey": "ZhuYuan_Talent_06_Desc_01"
+    }
+  ],
+  "1251": [
+    {
+      "Rank": 1,
+      "TitleKey": "QingYi_Talent_01_Title",
+      "DescKey": "QingYi_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "QingYi_Talent_02_Title",
+      "DescKey": "QingYi_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "QingYi_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "QingYi_Talent_04_Title",
+      "DescKey": "QingYi_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "QingYi_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "QingYi_Talent_06_Title",
+      "DescKey": "QingYi_Talent_06_Desc_01"
+    }
+  ],
+  "1261": [
+    {
+      "Rank": 1,
+      "TitleKey": "JaneDoe_Talent_01_Title",
+      "DescKey": "JaneDoe_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "JaneDoe_Talent_02_Title",
+      "DescKey": "JaneDoe_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "JaneDoe_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "JaneDoe_Talent_04_Title",
+      "DescKey": "JaneDoe_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "JaneDoe_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "JaneDoe_Talent_06_Title",
+      "DescKey": "JaneDoe_Talent_06_Desc_01"
+    }
+  ],
+  "1271": [
+    {
+      "Rank": 1,
+      "TitleKey": "Seth_Talent_01_Title",
+      "DescKey": "Seth_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Seth_Talent_02_Title",
+      "DescKey": "Seth_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Seth_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Seth_Talent_04_Title",
+      "DescKey": "Seth_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Seth_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Seth_Talent_06_Title",
+      "DescKey": "Seth_Talent_06_Desc_01"
+    }
+  ],
+  "1281": [
+    {
+      "Rank": 1,
+      "TitleKey": "Clara_Talent_01_Title",
+      "DescKey": "Clara_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Clara_Talent_02_Title",
+      "DescKey": "Clara_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Clara_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Clara_Talent_04_Title",
+      "DescKey": "Clara_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Clara_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Clara_Talent_06_Title",
+      "DescKey": "Clara_Talent_06_Desc_01"
+    }
+  ],
+  "1291": [
+    {
+      "Rank": 1,
+      "TitleKey": "HugoVlad_Talent_01_Title",
+      "DescKey": "HugoVlad_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "HugoVlad_Talent_02_Title",
+      "DescKey": "HugoVlad_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "HugoVlad_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "HugoVlad_Talent_04_Title",
+      "DescKey": "HugoVlad_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "HugoVlad_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "HugoVlad_Talent_06_Title",
+      "DescKey": "HugoVlad_Talent_06_Desc_01"
+    }
+  ],
+  "1301": [
+    {
+      "Rank": 1,
+      "TitleKey": "Brujas_Talent_01_Title",
+      "DescKey": "Brujas_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Brujas_Talent_02_Title",
+      "DescKey": "Brujas_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Brujas_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Brujas_Talent_04_Title",
+      "DescKey": "Brujas_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Brujas_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Brujas_Talent_06_Title",
+      "DescKey": "Brujas_Talent_06_Desc_01"
+    }
+  ],
+  "1311": [
+    {
+      "Rank": 1,
+      "TitleKey": "Astra_Talent_01_Title",
+      "DescKey": "Astra_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Astra_Talent_02_Title",
+      "DescKey": "Astra_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Astra_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Astra_Talent_04_Title",
+      "DescKey": "Astra_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Astra_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Astra_Talent_06_Title",
+      "DescKey": "Astra_Talent_06_Desc_01"
+    }
+  ],
+  "1321": [
+    {
+      "Rank": 1,
+      "TitleKey": "Evelyn_Talent_01_Title",
+      "DescKey": "Evelyn_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Evelyn_Talent_02_Title",
+      "DescKey": "Evelyn_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Evelyn_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Evelyn_Talent_04_Title",
+      "DescKey": "Evelyn_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Evelyn_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Evelyn_Talent_06_Title",
+      "DescKey": "Evelyn_Talent_06_Desc_01"
+    }
+  ],
+  "1331": [
+    {
+      "Rank": 1,
+      "TitleKey": "Vivian_Talent_01_Title",
+      "DescKey": "Vivian_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Vivian_Talent_02_Title",
+      "DescKey": "Vivian_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Vivian_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Vivian_Talent_04_Title",
+      "DescKey": "Vivian_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Vivian_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Vivian_Talent_06_Title",
+      "DescKey": "Vivian_Talent_06_Desc_01"
+    }
+  ],
+  "1341": [
+    {
+      "Rank": 1,
+      "TitleKey": "XiaoZhao_Talent_01_Title",
+      "DescKey": "XiaoZhao_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "XiaoZhao_Talent_02_Title",
+      "DescKey": "XiaoZhao_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "XiaoZhao_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "XiaoZhao_Talent_04_Title",
+      "DescKey": "XiaoZhao_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "XiaoZhao_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "XiaoZhao_Talent_06_Title",
+      "DescKey": "XiaoZhao_Talent_06_Desc_01"
+    }
+  ],
+  "1351": [
+    {
+      "Rank": 1,
+      "TitleKey": "Pulchra_Talent_01_Title",
+      "DescKey": "Pulchra_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Pulchra_Talent_02_Title",
+      "DescKey": "Pulchra_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Pulchra_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Pulchra_Talent_04_Title",
+      "DescKey": "Pulchra_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Pulchra_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Pulchra_Talent_06_Title",
+      "DescKey": "Pulchra_Talent_06_Desc_01"
+    }
+  ],
+  "1361": [
+    {
+      "Rank": 1,
+      "TitleKey": "Trigger_Talent_01_Title",
+      "DescKey": "Trigger_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Trigger_Talent_02_Title",
+      "DescKey": "Trigger_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Trigger_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Trigger_Talent_04_Title",
+      "DescKey": "Trigger_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Trigger_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Trigger_Talent_06_Title",
+      "DescKey": "Trigger_Talent_06_Desc_01"
+    }
+  ],
+  "1371": [
+    {
+      "Rank": 1,
+      "TitleKey": "YiXuan_Talent_01_Title",
+      "DescKey": "YiXuan_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "YiXuan_Talent_02_Title",
+      "DescKey": "YiXuan_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "YiXuan_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "YiXuan_Talent_04_Title",
+      "DescKey": "YiXuan_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "YiXuan_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "YiXuan_Talent_06_Title",
+      "DescKey": "YiXuan_Talent_06_Desc_01"
+    }
+  ],
+  "1381": [
+    {
+      "Rank": 1,
+      "TitleKey": "SilverAnby_Talent_01_Title",
+      "DescKey": "SilverAnby_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "SilverAnby_Talent_02_Title",
+      "DescKey": "SilverAnby_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "SilverAnby_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "SilverAnby_Talent_04_Title",
+      "DescKey": "SilverAnby_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "SilverAnby_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "SilverAnby_Talent_06_Title",
+      "DescKey": "SilverAnby_Talent_06_Desc_01"
+    }
+  ],
+  "1391": [
+    {
+      "Rank": 1,
+      "TitleKey": "Jufufu_Talent_01_Title",
+      "DescKey": "Jufufu_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Jufufu_Talent_02_Title",
+      "DescKey": "Jufufu_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Jufufu_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Jufufu_Talent_04_Title",
+      "DescKey": "Jufufu_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Jufufu_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Jufufu_Talent_06_Title",
+      "DescKey": "Jufufu_Talent_06_Desc_01"
+    }
+  ],
+  "1401": [
+    {
+      "Rank": 1,
+      "TitleKey": "Alice_Talent_01_Title",
+      "DescKey": "Alice_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Alice_Talent_02_Title",
+      "DescKey": "Alice_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Alice_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Alice_Talent_04_Title",
+      "DescKey": "Alice_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Alice_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Alice_Talent_06_Title",
+      "DescKey": "Alice_Talent_06_Desc_01"
+    }
+  ],
+  "1411": [
+    {
+      "Rank": 1,
+      "TitleKey": "Yuzuha_Talent_01_Title",
+      "DescKey": "Yuzuha_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Yuzuha_Talent_02_Title",
+      "DescKey": "Yuzuha_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Yuzuha_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Yuzuha_Talent_04_Title",
+      "DescKey": "Yuzuha_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Yuzuha_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Yuzuha_Talent_06_Title",
+      "DescKey": "Yuzuha_Talent_06_Desc_01"
+    }
+  ],
+  "1421": [
+    {
+      "Rank": 1,
+      "TitleKey": "PanYinhu_Talent_01_Title",
+      "DescKey": "PanYinhu_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "PanYinhu_Talent_02_Title",
+      "DescKey": "PanYinhu_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "PanYinhu_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "PanYinhu_Talent_04_Title",
+      "DescKey": "PanYinhu_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "PanYinhu_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "PanYinhu_Talent_06_Title",
+      "DescKey": "PanYinhu_Talent_06_Desc_01"
+    }
+  ],
+  "1431": [
+    {
+      "Rank": 1,
+      "TitleKey": "Zhenzhen_Talent_01_Title",
+      "DescKey": "Zhenzhen_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Zhenzhen_Talent_02_Title",
+      "DescKey": "Zhenzhen_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Zhenzhen_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Zhenzhen_Talent_04_Title",
+      "DescKey": "Zhenzhen_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Zhenzhen_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Zhenzhen_Talent_06_Title",
+      "DescKey": "Zhenzhen_Talent_06_Desc_01"
+    }
+  ],
+  "1441": [
+    {
+      "Rank": 1,
+      "TitleKey": "Norano_Talent_01_Title",
+      "DescKey": "Norano_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Norano_Talent_02_Title",
+      "DescKey": "Norano_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Norano_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Norano_Talent_04_Title",
+      "DescKey": "Norano_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Norano_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Norano_Talent_06_Title",
+      "DescKey": "Norano_Talent_06_Desc_01"
+    }
+  ],
+  "1451": [
+    {
+      "Rank": 1,
+      "TitleKey": "Lucia_Talent_01_Title",
+      "DescKey": "Lucia_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Lucia_Talent_02_Title",
+      "DescKey": "Lucia_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Lucia_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Lucia_Talent_04_Title",
+      "DescKey": "Lucia_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Lucia_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Lucia_Talent_06_Title",
+      "DescKey": "Lucia_Talent_06_Desc_01"
+    }
+  ],
+  "1461": [
+    {
+      "Rank": 1,
+      "TitleKey": "Seed_Talent_01_Title",
+      "DescKey": "Seed_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Seed_Talent_02_Title",
+      "DescKey": "Seed_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Seed_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Seed_Talent_04_Title",
+      "DescKey": "Seed_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Seed_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Seed_Talent_06_Title",
+      "DescKey": "Seed_Talent_06_Desc_01"
+    }
+  ],
+  "1471": [
+    {
+      "Rank": 1,
+      "TitleKey": "BanYue_Talent_01_Title",
+      "DescKey": "BanYue_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "BanYue_Talent_02_Title",
+      "DescKey": "BanYue_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "BanYue_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "BanYue_Talent_04_Title",
+      "DescKey": "BanYue_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "BanYue_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "BanYue_Talent_06_Title",
+      "DescKey": "BanYue_Talent_06_Desc_01"
+    }
+  ],
+  "1481": [
+    {
+      "Rank": 1,
+      "TitleKey": "Azural_Talent_01_Title",
+      "DescKey": "Azural_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Azural_Talent_02_Title",
+      "DescKey": "Azural_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Azural_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Azural_Talent_04_Title",
+      "DescKey": "Azural_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Azural_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Azural_Talent_06_Title",
+      "DescKey": "Azural_Talent_06_Desc_01"
+    }
+  ],
+  "1491": [
+    {
+      "Rank": 1,
+      "TitleKey": "Summer_Talent_01_Title",
+      "DescKey": "Summer_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Summer_Talent_02_Title",
+      "DescKey": "Summer_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Summer_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Summer_Talent_04_Title",
+      "DescKey": "Summer_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Summer_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Summer_Talent_06_Title",
+      "DescKey": "Summer_Talent_06_Desc_01"
+    }
+  ],
+  "1501": [
+    {
+      "Rank": 1,
+      "TitleKey": "Aria_Talent_01_Title",
+      "DescKey": "Aria_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Aria_Talent_02_Title",
+      "DescKey": "Aria_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Aria_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Aria_Talent_04_Title",
+      "DescKey": "Aria_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Aria_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Aria_Talent_06_Title",
+      "DescKey": "Aria_Talent_06_Desc_01"
+    }
+  ],
+  "1511": [
+    {
+      "Rank": 1,
+      "TitleKey": "NangongYu_Talent_01_Title",
+      "DescKey": "NangongYu_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "NangongYu_Talent_02_Title",
+      "DescKey": "NangongYu_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "NangongYu_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "NangongYu_Talent_04_Title",
+      "DescKey": "NangongYu_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "NangongYu_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "NangongYu_Talent_06_Title",
+      "DescKey": "NangongYu_Talent_06_Desc_01"
+    }
+  ],
+  "1521": [
+    {
+      "Rank": 1,
+      "TitleKey": "Cissia_Talent_01_Title",
+      "DescKey": "Cissia_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Cissia_Talent_02_Title",
+      "DescKey": "Cissia_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Cissia_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Cissia_Talent_04_Title",
+      "DescKey": "Cissia_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Cissia_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Cissia_Talent_06_Title",
+      "DescKey": "Cissia_Talent_06_Desc_01"
+    }
+  ],
+  "1531": [
+    {
+      "Rank": 1,
+      "TitleKey": "SPBilly_Talent_01_Title",
+      "DescKey": "SPBilly_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "SPBilly_Talent_02_Title",
+      "DescKey": "SPBilly_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "SPBilly_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "SPBilly_Talent_04_Title",
+      "DescKey": "SPBilly_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "SPBilly_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "SPBilly_Talent_06_Title",
+      "DescKey": "SPBilly_Talent_06_Desc_01"
+    }
+  ],
+  "1541": [
+    {
+      "Rank": 1,
+      "TitleKey": "Promeia_Talent_01_Title",
+      "DescKey": "Promeia_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Promeia_Talent_02_Title",
+      "DescKey": "Promeia_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Promeia_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Promeia_Talent_04_Title",
+      "DescKey": "Promeia_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Promeia_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Promeia_Talent_06_Title",
+      "DescKey": "Promeia_Talent_06_Desc_01"
+    }
+  ],
+  "1551": [
+    {
+      "Rank": 1,
+      "TitleKey": "Pyrois_Talent_01_Title",
+      "DescKey": "Pyrois_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Pyrois_Talent_02_Title",
+      "DescKey": "Pyrois_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Pyrois_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Pyrois_Talent_04_Title",
+      "DescKey": "Pyrois_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Pyrois_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Pyrois_Talent_06_Title",
+      "DescKey": "Pyrois_Talent_06_Desc_01"
+    }
+  ],
+  "1561": [
+    {
+      "Rank": 1,
+      "TitleKey": "Velina_Talent_01_Title",
+      "DescKey": "Velina_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Velina_Talent_02_Title",
+      "DescKey": "Velina_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Velina_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Velina_Talent_04_Title",
+      "DescKey": "Velina_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Velina_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Velina_Talent_06_Title",
+      "DescKey": "Velina_Talent_06_Desc_01"
+    }
+  ],
+  "1571": [
+    {
+      "Rank": 1,
+      "TitleKey": "Norma_Talent_01_Title",
+      "DescKey": "Norma_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Norma_Talent_02_Title",
+      "DescKey": "Norma_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Norma_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Norma_Talent_04_Title",
+      "DescKey": "Norma_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Norma_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Norma_Talent_06_Title",
+      "DescKey": "Norma_Talent_06_Desc_01"
+    }
+  ],
+  "1581": [
+    {
+      "Rank": 1,
+      "TitleKey": "Remielle_Talent_01_Title",
+      "DescKey": "Remielle_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Remielle_Talent_02_Title",
+      "DescKey": "Remielle_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Remielle_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Remielle_Talent_04_Title",
+      "DescKey": "Remielle_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Remielle_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Remielle_Talent_06_Title",
+      "DescKey": "Remielle_Talent_06_Desc_01"
+    }
+  ],
+  "1591": [
+    {
+      "Rank": 1,
+      "TitleKey": "Sigrid_Talent_01_Title",
+      "DescKey": "Sigrid_Talent_01_Desc_01"
+    },
+    {
+      "Rank": 2,
+      "TitleKey": "Sigrid_Talent_02_Title",
+      "DescKey": "Sigrid_Talent_02_Desc_01"
+    },
+    {
+      "Rank": 3,
+      "TitleKey": "Sigrid_Talent_03_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 4,
+      "TitleKey": "Sigrid_Talent_04_Title",
+      "DescKey": "Sigrid_Talent_04_Desc_01"
+    },
+    {
+      "Rank": 5,
+      "TitleKey": "Sigrid_Talent_05_Title",
+      "DescKey": "Common_Talent_Desc"
+    },
+    {
+      "Rank": 6,
+      "TitleKey": "Sigrid_Talent_06_Title",
+      "DescKey": "Sigrid_Talent_06_Desc_01"
+    }
+  ]
+}
