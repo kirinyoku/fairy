@@ -227,5 +227,6 @@ type equipmentLevelContainer struct {
 }
 
 type titleContainer struct {
-	Titles map[string]TitleMeta `json:"Titles"`
+	Titles        map[string]TitleMeta `json:"Titles"`
+	TitleVariants map[string]TitleMeta `json:"TitleVariants"`
 }

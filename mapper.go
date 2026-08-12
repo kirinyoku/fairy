@@ -41,7 +41,7 @@ func (m *profileMapper) ToProfile(raw *zzz.Profile) (*Profile, error) {
 			p.InterknotLevel = pd.Level
 			p.UID = strconv.FormatInt(pd.UID, 10)
 
-			p.Title = m.mapTitle(pd.Title)
+			p.Title = m.mapTitle(pd)
 			p.Avatar = m.mapAvatar(pd.ProfileID, pd.AvatarID)
 			p.Namecard = m.mapNamecard(pd.CallingCardID)
 		}
@@ -67,14 +67,46 @@ func (m *profileMapper) ToProfile(raw *zzz.Profile) (*Profile, error) {
 	return p, nil
 }
 
-func (m *profileMapper) mapTitle(id int) *Title {
-	meta, ok := m.store.TitleMeta(id)
-	if !ok {
-		return &Title{ID: id}
+func (m *profileMapper) mapTitle(pd *zzz.ProfileDetail) *Title {
+	if pd == nil {
+		return nil
 	}
+
+	titleID := pd.Title
+	var args []string
+
+	if pd.TitleInfo != nil {
+		if pd.TitleInfo.FullTitle != 0 {
+			titleID = pd.TitleInfo.FullTitle
+		} else if pd.TitleInfo.Title != 0 {
+			titleID = pd.TitleInfo.Title
+		}
+		for _, arg := range pd.TitleInfo.Args {
+			args = append(args, fmt.Sprintf("%v", arg))
+		}
+	}
+
+	if titleID == 0 {
+		return nil
+	}
+
+	meta, ok := m.store.TitleMeta(titleID)
+	if !ok && pd.TitleInfo != nil && pd.TitleInfo.Title != 0 && pd.TitleInfo.Title != titleID {
+		meta, ok = m.store.TitleMeta(pd.TitleInfo.Title)
+	}
+
+	if !ok {
+		return &Title{ID: titleID}
+	}
+
+	text := m.store.Localize(meta.TitleText, string(m.lang))
+	for i, arg := range args {
+		text = strings.ReplaceAll(text, fmt.Sprintf("{%d}", i), arg)
+	}
+
 	return &Title{
-		ID:             id,
-		Text:           m.store.Localize(meta.TitleText, string(m.lang)),
+		ID:             titleID,
+		Text:           text,
 		PrimaryColor:   meta.ColorA,
 		SecondaryColor: meta.ColorB,
 	}

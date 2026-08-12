@@ -254,6 +254,24 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 		}
 		s.titles[id] = rec
 	}
+	for idStr, rec := range titles.TitleVariants {
+		id, err := parseID(idStr, "title variant")
+		if err != nil {
+			return nil, err
+		}
+		if rec.ColorA == "" || rec.ColorB == "" {
+			parentID := id / 100
+			if parent, parentOk := s.titles[parentID]; parentOk {
+				if rec.ColorA == "" {
+					rec.ColorA = parent.ColorA
+				}
+				if rec.ColorB == "" {
+					rec.ColorB = parent.ColorB
+				}
+			}
+		}
+		s.titles[id] = rec
+	}
 
 	// Namecards
 	namecards, err := readJSON[map[string]NamecardMeta](fsys, "namecards.json")
