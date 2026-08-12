@@ -189,7 +189,6 @@ type Agent struct {
 	CoreSkillEnhancement int                 `json:"core_skill_enhancement"` // The Core Skill enhancement level (0-6).
 	Attribute            Attribute           `json:"attribute"`              // The elemental damage type (e.g., Ice).
 	AttributeName        string              `json:"attribute_name"`         // The localized name of the attribute.
-	AttributeDMGName     string              `json:"attribute_dmg_name"`     // The localized display name of the attribute damage bonus stat (e.g., "Ether DMG" / "Эфирный урон"). Empty for attributes without elemental damage bonus.
 	Specialty            Specialty           `json:"specialty"`              // The combat role (e.g., Attack).
 	SpecialtyName        string              `json:"specialty_name"`         // The localized name of the specialty.
 	Rarity               Rarity              `json:"rarity"`                 // The rarity tier (S or A).
@@ -283,6 +282,22 @@ func (a *Agent) FormattedUIStats(lang ...Language) UIStats {
 	energyRegenName := getStatName(st, locKeyEnergyRegen, l)
 	sheerForceName := getStatName(st, locKeySheerForce, l)
 
+	var attrDMGName string
+	switch a.Attribute.BaseAttribute() {
+	case AttributePhysical:
+		attrDMGName = getStatName(st, locKeyPhysicalDMGBonus, l)
+	case AttributeFire:
+		attrDMGName = getStatName(st, locKeyFireDMGBonus, l)
+	case AttributeIce:
+		attrDMGName = getStatName(st, locKeyIceDMGBonus, l)
+	case AttributeElectric:
+		attrDMGName = getStatName(st, locKeyElectricDMGBonus, l)
+	case AttributeEther:
+		attrDMGName = getStatName(st, locKeyEtherDMGBonus, l)
+	case AttributeWind:
+		attrDMGName = getStatName(st, locKeyWindDMGBonus, l)
+	}
+
 	return UIStats{
 		HP:                 formatBreakdown(hpName, a.BaseStats.HP, a.Stats.HP, false, 0, 1),
 		ATK:                formatBreakdown(atkName, a.BaseStats.ATK, a.Stats.ATK, false, 0, 1),
@@ -290,7 +305,7 @@ func (a *Agent) FormattedUIStats(lang ...Language) UIStats {
 		Impact:             formatBreakdown(impactName, a.BaseStats.Impact, a.Stats.Impact, false, 0, 1),
 		CritRate:           formatBreakdown(critRateName, a.BaseStats.CritRate, a.Stats.CritRate, true, 0, 1),
 		CritDMG:            formatBreakdown(critDMGName, a.BaseStats.CritDMG, a.Stats.CritDMG, true, 0, 1),
-		AttributeDMGBonus:  formatBreakdown(a.AttributeDMGName, a.BaseStats.AttributeDMGBonus, a.Stats.AttributeDMGBonus, true, 0, 1),
+		AttributeDMGBonus:  formatBreakdown(attrDMGName, a.BaseStats.AttributeDMGBonus, a.Stats.AttributeDMGBonus, true, 0, 1),
 		AnomalyMastery:     formatBreakdown(anomalyMasteryName, a.BaseStats.AnomalyMastery, a.Stats.AnomalyMastery, false, 0, 1),
 		AnomalyProficiency: formatBreakdown(anomalyProficiencyName, a.BaseStats.AnomalyProficiency, a.Stats.AnomalyProficiency, false, 0, 1),
 		PenRatio:           formatBreakdown(penRatioName, a.BaseStats.PenRatio, a.Stats.PenRatio, true, 0, 1),
