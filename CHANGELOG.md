@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.6.0] - 2026-08-12
+
+### Added
+- Added `AttributeDMGBonus` calculation matching agent elemental attribute (`Physical`, `Fire`, `Ice`, `Electric`, `Ether`, `Wind`) and reskins (`AuricInk`, `HonedEdge`, `Frost`).
+- Added `Name` field to `FormattedStatBreakdown` and localized all 13 combat stats.
+- Added `TitleVariants` support and dynamic `TitleInfo` argument formatting in `Profile`.
+- Added `FormatHTML()`, `FormatPlainText()`, `FormatMarkdown()`, and `{CAL:...}` formula evaluation to `WEngine` and `DriveDiscSetBonus`.
+
+### Fixed
+- Fixed Anomaly Mastery (`31401`–`31403`) and Anomaly Proficiency (`31201`–`31203`) property IDs and calculation formulas.
+- Added explicit element type mappings for `Physical` and `Electric` attributes in `mapper.go`.
+
+### Changed
+- Refactored `calc.go` to use `sumPropVariants` helper and `propGroup` constants, removing raw property ID calculations.
+- Replaced `if-else` chains in formula evaluator with tagged `switch` statements in `text.go`.
+
 ## [0.5.0] - 2026-08-11
 
 ### Added
