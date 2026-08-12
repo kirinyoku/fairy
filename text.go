@@ -146,14 +146,15 @@ func evaluateSimpleExpr(expr string) (float64, error) {
 		op := ops[idx]
 		nextVal := terms[idx+1]
 
-		if op == '*' {
+		switch op {
+		case '*':
 			finalTerms[len(finalTerms)-1] *= nextVal
-		} else if op == '/' {
+		case '/':
 			if nextVal == 0 {
 				return 0, fmt.Errorf("division by zero")
 			}
 			finalTerms[len(finalTerms)-1] /= nextVal
-		} else {
+		default:
 			finalTerms = append(finalTerms, nextVal)
 			finalOps = append(finalOps, op)
 		}
@@ -162,9 +163,10 @@ func evaluateSimpleExpr(expr string) (float64, error) {
 	// 2. Addition and subtraction
 	res := finalTerms[0]
 	for idx := 0; idx < len(finalOps); idx++ {
-		if finalOps[idx] == '+' {
+		switch finalOps[idx] {
+		case '+':
 			res += finalTerms[idx+1]
-		} else if finalOps[idx] == '-' {
+		case '-':
 			res -= finalTerms[idx+1]
 		}
 	}
