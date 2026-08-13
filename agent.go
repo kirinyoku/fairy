@@ -340,34 +340,41 @@ func (a *Agent) FormattedUIStats(lang ...Language) UIStats {
 	sheerForceName := getStatName(st, locKeySheerForce, l)
 
 	var attrDMGName string
+	var attrDMGProp PropertyID
 	switch a.Attribute.BaseAttribute() {
 	case AttributePhysical:
 		attrDMGName = getStatName(st, locKeyPhysicalDMGBonus, l)
+		attrDMGProp = PropPhysicalDMGBonus
 	case AttributeFire:
 		attrDMGName = getStatName(st, locKeyFireDMGBonus, l)
+		attrDMGProp = PropFireDMGBonus
 	case AttributeIce:
 		attrDMGName = getStatName(st, locKeyIceDMGBonus, l)
+		attrDMGProp = PropIceDMGBonus
 	case AttributeElectric:
 		attrDMGName = getStatName(st, locKeyElectricDMGBonus, l)
+		attrDMGProp = PropElectricDMGBonus
 	case AttributeEther:
 		attrDMGName = getStatName(st, locKeyEtherDMGBonus, l)
+		attrDMGProp = PropEtherDMGBonus
 	case AttributeWind:
 		attrDMGName = getStatName(st, locKeyWindDMGBonus, l)
+		attrDMGProp = PropWindDMGBonus
 	}
 
 	return UIStats{
-		HP:                 formatBreakdown(hpName, a.BaseStats.HP, a.Stats.HP, false, 0, 1),
-		ATK:                formatBreakdown(atkName, a.BaseStats.ATK, a.Stats.ATK, false, 0, 1),
-		DEF:                formatBreakdown(defName, a.BaseStats.DEF, a.Stats.DEF, false, 0, 1),
-		Impact:             formatBreakdown(impactName, a.BaseStats.Impact, a.Stats.Impact, false, 0, 1),
-		CritRate:           formatBreakdown(critRateName, a.BaseStats.CritRate, a.Stats.CritRate, true, 0, 1),
-		CritDMG:            formatBreakdown(critDMGName, a.BaseStats.CritDMG, a.Stats.CritDMG, true, 0, 1),
-		AttributeDMGBonus:  formatBreakdown(attrDMGName, a.BaseStats.AttributeDMGBonus, a.Stats.AttributeDMGBonus, true, 0, 1),
-		AnomalyMastery:     formatBreakdown(anomalyMasteryName, a.BaseStats.AnomalyMastery, a.Stats.AnomalyMastery, false, 0, 1),
-		AnomalyProficiency: formatBreakdown(anomalyProficiencyName, a.BaseStats.AnomalyProficiency, a.Stats.AnomalyProficiency, false, 0, 1),
-		PenRatio:           formatBreakdown(penRatioName, a.BaseStats.PenRatio, a.Stats.PenRatio, true, 0, 1),
-		PenFlat:            formatBreakdown(penFlatName, a.BaseStats.PenFlat, a.Stats.PenFlat, false, 0, 1),
-		EnergyRegen:        formatBreakdown(energyRegenName, a.BaseStats.EnergyRegen, a.Stats.EnergyRegen, false, 2, 2),
-		SheerForce:         formatBreakdown(sheerForceName, a.BaseStats.SheerForce, a.Stats.SheerForce, false, 0, 1),
+		HP:                 formatBreakdown(PropBaseHP, hpName, a.BaseStats.HP, a.Stats.HP, false, 0, 1),
+		ATK:                formatBreakdown(PropBaseATK, atkName, a.BaseStats.ATK, a.Stats.ATK, false, 0, 1),
+		DEF:                formatBreakdown(PropBaseDEF, defName, a.BaseStats.DEF, a.Stats.DEF, false, 0, 1),
+		Impact:             formatBreakdown(PropBaseImpact, impactName, a.BaseStats.Impact, a.Stats.Impact, false, 0, 1),
+		CritRate:           formatBreakdown(PropBaseCritRate, critRateName, a.BaseStats.CritRate, a.Stats.CritRate, true, 0, 1),
+		CritDMG:            formatBreakdown(PropBaseCritDMG, critDMGName, a.BaseStats.CritDMG, a.Stats.CritDMG, true, 0, 1),
+		AttributeDMGBonus:  formatBreakdown(attrDMGProp, attrDMGName, a.BaseStats.AttributeDMGBonus, a.Stats.AttributeDMGBonus, true, 0, 1),
+		AnomalyMastery:     formatBreakdown(PropBaseAnomalyMastery, anomalyMasteryName, a.BaseStats.AnomalyMastery, a.Stats.AnomalyMastery, false, 0, 1),
+		AnomalyProficiency: formatBreakdown(PropBaseAnomalyProficiency, anomalyProficiencyName, a.BaseStats.AnomalyProficiency, a.Stats.AnomalyProficiency, false, 0, 1),
+		PenRatio:           formatBreakdown(PropBasePENRatio, penRatioName, a.BaseStats.PenRatio, a.Stats.PenRatio, true, 0, 1),
+		PenFlat:            formatBreakdown(PropBasePENFlat, penFlatName, a.BaseStats.PenFlat, a.Stats.PenFlat, false, 0, 1),
+		EnergyRegen:        formatBreakdown(PropBaseEnergyRegen, energyRegenName, a.BaseStats.EnergyRegen, a.Stats.EnergyRegen, false, 2, 2),
+		SheerForce:         formatBreakdown(PropBaseSheerForce, sheerForceName, a.BaseStats.SheerForce, a.Stats.SheerForce, false, 0, 1),
 	}
 }

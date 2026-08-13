@@ -419,10 +419,12 @@ func (m *profileMapper) mapDriveDisc(raw *zzz.Equipment, slot int) *DriveDisc {
 // in the PropertyMeta (e.g., "{0:0.#}%"). If it is a percentage, the raw integer
 // value is divided by 10000.0, as per the game's internal representation convention.
 func (m *profileMapper) mapStat(propID int, rawValue int, rolls int) StatValue {
+	pid := PropertyID(propID)
 	sv := StatValue{
-		PropertyID: PropertyID(propID),
+		PropertyID: pid,
 		Rolls:      rolls,
 		Value:      float64(rawValue),
+		IconURL:    pid.IconURL(),
 	}
 
 	meta, ok := m.store.PropertyMeta(propID)
