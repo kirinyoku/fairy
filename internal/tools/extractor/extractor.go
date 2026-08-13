@@ -123,6 +123,7 @@ func main() {
 		AvatarID int    `json:"PJABHBNCJOI"`
 		Title    string `json:"LECKPHICFOA"`
 		Desc     string `json:"DLADMENPFPD"`
+		Formula  string `json:"KLPLBBJABBL"`
 	}
 	var skillDesData struct {
 		Items []SkillDesItem `json:"MLOEFHJHCID"`
@@ -139,32 +140,75 @@ func main() {
 	}
 	readJSON(filepath.Join(zenlessDir, "FileCfg", "AvatarPassiveSkillDesTemplateTb.json"), &passiveSkillDesData)
 
-	type SkillMeta struct {
+	type SkillParamMeta struct {
 		NameKey string `json:"NameKey"`
-		DescKey string `json:"DescKey"`
+		Formula string `json:"Formula"`
+	}
+
+	type SkillMeta struct {
+		NameKey string           `json:"NameKey"`
+		DescKey string           `json:"DescKey"`
+		Params  []SkillParamMeta `json:"Params,omitempty"`
 	}
 
 	skillsOutput := make(map[string][]SkillMeta)
+	seenKeys := make(map[string]map[string]bool)
+	currentSkillIdxMap := make(map[string]int)
 
+	// Group skills and params per avatar
 	for _, item := range skillDesData.Items {
-		if item.Title == "" {
-			continue
-		}
 		avStr := fmt.Sprintf("%d", item.AvatarID)
-		skillsOutput[avStr] = append(skillsOutput[avStr], SkillMeta{
-			NameKey: item.Title,
-			DescKey: item.Desc,
-		})
-		keysToExtract[item.Title] = true
-		keysToExtract[item.Desc] = true
+		if seenKeys[avStr] == nil {
+			seenKeys[avStr] = make(map[string]bool)
+		}
+
+		if item.Title != "" {
+			if seenKeys[avStr][item.Title] {
+				continue
+			}
+			seenKeys[avStr][item.Title] = true
+
+			skillsOutput[avStr] = append(skillsOutput[avStr], SkillMeta{
+				NameKey: item.Title,
+				DescKey: item.Desc,
+				Params:  make([]SkillParamMeta, 0),
+			})
+			currentSkillIdxMap[avStr] = len(skillsOutput[avStr]) - 1
+			keysToExtract[item.Title] = true
+			keysToExtract[item.Desc] = true
+		} else if item.Desc != "" && len(skillsOutput[avStr]) > 0 {
+			// Check if desc matches a sub-skill title key (switching current skill section)
+			matchingIdx := -1
+			for idx, sk := range skillsOutput[avStr] {
+				if sk.NameKey == item.Desc {
+					matchingIdx = idx
+					break
+				}
+			}
+			if matchingIdx != -1 {
+				currentSkillIdxMap[avStr] = matchingIdx
+			} else if item.Formula != "" {
+				cIdx := currentSkillIdxMap[avStr]
+				skillsOutput[avStr][cIdx].Params = append(skillsOutput[avStr][cIdx].Params, SkillParamMeta{
+					NameKey: item.Desc,
+					Formula: item.Formula,
+				})
+				keysToExtract[item.Desc] = true
+			}
+		}
 	}
 
 	for _, item := range passiveSkillDesData.Items {
 		avStr := fmt.Sprintf("%d", item.AvatarID)
+		if seenKeys[avStr] == nil {
+			seenKeys[avStr] = make(map[string]bool)
+		}
 		for i := 0; i < len(item.Titles); i++ {
-			if item.Titles[i] == "" {
+			if item.Titles[i] == "" || seenKeys[avStr][item.Titles[i]] {
 				continue
 			}
+			seenKeys[avStr][item.Titles[i]] = true
+
 			skillsOutput[avStr] = append(skillsOutput[avStr], SkillMeta{
 				NameKey: item.Titles[i],
 				DescKey: item.Descs[i],
@@ -174,6 +218,48 @@ func main() {
 		}
 	}
 	writeJSON(filepath.Join(assetsDir, "skills.json"), skillsOutput)
+
+	// Extract skill templates (multiplier calculations)
+	type SkillTemplateRaw struct {
+		ID       int `json:"DALBKGGEJEF"`
+		BaseDmg  int `json:"IKAABAIDFAO"`
+		GrowDmg  int `json:"DGHHKAHHIPM"`
+		BaseStun int `json:"OMFJHOLBIKA"`
+		GrowStun int `json:"KICLLNBEAEN"`
+		ExtraDmg int `json:"ECHPKCNANMI"`
+		Cost     int `json:"BLGOMFMHNKA"`
+	}
+
+	type SkillTemplateMeta struct {
+		BaseDmg  int `json:"bd"`
+		GrowDmg  int `json:"gd"`
+		BaseStun int `json:"bs"`
+		GrowStun int `json:"gs"`
+		ExtraDmg int `json:"ex"`
+		Cost     int `json:"ec"`
+	}
+
+	var skillTemplateData struct {
+		Items []SkillTemplateRaw `json:"MLOEFHJHCID"`
+	}
+	readJSON(filepath.Join(zenlessDir, "FileCfg", "AvatarSkillTemplateTb.json"), &skillTemplateData)
+
+	skillTemplatesOutput := make(map[string]SkillTemplateMeta)
+	for _, item := range skillTemplateData.Items {
+		if item.ID == 0 {
+			continue
+		}
+		idStr := fmt.Sprintf("%d", item.ID)
+		skillTemplatesOutput[idStr] = SkillTemplateMeta{
+			BaseDmg:  item.BaseDmg,
+			GrowDmg:  item.GrowDmg,
+			BaseStun: item.BaseStun,
+			GrowStun: item.GrowStun,
+			ExtraDmg: item.ExtraDmg,
+			Cost:     item.Cost,
+		}
+	}
+	writeJSON(filepath.Join(assetsDir, "skill_templates.json"), skillTemplatesOutput)
 
 	// 5.5 Process Professions
 	type ProfessionItem struct {

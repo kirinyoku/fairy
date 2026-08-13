@@ -28,6 +28,7 @@ type EmbeddedStore struct {
 	skins                map[int]SkinMeta
 	defaultSkins         map[int]SkinMeta
 	skills               map[int][]SkillMeta
+	skillTemplates       map[int]SkillTemplateMeta
 	mindscapes           map[int][]MindscapeMeta
 	potentialVisions     map[int][]PotentialVisionMeta
 	weaponLevelTemplates map[templateKey]WeaponLevelTemplate
@@ -92,6 +93,7 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 		skins:                make(map[int]SkinMeta),
 		defaultSkins:         make(map[int]SkinMeta),
 		skills:               make(map[int][]SkillMeta),
+		skillTemplates:       make(map[int]SkillTemplateMeta),
 		mindscapes:           make(map[int][]MindscapeMeta),
 		potentialVisions:     make(map[int][]PotentialVisionMeta),
 		weaponLevelTemplates: make(map[templateKey]WeaponLevelTemplate),
@@ -319,6 +321,17 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 		s.skills[id] = skillList
 	}
 
+	// Skill Templates
+	skillTemplates, err := readJSON[map[string]SkillTemplateMeta](fsys, "skill_templates.json")
+	if err == nil {
+		for idStr, st := range skillTemplates {
+			id, err := parseID(idStr, "skill template")
+			if err == nil {
+				s.skillTemplates[id] = st
+			}
+		}
+	}
+
 	// Mindscapes
 	mindscapes, err := readJSON[map[string][]MindscapeMeta](fsys, "mindscapes.json")
 	if err != nil {
@@ -424,6 +437,10 @@ func (s *EmbeddedStore) AvatarMeta(id int) (AvatarMeta, bool) {
 }
 func (s *EmbeddedStore) AvatarSkillsMeta(avatarID int) ([]SkillMeta, bool) {
 	m, ok := s.skills[avatarID]
+	return m, ok
+}
+func (s *EmbeddedStore) SkillTemplateMeta(skillID int) (SkillTemplateMeta, bool) {
+	m, ok := s.skillTemplates[skillID]
 	return m, ok
 }
 func (s *EmbeddedStore) AvatarMindscapesMeta(avatarID int) ([]MindscapeMeta, bool) {

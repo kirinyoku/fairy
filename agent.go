@@ -146,11 +146,40 @@ type Skin struct {
 	SplashArtURL string `json:"splash_art_url"` // The URL to the skin's splash art.
 }
 
+// SkillType represents a categorized category of combat skill.
+type SkillType string
+
+const (
+	SkillTypeBasic   SkillType = "basic"   // Basic Attack
+	SkillTypeDodge   SkillType = "dodge"   // Dodge & Counter
+	SkillTypeAssist  SkillType = "assist"  // Quick & Defensive Assists
+	SkillTypeSpecial SkillType = "special" // Special & EX Special Attack
+	SkillTypeChain   SkillType = "chain"   // Chain Attack & Ultimate
+	SkillTypePassive SkillType = "passive" // Core Passive & Additional Ability
+)
+
+// SkillParam represents a calculated numeric parameter or multiplier for a skill.
+type SkillParam struct {
+	Name  string `json:"name"`  // Localized parameter name.
+	Value string `json:"value"` // Formatted value.
+}
+
 // Skill represents an agent's combat skill or passive ability.
 type Skill struct {
-	Level       int    `json:"level"`       // The level of the skill.
-	Name        string `json:"name"`        // The localized name of the skill.
-	Description string `json:"description"` // The localized description of the skill.
+	Level       int          `json:"level"`            // The level of the skill.
+	Name        string       `json:"name"`             // The localized name of the skill.
+	Description string       `json:"description"`      // The localized description of the skill.
+	Type        SkillType    `json:"type"`             // Category type of the skill (basic, dodge, assist, special, chain, passive).
+	TypeName    string       `json:"type_name"`        // Localized category type name.
+	Params      []SkillParam `json:"params,omitempty"` // Numeric parameters / multiplier table.
+}
+
+// SkillGroup represents a categorized group of skills matching the in-game UI / Enka buttons.
+type SkillGroup struct {
+	Type     SkillType `json:"type"`      // Group category key ("basic", "special", "dodge", "chain", "assist", "passive").
+	TypeName string    `json:"type_name"` // Localized category group name.
+	Level    int       `json:"level"`     // Group level (1-12 for active skills, 0-6 for core passives).
+	Skills   []Skill   `json:"skills"`    // Individual skills belonging to this category group.
 }
 
 // EvaluatedDescription returns the skill description with all scaling formulas ({CAL:...})
@@ -377,4 +406,50 @@ func (a *Agent) FormattedUIStats(lang ...Language) UIStats {
 		EnergyRegen:        formatBreakdown(PropBaseEnergyRegen, energyRegenName, a.BaseStats.EnergyRegen, a.Stats.EnergyRegen, false, 2, 2),
 		SheerForce:         formatBreakdown(PropBaseSheerForce, sheerForceName, a.BaseStats.SheerForce, a.Stats.SheerForce, false, 0, 1),
 	}
+}
+
+// GroupedSkills returns the agent's skills categorized into 6 distinct groups
+// matching the in-game skill buttons:
+// 1. Passives / Talents (Core Passive + Additional Ability)
+// 2. Basic Attack
+// 3. Dodge
+// 4. Assist
+// 5. Special Attack
+// 6. Chain Attack & Ultimate
+func (a *Agent) GroupedSkills() []SkillGroup {
+	order := []SkillType{
+		SkillTypePassive,
+		SkillTypeBasic,
+		SkillTypeDodge,
+		SkillTypeChain,
+		SkillTypeAssist,
+		SkillTypeSpecial,
+	}
+
+	groupsMap := make(map[SkillType]*SkillGroup)
+	for _, sk := range a.Skills {
+		st := sk.Type
+		if st == "" {
+			st = SkillTypeBasic
+		}
+		grp, ok := groupsMap[st]
+		if !ok {
+			grp = &SkillGroup{
+				Type:     st,
+				TypeName: sk.TypeName,
+				Level:    sk.Level,
+				Skills:   make([]Skill, 0),
+			}
+			groupsMap[st] = grp
+		}
+		grp.Skills = append(grp.Skills, sk)
+	}
+
+	result := make([]SkillGroup, 0, len(order))
+	for _, st := range order {
+		if grp, ok := groupsMap[st]; ok {
+			result = append(result, *grp)
+		}
+	}
+	return result
 }

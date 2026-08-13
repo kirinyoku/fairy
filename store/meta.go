@@ -90,10 +90,27 @@ type EquipmentSuitMeta struct {
 	Set4DescKey string
 }
 
+// SkillParamMeta represents skill parameter metadata.
+type SkillParamMeta struct {
+	NameKey string `json:"NameKey"`
+	Formula string `json:"Formula"`
+}
+
 // SkillMeta represents avatar skill metadata.
 type SkillMeta struct {
-	NameKey string `json:"NameKey"`
-	DescKey string `json:"DescKey"`
+	NameKey string           `json:"NameKey"`
+	DescKey string           `json:"DescKey"`
+	Params  []SkillParamMeta `json:"Params,omitempty"`
+}
+
+// SkillTemplateMeta represents skill multiplier template coefficients.
+type SkillTemplateMeta struct {
+	BaseDmg  int `json:"bd"`
+	GrowDmg  int `json:"gd"`
+	BaseStun int `json:"bs"`
+	GrowStun int `json:"gs"`
+	ExtraDmg int `json:"ex"`
+	Cost     int `json:"ec"`
 }
 
 // PropertyMeta represents property metadata.

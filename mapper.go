@@ -2,6 +2,7 @@ package fairy
 
 import (
 	"fmt"
+	"regexp"
 	"strconv"
 	"strings"
 
@@ -242,41 +243,56 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 	agent.ActiveSetBonuses = m.detectSetBonuses(agent.DriveDiscs)
 
 	if skillsMeta, ok := m.store.AvatarSkillsMeta(raw.ID); ok {
-		// Skill mapping logic is complex because the API returns only 5 skill levels
-		// (0: Basic, 1: Dodge, 2: Assist, 3: Special, 4: Chain) in the raw `SkillLevelList`,
-		// but the game's datamined template `AvatarSkillDesTemplateTb` contains 12+ active skills.
-		// `groupMap` is used to map a specific template skill index back to the appropriate skill group index
-		// in the API's `SkillLevelList`.
-		// The typical order of 12 active skills is:
-		// 0,1 (Basic), 2,3 (Special), 4,5,6 (Dodge), 7,8 (Chain), 9,10,11 (Assist)
-		groupMap := map[int]int{
-			0: 0, 1: 0,
-			2: 3, 3: 3,
-			4: 1, 5: 1, 6: 1,
-			7: 4, 8: 4,
-			9: 2, 10: 2, 11: 2,
-		}
-
-		// Pre-process skill levels from raw data
+		// Pre-process skill levels from raw data (0: Basic, 1: Dodge, 2: Assist, 3: Special, 4: Chain)
 		levels := make(map[int]int)
 		for _, sl := range raw.SkillLevelList {
 			levels[sl.Index] = sl.Level
 		}
 
 		agent.Skills = make([]Skill, 0, len(skillsMeta))
-		for i, sm := range skillsMeta {
+		for _, sm := range skillsMeta {
+			skType := detectSkillType(sm.NameKey)
 			lvl := 0
-			if group, found := groupMap[i]; found {
-				lvl = levels[group]
-			} else if i >= 12 {
-				// Passives
+			switch skType {
+			case SkillTypeBasic:
+				lvl = levels[0]
+			case SkillTypeDodge:
+				lvl = levels[1]
+			case SkillTypeAssist:
+				lvl = levels[2]
+			case SkillTypeSpecial:
+				lvl = levels[3]
+			case SkillTypeChain:
+				if l, ok := levels[6]; ok {
+					lvl = l
+				} else {
+					lvl = levels[4]
+				}
+			case SkillTypePassive:
 				lvl = raw.CoreSkillEnhancement
+			}
+
+			typeName := m.getSkillTypeName(skType)
+
+			params := make([]SkillParam, 0, len(sm.Params))
+			for _, p := range sm.Params {
+				val := m.evaluateSkillParamFormula(p.Formula, lvl)
+				name := m.store.Localize(p.NameKey, string(m.lang))
+				if val != "" && name != "" {
+					params = append(params, SkillParam{
+						Name:  name,
+						Value: val,
+					})
+				}
 			}
 
 			agent.Skills = append(agent.Skills, Skill{
 				Level:       lvl,
 				Name:        m.store.Localize(sm.NameKey, string(m.lang)),
 				Description: m.store.Localize(sm.DescKey, string(m.lang)),
+				Type:        skType,
+				TypeName:    typeName,
+				Params:      params,
 			})
 		}
 	}
@@ -591,4 +607,110 @@ func buildEnkaURL(path string) string {
 		path = path + ".png"
 	}
 	return "https://enka.network" + path
+}
+
+func detectSkillType(nameKey string) SkillType {
+	switch {
+	case strings.Contains(nameKey, "UniqueSkill") || strings.Contains(nameKey, "MathSkill"):
+		return SkillTypePassive
+	case strings.Contains(nameKey, "_Special_") || strings.Contains(nameKey, "_ExSpecial_"):
+		return SkillTypeSpecial
+	case strings.Contains(nameKey, "_Evade_") || strings.Contains(nameKey, "_Dash_") || strings.Contains(nameKey, "_Rush_") || strings.Contains(nameKey, "_Counter_"):
+		return SkillTypeDodge
+	case strings.Contains(nameKey, "_QTE_") || strings.Contains(nameKey, "_ExQTE_") || strings.Contains(nameKey, "_FinishingSlash_"):
+		return SkillTypeChain
+	case strings.Contains(nameKey, "Aid"):
+		return SkillTypeAssist
+	default:
+		return SkillTypeBasic
+	}
+}
+
+func (m *profileMapper) getSkillTypeName(st SkillType) string {
+	switch st {
+	case SkillTypeBasic:
+		return m.store.Localize("SkillCategory_Basic", string(m.lang))
+	case SkillTypeDodge:
+		return m.store.Localize("SkillCategory_Dodge", string(m.lang))
+	case SkillTypeAssist:
+		return m.store.Localize("SkillCategory_Assist", string(m.lang))
+	case SkillTypeSpecial:
+		return m.store.Localize("SkillCategory_Special", string(m.lang))
+	case SkillTypeChain:
+		return m.store.Localize("SkillCategory_Chain", string(m.lang))
+	case SkillTypePassive:
+		return m.store.Localize("SkillCategory_Passive", string(m.lang))
+	default:
+		return string(st)
+	}
+}
+
+var skillPropRegex = regexp.MustCompile(`\{Skill:(\d+),\s*Prop:(\d+)\}`)
+
+func (m *profileMapper) evaluateSkillParamFormula(formula string, level int) string {
+	if formula == "" {
+		return ""
+	}
+
+	if strings.Contains(formula, "SpCost") || strings.Contains(formula, "SpConsume") || strings.Contains(formula, "SpCostValue") {
+		switch m.lang {
+		case LangRU:
+			return "40 ед."
+		default:
+			return "40 pts."
+		}
+	}
+
+	matches := skillPropRegex.FindAllStringSubmatch(formula, -1)
+	if len(matches) == 0 {
+		return ""
+	}
+
+	evalSingle := func(skIDStr, propIDStr string) float64 {
+		skID, err := strconv.Atoi(skIDStr)
+		if err != nil {
+			return 0
+		}
+		propID, err := strconv.Atoi(propIDStr)
+		if err != nil {
+			return 0
+		}
+
+		tpl, ok := m.store.SkillTemplateMeta(skID)
+		if !ok {
+			return 0
+		}
+
+		baseLvl := level
+		if baseLvl < 1 {
+			baseLvl = 1
+		}
+
+		switch propID {
+		case 1001: // Damage ratio
+			bd := float64(tpl.BaseDmg) / 100.0
+			gd := float64(tpl.GrowDmg) / 100.0
+			return bd + gd*float64(baseLvl-1)
+		case 1002: // Stun / Daze ratio
+			bs := float64(tpl.BaseStun) / 100.0
+			gs := float64(tpl.GrowStun) / 100.0
+			return bs + gs*float64(baseLvl-1)
+		case 1003, 1004, 1005:
+			return float64(tpl.ExtraDmg) / 100.0
+		default:
+			return 0
+		}
+	}
+
+	if strings.Contains(formula, "+") && len(matches) == 2 {
+		v1 := evalSingle(matches[0][1], matches[0][2])
+		v2 := evalSingle(matches[1][1], matches[1][2])
+		return fmt.Sprintf("%.1f%% + %.1f%%", v1, v2)
+	}
+
+	v := evalSingle(matches[0][1], matches[0][2])
+	if v == 0 {
+		return ""
+	}
+	return fmt.Sprintf("%.1f%%", v)
 }

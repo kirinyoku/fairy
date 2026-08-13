@@ -17,6 +17,9 @@ type MetadataStore interface {
 	// AvatarSkillsMeta returns the skills metadata for a specific agent by its internal ID.
 	AvatarSkillsMeta(avatarID int) ([]SkillMeta, bool)
 
+	// SkillTemplateMeta returns the skill multiplier template for a skill ID.
+	SkillTemplateMeta(skillID int) (SkillTemplateMeta, bool)
+
 	// AvatarMindscapesMeta returns the Mindscape Cinema metadata for a specific agent by its internal ID.
 	AvatarMindscapesMeta(avatarID int) ([]MindscapeMeta, bool)
 
