@@ -20,6 +20,9 @@ type MetadataStore interface {
 	// AvatarMindscapesMeta returns the Mindscape Cinema metadata for a specific agent by its internal ID.
 	AvatarMindscapesMeta(avatarID int) ([]MindscapeMeta, bool)
 
+	// AvatarPotentialVisionsMeta returns the Potential Vision metadata for a specific agent by its internal ID.
+	AvatarPotentialVisionsMeta(avatarID int) ([]PotentialVisionMeta, bool)
+
 	// WeaponMeta returns the metadata for a specific W-Engine by its internal ID.
 	WeaponMeta(id int) (WeaponMeta, bool)
 

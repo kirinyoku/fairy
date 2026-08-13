@@ -237,3 +237,12 @@ type MindscapeMeta struct {
 	TitleKey string `json:"TitleKey"`
 	DescKey  string `json:"DescKey"`
 }
+
+// PotentialVisionMeta represents immutable metadata for a Potential Vision node.
+type PotentialVisionMeta struct {
+	ID           int    `json:"ID"`
+	Level        int    `json:"Level"`
+	LevelNameKey string `json:"LevelNameKey"`
+	TitleKey     string `json:"TitleKey"`
+	DescKey      string `json:"DescKey"`
+}

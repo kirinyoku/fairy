@@ -294,6 +294,34 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 		agent.Mindscapes = mindscapes
 	}
 
+	if pvMeta, ok := m.store.AvatarPotentialVisionsMeta(raw.ID); ok {
+		isUnlocked := false
+		if raw.IsUpgradeUnlocked != nil {
+			isUnlocked = *raw.IsUpgradeUnlocked
+		} else if raw.UpgradeID > 0 {
+			isUnlocked = true
+		}
+
+		pvNodes := make([]PotentialVisionNode, 0, len(pvMeta))
+		for _, nodeMeta := range pvMeta {
+			isActive := isUnlocked && (raw.UpgradeID == nodeMeta.ID || (raw.UpgradeID > 0 && raw.UpgradeID >= nodeMeta.ID))
+			pvNodes = append(pvNodes, PotentialVisionNode{
+				ID:          nodeMeta.ID,
+				Level:       nodeMeta.Level,
+				LevelName:   m.store.Localize(nodeMeta.LevelNameKey, string(m.lang)),
+				Title:       m.store.Localize(nodeMeta.TitleKey, string(m.lang)),
+				Description: m.store.Localize(nodeMeta.DescKey, string(m.lang)),
+				IsActive:    isActive,
+			})
+		}
+
+		agent.PotentialVision = &PotentialVision{
+			IsUnlocked: isUnlocked,
+			CurrentID:  raw.UpgradeID,
+			Nodes:      pvNodes,
+		}
+	}
+
 	// Calculate final stats
 	calculateAgentStats(agent, m.store)
 

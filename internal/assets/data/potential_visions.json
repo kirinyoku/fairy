@@ -1,0 +1,442 @@
+{
+  "1021": [
+    {
+      "ID": 102100,
+      "Level": 1,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1021_01",
+      "TitleKey": "",
+      "DescKey": ""
+    },
+    {
+      "ID": 102101,
+      "Level": 2,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1021_02",
+      "TitleKey": "AwakenAbilityName_1021",
+      "DescKey": "AwakenAbilityDes_1021_02"
+    },
+    {
+      "ID": 102102,
+      "Level": 3,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1021_03",
+      "TitleKey": "AwakenAbilityName_1021",
+      "DescKey": "AwakenAbilityDes_1021_03"
+    },
+    {
+      "ID": 102103,
+      "Level": 4,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1021_04",
+      "TitleKey": "AwakenAbilityName_1021",
+      "DescKey": "AwakenAbilityDes_1021_04"
+    },
+    {
+      "ID": 102104,
+      "Level": 5,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1021_05",
+      "TitleKey": "AwakenAbilityName_1021",
+      "DescKey": "AwakenAbilityDes_1021_05"
+    },
+    {
+      "ID": 102105,
+      "Level": 6,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1021_06",
+      "TitleKey": "AwakenAbilityName_1021",
+      "DescKey": "AwakenAbilityDes_1021_06"
+    }
+  ],
+  "1041": [
+    {
+      "ID": 104100,
+      "Level": 1,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1041_01",
+      "TitleKey": "",
+      "DescKey": ""
+    },
+    {
+      "ID": 104101,
+      "Level": 2,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1041_02",
+      "TitleKey": "AwakenAbilityName_1041",
+      "DescKey": "AwakenAbilityDes_1041_02"
+    },
+    {
+      "ID": 104102,
+      "Level": 3,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1041_03",
+      "TitleKey": "AwakenAbilityName_1041",
+      "DescKey": "AwakenAbilityDes_1041_03"
+    },
+    {
+      "ID": 104103,
+      "Level": 4,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1041_04",
+      "TitleKey": "AwakenAbilityName_1041",
+      "DescKey": "AwakenAbilityDes_1041_04"
+    },
+    {
+      "ID": 104104,
+      "Level": 5,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1041_05",
+      "TitleKey": "AwakenAbilityName_1041",
+      "DescKey": "AwakenAbilityDes_1041_05"
+    },
+    {
+      "ID": 104105,
+      "Level": 6,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1041_06",
+      "TitleKey": "AwakenAbilityName_1041",
+      "DescKey": "AwakenAbilityDes_1041_06"
+    }
+  ],
+  "1141": [
+    {
+      "ID": 114100,
+      "Level": 1,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1141_01",
+      "TitleKey": "",
+      "DescKey": ""
+    },
+    {
+      "ID": 114101,
+      "Level": 2,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1141_02",
+      "TitleKey": "AwakenAbilityName_1141",
+      "DescKey": "AwakenAbilityDes_1141_02"
+    },
+    {
+      "ID": 114102,
+      "Level": 3,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1141_03",
+      "TitleKey": "AwakenAbilityName_1141",
+      "DescKey": "AwakenAbilityDes_1141_03"
+    },
+    {
+      "ID": 114103,
+      "Level": 4,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1141_04",
+      "TitleKey": "AwakenAbilityName_1141",
+      "DescKey": "AwakenAbilityDes_1141_04"
+    },
+    {
+      "ID": 114104,
+      "Level": 5,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1141_05",
+      "TitleKey": "AwakenAbilityName_1141",
+      "DescKey": "AwakenAbilityDes_1141_05"
+    },
+    {
+      "ID": 114105,
+      "Level": 6,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1141_06",
+      "TitleKey": "AwakenAbilityName_1141",
+      "DescKey": "AwakenAbilityDes_1141_06"
+    }
+  ],
+  "1171": [
+    {
+      "ID": 117100,
+      "Level": 1,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1171_01",
+      "TitleKey": "",
+      "DescKey": ""
+    },
+    {
+      "ID": 117101,
+      "Level": 2,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1171_02",
+      "TitleKey": "AwakenAbilityName_1171",
+      "DescKey": "AwakenAbilityDes_1171_02"
+    },
+    {
+      "ID": 117102,
+      "Level": 3,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1171_03",
+      "TitleKey": "AwakenAbilityName_1171",
+      "DescKey": "AwakenAbilityDes_1171_03"
+    },
+    {
+      "ID": 117103,
+      "Level": 4,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1171_04",
+      "TitleKey": "AwakenAbilityName_1171",
+      "DescKey": "AwakenAbilityDes_1171_04"
+    },
+    {
+      "ID": 117104,
+      "Level": 5,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1171_05",
+      "TitleKey": "AwakenAbilityName_1171",
+      "DescKey": "AwakenAbilityDes_1171_05"
+    },
+    {
+      "ID": 117105,
+      "Level": 6,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1171_06",
+      "TitleKey": "AwakenAbilityName_1171",
+      "DescKey": "AwakenAbilityDes_1171_06"
+    }
+  ],
+  "1181": [
+    {
+      "ID": 118100,
+      "Level": 1,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1181_01",
+      "TitleKey": "",
+      "DescKey": ""
+    },
+    {
+      "ID": 118101,
+      "Level": 2,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1181_02",
+      "TitleKey": "AwakenAbilityName_1181",
+      "DescKey": "AwakenAbilityDes_1181_02"
+    },
+    {
+      "ID": 118102,
+      "Level": 3,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1181_03",
+      "TitleKey": "AwakenAbilityName_1181",
+      "DescKey": "AwakenAbilityDes_1181_03"
+    },
+    {
+      "ID": 118103,
+      "Level": 4,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1181_04",
+      "TitleKey": "AwakenAbilityName_1181",
+      "DescKey": "AwakenAbilityDes_1181_04"
+    },
+    {
+      "ID": 118104,
+      "Level": 5,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1181_05",
+      "TitleKey": "AwakenAbilityName_1181",
+      "DescKey": "AwakenAbilityDes_1181_05"
+    },
+    {
+      "ID": 118105,
+      "Level": 6,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1181_06",
+      "TitleKey": "AwakenAbilityName_1181",
+      "DescKey": "AwakenAbilityDes_1181_06"
+    }
+  ],
+  "1191": [
+    {
+      "ID": 119100,
+      "Level": 1,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1191_01",
+      "TitleKey": "",
+      "DescKey": ""
+    },
+    {
+      "ID": 119101,
+      "Level": 2,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1191_02",
+      "TitleKey": "AwakenAbilityName_1191",
+      "DescKey": "AwakenAbilityDes_1191_02"
+    },
+    {
+      "ID": 119102,
+      "Level": 3,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1191_03",
+      "TitleKey": "AwakenAbilityName_1191",
+      "DescKey": "AwakenAbilityDes_1191_03"
+    },
+    {
+      "ID": 119103,
+      "Level": 4,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1191_04",
+      "TitleKey": "AwakenAbilityName_1191",
+      "DescKey": "AwakenAbilityDes_1191_04"
+    },
+    {
+      "ID": 119104,
+      "Level": 5,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1191_05",
+      "TitleKey": "AwakenAbilityName_1191",
+      "DescKey": "AwakenAbilityDes_1191_05"
+    },
+    {
+      "ID": 119105,
+      "Level": 6,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1191_06",
+      "TitleKey": "AwakenAbilityName_1191",
+      "DescKey": "AwakenAbilityDes_1191_06"
+    }
+  ],
+  "1201": [
+    {
+      "ID": 120100,
+      "Level": 1,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1201_01",
+      "TitleKey": "",
+      "DescKey": ""
+    },
+    {
+      "ID": 120101,
+      "Level": 2,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1201_02",
+      "TitleKey": "AwakenAbilityName_1201",
+      "DescKey": "AwakenAbilityDes_1201_02"
+    },
+    {
+      "ID": 120102,
+      "Level": 3,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1201_03",
+      "TitleKey": "AwakenAbilityName_1201",
+      "DescKey": "AwakenAbilityDes_1201_03"
+    },
+    {
+      "ID": 120103,
+      "Level": 4,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1201_04",
+      "TitleKey": "AwakenAbilityName_1201",
+      "DescKey": "AwakenAbilityDes_1201_04"
+    },
+    {
+      "ID": 120104,
+      "Level": 5,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1201_05",
+      "TitleKey": "AwakenAbilityName_1201",
+      "DescKey": "AwakenAbilityDes_1201_05"
+    },
+    {
+      "ID": 120105,
+      "Level": 6,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1201_06",
+      "TitleKey": "AwakenAbilityName_1201",
+      "DescKey": "AwakenAbilityDes_1201_06"
+    }
+  ],
+  "1211": [
+    {
+      "ID": 121100,
+      "Level": 1,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1211_01",
+      "TitleKey": "",
+      "DescKey": ""
+    },
+    {
+      "ID": 121101,
+      "Level": 2,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1211_02",
+      "TitleKey": "AwakenAbilityName_1211",
+      "DescKey": "AwakenAbilityDes_1211_02"
+    },
+    {
+      "ID": 121102,
+      "Level": 3,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1211_03",
+      "TitleKey": "AwakenAbilityName_1211",
+      "DescKey": "AwakenAbilityDes_1211_03"
+    },
+    {
+      "ID": 121103,
+      "Level": 4,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1211_04",
+      "TitleKey": "AwakenAbilityName_1211",
+      "DescKey": "AwakenAbilityDes_1211_04"
+    },
+    {
+      "ID": 121104,
+      "Level": 5,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1211_05",
+      "TitleKey": "AwakenAbilityName_1211",
+      "DescKey": "AwakenAbilityDes_1211_05"
+    },
+    {
+      "ID": 121105,
+      "Level": 6,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1211_06",
+      "TitleKey": "AwakenAbilityName_1211",
+      "DescKey": "AwakenAbilityDes_1211_06"
+    }
+  ],
+  "1261": [
+    {
+      "ID": 126100,
+      "Level": 1,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1261_01",
+      "TitleKey": "",
+      "DescKey": ""
+    },
+    {
+      "ID": 126101,
+      "Level": 2,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1261_02",
+      "TitleKey": "AwakenAbilityName_1261",
+      "DescKey": "AwakenAbilityDes_1261_02"
+    },
+    {
+      "ID": 126102,
+      "Level": 3,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1261_03",
+      "TitleKey": "AwakenAbilityName_1261",
+      "DescKey": "AwakenAbilityDes_1261_03"
+    },
+    {
+      "ID": 126103,
+      "Level": 4,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1261_04",
+      "TitleKey": "AwakenAbilityName_1261",
+      "DescKey": "AwakenAbilityDes_1261_04"
+    },
+    {
+      "ID": 126104,
+      "Level": 5,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1261_05",
+      "TitleKey": "AwakenAbilityName_1261",
+      "DescKey": "AwakenAbilityDes_1261_05"
+    },
+    {
+      "ID": 126105,
+      "Level": 6,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1261_06",
+      "TitleKey": "AwakenAbilityName_1261",
+      "DescKey": "AwakenAbilityDes_1261_06"
+    }
+  ],
+  "1381": [
+    {
+      "ID": 138100,
+      "Level": 1,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1381_01",
+      "TitleKey": "",
+      "DescKey": ""
+    },
+    {
+      "ID": 138101,
+      "Level": 2,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1381_02",
+      "TitleKey": "AwakenAbilityName_1381",
+      "DescKey": "AwakenAbilityDes_1381_02"
+    },
+    {
+      "ID": 138102,
+      "Level": 3,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1381_03",
+      "TitleKey": "AwakenAbilityName_1381",
+      "DescKey": "AwakenAbilityDes_1381_03"
+    },
+    {
+      "ID": 138103,
+      "Level": 4,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1381_04",
+      "TitleKey": "AwakenAbilityName_1381",
+      "DescKey": "AwakenAbilityDes_1381_04"
+    },
+    {
+      "ID": 138104,
+      "Level": 5,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1381_05",
+      "TitleKey": "AwakenAbilityName_1381",
+      "DescKey": "AwakenAbilityDes_1381_05"
+    },
+    {
+      "ID": 138105,
+      "Level": 6,
+      "LevelNameKey": "AvatarSpecialAwaken_LevelShowName_1381_06",
+      "TitleKey": "AwakenAbilityName_1381",
+      "DescKey": "AwakenAbilityDes_1381_06"
+    }
+  ]
+}

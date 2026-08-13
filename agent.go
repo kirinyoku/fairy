@@ -196,6 +196,7 @@ type Agent struct {
 	SplashArtURL         string              `json:"splash_art_url"`         // The URL to the agent's splash art.
 	Skills               []Skill             `json:"skills"`                 // The agent's skills and passives.
 	Mindscapes           []MindscapeNode     `json:"mindscapes"`             // The agent's Mindscape Cinema levels (1-6).
+	PotentialVision      *PotentialVision    `json:"potential_vision"`       // Potential Vision upgrade mechanics (can be nil if agent has none).
 	WEngine              *WEngine            `json:"w_engine"`               // The currently equipped W-Engine (can be nil).
 	DriveDiscs           []DriveDisc         `json:"drive_discs"`            // The equipped Drive Discs (up to 6).
 	ActiveSetBonuses     []DriveDiscSetBonus `json:"active_set_bonuses"`     // The active 2-piece or 4-piece set bonuses.
@@ -224,6 +225,38 @@ func (m MindscapeNode) FormatPlainText() string {
 // FormatMarkdown returns the Mindscape description formatted with Markdown syntax.
 func (m MindscapeNode) FormatMarkdown() string {
 	return FormatMarkdown(m.Description)
+}
+
+// PotentialVision represents Potential Vision status and nodes for an Agent.
+type PotentialVision struct {
+	IsUnlocked bool                  `json:"is_unlocked"` // True if Potential Vision mechanic is unlocked.
+	CurrentID  int                   `json:"current_id"`  // Current active Upgrade ID.
+	Nodes      []PotentialVisionNode `json:"nodes"`       // All potential vision upgrade nodes.
+}
+
+// PotentialVisionNode represents a single Potential Vision upgrade node.
+type PotentialVisionNode struct {
+	ID          int    `json:"id"`          // Upgrade node ID.
+	Level       int    `json:"level"`       // Level threshold (1 to 6).
+	LevelName   string `json:"level_name"`  // Localized level title.
+	Title       string `json:"title"`       // Localized title.
+	Description string `json:"description"` // Localized effect description.
+	IsActive    bool   `json:"is_active"`   // True if this node is active on the agent.
+}
+
+// FormatHTML returns the PotentialVisionNode description formatted as HTML with inline CSS colors.
+func (p PotentialVisionNode) FormatHTML() string {
+	return FormatHTML(p.Description)
+}
+
+// FormatPlainText returns the PotentialVisionNode description stripped of Rich Text formatting.
+func (p PotentialVisionNode) FormatPlainText() string {
+	return FormatPlainText(p.Description)
+}
+
+// FormatMarkdown returns the PotentialVisionNode description formatted with Markdown syntax.
+func (p PotentialVisionNode) FormatMarkdown() string {
+	return FormatMarkdown(p.Description)
 }
 
 // SubStatTotals calculates the sum of all sub-stats across all equipped Drive Discs.
