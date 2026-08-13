@@ -166,12 +166,13 @@ type SkillParam struct {
 
 // Skill represents an agent's combat skill or passive ability.
 type Skill struct {
-	Level       int          `json:"level"`            // The level of the skill.
-	Name        string       `json:"name"`             // The localized name of the skill.
-	Description string       `json:"description"`      // The localized description of the skill.
-	Type        SkillType    `json:"type"`             // Category type of the skill (basic, dodge, assist, special, chain, passive).
-	TypeName    string       `json:"type_name"`        // Localized category type name.
-	Params      []SkillParam `json:"params,omitempty"` // Numeric parameters / multiplier table.
+	Level         int          `json:"level"`                    // The level of the skill.
+	Name          string       `json:"name"`                     // The localized name of the skill.
+	Description   string       `json:"description"`              // The localized description of the skill.
+	FormattedHTML string       `json:"formatted_html,omitempty"` // Formatted HTML description with inline colors and evaluated formulas.
+	Type          SkillType    `json:"type"`                     // Category type of the skill (basic, dodge, assist, special, chain, passive).
+	TypeName      string       `json:"type_name"`                // Localized category type name.
+	Params        []SkillParam `json:"params,omitempty"`         // Numeric parameters / multiplier table.
 }
 
 // SkillGroup represents a categorized group of skills matching the in-game UI / Enka buttons.
@@ -224,6 +225,7 @@ type Agent struct {
 	Skin                 *Skin               `json:"skin"`                   // The currently equipped skin (can be nil if not found).
 	SplashArtURL         string              `json:"splash_art_url"`         // The URL to the agent's splash art.
 	Skills               []Skill             `json:"skills"`                 // The agent's skills and passives.
+	SkillGroups          []SkillGroup        `json:"grouped_skills"`         // Skills categorized into 6 UI groups (Passives, Basic, Special, Dodge, Chain, Assist).
 	Mindscapes           []MindscapeNode     `json:"mindscapes"`             // The agent's Mindscape Cinema levels (1-6).
 	PotentialVision      *PotentialVision    `json:"potential_vision"`       // Potential Vision upgrade mechanics (can be nil if agent has none).
 	WEngine              *WEngine            `json:"w_engine"`               // The currently equipped W-Engine (can be nil).
@@ -231,14 +233,16 @@ type Agent struct {
 	ActiveSetBonuses     []DriveDiscSetBonus `json:"active_set_bonuses"`     // The active 2-piece or 4-piece set bonuses.
 	BaseStats            Stats               `json:"base_stats"`             // The agent's base combat stats before gear/buffs.
 	Stats                Stats               `json:"stats"`                  // The agent's final combat stats including all gear/buffs.
+	UIStats              UIStats             `json:"ui_stats"`               // UI-ready formatted combat stats panel with icons and breakdowns.
 }
 
 // MindscapeNode represents a single Mindscape Cinema level (1-6) for an Agent.
 type MindscapeNode struct {
-	Rank        int    `json:"rank"`        // Cinema level (1 to 6).
-	Name        string `json:"name"`        // Localized name of the Mindscape Cinema.
-	Description string `json:"description"` // Localized description of the effect.
-	Unlocked    bool   `json:"unlocked"`    // True if unlocked (MindscapeCinema >= Rank).
+	Rank          int    `json:"rank"`                     // Cinema level (1 to 6).
+	Name          string `json:"name"`                     // Localized name of the Mindscape Cinema.
+	Description   string `json:"description"`              // Localized description of the effect.
+	FormattedHTML string `json:"formatted_html,omitempty"` // Formatted HTML description with inline colors.
+	Unlocked      bool   `json:"unlocked"`                 // True if unlocked (MindscapeCinema >= Rank).
 }
 
 // FormatHTML returns the Mindscape description formatted as HTML with inline CSS colors.
@@ -265,12 +269,13 @@ type PotentialVision struct {
 
 // PotentialVisionNode represents a single Potential Vision upgrade node.
 type PotentialVisionNode struct {
-	ID          int    `json:"id"`          // Upgrade node ID.
-	Level       int    `json:"level"`       // Level threshold (1 to 6).
-	LevelName   string `json:"level_name"`  // Localized level title.
-	Title       string `json:"title"`       // Localized title.
-	Description string `json:"description"` // Localized effect description.
-	IsActive    bool   `json:"is_active"`   // True if this node is active on the agent.
+	ID            int    `json:"id"`                       // Upgrade node ID.
+	Level         int    `json:"level"`                    // Level threshold (1 to 6).
+	LevelName     string `json:"level_name"`               // Localized level title.
+	Title         string `json:"title"`                    // Localized title.
+	Description   string `json:"description"`              // Localized effect description.
+	FormattedHTML string `json:"formatted_html,omitempty"` // Formatted HTML description with inline colors.
+	IsActive      bool   `json:"is_active"`                // True if this node is active on the agent.
 }
 
 // FormatHTML returns the PotentialVisionNode description formatted as HTML with inline CSS colors.
@@ -417,6 +422,9 @@ func (a *Agent) FormattedUIStats(lang ...Language) UIStats {
 // 5. Special Attack
 // 6. Chain Attack & Ultimate
 func (a *Agent) GroupedSkills() []SkillGroup {
+	if len(a.SkillGroups) > 0 {
+		return a.SkillGroups
+	}
 	order := []SkillType{
 		SkillTypePassive,
 		SkillTypeBasic,

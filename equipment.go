@@ -2,19 +2,20 @@ package fairy
 
 // WEngine represents an enriched W-Engine equipped by an agent.
 type WEngine struct {
-	ID                 int       `json:"id"`                  // The internal ID of the W-Engine.
-	UID                string    `json:"uid"`                 // The unique instance ID of this specific W-Engine.
-	Name               string    `json:"name"`                // The localized name of the W-Engine.
-	Level              int       `json:"level"`               // The current level of the W-Engine (1-60).
-	Phase              int       `json:"phase"`               // The star level from the API (ascension phase).
-	Modification       int       `json:"modification"`        // The refinement/upgrade level of the passive (1-5).
-	Rarity             Rarity    `json:"rarity"`              // The rarity tier (S, A, or B).
-	Specialty          Specialty `json:"specialty"`           // The intended role specialty for this W-Engine.
-	SpecialtyName      string    `json:"specialty_name"`      // The localized name of the specialty.
-	IconURL            string    `json:"icon_url"`            // The URL to the W-Engine's visual icon.
-	MainStat           StatValue `json:"main_stat"`           // The primary stat provided by the W-Engine.
-	SecondaryStat      StatValue `json:"secondary_stat"`      // The secondary stat provided by the W-Engine.
-	PassiveDescription string    `json:"passive_description"` // The localized description of the passive skill.
+	ID                 int       `json:"id"`                       // The internal ID of the W-Engine.
+	UID                string    `json:"uid"`                      // The unique instance ID of this specific W-Engine.
+	Name               string    `json:"name"`                     // The localized name of the W-Engine.
+	Level              int       `json:"level"`                    // The current level of the W-Engine (1-60).
+	Phase              int       `json:"phase"`                    // The star level from the API (ascension phase).
+	Modification       int       `json:"modification"`             // The refinement/upgrade level of the passive (1-5).
+	Rarity             Rarity    `json:"rarity"`                   // The rarity tier (S, A, or B).
+	Specialty          Specialty `json:"specialty"`                // The intended role specialty for this W-Engine.
+	SpecialtyName      string    `json:"specialty_name"`           // The localized name of the specialty.
+	IconURL            string    `json:"icon_url"`                 // The URL to the W-Engine's visual icon.
+	MainStat           StatValue `json:"main_stat"`                // The primary stat provided by the W-Engine.
+	SecondaryStat      StatValue `json:"secondary_stat"`           // The secondary stat provided by the W-Engine.
+	PassiveDescription string    `json:"passive_description"`      // The localized description of the passive skill.
+	FormattedHTML      string    `json:"formatted_html,omitempty"` // Formatted HTML description with inline colors.
 }
 
 // FormatHTML returns the W-Engine passive description formatted with HTML tags for web rendering.
@@ -87,9 +88,10 @@ type DriveDiscSetBonus struct {
 
 // SetEffect represents a specific set effect threshold (2-piece or 4-piece).
 type SetEffect struct {
-	PieceCount  int    `json:"piece_count"` // The required piece count threshold (2 or 4).
-	Description string `json:"description"` // The localized description of the set bonus.
-	IsActive    bool   `json:"is_active"`   // Indicates whether this effect is currently active (Count >= PieceCount).
+	PieceCount    int    `json:"piece_count"`              // The required piece count threshold (2 or 4).
+	Description   string `json:"description"`              // The localized description of the set bonus.
+	FormattedHTML string `json:"formatted_html,omitempty"` // Formatted HTML description with inline colors.
+	IsActive      bool   `json:"is_active"`                // Indicates whether this effect is currently active (Count >= PieceCount).
 }
 
 // FormatHTML returns the set effect description formatted with HTML tags for web rendering.

@@ -224,7 +224,7 @@ type FormattedStatBreakdown struct {
 }
 
 // UIStats contains all combat stats broken down into base and added components,
-// ready to be displayed on a frontend profile page (like Enka.Network).
+// ready to be displayed on a frontend.
 type UIStats struct {
 	HP                 FormattedStatBreakdown `json:"hp"`
 	ATK                FormattedStatBreakdown `json:"atk"`

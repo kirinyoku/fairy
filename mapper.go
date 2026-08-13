@@ -286,26 +286,30 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 				}
 			}
 
-			agent.Skills = append(agent.Skills, Skill{
+			sk := Skill{
 				Level:       lvl,
 				Name:        m.store.Localize(sm.NameKey, string(m.lang)),
 				Description: m.store.Localize(sm.DescKey, string(m.lang)),
 				Type:        skType,
 				TypeName:    typeName,
 				Params:      params,
-			})
+			}
+			sk.FormattedHTML = sk.FormatHTML()
+			agent.Skills = append(agent.Skills, sk)
 		}
 	}
 
 	if msMeta, ok := m.store.AvatarMindscapesMeta(raw.ID); ok {
 		mindscapes := make([]MindscapeNode, 0, len(msMeta))
 		for _, mn := range msMeta {
-			mindscapes = append(mindscapes, MindscapeNode{
+			node := MindscapeNode{
 				Rank:        mn.Rank,
 				Name:        m.store.Localize(mn.TitleKey, string(m.lang)),
 				Description: m.store.Localize(mn.DescKey, string(m.lang)),
 				Unlocked:    raw.TalentLevel >= mn.Rank,
-			})
+			}
+			node.FormattedHTML = node.FormatHTML()
+			mindscapes = append(mindscapes, node)
 		}
 		agent.Mindscapes = mindscapes
 	}
@@ -321,14 +325,16 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 		pvNodes := make([]PotentialVisionNode, 0, len(pvMeta))
 		for _, nodeMeta := range pvMeta {
 			isActive := isUnlocked && (raw.UpgradeID == nodeMeta.ID || (raw.UpgradeID > 0 && raw.UpgradeID >= nodeMeta.ID))
-			pvNodes = append(pvNodes, PotentialVisionNode{
+			pvNode := PotentialVisionNode{
 				ID:          nodeMeta.ID,
 				Level:       nodeMeta.Level,
 				LevelName:   m.store.Localize(nodeMeta.LevelNameKey, string(m.lang)),
 				Title:       m.store.Localize(nodeMeta.TitleKey, string(m.lang)),
 				Description: m.store.Localize(nodeMeta.DescKey, string(m.lang)),
 				IsActive:    isActive,
-			})
+			}
+			pvNode.FormattedHTML = pvNode.FormatHTML()
+			pvNodes = append(pvNodes, pvNode)
 		}
 
 		agent.PotentialVision = &PotentialVision{
@@ -340,6 +346,10 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 
 	// Calculate final stats
 	calculateAgentStats(agent, m.store)
+
+	// Populate enriched JSON fields out-of-the-box
+	agent.SkillGroups = agent.GroupedSkills()
+	agent.UIStats = agent.FormattedUIStats()
 
 	return agent
 }
@@ -374,6 +384,7 @@ func (m *profileMapper) mapWEngine(raw *zzz.Weapon) *WEngine {
 
 		if wPhase < len(meta.PassiveDescKeys) {
 			w.PassiveDescription = m.store.Localize(meta.PassiveDescKeys[wPhase], string(m.lang))
+			w.FormattedHTML = w.FormatHTML()
 		}
 	}
 
@@ -484,17 +495,21 @@ func (m *profileMapper) detectSetBonuses(discs []DriveDisc) []DriveDiscSetBonus 
 
 		var effects []SetEffect
 		if setMeta.Set2DescKey != "" {
+			desc := m.store.Localize(setMeta.Set2DescKey, string(m.lang))
 			effects = append(effects, SetEffect{
-				PieceCount:  2,
-				Description: m.store.Localize(setMeta.Set2DescKey, string(m.lang)),
-				IsActive:    count >= 2,
+				PieceCount:    2,
+				Description:   desc,
+				FormattedHTML: FormatHTML(desc),
+				IsActive:      count >= 2,
 			})
 		}
 		if setMeta.Set4DescKey != "" {
+			desc := m.store.Localize(setMeta.Set4DescKey, string(m.lang))
 			effects = append(effects, SetEffect{
-				PieceCount:  4,
-				Description: m.store.Localize(setMeta.Set4DescKey, string(m.lang)),
-				IsActive:    count >= 4,
+				PieceCount:    4,
+				Description:   desc,
+				FormattedHTML: FormatHTML(desc),
+				IsActive:      count >= 4,
 			})
 		}
 
