@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.8.0] - 2026-08-13
+
+### Added
+- Added **Combat Skill Grouping**: `SkillGroup` struct and `Agent.GroupedSkills()` method, organizing skills into 6 in-game UI category cards (`Passives`, `Basic Attack`, `Special Attack`, `Dodge`, `Chain Attack`, `Assist`) across 13 languages.
+- Added **Skill Scaling Parameter Tables**: `SkillParam` struct with `Params []SkillParam` in `Skill`, extracting multiplier coefficients from `AvatarSkillTemplateTb` into `skill_templates.json` and dynamically evaluating damage %, daze %, and energy cost at current skill level.
+- Added **Out-of-the-Box JSON UI Enrichment**: Pre-populated `grouped_skills` (`SkillGroups`) and `ui_stats` (`UIStats`) fields on `Agent`, and pre-rendered `formatted_html` fields on `Skill`, `MindscapeNode`, `PotentialVisionNode`, `WEngine`, and `SetEffect` for seamless `json.Marshal()` rendering.
+
+### Fixed
+- Fixed Chain Attack & Ultimate skill level mapping by reading raw `SkillLevelList` index 6.
+
 ## [0.7.0] - 2026-08-13
 
 ### Added
