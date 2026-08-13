@@ -67,22 +67,13 @@ var iconLabelMap = map[string]string{
 }
 
 var (
-	iconHTMLReplacer      *strings.Replacer
 	iconPlainTextReplacer *strings.Replacer
 	iconMarkdownReplacer  *strings.Replacer
 )
 
 func init() {
-	var htmlPairs []string
 	var plainPairs []string
 	var mdPairs []string
-
-	for tag, imgURL := range iconImageMap {
-		label := iconLabelMap[tag]
-		imgTag := fmt.Sprintf(`<img src="%s" class="fairy-icon" alt="%s" style="height: 1.2em; vertical-align: -0.2em; display: inline-block;" />`, imgURL, label)
-		htmlPairs = append(htmlPairs, tag, imgTag)
-	}
-	iconHTMLReplacer = strings.NewReplacer(htmlPairs...)
 
 	for tag, label := range iconLabelMap {
 		plainPairs = append(plainPairs, tag, label)
