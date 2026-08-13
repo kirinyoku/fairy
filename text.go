@@ -65,6 +65,32 @@ var iconLabelMap = map[string]string{
 	"<IconMap:Icon_Switch>":          "[Switch]",
 }
 
+var (
+	iconHTMLReplacer      *strings.Replacer
+	iconPlainTextReplacer *strings.Replacer
+	iconMarkdownReplacer  *strings.Replacer
+)
+
+func init() {
+	var htmlPairs []string
+	var plainPairs []string
+	var mdPairs []string
+
+	for tag, imgURL := range iconImageMap {
+		label := iconLabelMap[tag]
+		imgTag := fmt.Sprintf(`<img src="%s" class="fairy-icon" alt="%s" style="height: 1.2em; vertical-align: -0.2em; display: inline-block;" />`, imgURL, label)
+		htmlPairs = append(htmlPairs, tag, imgTag)
+	}
+	iconHTMLReplacer = strings.NewReplacer(htmlPairs...)
+
+	for tag, label := range iconLabelMap {
+		plainPairs = append(plainPairs, tag, label)
+		mdPairs = append(mdPairs, tag, "**"+label+"**")
+	}
+	iconPlainTextReplacer = strings.NewReplacer(plainPairs...)
+	iconMarkdownReplacer = strings.NewReplacer(mdPairs...)
+}
+
 // EvaluateFormulas evaluates and replaces all Unity skill calculation formulas
 // in the format {CAL:expr,mult,precision} with calculated values for the given skill level.
 func EvaluateFormulas(text string, skillLevel int) string {
@@ -107,7 +133,9 @@ func EvaluateFormulas(text string, skillLevel int) string {
 
 // evaluateSimpleExpr parses and evaluates basic linear math expressions (+, -, *, /).
 func evaluateSimpleExpr(expr string) (float64, error) {
-	expr = strings.ReplaceAll(expr, " ", "")
+	if strings.Contains(expr, " ") {
+		expr = strings.ReplaceAll(expr, " ", "")
+	}
 	var terms []float64
 	var ops []rune
 
@@ -192,11 +220,7 @@ func FormatHTML(text string, skillLevel ...int) string {
 	res := colorTagRegex.ReplaceAllString(text, `<span style="color: $1;">$2</span>`)
 
 	// Replace known IconMap tags with Enka CDN image tags
-	for tag, imgURL := range iconImageMap {
-		label := iconLabelMap[tag]
-		imgTag := fmt.Sprintf(`<img src="%s" class="fairy-icon" alt="%s" style="height: 1.2em; vertical-align: -0.2em; display: inline-block;" />`, imgURL, label)
-		res = strings.ReplaceAll(res, tag, imgTag)
-	}
+	res = iconHTMLReplacer.Replace(res)
 
 	// Replace any unknown IconMap tags with fallback image tags
 	res = iconTagRegex.ReplaceAllStringFunc(res, func(match string) string {
@@ -240,9 +264,7 @@ func FormatPlainText(text string, skillLevel ...int) string {
 	res = resolveLayoutTags(res)
 
 	// Replace known IconMap tags with clean labels
-	for tag, label := range iconLabelMap {
-		res = strings.ReplaceAll(res, tag, label)
-	}
+	res = iconPlainTextReplacer.Replace(res)
 
 	// Strip any remaining IconMap placeholders
 	res = iconTagRegex.ReplaceAllString(res, "")
@@ -275,9 +297,7 @@ func FormatMarkdown(text string, skillLevel ...int) string {
 	res = resolveLayoutTags(res)
 
 	// Replace known IconMap tags with bold labels
-	for tag, label := range iconLabelMap {
-		res = strings.ReplaceAll(res, tag, "**"+label+"**")
-	}
+	res = iconMarkdownReplacer.Replace(res)
 
 	// Strip any remaining IconMap placeholders
 	res = iconTagRegex.ReplaceAllString(res, "")
