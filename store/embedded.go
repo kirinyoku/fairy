@@ -101,8 +101,6 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 		equipLevelTemplates:  make(map[templateKey]EquipmentLevelTemplate),
 	}
 
-	// parseID is a helper closure for DRYing up string-to-int conversion.
-	// It injects contextual error messages to make debugging malformed JSONs easier.
 	parseID := func(str string, context string) (int, error) {
 		id, err := strconv.Atoi(str)
 		if err != nil {
@@ -111,25 +109,41 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 		return id, nil
 	}
 
-	// Avatars
+	if err := s.loadAvatars(fsys, parseID); err != nil {
+		return nil, err
+	}
+	if err := s.loadWeaponsAndEquipments(fsys, parseID); err != nil {
+		return nil, err
+	}
+	if err := s.loadTitlesAndMeta(fsys, parseID); err != nil {
+		return nil, err
+	}
+	if err := s.loadSkillsAndMindscapes(fsys, parseID); err != nil {
+		return nil, err
+	}
+	if err := s.loadTemplates(fsys); err != nil {
+		return nil, err
+	}
+
+	return s, nil
+}
+
+func (s *EmbeddedStore) loadAvatars(fsys fs.FS, parseID func(string, string) (int, error)) error {
 	avatarRecs, err := readJSON[map[string]avatarRecord](fsys, "avatars.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for idStr, rec := range avatarRecs {
 		id, err := parseID(idStr, "avatar")
 		if err != nil {
-			return nil, err
+			return err
 		}
 
-		// BaseProps, GrowthProps, PromotionProps, and CoreEnhancementProps all come
-		// as string-keyed maps from JSON. Convert them to integer-keyed maps
-		// to avoid expensive string conversions during hot-path stat calculations.
 		baseProps := make(map[int]int, len(rec.BaseProps))
 		for k, v := range rec.BaseProps {
 			propID, err := parseID(k, "avatar base prop")
 			if err != nil {
-				return nil, err
+				return err
 			}
 			baseProps[propID] = v
 		}
@@ -138,7 +152,7 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 		for k, v := range rec.GrowthProps {
 			propID, err := parseID(k, "avatar growth prop")
 			if err != nil {
-				return nil, err
+				return err
 			}
 			growthProps[propID] = v
 		}
@@ -149,7 +163,7 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 			for k, v := range pMap {
 				propID, err := parseID(k, "avatar promotion prop")
 				if err != nil {
-					return nil, err
+					return err
 				}
 				promProps[i][propID] = v
 			}
@@ -161,7 +175,7 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 			for k, v := range pMap {
 				propID, err := parseID(k, "avatar core prop")
 				if err != nil {
-					return nil, err
+					return err
 				}
 				coreProps[i][propID] = v
 			}
@@ -180,42 +194,43 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 			CircleIcon:           rec.CircleIcon,
 		}
 	}
+	return nil
+}
 
-	// Weapons
+func (s *EmbeddedStore) loadWeaponsAndEquipments(fsys fs.FS, parseID func(string, string) (int, error)) error {
 	weaponRecs, err := readJSON[map[string]weaponRecord](fsys, "weapons.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for idStr, rec := range weaponRecs {
 		id, err := parseID(idStr, "weapon")
 		if err != nil {
-			return nil, err
+			return err
 		}
 		s.weapons[id] = WeaponMeta(rec)
 	}
 
-	// Equipments
 	eqCont, err := readJSON[equipmentContainer](fsys, "equipments.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for idStr, rec := range eqCont.Items {
 		id, err := parseID(idStr, "equipment")
 		if err != nil {
-			return nil, err
+			return err
 		}
 		s.equipments[id] = EquipmentMeta{Rarity: rec.Rarity, SuitID: rec.SuitId}
 	}
 	for idStr, rec := range eqCont.Suits {
 		id, err := parseID(idStr, "equipment suit")
 		if err != nil {
-			return nil, err
+			return err
 		}
 		props := make(map[int]int, len(rec.SetBonusProps))
 		for k, v := range rec.SetBonusProps {
 			propID, err := parseID(k, "equipment suit prop")
 			if err != nil {
-				return nil, err
+				return err
 			}
 			props[propID] = v
 		}
@@ -228,42 +243,42 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 		}
 	}
 
-	// Properties
 	propertiesRecs, err := readJSON[map[string]PropertyMeta](fsys, "property.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for idStr, rec := range propertiesRecs {
 		id, err := parseID(idStr, "property")
 		if err != nil {
-			return nil, err
+			return err
 		}
 		s.properties[id] = rec
 	}
+	return nil
+}
 
-	// Locs
+func (s *EmbeddedStore) loadTitlesAndMeta(fsys fs.FS, parseID func(string, string) (int, error)) error {
 	locs, err := readJSON[map[string]map[string]string](fsys, "locs.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	s.locs = locs
 
-	// Titles
 	titles, err := readJSON[titleContainer](fsys, "titles.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for idStr, rec := range titles.Titles {
 		id, err := parseID(idStr, "title")
 		if err != nil {
-			return nil, err
+			return err
 		}
 		s.titles[id] = rec
 	}
 	for idStr, rec := range titles.TitleVariants {
 		id, err := parseID(idStr, "title variant")
 		if err != nil {
-			return nil, err
+			return err
 		}
 		if rec.ColorA == "" || rec.ColorB == "" {
 			parentID := id / 100
@@ -279,28 +294,26 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 		s.titles[id] = rec
 	}
 
-	// Namecards
 	namecards, err := readJSON[map[string]NamecardMeta](fsys, "namecards.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for idStr, nc := range namecards {
 		id, err := parseID(idStr, "namecard")
 		if err != nil {
-			return nil, err
+			return err
 		}
 		s.namecards[id] = nc
 	}
 
-	// Skins
 	skins, err := readJSON[map[string]SkinMeta](fsys, "skins.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for idStr, skin := range skins {
 		id, err := parseID(idStr, "skin")
 		if err != nil {
-			return nil, err
+			return err
 		}
 		s.skins[id] = skin
 		if skin.IsDefault {
@@ -308,20 +321,45 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 		}
 	}
 
-	// Skills
+	pfps, err := readJSON[map[string]PfpMeta](fsys, "pfps.json")
+	if err != nil {
+		return err
+	}
+	for idStr, pfp := range pfps {
+		id, err := parseID(idStr, "pfp")
+		if err != nil {
+			return err
+		}
+		s.pfps[id] = pfp
+	}
+
+	medals, err := readJSON[map[string]MedalMeta](fsys, "medals.json")
+	if err != nil {
+		return err
+	}
+	for idStr, medal := range medals {
+		id, err := parseID(idStr, "medal")
+		if err != nil {
+			return err
+		}
+		s.medals[id] = medal
+	}
+	return nil
+}
+
+func (s *EmbeddedStore) loadSkillsAndMindscapes(fsys fs.FS, parseID func(string, string) (int, error)) error {
 	skills, err := readJSON[map[string][]SkillMeta](fsys, "skills.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for idStr, skillList := range skills {
 		id, err := parseID(idStr, "skill avatar")
 		if err != nil {
-			return nil, err
+			return err
 		}
 		s.skills[id] = skillList
 	}
 
-	// Skill Templates
 	skillTemplates, err := readJSON[map[string]SkillTemplateMeta](fsys, "skill_templates.json")
 	if err == nil {
 		for idStr, st := range skillTemplates {
@@ -332,62 +370,36 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 		}
 	}
 
-	// Mindscapes
 	mindscapes, err := readJSON[map[string][]MindscapeMeta](fsys, "mindscapes.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for idStr, msList := range mindscapes {
 		id, err := parseID(idStr, "mindscape avatar")
 		if err != nil {
-			return nil, err
+			return err
 		}
 		s.mindscapes[id] = msList
 	}
 
-	// Potential Visions
 	potentialVisions, err := readJSON[map[string][]PotentialVisionMeta](fsys, "potential_visions.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for idStr, pvList := range potentialVisions {
 		id, err := parseID(idStr, "potential vision avatar")
 		if err != nil {
-			return nil, err
+			return err
 		}
 		s.potentialVisions[id] = pvList
 	}
+	return nil
+}
 
-	// Pfps
-	pfps, err := readJSON[map[string]PfpMeta](fsys, "pfps.json")
-	if err != nil {
-		return nil, err
-	}
-	for idStr, pfp := range pfps {
-		id, err := parseID(idStr, "pfp")
-		if err != nil {
-			return nil, err
-		}
-		s.pfps[id] = pfp
-	}
-
-	// Medals
-	medals, err := readJSON[map[string]MedalMeta](fsys, "medals.json")
-	if err != nil {
-		return nil, err
-	}
-	for idStr, medal := range medals {
-		id, err := parseID(idStr, "medal")
-		if err != nil {
-			return nil, err
-		}
-		s.medals[id] = medal
-	}
-
-	// Templates
+func (s *EmbeddedStore) loadTemplates(fsys fs.FS) error {
 	wlt, err := readJSON[weaponLevelContainer](fsys, "WeaponLevelTemplateTb.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for _, rec := range wlt.List {
 		s.weaponLevelTemplates[templateKey{Rarity: rec.Rarity, Level: rec.Level}] = rec
@@ -395,7 +407,7 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 
 	wst, err := readJSON[weaponStarContainer](fsys, "WeaponStarTemplateTb.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for _, rec := range wst.List {
 		s.weaponStarTemplates[templateKey{Rarity: rec.Rarity, Level: rec.BreakLevel}] = rec
@@ -403,13 +415,12 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 
 	elt, err := readJSON[equipmentLevelContainer](fsys, "EquipmentLevelTemplateTb.json")
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for _, rec := range elt.List {
 		s.equipLevelTemplates[templateKey{Rarity: rec.Rarity, Level: rec.Level}] = rec
 	}
-
-	return s, nil
+	return nil
 }
 
 // Localize translates a text hash into the specified language.

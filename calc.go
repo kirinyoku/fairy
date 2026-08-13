@@ -51,7 +51,7 @@ func calcWEngineMainStat(s store.MetadataStore, meta store.WeaponMeta, level, ph
 	if starTpl, ok := s.WeaponStarTemplate(meta.Rarity, phase); ok {
 		starMod = starTpl.MainStat
 	}
-	// Result = MainStat.PropertyValue * (1 + WeaponLevel.FIELD_XXX / 10000 + WeaponStar.FIELD_YYY / 10000)
+	// Result = MainStat.PropertyValue * (1 + WeaponLevel.MainStat / 10000 + WeaponStar.MainStat / 10000)
 	result := float64(baseVal) * (1.0 + float64(levelMod)/10000.0 + float64(starMod)/10000.0)
 	return int(math.Floor(result))
 }
@@ -108,53 +108,12 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	basePenRatio := 0.0
 	basePenFlat := 0.0
 
-	// W-Engine Base ATK is accumulated separately because it is added to the Agent's
-	// Base ATK *before* percentage multipliers are applied.
-	wEngineBaseAtk := 0.0
-
-	// For stats calculation, we aggregate percent multipliers and flat bonuses.
-	// We accumulate all sources of bonuses (W-Engine substats, Drive Discs, Set Bonuses)
-	// into this map first, and then apply them all at once at the end.
 	bonuses := make(map[int]float64)
-
 	addBonus := func(propID int, value float64) {
 		bonuses[propID] += value
 	}
 
-	// Calculate W-Engine stats
-	if agent.WEngine != nil {
-		if wMeta, ok := s.WeaponMeta(agent.WEngine.ID); ok {
-			// Modification is 1-indexed (1-5), so phase is Modification - 1 (0-4)
-			wPhase := agent.WEngine.Modification - 1
-			if wPhase < 0 {
-				wPhase = 0
-			}
-
-			wMainStatId := wMeta.MainStat.PropertyID
-			wMainStatVal := calcWEngineMainStat(s, wMeta, agent.WEngine.Level, agent.WEngine.Phase)
-
-			// Main stat of weapon is usually ATK (12101)
-			if wMainStatId == int(PropBaseATK) {
-				wEngineBaseAtk += float64(wMainStatVal)
-			}
-
-			wSecStatId := wMeta.SecondaryStat.PropertyID
-			wSecStatVal := calcWEngineSecondaryStat(s, wMeta, agent.WEngine.Level, wPhase)
-
-			isPercent := false
-			if pMeta, pOk := s.PropertyMeta(wSecStatId); pOk {
-				if strings.Contains(pMeta.Format, "%") {
-					isPercent = true
-				}
-			}
-
-			if isPercent {
-				addBonus(wSecStatId, float64(wSecStatVal)/10000.0)
-			} else {
-				addBonus(wSecStatId, float64(wSecStatVal))
-			}
-		}
-	}
+	wEngineBaseAtk := accumulateWEngineBonus(agent, s, addBonus)
 
 	baseAtk = math.Floor(baseAtk) + math.Floor(wEngineBaseAtk)
 	baseDef = math.Floor(baseDef)
@@ -182,41 +141,8 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		SheerForce:         baseSheerForce,
 	}
 
-	// Add Drive Disc stats
-	// 1. Disc Main Stat MUST be multiplied by the Level Modifier from EquipmentLevelTemplateTb.json.
-	//    The raw JSON value is just the Level 0 base stat.
-	// 2. Disc Sub Stats are provided as the base value per roll.
-	//    They MUST be multiplied by the number of `Rolls` the stat received during upgrades.
-	for _, disc := range agent.DriveDiscs {
-		if disc.MainStat.PropertyID != 0 {
-			addBonus(int(disc.MainStat.PropertyID), disc.MainStat.Value)
-		}
-		for _, sub := range disc.SubStats {
-			addBonus(int(sub.PropertyID), sub.Value)
-		}
-	}
-
-	// Add Set Bonuses
-	for _, bonus := range agent.ActiveSetBonuses {
-		if bonus.Count < 2 {
-			continue
-		}
-		if suitMeta, ok := s.EquipmentSuitMeta(bonus.Set.ID); ok {
-			for propID, val := range suitMeta.SetBonusProps {
-				isPercent := false
-				if pMeta, pOk := s.PropertyMeta(propID); pOk {
-					if strings.Contains(pMeta.Format, "%") {
-						isPercent = true
-					}
-				}
-				if isPercent {
-					addBonus(propID, float64(val)/10000.0)
-				} else {
-					addBonus(propID, float64(val))
-				}
-			}
-		}
-	}
+	accumulateDriveDiscBonus(agent, addBonus)
+	accumulateSetBonus(agent, s, addBonus)
 
 	// Apply bonuses in order of operations.
 	// 1. Multiply the aggregated Base Stat by (1 + sum of all Percent Multipliers).
@@ -261,6 +187,80 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		PenFlat:            math.Floor(basePenFlat + bonuses[int(PropBasePENFlat)] + bonuses[int(PropPENFlat)]),
 		EnergyRegen:        baseEnergyRegen*(1.0+bonuses[int(PropEnergyRegenPercent)]) + bonuses[int(PropBaseEnergyRegen)] + bonuses[int(PropEnergyRegen)],
 		SheerForce:         totalSheerForce,
+	}
+}
+
+func accumulateWEngineBonus(agent *Agent, s store.MetadataStore, addBonus func(int, float64)) float64 {
+	var wEngineBaseAtk float64
+	if agent.WEngine == nil {
+		return wEngineBaseAtk
+	}
+	wMeta, ok := s.WeaponMeta(agent.WEngine.ID)
+	if !ok {
+		return wEngineBaseAtk
+	}
+
+	wPhase := agent.WEngine.Modification - 1
+	if wPhase < 0 {
+		wPhase = 0
+	}
+
+	wMainStatId := wMeta.MainStat.PropertyID
+	wMainStatVal := calcWEngineMainStat(s, wMeta, agent.WEngine.Level, agent.WEngine.Phase)
+
+	if wMainStatId == int(PropBaseATK) {
+		wEngineBaseAtk += float64(wMainStatVal)
+	}
+
+	wSecStatId := wMeta.SecondaryStat.PropertyID
+	wSecStatVal := calcWEngineSecondaryStat(s, wMeta, agent.WEngine.Level, wPhase)
+
+	isPercent := false
+	if pMeta, pOk := s.PropertyMeta(wSecStatId); pOk {
+		if strings.Contains(pMeta.Format, "%") {
+			isPercent = true
+		}
+	}
+
+	if isPercent {
+		addBonus(wSecStatId, float64(wSecStatVal)/10000.0)
+	} else {
+		addBonus(wSecStatId, float64(wSecStatVal))
+	}
+	return wEngineBaseAtk
+}
+
+func accumulateDriveDiscBonus(agent *Agent, addBonus func(int, float64)) {
+	for _, disc := range agent.DriveDiscs {
+		if disc.MainStat.PropertyID != 0 {
+			addBonus(int(disc.MainStat.PropertyID), disc.MainStat.Value)
+		}
+		for _, sub := range disc.SubStats {
+			addBonus(int(sub.PropertyID), sub.Value)
+		}
+	}
+}
+
+func accumulateSetBonus(agent *Agent, s store.MetadataStore, addBonus func(int, float64)) {
+	for _, bonus := range agent.ActiveSetBonuses {
+		if bonus.Count < 2 {
+			continue
+		}
+		if suitMeta, ok := s.EquipmentSuitMeta(bonus.Set.ID); ok {
+			for propID, val := range suitMeta.SetBonusProps {
+				isPercent := false
+				if pMeta, pOk := s.PropertyMeta(propID); pOk {
+					if strings.Contains(pMeta.Format, "%") {
+						isPercent = true
+					}
+				}
+				if isPercent {
+					addBonus(propID, float64(val)/10000.0)
+				} else {
+					addBonus(propID, float64(val))
+				}
+			}
+		}
 	}
 }
 

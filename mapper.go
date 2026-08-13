@@ -242,62 +242,7 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 	}
 	agent.ActiveSetBonuses = m.detectSetBonuses(agent.DriveDiscs)
 
-	if skillsMeta, ok := m.store.AvatarSkillsMeta(raw.ID); ok {
-		// Pre-process skill levels from raw data (0: Basic, 1: Dodge, 2: Assist, 3: Special, 4: Chain)
-		levels := make(map[int]int)
-		for _, sl := range raw.SkillLevelList {
-			levels[sl.Index] = sl.Level
-		}
-
-		agent.Skills = make([]Skill, 0, len(skillsMeta))
-		for _, sm := range skillsMeta {
-			skType := detectSkillType(sm.NameKey)
-			lvl := 0
-			switch skType {
-			case SkillTypeBasic:
-				lvl = levels[0]
-			case SkillTypeDodge:
-				lvl = levels[1]
-			case SkillTypeAssist:
-				lvl = levels[2]
-			case SkillTypeSpecial:
-				lvl = levels[3]
-			case SkillTypeChain:
-				if l, ok := levels[6]; ok {
-					lvl = l
-				} else {
-					lvl = levels[4]
-				}
-			case SkillTypePassive:
-				lvl = raw.CoreSkillEnhancement
-			}
-
-			typeName := m.getSkillTypeName(skType)
-
-			params := make([]SkillParam, 0, len(sm.Params))
-			for _, p := range sm.Params {
-				val := m.evaluateSkillParamFormula(p.Formula, lvl)
-				name := m.store.Localize(p.NameKey, string(m.lang))
-				if val != "" && name != "" {
-					params = append(params, SkillParam{
-						Name:  name,
-						Value: val,
-					})
-				}
-			}
-
-			sk := Skill{
-				Level:       lvl,
-				Name:        m.store.Localize(sm.NameKey, string(m.lang)),
-				Description: m.store.Localize(sm.DescKey, string(m.lang)),
-				Type:        skType,
-				TypeName:    typeName,
-				Params:      params,
-			}
-			sk.FormattedHTML = sk.FormatHTML()
-			agent.Skills = append(agent.Skills, sk)
-		}
-	}
+	agent.Skills = m.mapAgentSkills(raw)
 
 	if msMeta, ok := m.store.AvatarMindscapesMeta(raw.ID); ok {
 		mindscapes := make([]MindscapeNode, 0, len(msMeta))
@@ -314,35 +259,7 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 		agent.Mindscapes = mindscapes
 	}
 
-	if pvMeta, ok := m.store.AvatarPotentialVisionsMeta(raw.ID); ok {
-		isUnlocked := false
-		if raw.IsUpgradeUnlocked != nil {
-			isUnlocked = *raw.IsUpgradeUnlocked
-		} else if raw.UpgradeID > 0 {
-			isUnlocked = true
-		}
-
-		pvNodes := make([]PotentialVisionNode, 0, len(pvMeta))
-		for _, nodeMeta := range pvMeta {
-			isActive := isUnlocked && (raw.UpgradeID == nodeMeta.ID || (raw.UpgradeID > 0 && raw.UpgradeID >= nodeMeta.ID))
-			pvNode := PotentialVisionNode{
-				ID:          nodeMeta.ID,
-				Level:       nodeMeta.Level,
-				LevelName:   m.store.Localize(nodeMeta.LevelNameKey, string(m.lang)),
-				Title:       m.store.Localize(nodeMeta.TitleKey, string(m.lang)),
-				Description: m.store.Localize(nodeMeta.DescKey, string(m.lang)),
-				IsActive:    isActive,
-			}
-			pvNode.FormattedHTML = pvNode.FormatHTML()
-			pvNodes = append(pvNodes, pvNode)
-		}
-
-		agent.PotentialVision = &PotentialVision{
-			IsUnlocked: isUnlocked,
-			CurrentID:  raw.UpgradeID,
-			Nodes:      pvNodes,
-		}
-	}
+	agent.PotentialVision = m.mapAgentPotentialVision(raw)
 
 	// Calculate final stats
 	calculateAgentStats(agent, m.store)
@@ -352,6 +269,103 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 	agent.UIStats = agent.FormattedUIStats()
 
 	return agent
+}
+
+func (m *profileMapper) mapAgentSkills(raw *zzz.AvatarData) []Skill {
+	skillsMeta, ok := m.store.AvatarSkillsMeta(raw.ID)
+	if !ok {
+		return nil
+	}
+
+	levels := make(map[int]int)
+	for _, sl := range raw.SkillLevelList {
+		levels[sl.Index] = sl.Level
+	}
+
+	skills := make([]Skill, 0, len(skillsMeta))
+	for _, sm := range skillsMeta {
+		skType := detectSkillType(sm.NameKey)
+		lvl := 0
+		switch skType {
+		case SkillTypeBasic:
+			lvl = levels[0]
+		case SkillTypeDodge:
+			lvl = levels[1]
+		case SkillTypeAssist:
+			lvl = levels[2]
+		case SkillTypeSpecial:
+			lvl = levels[3]
+		case SkillTypeChain:
+			if l, ok := levels[6]; ok {
+				lvl = l
+			} else {
+				lvl = levels[4]
+			}
+		case SkillTypePassive:
+			lvl = raw.CoreSkillEnhancement
+		}
+
+		typeName := m.getSkillTypeName(skType)
+
+		params := make([]SkillParam, 0, len(sm.Params))
+		for _, p := range sm.Params {
+			val := m.evaluateSkillParamFormula(p.Formula, lvl)
+			name := m.store.Localize(p.NameKey, string(m.lang))
+			if val != "" && name != "" {
+				params = append(params, SkillParam{
+					Name:  name,
+					Value: val,
+				})
+			}
+		}
+
+		sk := Skill{
+			Level:       lvl,
+			Name:        m.store.Localize(sm.NameKey, string(m.lang)),
+			Description: m.store.Localize(sm.DescKey, string(m.lang)),
+			Type:        skType,
+			TypeName:    typeName,
+			Params:      params,
+		}
+		sk.FormattedHTML = sk.FormatHTML()
+		skills = append(skills, sk)
+	}
+	return skills
+}
+
+func (m *profileMapper) mapAgentPotentialVision(raw *zzz.AvatarData) *PotentialVision {
+	pvMeta, ok := m.store.AvatarPotentialVisionsMeta(raw.ID)
+	if !ok {
+		return nil
+	}
+
+	isUnlocked := false
+	if raw.IsUpgradeUnlocked != nil {
+		isUnlocked = *raw.IsUpgradeUnlocked
+	} else if raw.UpgradeID > 0 {
+		isUnlocked = true
+	}
+
+	pvNodes := make([]PotentialVisionNode, 0, len(pvMeta))
+	for _, nodeMeta := range pvMeta {
+		isActive := isUnlocked && (raw.UpgradeID == nodeMeta.ID || (raw.UpgradeID > 0 && raw.UpgradeID >= nodeMeta.ID))
+		pvNode := PotentialVisionNode{
+			ID:          nodeMeta.ID,
+			Level:       nodeMeta.Level,
+			LevelName:   m.store.Localize(nodeMeta.LevelNameKey, string(m.lang)),
+			Title:       m.store.Localize(nodeMeta.TitleKey, string(m.lang)),
+			Description: m.store.Localize(nodeMeta.DescKey, string(m.lang)),
+			IsActive:    isActive,
+		}
+		pvNode.FormattedHTML = pvNode.FormatHTML()
+		pvNodes = append(pvNodes, pvNode)
+	}
+
+	return &PotentialVision{
+		IsUnlocked: isUnlocked,
+		CurrentID:  raw.UpgradeID,
+		Nodes:      pvNodes,
+	}
 }
 
 // mapWEngine converts raw weapon data into a WEngine domain object.
