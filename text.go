@@ -137,6 +137,14 @@ func evaluateSimpleExpr(expr string) (float64, error) {
 	if strings.Contains(expr, " ") {
 		expr = strings.ReplaceAll(expr, " ", "")
 	}
+	terms, ops, err := tokenizeSimpleExpr(expr)
+	if err != nil {
+		return 0, err
+	}
+	return evaluateTokens(terms, ops)
+}
+
+func tokenizeSimpleExpr(expr string) ([]float64, []rune, error) {
 	var terms []float64
 	var ops []rune
 
@@ -151,7 +159,7 @@ func evaluateSimpleExpr(expr string) (float64, error) {
 			}
 			val, err := strconv.ParseFloat(expr[start:i], 64)
 			if err != nil {
-				return 0, err
+				return nil, nil, err
 			}
 			terms = append(terms, val)
 		} else if ch == '+' || ch == '-' || ch == '*' || ch == '/' {
@@ -163,13 +171,16 @@ func evaluateSimpleExpr(expr string) (float64, error) {
 	}
 
 	if len(terms) == 0 {
-		return 0, fmt.Errorf("empty expression")
+		return nil, nil, fmt.Errorf("empty expression")
 	}
-
 	if len(terms) != len(ops)+1 {
-		return 0, fmt.Errorf("invalid expression: mismatched terms and operators")
+		return nil, nil, fmt.Errorf("invalid expression: mismatched terms and operators")
 	}
 
+	return terms, ops, nil
+}
+
+func evaluateTokens(terms []float64, ops []rune) (float64, error) {
 	// 1. Multiplication and division
 	var finalTerms []float64
 	var finalOps []rune

@@ -48,7 +48,7 @@ type Title struct {
 
 // PrimaryColorHex returns the primary gradient color formatted as a standard hex string (#RRGGBB).
 func (t *Title) PrimaryColorHex() string {
-	if t.PrimaryColor == "" {
+	if t == nil || t.PrimaryColor == "" {
 		return ""
 	}
 	return "#" + t.PrimaryColor
@@ -56,7 +56,7 @@ func (t *Title) PrimaryColorHex() string {
 
 // SecondaryColorHex returns the secondary gradient color formatted as a standard hex string (#RRGGBB).
 func (t *Title) SecondaryColorHex() string {
-	if t.SecondaryColor == "" {
+	if t == nil || t.SecondaryColor == "" {
 		return ""
 	}
 	return "#" + t.SecondaryColor

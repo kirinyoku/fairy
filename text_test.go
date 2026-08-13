@@ -196,3 +196,73 @@ func TestSkillMethods(t *testing.T) {
 		t.Errorf("Skill.FormatMarkdown() = %q", md)
 	}
 }
+
+func TestFormattingWrappers(t *testing.T) {
+	const sampleRichText = "Increases <color=#FE437E>ATK</color> by 15%."
+	const expectedHTML = `Increases <span style="color: #FE437E;">ATK</span> by 15%.`
+	const expectedPlain = "Increases ATK by 15%."
+	const expectedMD = "Increases **ATK** by 15%."
+
+	t.Run("WEngine formatting and nil receiver", func(t *testing.T) {
+		var nilWEngine *fairy.WEngine
+		if nilWEngine.FormatHTML() != "" {
+			t.Errorf("nil WEngine FormatHTML() = %q, want empty", nilWEngine.FormatHTML())
+		}
+		if nilWEngine.FormatPlainText() != "" {
+			t.Errorf("nil WEngine FormatPlainText() = %q, want empty", nilWEngine.FormatPlainText())
+		}
+		if nilWEngine.FormatMarkdown() != "" {
+			t.Errorf("nil WEngine FormatMarkdown() = %q, want empty", nilWEngine.FormatMarkdown())
+		}
+
+		w := &fairy.WEngine{PassiveDescription: sampleRichText}
+		if got := w.FormatHTML(); got != expectedHTML {
+			t.Errorf("WEngine.FormatHTML() = %q, want %q", got, expectedHTML)
+		}
+		if got := w.FormatPlainText(); got != expectedPlain {
+			t.Errorf("WEngine.FormatPlainText() = %q, want %q", got, expectedPlain)
+		}
+		if got := w.FormatMarkdown(); got != expectedMD {
+			t.Errorf("WEngine.FormatMarkdown() = %q, want %q", got, expectedMD)
+		}
+	})
+
+	t.Run("MindscapeNode formatting", func(t *testing.T) {
+		node := fairy.MindscapeNode{Description: sampleRichText}
+		if got := node.FormatHTML(); got != expectedHTML {
+			t.Errorf("MindscapeNode.FormatHTML() = %q, want %q", got, expectedHTML)
+		}
+		if got := node.FormatPlainText(); got != expectedPlain {
+			t.Errorf("MindscapeNode.FormatPlainText() = %q, want %q", got, expectedPlain)
+		}
+		if got := node.FormatMarkdown(); got != expectedMD {
+			t.Errorf("MindscapeNode.FormatMarkdown() = %q, want %q", got, expectedMD)
+		}
+	})
+
+	t.Run("PotentialVisionNode formatting", func(t *testing.T) {
+		pvn := fairy.PotentialVisionNode{Description: sampleRichText}
+		if got := pvn.FormatHTML(); got != expectedHTML {
+			t.Errorf("PotentialVisionNode.FormatHTML() = %q, want %q", got, expectedHTML)
+		}
+		if got := pvn.FormatPlainText(); got != expectedPlain {
+			t.Errorf("PotentialVisionNode.FormatPlainText() = %q, want %q", got, expectedPlain)
+		}
+		if got := pvn.FormatMarkdown(); got != expectedMD {
+			t.Errorf("PotentialVisionNode.FormatMarkdown() = %q, want %q", got, expectedMD)
+		}
+	})
+
+	t.Run("SetEffect formatting", func(t *testing.T) {
+		eff := fairy.SetEffect{Description: sampleRichText}
+		if got := eff.FormatHTML(); got != expectedHTML {
+			t.Errorf("SetEffect.FormatHTML() = %q, want %q", got, expectedHTML)
+		}
+		if got := eff.FormatPlainText(); got != expectedPlain {
+			t.Errorf("SetEffect.FormatPlainText() = %q, want %q", got, expectedPlain)
+		}
+		if got := eff.FormatMarkdown(); got != expectedMD {
+			t.Errorf("SetEffect.FormatMarkdown() = %q, want %q", got, expectedMD)
+		}
+	})
+}
