@@ -2,6 +2,7 @@ package fairy
 
 import (
 	"fmt"
+	"html"
 	"regexp"
 	"strconv"
 	"strings"
@@ -165,6 +166,10 @@ func evaluateSimpleExpr(expr string) (float64, error) {
 		return 0, fmt.Errorf("empty expression")
 	}
 
+	if len(terms) != len(ops)+1 {
+		return 0, fmt.Errorf("invalid expression: mismatched terms and operators")
+	}
+
 	// 1. Multiplication and division
 	var finalTerms []float64
 	var finalOps []rune
@@ -172,6 +177,9 @@ func evaluateSimpleExpr(expr string) (float64, error) {
 	finalTerms = append(finalTerms, terms[0])
 	for idx := 0; idx < len(ops); idx++ {
 		op := ops[idx]
+		if idx+1 >= len(terms) {
+			return 0, fmt.Errorf("invalid expression: missing term")
+		}
 		nextVal := terms[idx+1]
 
 		switch op {
@@ -191,6 +199,9 @@ func evaluateSimpleExpr(expr string) (float64, error) {
 	// 2. Addition and subtraction
 	res := finalTerms[0]
 	for idx := 0; idx < len(finalOps); idx++ {
+		if idx+1 >= len(finalTerms) {
+			return 0, fmt.Errorf("invalid expression: missing term")
+		}
 		switch finalOps[idx] {
 		case '+':
 			res += finalTerms[idx+1]
@@ -204,6 +215,7 @@ func evaluateSimpleExpr(expr string) (float64, error) {
 
 // FormatHTML converts Unity Rich Text tags (e.g. <color=#2BAD00>20%</color> and <IconMap:Icon_Special>)
 // into web-compatible HTML with inline CSS styling, Enka CDN icon image tags, and break tags (<br>).
+// Untrusted HTML content is safely escaped to prevent XSS attacks.
 // If an optional skillLevel is passed, any {CAL:...} scaling formulas in text are evaluated automatically.
 func FormatHTML(text string, skillLevel ...int) string {
 	if text == "" {
@@ -216,22 +228,51 @@ func FormatHTML(text string, skillLevel ...int) string {
 
 	text = unwrapTermBrackets(text)
 
-	// Replace Unity color tags with HTML span tags
-	res := colorTagRegex.ReplaceAllString(text, `<span style="color: $1;">$2</span>`)
-
-	// Replace known IconMap tags with Enka CDN image tags
-	res = iconHTMLReplacer.Replace(res)
-
-	// Replace any unknown IconMap tags with fallback image tags
-	res = iconTagRegex.ReplaceAllStringFunc(res, func(match string) string {
-		sub := iconTagRegex.FindStringSubmatch(match)
-		if len(sub) > 1 {
-			iconName := sub[1]
-			imgURL := fmt.Sprintf("https://enka.network/ui/zzz/%s.png", iconName)
-			return fmt.Sprintf(`<img src="%s" class="fairy-icon" alt="%s" style="height: 1.2em; vertical-align: -0.2em; display: inline-block;" />`, imgURL, iconName)
+	// Step 1: Extract Unity color tags and convert them to placeholders with escaped content
+	var spanPlaceholders []string
+	text = colorTagRegex.ReplaceAllStringFunc(text, func(match string) string {
+		sub := colorTagRegex.FindStringSubmatch(match)
+		if len(sub) >= 3 {
+			color := html.EscapeString(sub[1])
+			content := html.EscapeString(sub[2])
+			span := fmt.Sprintf(`<span style="color: %s;">%s</span>`, color, content)
+			spanPlaceholders = append(spanPlaceholders, span)
+			return fmt.Sprintf("\x00SPAN_%d\x00", len(spanPlaceholders)-1)
 		}
 		return match
 	})
+
+	// Step 2: Extract IconMap tags to placeholders
+	var iconPlaceholders []string
+	text = iconTagRegex.ReplaceAllStringFunc(text, func(match string) string {
+		sub := iconTagRegex.FindStringSubmatch(match)
+		if len(sub) > 1 {
+			iconName := sub[1]
+			fullTag := fmt.Sprintf("<IconMap:Icon_%s>", iconName)
+			var imgTag string
+			if imgURL, ok := iconImageMap[fullTag]; ok {
+				label := iconLabelMap[fullTag]
+				imgTag = fmt.Sprintf(`<img src="%s" class="fairy-icon" alt="%s" style="height: 1.2em; vertical-align: -0.2em; display: inline-block;" />`, imgURL, label)
+			} else {
+				imgURL := fmt.Sprintf("https://enka.network/ui/zzz/%s.png", iconName)
+				imgTag = fmt.Sprintf(`<img src="%s" class="fairy-icon" alt="%s" style="height: 1.2em; vertical-align: -0.2em; display: inline-block;" />`, imgURL, iconName)
+			}
+			iconPlaceholders = append(iconPlaceholders, imgTag)
+			return fmt.Sprintf("\x00ICON_%d\x00", len(iconPlaceholders)-1)
+		}
+		return match
+	})
+
+	// Step 3: HTML-escape the remaining text to sanitize any injected script or HTML tags
+	res := html.EscapeString(text)
+
+	// Step 4: Restore placeholders
+	for i, span := range spanPlaceholders {
+		res = strings.ReplaceAll(res, fmt.Sprintf("\x00SPAN_%d\x00", i), span)
+	}
+	for i, img := range iconPlaceholders {
+		res = strings.ReplaceAll(res, fmt.Sprintf("\x00ICON_%d\x00", i), img)
+	}
 
 	// Resolve layout fallback tags to native localized terms
 	res = resolveLayoutTags(res)

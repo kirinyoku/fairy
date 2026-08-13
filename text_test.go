@@ -31,6 +31,12 @@ func TestEvaluateFormulas(t *testing.T) {
 			skillLevel: 1,
 			expected:   "Static value 32%",
 		},
+		{
+			name:       "malformed CAL tag with trailing operator",
+			input:      "Static value {CAL:10+,1,2}%",
+			skillLevel: 1,
+			expected:   "Static value {CAL:10+,1,2}%",
+		},
 	}
 
 	for _, tt := range tests {
@@ -90,6 +96,11 @@ func TestFormatHTML(t *testing.T) {
 			name:     "layout tag resolution english fallback",
 			input:    "While tilting the {LAYOUT_CONSOLECONTROLLER#stick}{LAYOUT_FALLBACK#joystick}, hold <IconMap:Icon_Evade> to activate",
 			expected: `While tilting the joystick, hold <img src="https://enka.network/ui/zzz/IconRoleSkillKeyEvade.png" class="fairy-icon" alt="[Dodge]" style="height: 1.2em; vertical-align: -0.2em; display: inline-block;" /> to activate`,
+		},
+		{
+			name:     "html sanitization of script tags",
+			input:    "Deals <color=#98EFF0>20%</color> DMG <script>alert(1)</script>",
+			expected: `Deals <span style="color: #98EFF0;">20%</span> DMG &lt;script&gt;alert(1)&lt;/script&gt;`,
 		},
 	}
 
