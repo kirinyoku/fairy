@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.8.1] - 2026-08-13
+
+### Fixed
+- Fixed potential panic in mathematical expression evaluator (`evaluateSimpleExpr`) when encountering malformed operator sequences or missing operands.
+- Added HTML sanitization in `FormatHTML` to strip `<script>` tags and prevent XSS injection from untrusted text sources.
+- Fixed potential nil-pointer dereference in `Title.PrimaryColorHex()` and `Title.SecondaryColorHex()` when called on a `nil` `*Title`.
+
+### Performance
+- Optimized `{CAL:...}` formula parsing and `<IconMap:...>` tag replacement in `text.go` by preallocating buffers and eliminating redundant string allocations.
+
+### Refactored
+- Decomposed monolithic stat and equipment calculation functions in `calc.go`, `mapper.go`, and `store/embedded.go` into modular, single-responsibility helpers.
+
+### Tests
+- Added comprehensive unit test suites for `Agent.SubStatTotals`, `Agent.CountEffectiveRolls`, `DriveDisc.CountEffectiveRolls`, `Agent.FormattedUIStats`, `Title` color helpers, formatting method wrappers (`WEngine`, `MindscapeNode`, `PotentialVisionNode`, `SetEffect`), `Client` options and `Localize`, and upstream API error mapping (`mapEnkaError`).
+
 ## [0.8.0] - 2026-08-13
 
 ### Added
