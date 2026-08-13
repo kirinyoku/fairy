@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.8.2] - 2026-08-13
+
+### Fixed
+- Fixed linter warning (`unused`) by removing redundant `iconHTMLReplacer` variable.
+
 ## [0.8.1] - 2026-08-13
 
 ### Fixed
