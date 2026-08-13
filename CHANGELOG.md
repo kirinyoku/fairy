@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.7.0] - 2026-08-13
+
+### Added
+- Added **Mindscape Cinema (M1–M6)** support: `MindscapeNode` struct with `FormatHTML()`, `FormatPlainText()`, and `FormatMarkdown()` formatting methods, and `Agent.Mindscapes` field.
+- Added **Potential Vision (Special Awakening Buffs)** support: `PotentialVision` and `PotentialVisionNode` structs, localized titles and descriptions across 13 languages, formatting methods, and mapping `IsUpgradeUnlocked` and `UpgradeID` into `Agent.PotentialVision`.
+- Added **Combat Stat SVG Icons**: `SVG()` and `IconURL()` methods to `PropertyID` and `StatValue`, and added `IconURL` field to `StatValue` and `FormattedStatBreakdown` for all combat properties.
+
+### Changed
+- Refactored Drive Disc set bonus mapping into `SetEffect` struct with `IsActive` status, grouping 2-piece and 4-piece set bonuses cleanly.
+
 ## [0.6.0] - 2026-08-12
 
 ### Added
