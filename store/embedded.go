@@ -128,6 +128,21 @@ func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 	return s, nil
 }
 
+func parsePropsMap(raw map[string]int, ctx string, parseID func(string, string) (int, error)) (map[int]int, error) {
+	if raw == nil {
+		return nil, nil
+	}
+	res := make(map[int]int, len(raw))
+	for k, v := range raw {
+		propID, err := parseID(k, ctx)
+		if err != nil {
+			return nil, err
+		}
+		res[propID] = v
+	}
+	return res, nil
+}
+
 func (s *EmbeddedStore) loadAvatars(fsys fs.FS, parseID func(string, string) (int, error)) error {
 	avatarRecs, err := readJSON[map[string]avatarRecord](fsys, "avatars.json")
 	if err != nil {
@@ -139,46 +154,32 @@ func (s *EmbeddedStore) loadAvatars(fsys fs.FS, parseID func(string, string) (in
 			return err
 		}
 
-		baseProps := make(map[int]int, len(rec.BaseProps))
-		for k, v := range rec.BaseProps {
-			propID, err := parseID(k, "avatar base prop")
-			if err != nil {
-				return err
-			}
-			baseProps[propID] = v
+		baseProps, err := parsePropsMap(rec.BaseProps, "avatar base prop", parseID)
+		if err != nil {
+			return err
 		}
 
-		growthProps := make(map[int]int, len(rec.GrowthProps))
-		for k, v := range rec.GrowthProps {
-			propID, err := parseID(k, "avatar growth prop")
-			if err != nil {
-				return err
-			}
-			growthProps[propID] = v
+		growthProps, err := parsePropsMap(rec.GrowthProps, "avatar growth prop", parseID)
+		if err != nil {
+			return err
 		}
 
 		promProps := make([]map[int]int, len(rec.PromotionProps))
 		for i, pMap := range rec.PromotionProps {
-			promProps[i] = make(map[int]int, len(pMap))
-			for k, v := range pMap {
-				propID, err := parseID(k, "avatar promotion prop")
-				if err != nil {
-					return err
-				}
-				promProps[i][propID] = v
+			p, err := parsePropsMap(pMap, "avatar promotion prop", parseID)
+			if err != nil {
+				return err
 			}
+			promProps[i] = p
 		}
 
 		coreProps := make([]map[int]int, len(rec.CoreEnhancementProps))
 		for i, pMap := range rec.CoreEnhancementProps {
-			coreProps[i] = make(map[int]int, len(pMap))
-			for k, v := range pMap {
-				propID, err := parseID(k, "avatar core prop")
-				if err != nil {
-					return err
-				}
-				coreProps[i][propID] = v
+			p, err := parsePropsMap(pMap, "avatar core prop", parseID)
+			if err != nil {
+				return err
 			}
+			coreProps[i] = p
 		}
 
 		s.avatars[id] = AvatarMeta{
@@ -226,13 +227,9 @@ func (s *EmbeddedStore) loadWeaponsAndEquipments(fsys fs.FS, parseID func(string
 		if err != nil {
 			return err
 		}
-		props := make(map[int]int, len(rec.SetBonusProps))
-		for k, v := range rec.SetBonusProps {
-			propID, err := parseID(k, "equipment suit prop")
-			if err != nil {
-				return err
-			}
-			props[propID] = v
+		props, err := parsePropsMap(rec.SetBonusProps, "equipment suit prop", parseID)
+		if err != nil {
+			return err
 		}
 		s.equipmentSuits[id] = EquipmentSuitMeta{
 			Icon:          rec.Icon,

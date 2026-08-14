@@ -215,20 +215,27 @@ func evaluateTokens(terms []float64, ops []rune) (float64, error) {
 	return res, nil
 }
 
+// prepareText handles empty string checks, optional formula evaluation,
+// and unwraps color bracket term syntax.
+func prepareText(text string, skillLevel ...int) string {
+	if text == "" {
+		return ""
+	}
+	if len(skillLevel) > 0 {
+		text = EvaluateFormulas(text, skillLevel[0])
+	}
+	return unwrapTermBrackets(text)
+}
+
 // FormatHTML converts Unity Rich Text tags (e.g. <color=#2BAD00>20%</color> and <IconMap:Icon_Special>)
 // into web-compatible HTML with inline CSS styling, Enka CDN icon image tags, and break tags (<br>).
 // Untrusted HTML content is safely escaped to prevent XSS attacks.
 // If an optional skillLevel is passed, any {CAL:...} scaling formulas in text are evaluated automatically.
 func FormatHTML(text string, skillLevel ...int) string {
+	text = prepareText(text, skillLevel...)
 	if text == "" {
 		return ""
 	}
-
-	if len(skillLevel) > 0 {
-		text = EvaluateFormulas(text, skillLevel[0])
-	}
-
-	text = unwrapTermBrackets(text)
 
 	// Step 1: Extract Unity color tags and convert them to placeholders with escaped content
 	var spanPlaceholders []string
@@ -294,15 +301,10 @@ func FormatHTML(text string, skillLevel ...int) string {
 // returning clean, human-readable plain text without any markup.
 // If an optional skillLevel is passed, any {CAL:...} scaling formulas in text are evaluated automatically.
 func FormatPlainText(text string, skillLevel ...int) string {
+	text = prepareText(text, skillLevel...)
 	if text == "" {
 		return ""
 	}
-
-	if len(skillLevel) > 0 {
-		text = EvaluateFormulas(text, skillLevel[0])
-	}
-
-	text = unwrapTermBrackets(text)
 
 	// Unwrap color tags to keep inner text content
 	res := colorTagRegex.ReplaceAllString(text, "$2")
@@ -327,15 +329,10 @@ func FormatPlainText(text string, skillLevel ...int) string {
 // and original text layout is preserved for platforms like Discord, Telegram, or Slack.
 // If an optional skillLevel is passed, any {CAL:...} scaling formulas in text are evaluated automatically.
 func FormatMarkdown(text string, skillLevel ...int) string {
+	text = prepareText(text, skillLevel...)
 	if text == "" {
 		return ""
 	}
-
-	if len(skillLevel) > 0 {
-		text = EvaluateFormulas(text, skillLevel[0])
-	}
-
-	text = unwrapTermBrackets(text)
 
 	// Convert color tags to bold Markdown
 	res := colorTagRegex.ReplaceAllString(text, "**$2**")
