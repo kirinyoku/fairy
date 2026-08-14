@@ -1,119 +1,131 @@
 # Changelog
 
+## [0.9.0] - 2026-08-14
+
+### Changed
+- Removed `panic()` on client initialization; errors are now safely returned.
+- Simplified `Agent.FormattedUIStats(lang)` signature to explicitly take a target language.
+
+### Fixed
+- Fixed bug where `agent.UIStats` was localized with default store instead of client store and language.
+- Fixed fallback when agent skill levels are missing in API response.
+
+### Performance
+- Optimized HTML/text formatting using single-pass `strings.NewReplacer`.
+- Optimized stat breakdown formatting by using dynamic precision (`%.*f`).
+
+### Refactored
+- Centralized constants (CDN URLs, scale factors, skill indices) in `constants.go`.
+- Moved SVG icons and maps into a dedicated `svg.go` file.
+- Normalized JSON template files and removed obfuscated game patch tags.
+- Cleaned up duplicated logic across text formatters and store loaders.
+
+### Tests & CI
+- Added GitHub Actions workflow to run `go test -race` on every push/PR.
+- Embedded test fixtures with `//go:embed` to prevent path issues.
+- Added test coverage for API error responses (404, 429, 500, timeouts) and formula parser edge cases.
+
 ## [0.8.2] - 2026-08-13
 
 ### Fixed
-- Fixed linter warning (`unused`) by removing redundant `iconHTMLReplacer` variable.
+- Removed unused `iconHTMLReplacer` variable.
 
 ## [0.8.1] - 2026-08-13
 
 ### Fixed
-- Fixed potential panic in mathematical expression evaluator (`evaluateSimpleExpr`) when encountering malformed operator sequences or missing operands.
-- Added HTML sanitization in `FormatHTML` to strip `<script>` tags and prevent XSS injection from untrusted text sources.
-- Fixed potential nil-pointer dereference in `Title.PrimaryColorHex()` and `Title.SecondaryColorHex()` when called on a `nil` `*Title`.
+- Fixed crash in formula evaluator on malformed math expressions.
+- Sanitized HTML in `FormatHTML` to strip `<script>` tags.
+- Fixed nil-pointer dereference in `Title` color helpers.
 
 ### Performance
-- Optimized `{CAL:...}` formula parsing and `<IconMap:...>` tag replacement in `text.go` by preallocating buffers and eliminating redundant string allocations.
+- Reduced memory allocations in formula and icon tag parsing.
 
 ### Refactored
-- Decomposed monolithic stat and equipment calculation functions in `calc.go`, `mapper.go`, and `store/embedded.go` into modular, single-responsibility helpers.
+- Split monolithic stat and equipment calculation functions into modular helpers.
 
 ### Tests
-- Added comprehensive unit test suites for `Agent.SubStatTotals`, `Agent.CountEffectiveRolls`, `DriveDisc.CountEffectiveRolls`, `Agent.FormattedUIStats`, `Title` color helpers, formatting method wrappers (`WEngine`, `MindscapeNode`, `PotentialVisionNode`, `SetEffect`), `Client` options and `Localize`, and upstream API error mapping (`mapEnkaError`).
+- Added unit test coverage for stats, formatters, and API error mapping.
 
 ## [0.8.0] - 2026-08-13
 
 ### Added
-- Added **Combat Skill Grouping**: `SkillGroup` struct and `Agent.GroupedSkills()` method, organizing skills into 6 in-game UI category cards (`Passives`, `Basic Attack`, `Special Attack`, `Dodge`, `Chain Attack`, `Assist`) across 13 languages.
-- Added **Skill Scaling Parameter Tables**: `SkillParam` struct with `Params []SkillParam` in `Skill`, extracting multiplier coefficients from `AvatarSkillTemplateTb` into `skill_templates.json` and dynamically evaluating damage %, daze %, and energy cost at current skill level.
-- Added **Out-of-the-Box JSON UI Enrichment**: Pre-populated `grouped_skills` (`SkillGroups`) and `ui_stats` (`UIStats`) fields on `Agent`, and pre-rendered `formatted_html` fields on `Skill`, `MindscapeNode`, `PotentialVisionNode`, `WEngine`, and `SetEffect` for seamless `json.Marshal()` rendering.
+- Added skill grouping (`SkillGroup`, `Agent.GroupedSkills()`) into 6 in-game UI categories.
+- Added skill scaling parameter tables (`SkillParam`, `skill_templates.json`) with level formulas.
+- Added pre-rendered JSON fields: `grouped_skills`, `ui_stats`, and `formatted_html`.
 
 ### Fixed
-- Fixed Chain Attack & Ultimate skill level mapping by reading raw `SkillLevelList` index 6.
+- Fixed Chain Attack & Ultimate skill level reading from raw profile.
 
 ## [0.7.0] - 2026-08-13
 
 ### Added
-- Added **Mindscape Cinema (M1–M6)** support: `MindscapeNode` struct with `FormatHTML()`, `FormatPlainText()`, and `FormatMarkdown()` formatting methods, and `Agent.Mindscapes` field.
-- Added **Potential Vision (Special Awakening Buffs)** support: `PotentialVision` and `PotentialVisionNode` structs, localized titles and descriptions across 13 languages, formatting methods, and mapping `IsUpgradeUnlocked` and `UpgradeID` into `Agent.PotentialVision`.
-- Added **Combat Stat SVG Icons**: `SVG()` and `IconURL()` methods to `PropertyID` and `StatValue`, and added `IconURL` field to `StatValue` and `FormattedStatBreakdown` for all combat properties.
+- Added Mindscape Cinema (M1–M6) data and formatting support.
+- Added Potential Vision (special awakening buffs) data and formatting support.
+- Added combat stat SVG icons and URL methods on `PropertyID` and `StatValue`.
 
 ### Changed
-- Refactored Drive Disc set bonus mapping into `SetEffect` struct with `IsActive` status, grouping 2-piece and 4-piece set bonuses cleanly.
+- Grouped drive disc set bonuses into `SetEffect` with `IsActive` state.
 
 ## [0.6.0] - 2026-08-12
 
 ### Added
-- Added `AttributeDMGBonus` calculation matching agent elemental attribute (`Physical`, `Fire`, `Ice`, `Electric`, `Ether`, `Wind`) and reskins (`AuricInk`, `HonedEdge`, `Frost`).
-- Added `Name` field to `FormattedStatBreakdown` and localized all 13 combat stats.
-- Added `TitleVariants` support and dynamic `TitleInfo` argument formatting in `Profile`.
-- Added `FormatHTML()`, `FormatPlainText()`, `FormatMarkdown()`, and `{CAL:...}` formula evaluation to `WEngine` and `DriveDiscSetBonus`.
+- Added `AttributeDMGBonus` calculation and localized stat names for all combat properties.
+- Added `TitleVariants` and dynamic argument formatting in `TitleInfo`.
+- Added rich text formatting (`FormatHTML`, `FormatPlainText`, `FormatMarkdown`) to W-Engines and set bonuses.
 
 ### Fixed
-- Fixed Anomaly Mastery (`31401`–`31403`) and Anomaly Proficiency (`31201`–`31203`) property IDs and calculation formulas.
-- Added explicit element type mappings for `Physical` and `Electric` attributes in `mapper.go`.
+- Fixed property IDs and calculation formulas for Anomaly Mastery and Proficiency.
+- Added missing element mappings for Physical and Electric attributes.
 
-### Changed
-- Refactored `calc.go` to use `sumPropVariants` helper and `propGroup` constants, removing raw property ID calculations.
-- Replaced `if-else` chains in formula evaluator with tagged `switch` statements in `text.go`.
+### Refactored
+- Simplified `calc.go` using property group helpers.
 
 ## [0.5.0] - 2026-08-11
 
 ### Added
-- Added `IconURL()` method to `Attribute`, `Specialty`, and `Rarity` types for obtaining visual icon URLs.
-- Added `SVG()` method to `Attribute` returning clean, W3C-compliant vector SVG markup for all 10 ZZZ attributes.
-- Implemented Unity Rich Text formatting parser (`FormatHTML`, `FormatPlainText`, `FormatMarkdown`) supporting `<color>`, `{CAL:...}`, and `<IconMap:...>` tags.
-- Added `FormatHTML()`, `FormatPlainText()`, and `FormatMarkdown()` methods to `Skill` struct.
+- Added `IconURL()` and `SVG()` methods for `Attribute`, `Specialty`, and `Rarity`.
+- Implemented Unity rich text parser (`<color>`, `{CAL:...}`, `<IconMap:...>`).
+- Added text formatting methods to `Skill`.
 
 ### Fixed
-- Fixed W-Engine passive description property key extraction and missing localizations.
-- Fixed missing assist skill localizations for Ramielle.
+- Fixed missing W-Engine passive and Ramielle assist localizations.
 
 ## [0.4.1] - 2026-08-11
 
 ### Fixed
-- Fixed profile avatar, namecard background, and badge asset URL resolution.
-- Fixed profile avatar mapping by prioritizing `ProfileID` over `AvatarID` to resolve in-game Inter-Knot avatars properly.
+- Fixed asset URL resolution for avatars, namecards, and badges.
 
 ## [0.4.0] - 2026-08-11
 
 ### Added
-- Added support for `SheerForce` stat in `Stats`, `FormattedStats`, and `UIStats`.
-- Implemented HP and ATK stat scaling for Rupture specialty agents.
+- Added support for `SheerForce` stat and scaling for Rupture specialty.
 
 ## [0.3.2] - 2026-08-11
 
 ### Changed
-- Cleaned up and standardized GoDoc comments across the codebase.
+- Standardized GoDoc comments across the codebase.
 
 ## [0.3.1] - 2026-08-10
 
 ### Fixed
-- Fixed missing localization for the `Rupture` specialty across all supported languages.
+- Added missing localization for Rupture specialty.
 
 ## [0.3.0] - 2026-08-10
 
 ### Added
-- Exported domain sentinel errors (`ErrRateLimit`, `ErrProfileNotFound`, `ErrMaintenance`, `ErrNetwork`) from `internal/api` to the root `fairy` package.
+- Exported domain sentinel errors (`ErrRateLimit`, `ErrProfileNotFound`, `ErrMaintenance`, `ErrNetwork`).
 
 ## [0.2.1] - 2026-08-09
 
 ### Changed
-- Improved package documentation for `pkg.go.dev` by adding individual docstrings to `Attribute`, `Specialty`, `Rarity`, and `PropertyID` constants.
-- Clarified the default behavior of the metadata store in `NewClient` documentation.
+- Improved package documentation on `pkg.go.dev`.
 
 ## [0.2.0] - 2026-08-09
 
 ### Added
-- Added `UID` field to `WEngine` and `DriveDisc` structs to allow tracking specific instances of equipment across agents.
+- Added `UID` field to `WEngine` and `DriveDisc` structs.
 
 ## [0.1.0] - 2026-08-08
 
 ### Added
-- Fetch, enrich, and calculate Zenless Zone Zero player game profiles.
-- Stat calculation for characters, weapons, and drive discs.
-- UI-ready formatting for in-game stat panels.
-- Drive disc analysis with effective rolls counting.
-- Auto-resolved URLs for various game assets.
-- Built-in metadata (no database required).
-- Modular client support with `enkanetwork-go` features.
+- Initial release: player profile fetching, stat calculations, drive disc analysis, and built-in metadata.
