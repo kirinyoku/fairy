@@ -1,7 +1,12 @@
 package fairy
 
 import (
+	"context"
+	"errors"
+	"net/http"
+	"net/http/httptest"
 	"testing"
+	"time"
 
 	"github.com/kirinyoku/enkanetwork-go/client/zzz"
 )
@@ -166,6 +171,203 @@ func TestGlobal_Localize(t *testing.T) {
 		enStats := profile.Agents[0].FormattedUIStats(LangEN)
 		if enStats.CritRate.Name != "CRIT Rate" {
 			t.Errorf("enStats.CritRate.Name = %q, want %q", enStats.CritRate.Name, "CRIT Rate")
+		}
+	})
+}
+
+func TestClient_ErrorHandling(t *testing.T) {
+	tests := []struct {
+		name          string
+		statusCode    int
+		responseBody  string
+		expectedError error
+	}{
+		{
+			name:          "404 player not found",
+			statusCode:    http.StatusNotFound,
+			responseBody:  `{"message":"player not found"}`,
+			expectedError: ErrProfileNotFound,
+		},
+		{
+			name:          "429 rate limited",
+			statusCode:    http.StatusTooManyRequests,
+			responseBody:  `{"message":"rate limit exceeded"}`,
+			expectedError: ErrRateLimit,
+		},
+		{
+			name:          "500 internal server error",
+			statusCode:    http.StatusInternalServerError,
+			responseBody:  `{"message":"internal server error"}`,
+			expectedError: ErrMaintenance,
+		},
+		{
+			name:          "503 service unavailable",
+			statusCode:    http.StatusServiceUnavailable,
+			responseBody:  `{"message":"service under maintenance"}`,
+			expectedError: ErrMaintenance,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				w.WriteHeader(tt.statusCode)
+				_, _ = w.Write([]byte(tt.responseBody))
+			}))
+			defer server.Close()
+
+			client, err := NewClient(WithEnkaOptions(zzz.Options{
+				BaseURL: server.URL,
+				Retry:   &zzz.RetryOptions{MaxAttempts: 1},
+			}))
+			if err != nil {
+				t.Fatalf("NewClient() failed: %v", err)
+			}
+
+			// Test GetProfile
+			_, err = client.GetProfile(context.Background(), "100000001")
+			if err == nil {
+				t.Fatalf("expected error, got nil")
+			}
+			if !errors.Is(err, tt.expectedError) {
+				t.Errorf("GetProfile() error = %v, want %v", err, tt.expectedError)
+			}
+
+			// Test GetProfileWithLang
+			_, err = client.GetProfileWithLang(context.Background(), "100000001", LangRU)
+			if err == nil {
+				t.Fatalf("expected error, got nil")
+			}
+			if !errors.Is(err, tt.expectedError) {
+				t.Errorf("GetProfileWithLang() error = %v, want %v", err, tt.expectedError)
+			}
+
+			// Test GetRawProfile
+			_, err = client.GetRawProfile(context.Background(), "100000001")
+			if err == nil {
+				t.Fatalf("expected error, got nil")
+			}
+			if !errors.Is(err, tt.expectedError) {
+				t.Errorf("GetRawProfile() error = %v, want %v", err, tt.expectedError)
+			}
+		})
+	}
+
+	t.Run("network error on invalid host", func(t *testing.T) {
+		client, err := NewClient(WithEnkaOptions(zzz.Options{
+			BaseURL: "http://127.0.0.1:0",
+			Retry:   &zzz.RetryOptions{MaxAttempts: 1},
+		}))
+		if err != nil {
+			t.Fatalf("NewClient() failed: %v", err)
+		}
+
+		_, err = client.GetProfile(context.Background(), "100000001")
+		if err == nil {
+			t.Fatalf("expected network error, got nil")
+		}
+		if !errors.Is(err, ErrNetwork) {
+			t.Errorf("expected ErrNetwork, got %v", err)
+		}
+	})
+
+	t.Run("canceled context returns error", func(t *testing.T) {
+		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			time.Sleep(100 * time.Millisecond)
+			w.WriteHeader(http.StatusOK)
+		}))
+		defer server.Close()
+
+		client, err := NewClient(WithEnkaOptions(zzz.Options{
+			BaseURL: server.URL,
+			Retry:   &zzz.RetryOptions{MaxAttempts: 1},
+		}))
+		if err != nil {
+			t.Fatalf("NewClient() failed: %v", err)
+		}
+
+		ctx, cancel := context.WithCancel(context.Background())
+		cancel() // cancel immediately
+
+		_, err = client.GetProfile(ctx, "100000001")
+		if err == nil {
+			t.Fatalf("expected error on canceled context, got nil")
+		}
+	})
+
+	t.Run("deadline exceeded context returns error", func(t *testing.T) {
+		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			time.Sleep(200 * time.Millisecond)
+			w.WriteHeader(http.StatusOK)
+		}))
+		defer server.Close()
+
+		client, err := NewClient(WithEnkaOptions(zzz.Options{
+			BaseURL: server.URL,
+			Retry:   &zzz.RetryOptions{MaxAttempts: 1},
+		}))
+		if err != nil {
+			t.Fatalf("NewClient() failed: %v", err)
+		}
+
+		ctx, cancel := context.WithTimeout(context.Background(), 20*time.Millisecond)
+		defer cancel()
+
+		_, err = client.GetProfile(ctx, "100000001")
+		if err == nil {
+			t.Fatalf("expected timeout error, got nil")
+		}
+	})
+
+	t.Run("successful profile fetch through mock server", func(t *testing.T) {
+		mockProfileJSON := `{
+			"region": "Europe",
+			"PlayerInfo": {
+				"SocialDetail": {
+					"ProfileDetail": {
+						"Uid": 1504687050,
+						"Nickname": "Belle",
+						"Level": 50
+					}
+				},
+				"ShowcaseDetail": {
+					"AvatarList": [
+						{
+							"Id": 1011,
+							"Level": 60
+						}
+					]
+				}
+			}
+		}`
+		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			w.WriteHeader(http.StatusOK)
+			_, _ = w.Write([]byte(mockProfileJSON))
+		}))
+		defer server.Close()
+
+		client, err := NewClient(WithEnkaOptions(zzz.Options{
+			BaseURL: server.URL,
+		}))
+		if err != nil {
+			t.Fatalf("NewClient() failed: %v", err)
+		}
+
+		profile, err := client.GetProfile(context.Background(), "1504687050")
+		if err != nil {
+			t.Fatalf("GetProfile() failed: %v", err)
+		}
+		if profile == nil {
+			t.Fatal("expected non-nil profile")
+		}
+		if profile.UID != "1504687050" {
+			t.Errorf("profile.UID = %q, want %q", profile.UID, "1504687050")
+		}
+		if profile.Nickname != "Belle" {
+			t.Errorf("profile.Nickname = %q, want %q", profile.Nickname, "Belle")
+		}
+		if len(profile.Agents) != 1 {
+			t.Fatalf("expected 1 agent, got %d", len(profile.Agents))
 		}
 	})
 }

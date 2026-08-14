@@ -37,6 +37,54 @@ func TestEvaluateFormulas(t *testing.T) {
 			skillLevel: 1,
 			expected:   "Static value {CAL:10+,1,2}%",
 		},
+		{
+			name:       "division by zero returns unparsed match",
+			input:      "Value {CAL:10/0,1,2}%",
+			skillLevel: 1,
+			expected:   "Value {CAL:10/0,1,2}%",
+		},
+		{
+			name:       "unbalanced operators return unparsed match",
+			input:      "Value {CAL:10++5,1,2}%",
+			skillLevel: 1,
+			expected:   "Value {CAL:10++5,1,2}%",
+		},
+		{
+			name:       "leading negative number",
+			input:      "Shift {CAL:-5+10,1,2} deg",
+			skillLevel: 1,
+			expected:   "Shift 5 deg",
+		},
+		{
+			name:       "subtracting negative number",
+			input:      "Delta {CAL:10--5,1,2}",
+			skillLevel: 1,
+			expected:   "Delta 15",
+		},
+		{
+			name:       "complex operator precedence",
+			input:      "Value {CAL:10-6/2+1*4,1,2}",
+			skillLevel: 1,
+			expected:   "Value 11",
+		},
+		{
+			name:       "floating point precision trimmed",
+			input:      "Value {CAL:10/3,1,2}",
+			skillLevel: 1,
+			expected:   "Value 3.3",
+		},
+		{
+			name:       "zero multiplier falls back to 1",
+			input:      "Value {CAL:50,0,2}",
+			skillLevel: 1,
+			expected:   "Value 50",
+		},
+		{
+			name:       "invalid character in formula returns unparsed match",
+			input:      "Value {CAL:10@2,1,2}",
+			skillLevel: 1,
+			expected:   "Value {CAL:10@2,1,2}",
+		},
 	}
 
 	for _, tt := range tests {
