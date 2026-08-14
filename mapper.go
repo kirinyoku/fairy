@@ -266,7 +266,7 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 
 	// Populate enriched JSON fields out-of-the-box
 	agent.SkillGroups = agent.GroupedSkills()
-	agent.UIStats = agent.FormattedUIStats()
+	agent.UIStats = formatAgentUIStats(agent, m.store, m.lang)
 
 	return agent
 }

@@ -348,51 +348,58 @@ func getStatName(st store.MetadataStore, key string, lang Language) string {
 	return key
 }
 
-// FormattedUIStats generates a complete breakdown of base vs added stats for UI display.
-// Stat names are localized according to the optional lang parameter (defaults to LangEN).
-// This structure precisely matches the visual representation and layout seen in the in-game
-// stat panel or on platforms like Enka.Network.
-func (a *Agent) FormattedUIStats(lang ...Language) UIStats {
-	l := LangEN
-	if len(lang) > 0 {
-		l = lang[0]
+// FormattedUIStats generates a complete breakdown of base vs added stats for UI display
+// in the specified language using the default metadata store.
+// To access the agent's pre-computed stats matching the profile's language, use the agent.UIStats field directly.
+func (a *Agent) FormattedUIStats(lang Language) UIStats {
+	st, err := store.Default()
+	if err != nil {
+		return a.UIStats
 	}
 
-	st, _ := store.Default()
+	return formatAgentUIStats(a, st, lang)
+}
 
-	hpName := getStatName(st, locKeyHP, l)
-	atkName := getStatName(st, locKeyATK, l)
-	defName := getStatName(st, locKeyDEF, l)
-	impactName := getStatName(st, locKeyImpact, l)
-	critRateName := getStatName(st, locKeyCritRate, l)
-	critDMGName := getStatName(st, locKeyCritDMG, l)
-	anomalyMasteryName := getStatName(st, locKeyAnomalyMastery, l)
-	anomalyProficiencyName := getStatName(st, locKeyAnomalyProficiency, l)
-	penRatioName := getStatName(st, locKeyPenRatio, l)
-	penFlatName := getStatName(st, locKeyPenFlat, l)
-	energyRegenName := getStatName(st, locKeyEnergyRegen, l)
-	sheerForceName := getStatName(st, locKeySheerForce, l)
+// formatAgentUIStats generates a complete breakdown of base vs added stats for UI display
+// using the provided MetadataStore and Language.
+func formatAgentUIStats(a *Agent, s store.MetadataStore, lang Language) UIStats {
+	if s == nil {
+		return UIStats{}
+	}
+
+	hpName := getStatName(s, locKeyHP, lang)
+	atkName := getStatName(s, locKeyATK, lang)
+	defName := getStatName(s, locKeyDEF, lang)
+	impactName := getStatName(s, locKeyImpact, lang)
+	critRateName := getStatName(s, locKeyCritRate, lang)
+	critDMGName := getStatName(s, locKeyCritDMG, lang)
+	anomalyMasteryName := getStatName(s, locKeyAnomalyMastery, lang)
+	anomalyProficiencyName := getStatName(s, locKeyAnomalyProficiency, lang)
+	penRatioName := getStatName(s, locKeyPenRatio, lang)
+	penFlatName := getStatName(s, locKeyPenFlat, lang)
+	energyRegenName := getStatName(s, locKeyEnergyRegen, lang)
+	sheerForceName := getStatName(s, locKeySheerForce, lang)
 
 	var attrDMGName string
 	var attrDMGProp PropertyID
 	switch a.Attribute.BaseAttribute() {
 	case AttributePhysical:
-		attrDMGName = getStatName(st, locKeyPhysicalDMGBonus, l)
+		attrDMGName = getStatName(s, locKeyPhysicalDMGBonus, lang)
 		attrDMGProp = PropPhysicalDMGBonus
 	case AttributeFire:
-		attrDMGName = getStatName(st, locKeyFireDMGBonus, l)
+		attrDMGName = getStatName(s, locKeyFireDMGBonus, lang)
 		attrDMGProp = PropFireDMGBonus
 	case AttributeIce:
-		attrDMGName = getStatName(st, locKeyIceDMGBonus, l)
+		attrDMGName = getStatName(s, locKeyIceDMGBonus, lang)
 		attrDMGProp = PropIceDMGBonus
 	case AttributeElectric:
-		attrDMGName = getStatName(st, locKeyElectricDMGBonus, l)
+		attrDMGName = getStatName(s, locKeyElectricDMGBonus, lang)
 		attrDMGProp = PropElectricDMGBonus
 	case AttributeEther:
-		attrDMGName = getStatName(st, locKeyEtherDMGBonus, l)
+		attrDMGName = getStatName(s, locKeyEtherDMGBonus, lang)
 		attrDMGProp = PropEtherDMGBonus
 	case AttributeWind:
-		attrDMGName = getStatName(st, locKeyWindDMGBonus, l)
+		attrDMGName = getStatName(s, locKeyWindDMGBonus, lang)
 		attrDMGProp = PropWindDMGBonus
 	}
 

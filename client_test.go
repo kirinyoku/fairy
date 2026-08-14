@@ -111,5 +111,61 @@ func TestClient_Localize(t *testing.T) {
 		if profile.Agents[0].ID != 1011 {
 			t.Errorf("profile.Agents[0].ID = %d, want 1011", profile.Agents[0].ID)
 		}
+		// Verify agent.UIStats is correctly localized in Russian
+		if profile.Agents[0].UIStats.CritRate.Name != "Шанс крит. попадания" {
+			t.Errorf("profile.Agents[0].UIStats.CritRate.Name = %q, want %q", profile.Agents[0].UIStats.CritRate.Name, "Шанс крит. попадания")
+		}
+	})
+}
+
+func TestGlobal_Localize(t *testing.T) {
+	t.Run("nil raw profile returns error", func(t *testing.T) {
+		p, err := Localize(nil, LangEN)
+		if err == nil {
+			t.Errorf("expected error for nil raw profile, got nil")
+		}
+		if p != nil {
+			t.Errorf("expected nil profile, got %v", p)
+		}
+	})
+
+	t.Run("valid raw profile localizes via global function", func(t *testing.T) {
+		raw := &zzz.Profile{
+			Region: "Europe",
+			PlayerInfo: zzz.PlayerInfo{
+				SocialDetail: &zzz.SocialDetail{
+					ProfileDetail: &zzz.ProfileDetail{
+						UID:      100000001,
+						Nickname: "Player1",
+						Level:    50,
+					},
+				},
+				ShowcaseDetail: &zzz.ShowcaseDetail{
+					AvatarList: []zzz.AvatarData{
+						{
+							ID:    1011,
+							Level: 60,
+						},
+					},
+				},
+			},
+		}
+
+		profile, err := Localize(raw, LangRU)
+		if err != nil {
+			t.Fatalf("Localize() failed: %v", err)
+		}
+		if profile == nil {
+			t.Fatal("expected non-nil profile")
+		}
+		// Check pre-computed agent.UIStats
+		if profile.Agents[0].UIStats.CritRate.Name != "Шанс крит. попадания" {
+			t.Errorf("profile.Agents[0].UIStats.CritRate.Name = %q, want %q", profile.Agents[0].UIStats.CritRate.Name, "Шанс крит. попадания")
+		}
+		// FormattedUIStats(LangEN) dynamically formats into English on demand
+		enStats := profile.Agents[0].FormattedUIStats(LangEN)
+		if enStats.CritRate.Name != "CRIT Rate" {
+			t.Errorf("enStats.CritRate.Name = %q, want %q", enStats.CritRate.Name, "CRIT Rate")
+		}
 	})
 }

@@ -216,7 +216,7 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 	}
 
 	t.Run("stat breakdown and formatting values", func(t *testing.T) {
-		ui := agent.FormattedUIStats()
+		ui := agent.FormattedUIStats(LangEN)
 
 		// Flat stats
 		if ui.HP.Base != "1000" || ui.HP.Added != "500" || ui.HP.Total != "1500" {
@@ -261,7 +261,7 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 		for _, tt := range tests {
 			t.Run(string(tt.attr), func(t *testing.T) {
 				a := &Agent{Attribute: tt.attr}
-				ui := a.FormattedUIStats()
+				ui := a.FormattedUIStats(LangEN)
 				if ui.AttributeDMGBonus.PropertyID != tt.expectedProp {
 					t.Errorf("Attribute %s: PropertyID = %v, want %v", tt.attr, ui.AttributeDMGBonus.PropertyID, tt.expectedProp)
 				}
