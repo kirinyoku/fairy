@@ -22,7 +22,7 @@ func calcAgentBaseStat(meta store.AvatarMeta, propID, level, promotionLevel, cor
 
 	// GrowthValue = (GrowthProps[PropertyId] * (Avatar.Level - 1)) / 10000
 	growthVal, _ := meta.GrowthStat(propID)
-	growth := float64(growthVal*(level-1)) / 10000.0
+	growth := float64(growthVal*(level-1)) / StatModifierScale
 
 	val := base + growth
 
@@ -52,7 +52,7 @@ func calcWEngineMainStat(s store.MetadataStore, meta store.WeaponMeta, level, ph
 		starMod = starTpl.MainStat
 	}
 	// Result = MainStat.PropertyValue * (1 + WeaponLevel.MainStat / 10000 + WeaponStar.MainStat / 10000)
-	result := float64(baseVal) * (1.0 + float64(levelMod)/10000.0 + float64(starMod)/10000.0)
+	result := float64(baseVal) * (1.0 + float64(levelMod)/StatModifierScale + float64(starMod)/StatModifierScale)
 	return int(math.Floor(result))
 }
 
@@ -66,7 +66,7 @@ func calcWEngineSecondaryStat(s store.MetadataStore, meta store.WeaponMeta, leve
 	levelMult := 1.0
 	if lvlTpl, ok := s.WeaponLevelTemplate(meta.Rarity, level); ok {
 		if lvlTpl.SubStatDenominator > 0 {
-			levelMult = 10000.0 / float64(lvlTpl.SubStatDenominator)
+			levelMult = StatModifierScale / float64(lvlTpl.SubStatDenominator)
 		}
 	}
 
@@ -75,7 +75,7 @@ func calcWEngineSecondaryStat(s store.MetadataStore, meta store.WeaponMeta, leve
 		starMod = starTpl.SubStat
 	}
 
-	result := float64(baseVal) * levelMult * (1.0 + float64(starMod)/10000.0)
+	result := float64(baseVal) * levelMult * (1.0 + float64(starMod)/StatModifierScale)
 	// Removed debug print
 	return int(math.Floor(result))
 }
@@ -103,10 +103,10 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	baseSheerForce := calcAgentBaseStat(meta, int(PropBaseSheerForce), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 
 	// Fixed Base stats
-	baseCritRate := 0.05
-	baseCritDMG := 0.50
-	basePenRatio := 0.0
-	basePenFlat := 0.0
+	baseCritRate := DefaultBaseCritRate
+	baseCritDMG := DefaultBaseCritDMG
+	basePenRatio := DefaultBasePenRatio
+	basePenFlat := DefaultBasePenFlat
 
 	bonuses := make(map[int]float64)
 	addBonus := func(propID int, value float64) {
@@ -122,7 +122,7 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	baseAnomalyProficiency = math.Floor(baseAnomalyProficiency)
 	basePenFlat = math.Floor(basePenFlat)
 	baseSheerForce = math.Floor(baseSheerForce)
-	if meta.ProfessionType == "Rupture" || agent.Specialty == SpecialtyRupture {
+	if agent.Specialty == SpecialtyRupture {
 		baseSheerForce += math.Floor(baseHp*0.1) + math.Floor(baseAtk*0.3)
 	}
 
@@ -152,7 +152,7 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	totalAtk := math.Floor(baseAtk*(1.0+bonuses[int(PropATKPercent)]) + bonuses[int(PropATKFlat)])
 
 	totalSheerForce := math.Floor(bonuses[int(PropBaseSheerForce)] + bonuses[int(PropSheerForce)])
-	if meta.ProfessionType == "Rupture" || agent.Specialty == SpecialtyRupture {
+	if agent.Specialty == SpecialtyRupture {
 		totalSheerForce += math.Floor(totalHp*0.1) + math.Floor(totalAtk*0.3)
 	}
 
@@ -223,7 +223,7 @@ func accumulateWEngineBonus(agent *Agent, s store.MetadataStore, addBonus func(i
 	}
 
 	if isPercent {
-		addBonus(wSecStatId, float64(wSecStatVal)/10000.0)
+		addBonus(wSecStatId, float64(wSecStatVal)/StatModifierScale)
 	} else {
 		addBonus(wSecStatId, float64(wSecStatVal))
 	}
@@ -255,7 +255,7 @@ func accumulateSetBonus(agent *Agent, s store.MetadataStore, addBonus func(int, 
 					}
 				}
 				if isPercent {
-					addBonus(propID, float64(val)/10000.0)
+					addBonus(propID, float64(val)/StatModifierScale)
 				} else {
 					addBonus(propID, float64(val))
 				}

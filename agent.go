@@ -108,17 +108,17 @@ func (a Attribute) IconURL() string {
 func (s Specialty) IconURL() string {
 	switch s {
 	case SpecialtyAttack:
-		return "https://enka.network/ui/zzz/IconAttack.png"
+		return EnkaAssetBaseURL + "IconAttack.png"
 	case SpecialtyStun:
-		return "https://enka.network/ui/zzz/IconStun.png"
+		return EnkaAssetBaseURL + "IconStun.png"
 	case SpecialtyAnomaly:
-		return "https://enka.network/ui/zzz/IconAnomaly.png"
+		return EnkaAssetBaseURL + "IconAnomaly.png"
 	case SpecialtySupport:
-		return "https://enka.network/ui/zzz/IconSupport.png"
+		return EnkaAssetBaseURL + "IconSupport.png"
 	case SpecialtyDefense:
-		return "https://enka.network/ui/zzz/IconDefense.png"
+		return EnkaAssetBaseURL + "IconDefense.png"
 	case SpecialtyRupture:
-		return "https://enka.network/ui/zzz/IconRupture.png"
+		return EnkaAssetBaseURL + "IconRupture.png"
 	default:
 		return ""
 	}
@@ -128,11 +128,11 @@ func (s Specialty) IconURL() string {
 func (r Rarity) IconURL() string {
 	switch r {
 	case RarityS:
-		return "https://enka.network/ui/zzz/ItemRarityS.png"
+		return EnkaAssetBaseURL + "ItemRarityS.png"
 	case RarityA:
-		return "https://enka.network/ui/zzz/ItemRarityA.png"
+		return EnkaAssetBaseURL + "ItemRarityA.png"
 	case RarityB:
-		return "https://enka.network/ui/zzz/ItemRarityB.png"
+		return EnkaAssetBaseURL + "ItemRarityB.png"
 	default:
 		return ""
 	}

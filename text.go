@@ -47,13 +47,13 @@ func unwrapTermBrackets(text string) string {
 }
 
 var iconImageMap = map[string]string{
-	"<IconMap:Icon_UltimateReady>":   "https://enka.network/ui/zzz/IconRoleSkillKeyUltimateV2.png",
-	"<IconMap:Icon_SpecialReady>":    "https://enka.network/ui/zzz/IconRoleSkillKeySpecialV2.png",
-	"<IconMap:Icon_SpecialReady_Rp>": "https://enka.network/ui/zzz/IconRoleSkillKeySpecialV2.png",
-	"<IconMap:Icon_Special>":         "https://enka.network/ui/zzz/IconRoleSkillKeySpecial.png",
-	"<IconMap:Icon_Normal>":          "https://enka.network/ui/zzz/IconRoleSkillKeyNormal.png",
-	"<IconMap:Icon_Evade>":           "https://enka.network/ui/zzz/IconRoleSkillKeyEvade.png",
-	"<IconMap:Icon_Switch>":          "https://enka.network/ui/zzz/IconRoleSkillKeySwitch.png",
+	"<IconMap:Icon_UltimateReady>":   EnkaAssetBaseURL + "IconRoleSkillKeyUltimateV2.png",
+	"<IconMap:Icon_SpecialReady>":    EnkaAssetBaseURL + "IconRoleSkillKeySpecialV2.png",
+	"<IconMap:Icon_SpecialReady_Rp>": EnkaAssetBaseURL + "IconRoleSkillKeySpecialV2.png",
+	"<IconMap:Icon_Special>":         EnkaAssetBaseURL + "IconRoleSkillKeySpecial.png",
+	"<IconMap:Icon_Normal>":          EnkaAssetBaseURL + "IconRoleSkillKeyNormal.png",
+	"<IconMap:Icon_Evade>":           EnkaAssetBaseURL + "IconRoleSkillKeyEvade.png",
+	"<IconMap:Icon_Switch>":          EnkaAssetBaseURL + "IconRoleSkillKeySwitch.png",
 }
 
 var iconLabelMap = map[string]string{
@@ -256,7 +256,7 @@ func FormatHTML(text string, skillLevel ...int) string {
 				label := iconLabelMap[fullTag]
 				imgTag = fmt.Sprintf(`<img src="%s" class="fairy-icon" alt="%s" style="height: 1.2em; vertical-align: -0.2em; display: inline-block;" />`, imgURL, label)
 			} else {
-				imgURL := fmt.Sprintf("https://enka.network/ui/zzz/%s.png", iconName)
+				imgURL := fmt.Sprintf("%s%s.png", EnkaAssetBaseURL, iconName)
 				imgTag = fmt.Sprintf(`<img src="%s" class="fairy-icon" alt="%s" style="height: 1.2em; vertical-align: -0.2em; display: inline-block;" />`, imgURL, iconName)
 			}
 			iconPlaceholders = append(iconPlaceholders, imgTag)

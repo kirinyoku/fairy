@@ -288,18 +288,18 @@ func (m *profileMapper) mapAgentSkills(raw *zzz.AvatarData) []Skill {
 		lvl := 0
 		switch skType {
 		case SkillTypeBasic:
-			lvl = levels[0]
+			lvl = levels[SkillIndexBasic]
 		case SkillTypeDodge:
-			lvl = levels[1]
+			lvl = levels[SkillIndexDodge]
 		case SkillTypeAssist:
-			lvl = levels[2]
+			lvl = levels[SkillIndexAssist]
 		case SkillTypeSpecial:
-			lvl = levels[3]
+			lvl = levels[SkillIndexSpecial]
 		case SkillTypeChain:
-			if l, ok := levels[6]; ok {
+			if l, ok := levels[SkillIndexChain]; ok {
 				lvl = l
 			} else {
-				lvl = levels[4]
+				lvl = levels[SkillIndexChainAlt]
 			}
 		case SkillTypePassive:
 			lvl = raw.CoreSkillEnhancement
@@ -625,17 +625,13 @@ func buildEnkaURL(path string) string {
 	if strings.HasPrefix(path, "http") {
 		return path
 	}
-	if !strings.HasPrefix(path, "/") {
-		if !strings.HasPrefix(path, "ui/") {
-			path = "/ui/zzz/" + path
-		} else {
-			path = "/" + path
-		}
-	}
+	path = strings.TrimPrefix(path, "/")
+	path = strings.TrimPrefix(path, "ui/zzz/")
+	path = strings.TrimPrefix(path, "ui/")
 	if !strings.HasSuffix(path, ".png") && !strings.HasSuffix(path, ".jpg") && !strings.HasSuffix(path, ".webp") {
-		path = path + ".png"
+		path += ".png"
 	}
-	return "https://enka.network" + path
+	return EnkaAssetBaseURL + path
 }
 
 func detectSkillType(nameKey string) SkillType {
