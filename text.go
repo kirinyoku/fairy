@@ -239,7 +239,7 @@ func FormatHTML(text string, skillLevel ...int) string {
 			content := html.EscapeString(sub[2])
 			span := fmt.Sprintf(`<span style="color: %s;">%s</span>`, color, content)
 			spanPlaceholders = append(spanPlaceholders, span)
-			return fmt.Sprintf("\x00SPAN_%d\x00", len(spanPlaceholders)-1)
+			return "\x00SPAN_" + strconv.Itoa(len(spanPlaceholders)-1) + "\x00"
 		}
 		return match
 	})
@@ -260,7 +260,7 @@ func FormatHTML(text string, skillLevel ...int) string {
 				imgTag = fmt.Sprintf(`<img src="%s" class="fairy-icon" alt="%s" style="height: 1.2em; vertical-align: -0.2em; display: inline-block;" />`, imgURL, iconName)
 			}
 			iconPlaceholders = append(iconPlaceholders, imgTag)
-			return fmt.Sprintf("\x00ICON_%d\x00", len(iconPlaceholders)-1)
+			return "\x00ICON_" + strconv.Itoa(len(iconPlaceholders)-1) + "\x00"
 		}
 		return match
 	})
@@ -268,12 +268,16 @@ func FormatHTML(text string, skillLevel ...int) string {
 	// Step 3: HTML-escape the remaining text to sanitize any injected script or HTML tags
 	res := html.EscapeString(text)
 
-	// Step 4: Restore placeholders
-	for i, span := range spanPlaceholders {
-		res = strings.ReplaceAll(res, fmt.Sprintf("\x00SPAN_%d\x00", i), span)
-	}
-	for i, img := range iconPlaceholders {
-		res = strings.ReplaceAll(res, fmt.Sprintf("\x00ICON_%d\x00", i), img)
+	// Step 4: Restore placeholders in a single pass
+	if len(spanPlaceholders) > 0 || len(iconPlaceholders) > 0 {
+		replacements := make([]string, 0, (len(spanPlaceholders)+len(iconPlaceholders))*2)
+		for i, span := range spanPlaceholders {
+			replacements = append(replacements, "\x00SPAN_"+strconv.Itoa(i)+"\x00", span)
+		}
+		for i, img := range iconPlaceholders {
+			replacements = append(replacements, "\x00ICON_"+strconv.Itoa(i)+"\x00", img)
+		}
+		res = strings.NewReplacer(replacements...).Replace(res)
 	}
 
 	// Resolve layout fallback tags to native localized terms

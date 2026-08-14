@@ -101,8 +101,12 @@ func (m *profileMapper) mapTitle(pd *zzz.ProfileDetail) *Title {
 	}
 
 	text := m.store.Localize(meta.TitleText, string(m.lang))
-	for i, arg := range args {
-		text = strings.ReplaceAll(text, fmt.Sprintf("{%d}", i), arg)
+	if len(args) > 0 {
+		replacements := make([]string, 0, len(args)*2)
+		for i, arg := range args {
+			replacements = append(replacements, "{"+strconv.Itoa(i)+"}", arg)
+		}
+		text = strings.NewReplacer(replacements...).Replace(text)
 	}
 
 	return &Title{

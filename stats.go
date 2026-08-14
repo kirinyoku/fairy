@@ -267,15 +267,13 @@ func formatBreakdown(propID PropertyID, name string, base, total float64, isPerc
 	added := total - base
 	var baseStr, addedStr, totalStr string
 	if isPercent {
-		format := fmt.Sprintf("%%.%df%%%%", precisionPercent)
-		baseStr = fmt.Sprintf(format, base*100)
-		addedStr = fmt.Sprintf(format, added*100)
-		totalStr = fmt.Sprintf(format, total*100)
+		baseStr = fmt.Sprintf("%.*f%%", precisionPercent, base*100)
+		addedStr = fmt.Sprintf("%.*f%%", precisionPercent, added*100)
+		totalStr = fmt.Sprintf("%.*f%%", precisionPercent, total*100)
 	} else {
-		format := fmt.Sprintf("%%.%df", precisionFlat)
-		baseStr = fmt.Sprintf(format, base)
-		addedStr = fmt.Sprintf(format, added)
-		totalStr = fmt.Sprintf(format, total)
+		baseStr = fmt.Sprintf("%.*f", precisionFlat, base)
+		addedStr = fmt.Sprintf("%.*f", precisionFlat, added)
+		totalStr = fmt.Sprintf("%.*f", precisionFlat, total)
 	}
 
 	return FormattedStatBreakdown{
