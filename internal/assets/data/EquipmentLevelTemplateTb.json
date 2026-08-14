@@ -1,316 +1,199 @@
 {
-  "MIJCMCEDADM": [
+  "list": [
     {
-      "GMKDLJLLBPO": 2,
-      "FNPIELBFDEJ": 0,
-      "JEKGLLBALFE": 0,
-      "OLPDFFEEALG": 240,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 2,
+      "level": 0,
+      "main_stat": 0
     },
     {
-      "GMKDLJLLBPO": 2,
-      "FNPIELBFDEJ": 1,
-      "JEKGLLBALFE": 3333,
-      "OLPDFFEEALG": 360,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 2,
+      "level": 1,
+      "main_stat": 3333
     },
     {
-      "GMKDLJLLBPO": 2,
-      "FNPIELBFDEJ": 2,
-      "JEKGLLBALFE": 6667,
-      "OLPDFFEEALG": 600,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 2,
+      "level": 2,
+      "main_stat": 6667
     },
     {
-      "GMKDLJLLBPO": 2,
-      "FNPIELBFDEJ": 3,
-      "JEKGLLBALFE": 10000,
-      "OLPDFFEEALG": 720,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 2,
+      "level": 3,
+      "main_stat": 10000
     },
     {
-      "GMKDLJLLBPO": 2,
-      "FNPIELBFDEJ": 4,
-      "JEKGLLBALFE": 13333,
-      "OLPDFFEEALG": 840,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 2,
+      "level": 4,
+      "main_stat": 13333
     },
     {
-      "GMKDLJLLBPO": 2,
-      "FNPIELBFDEJ": 5,
-      "JEKGLLBALFE": 16667,
-      "OLPDFFEEALG": 1080,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 2,
+      "level": 5,
+      "main_stat": 16667
     },
     {
-      "GMKDLJLLBPO": 2,
-      "FNPIELBFDEJ": 6,
-      "JEKGLLBALFE": 20000,
-      "OLPDFFEEALG": 1200,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 2,
+      "level": 6,
+      "main_stat": 20000
     },
     {
-      "GMKDLJLLBPO": 2,
-      "FNPIELBFDEJ": 7,
-      "JEKGLLBALFE": 23333,
-      "OLPDFFEEALG": 1320,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 2,
+      "level": 7,
+      "main_stat": 23333
     },
     {
-      "GMKDLJLLBPO": 2,
-      "FNPIELBFDEJ": 8,
-      "JEKGLLBALFE": 26667,
-      "OLPDFFEEALG": 1640,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 2,
+      "level": 8,
+      "main_stat": 26667
     },
     {
-      "GMKDLJLLBPO": 2,
-      "FNPIELBFDEJ": 9,
-      "JEKGLLBALFE": 30000,
-      "OLPDFFEEALG": 0,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 2,
+      "level": 9,
+      "main_stat": 30000
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 0,
-      "JEKGLLBALFE": 0,
-      "OLPDFFEEALG": 400,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 0,
+      "main_stat": 0
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 1,
-      "JEKGLLBALFE": 2500,
-      "OLPDFFEEALG": 600,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 1,
+      "main_stat": 2500
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 2,
-      "JEKGLLBALFE": 5000,
-      "OLPDFFEEALG": 1010,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 2,
+      "main_stat": 5000
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 3,
-      "JEKGLLBALFE": 7500,
-      "OLPDFFEEALG": 1210,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 3,
+      "main_stat": 7500
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 4,
-      "JEKGLLBALFE": 10000,
-      "OLPDFFEEALG": 1410,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 4,
+      "main_stat": 10000
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 5,
-      "JEKGLLBALFE": 12500,
-      "OLPDFFEEALG": 1810,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 5,
+      "main_stat": 12500
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 6,
-      "JEKGLLBALFE": 15000,
-      "OLPDFFEEALG": 2020,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 6,
+      "main_stat": 15000
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 7,
-      "JEKGLLBALFE": 17500,
-      "OLPDFFEEALG": 2220,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 7,
+      "main_stat": 17500
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 8,
-      "JEKGLLBALFE": 20000,
-      "OLPDFFEEALG": 2620,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 8,
+      "main_stat": 20000
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 9,
-      "JEKGLLBALFE": 22500,
-      "OLPDFFEEALG": 3020,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 9,
+      "main_stat": 22500
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 10,
-      "JEKGLLBALFE": 25000,
-      "OLPDFFEEALG": 3430,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 10,
+      "main_stat": 25000
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 11,
-      "JEKGLLBALFE": 27500,
-      "OLPDFFEEALG": 4250,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 11,
+      "main_stat": 27500
     },
     {
-      "GMKDLJLLBPO": 3,
-      "FNPIELBFDEJ": 12,
-      "JEKGLLBALFE": 30000,
-      "OLPDFFEEALG": 0,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 3,
+      "level": 12,
+      "main_stat": 30000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 0,
-      "JEKGLLBALFE": 0,
-      "OLPDFFEEALG": 480,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 0,
+      "main_stat": 0
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 1,
-      "JEKGLLBALFE": 2000,
-      "OLPDFFEEALG": 720,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 1,
+      "main_stat": 2000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 2,
-      "JEKGLLBALFE": 4000,
-      "OLPDFFEEALG": 1200,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 2,
+      "main_stat": 4000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 3,
-      "JEKGLLBALFE": 6000,
-      "OLPDFFEEALG": 1440,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 3,
+      "main_stat": 6000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 4,
-      "JEKGLLBALFE": 8000,
-      "OLPDFFEEALG": 1680,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 4,
+      "main_stat": 8000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 5,
-      "JEKGLLBALFE": 10000,
-      "OLPDFFEEALG": 2160,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 5,
+      "main_stat": 10000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 6,
-      "JEKGLLBALFE": 12000,
-      "OLPDFFEEALG": 2400,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 6,
+      "main_stat": 12000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 7,
-      "JEKGLLBALFE": 14000,
-      "OLPDFFEEALG": 2640,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 7,
+      "main_stat": 14000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 8,
-      "JEKGLLBALFE": 16000,
-      "OLPDFFEEALG": 3120,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 8,
+      "main_stat": 16000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 9,
-      "JEKGLLBALFE": 18000,
-      "OLPDFFEEALG": 3600,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 9,
+      "main_stat": 18000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 10,
-      "JEKGLLBALFE": 20000,
-      "OLPDFFEEALG": 4080,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 10,
+      "main_stat": 20000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 11,
-      "JEKGLLBALFE": 22000,
-      "OLPDFFEEALG": 5040,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 11,
+      "main_stat": 22000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 12,
-      "JEKGLLBALFE": 24000,
-      "OLPDFFEEALG": 5760,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 12,
+      "main_stat": 24000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 13,
-      "JEKGLLBALFE": 26000,
-      "OLPDFFEEALG": 6480,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 13,
+      "main_stat": 26000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 14,
-      "JEKGLLBALFE": 28000,
-      "OLPDFFEEALG": 7200,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 14,
+      "main_stat": 28000
     },
     {
-      "GMKDLJLLBPO": 4,
-      "FNPIELBFDEJ": 15,
-      "JEKGLLBALFE": 30000,
-      "OLPDFFEEALG": 0,
-      "JPNELOAIDGN": 8000,
-      "BBHOCKNMKME": []
+      "rarity": 4,
+      "level": 15,
+      "main_stat": 30000
     }
   ]
 }

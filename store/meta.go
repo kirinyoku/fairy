@@ -127,31 +127,26 @@ type templateKey struct {
 }
 
 // WeaponLevelTemplate represents the multiplier for weapon's main stat at a given level.
-// IMPORTANT: The obfuscated JSON field tags (e.g., "ICPMKHFGPOG") correspond directly
-// to the minified keys in the datamined game data files. These keys change almost
-// every major patch and must be updated alongside new data dumps.
 type WeaponLevelTemplate struct {
-	Rarity             int `json:"ICPMKHFGPOG"`
-	Level              int `json:"EMLFBEMHINK"`
-	MainStat           int `json:"AHMDJCIHNKG"` // Multiplier per 10000
-	SubStatDenominator int `json:"IDBKOAPHGLC"` // Divisor for substat
+	Rarity             int `json:"rarity"`
+	Level              int `json:"level"`
+	MainStat           int `json:"main_stat"`            // Multiplier per 10000
+	SubStatDenominator int `json:"sub_stat_denominator"` // Divisor for substat
 }
 
 // WeaponStarTemplate represents the multipliers for weapon's stats based on refinement phase.
-// IMPORTANT: The obfuscated JSON field tags correspond to datamined keys and are patch-dependent.
 type WeaponStarTemplate struct {
-	Rarity     int `json:"ICPMKHFGPOG"`
-	BreakLevel int `json:"BBOCBHBGMML"`
-	MainStat   int `json:"NMFHJKEFLOG"` // Multiplier per 10000
-	SubStat    int `json:"FCLIIPBDDKP"` // Multiplier per 10000
+	Rarity     int `json:"rarity"`
+	BreakLevel int `json:"break_level"`
+	MainStat   int `json:"main_stat"` // Multiplier per 10000
+	SubStat    int `json:"sub_stat"`  // Multiplier per 10000
 }
 
 // EquipmentLevelTemplate represents the multiplier for drive disc's main stat.
-// IMPORTANT: The obfuscated JSON field tags correspond to datamined keys and are patch-dependent.
 type EquipmentLevelTemplate struct {
-	Rarity   int `json:"GMKDLJLLBPO"`
-	Level    int `json:"FNPIELBFDEJ"`
-	MainStat int `json:"JEKGLLBALFE"` // Multiplier per 10000
+	Rarity   int `json:"rarity"`
+	Level    int `json:"level"`
+	MainStat int `json:"main_stat"` // Multiplier per 10000
 }
 
 // MedalMeta represents a medal.
@@ -232,15 +227,15 @@ type equipmentContainer struct {
 }
 
 type weaponLevelContainer struct {
-	List []WeaponLevelTemplate `json:"OOFFGGKCDID"`
+	List []WeaponLevelTemplate `json:"list"`
 }
 
 type weaponStarContainer struct {
-	List []WeaponStarTemplate `json:"OOFFGGKCDID"`
+	List []WeaponStarTemplate `json:"list"`
 }
 
 type equipmentLevelContainer struct {
-	List []EquipmentLevelTemplate `json:"MIJCMCEDADM"`
+	List []EquipmentLevelTemplate `json:"list"`
 }
 
 type titleContainer struct {

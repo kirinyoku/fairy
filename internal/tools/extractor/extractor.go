@@ -280,6 +280,86 @@ func main() {
 		}
 	}
 
+	// 5.6 Process Weapon and Equipment Templates
+	type rawWeaponLevelItem struct {
+		Rarity             int `json:"ICPMKHFGPOG"`
+		Level              int `json:"EMLFBEMHINK"`
+		MainStat           int `json:"AHMDJCIHNKG"`
+		SubStatDenominator int `json:"IDBKOAPHGLC"`
+	}
+	var rawWeaponLevelData struct {
+		List []rawWeaponLevelItem `json:"OOFFGGKCDID"`
+	}
+	weaponLevelFile := filepath.Join(zenlessDir, "FileCfg", "WeaponLevelTemplateTb.json")
+	if _, err := os.Stat(weaponLevelFile); err == nil {
+		readJSON(weaponLevelFile, &rawWeaponLevelData)
+		type cleanWeaponLevel struct {
+			Rarity             int `json:"rarity"`
+			Level              int `json:"level"`
+			MainStat           int `json:"main_stat"`
+			SubStatDenominator int `json:"sub_stat_denominator"`
+		}
+		var cleanData struct {
+			List []cleanWeaponLevel `json:"list"`
+		}
+		for _, it := range rawWeaponLevelData.List {
+			cleanData.List = append(cleanData.List, cleanWeaponLevel(it))
+		}
+		writeJSON(filepath.Join(assetsDir, "WeaponLevelTemplateTb.json"), cleanData)
+	}
+
+	type rawWeaponStarItem struct {
+		Rarity     int `json:"ICPMKHFGPOG"`
+		BreakLevel int `json:"BBOCBHBGMML"`
+		MainStat   int `json:"NMFHJKEFLOG"`
+		SubStat    int `json:"FCLIIPBDDKP"`
+	}
+	var rawWeaponStarData struct {
+		List []rawWeaponStarItem `json:"OOFFGGKCDID"`
+	}
+	weaponStarFile := filepath.Join(zenlessDir, "FileCfg", "WeaponStarTemplateTb.json")
+	if _, err := os.Stat(weaponStarFile); err == nil {
+		readJSON(weaponStarFile, &rawWeaponStarData)
+		type cleanWeaponStar struct {
+			Rarity     int `json:"rarity"`
+			BreakLevel int `json:"break_level"`
+			MainStat   int `json:"main_stat"`
+			SubStat    int `json:"sub_stat"`
+		}
+		var cleanData struct {
+			List []cleanWeaponStar `json:"list"`
+		}
+		for _, it := range rawWeaponStarData.List {
+			cleanData.List = append(cleanData.List, cleanWeaponStar(it))
+		}
+		writeJSON(filepath.Join(assetsDir, "WeaponStarTemplateTb.json"), cleanData)
+	}
+
+	type rawEquipLevelItem struct {
+		Rarity   int `json:"GMKDLJLLBPO"`
+		Level    int `json:"FNPIELBFDEJ"`
+		MainStat int `json:"JEKGLLBALFE"`
+	}
+	var rawEquipLevelData struct {
+		List []rawEquipLevelItem `json:"MIJCMCEDADM"`
+	}
+	equipLevelFile := filepath.Join(zenlessDir, "FileCfg", "EquipmentLevelTemplateTb.json")
+	if _, err := os.Stat(equipLevelFile); err == nil {
+		readJSON(equipLevelFile, &rawEquipLevelData)
+		type cleanEquipLevel struct {
+			Rarity   int `json:"rarity"`
+			Level    int `json:"level"`
+			MainStat int `json:"main_stat"`
+		}
+		var cleanData struct {
+			List []cleanEquipLevel `json:"list"`
+		}
+		for _, it := range rawEquipLevelData.List {
+			cleanData.List = append(cleanData.List, cleanEquipLevel(it))
+		}
+		writeJSON(filepath.Join(assetsDir, "EquipmentLevelTemplateTb.json"), cleanData)
+	}
+
 	// 6. Update Locs
 	addedStats := make(map[string]int)
 	for lang := range langFiles {
