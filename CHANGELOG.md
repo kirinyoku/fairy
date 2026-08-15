@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.10.0] - 2026-08-15
+
+### Added
+- Added slice helper functions (`AllLanguages()`, `AllAttributes()`, `AllSpecialties()`, `AllRarities()`, `AllSkillTypes()`, `AllRegions()`) for enum iteration.
+- Added `IsValid()` validation methods for `Language`, `Attribute`, `Specialty`, `Rarity`, `SkillType`, and `Region`.
+
+### Tests
+- Added unit test coverage for enum helpers, validation methods, and slice immutability.
+
 ## [0.9.0] - 2026-08-14
 
 ### Changed
