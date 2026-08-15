@@ -28,6 +28,39 @@ const (
 	LangZHTW Language = "zh-tw" // Chinese (Traditional)
 )
 
+var allLanguages = [...]Language{
+	LangEN,
+	LangRU,
+	LangDE,
+	LangES,
+	LangFR,
+	LangID,
+	LangJA,
+	LangKO,
+	LangPT,
+	LangTH,
+	LangVI,
+	LangZHCN,
+	LangZHTW,
+}
+
+// AllLanguages returns a slice of all supported localization languages.
+func AllLanguages() []Language {
+	langs := make([]Language, len(allLanguages))
+	copy(langs, allLanguages[:])
+	return langs
+}
+
+// IsValid reports whether the language is a valid supported localization.
+func (l Language) IsValid() bool {
+	for _, lang := range allLanguages {
+		if l == lang {
+			return true
+		}
+	}
+	return false
+}
+
 var (
 	defaultClient     *Client
 	defaultClientOnce sync.Once

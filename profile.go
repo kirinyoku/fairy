@@ -10,6 +10,30 @@ const (
 	RegionTWHKMO Region = "TW/HK/MO" // Taiwan/Hong Kong/Macau server region.
 )
 
+var allRegions = [...]Region{
+	RegionEU,
+	RegionNA,
+	RegionAsia,
+	RegionTWHKMO,
+}
+
+// AllRegions returns a slice containing all supported server regions.
+func AllRegions() []Region {
+	regions := make([]Region, len(allRegions))
+	copy(regions, allRegions[:])
+	return regions
+}
+
+// IsValid reports whether the region is a recognized server region.
+func (r Region) IsValid() bool {
+	for _, reg := range allRegions {
+		if r == reg {
+			return true
+		}
+	}
+	return false
+}
+
 // Profile represents the enriched user profile data.
 // It contains player-level metadata and the showcased agents.
 type Profile struct {

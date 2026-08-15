@@ -32,6 +32,36 @@ const (
 	AttributeLumiflux Attribute = "Lumiflux"
 )
 
+var allAttributes = [...]Attribute{
+	AttributePhysical,
+	AttributeHonedEdge,
+	AttributeFire,
+	AttributeIce,
+	AttributeFrost,
+	AttributeElectric,
+	AttributeEther,
+	AttributeAuricInk,
+	AttributeWind,
+	AttributeLumiflux,
+}
+
+// AllAttributes returns a slice containing all agent elemental attributes.
+func AllAttributes() []Attribute {
+	attrs := make([]Attribute, len(allAttributes))
+	copy(attrs, allAttributes[:])
+	return attrs
+}
+
+// IsValid reports whether the attribute is a recognized agent elemental attribute.
+func (a Attribute) IsValid() bool {
+	for _, attr := range allAttributes {
+		if a == attr {
+			return true
+		}
+	}
+	return false
+}
+
 // Specialty represents the combat role or class of an agent.
 type Specialty string
 
@@ -50,6 +80,32 @@ const (
 	SpecialtyRupture Specialty = "Rupture"
 )
 
+var allSpecialties = [...]Specialty{
+	SpecialtyAttack,
+	SpecialtyStun,
+	SpecialtyAnomaly,
+	SpecialtySupport,
+	SpecialtyDefense,
+	SpecialtyRupture,
+}
+
+// AllSpecialties returns a slice containing all combat specialties/roles.
+func AllSpecialties() []Specialty {
+	specs := make([]Specialty, len(allSpecialties))
+	copy(specs, allSpecialties[:])
+	return specs
+}
+
+// IsValid reports whether the specialty is a recognized combat role.
+func (s Specialty) IsValid() bool {
+	for _, spec := range allSpecialties {
+		if s == spec {
+			return true
+		}
+	}
+	return false
+}
+
 // Rarity represents the rarity tier of agents and equipment.
 type Rarity string
 
@@ -61,6 +117,29 @@ const (
 	// RarityB represents the B-rank tier.
 	RarityB Rarity = "B"
 )
+
+var allRarities = [...]Rarity{
+	RarityS,
+	RarityA,
+	RarityB,
+}
+
+// AllRarities returns a slice containing all rarity tiers.
+func AllRarities() []Rarity {
+	rarities := make([]Rarity, len(allRarities))
+	copy(rarities, allRarities[:])
+	return rarities
+}
+
+// IsValid reports whether the rarity is a recognized rarity tier.
+func (r Rarity) IsValid() bool {
+	for _, rarity := range allRarities {
+		if r == rarity {
+			return true
+		}
+	}
+	return false
+}
 
 // BaseAttribute returns the core elemental attribute that this attribute deals damage as.
 // For example, AuricInk deals Ether DMG, HonedEdge deals Physical DMG, and Frost deals Ice DMG.
@@ -144,6 +223,32 @@ const (
 	SkillTypeChain   SkillType = "chain"   // Chain Attack & Ultimate
 	SkillTypePassive SkillType = "passive" // Core Passive & Additional Ability
 )
+
+var allSkillTypes = [...]SkillType{
+	SkillTypeBasic,
+	SkillTypeDodge,
+	SkillTypeAssist,
+	SkillTypeSpecial,
+	SkillTypeChain,
+	SkillTypePassive,
+}
+
+// AllSkillTypes returns a slice containing all combat skill categories.
+func AllSkillTypes() []SkillType {
+	types := make([]SkillType, len(allSkillTypes))
+	copy(types, allSkillTypes[:])
+	return types
+}
+
+// IsValid reports whether the skill type is a recognized skill category.
+func (st SkillType) IsValid() bool {
+	for _, t := range allSkillTypes {
+		if st == t {
+			return true
+		}
+	}
+	return false
+}
 
 // SkillParam represents a calculated numeric parameter or multiplier for a skill.
 type SkillParam struct {

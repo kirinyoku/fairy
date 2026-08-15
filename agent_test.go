@@ -287,3 +287,153 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 		}
 	})
 }
+
+func TestAllAttributes(t *testing.T) {
+	attrs := AllAttributes()
+	if len(attrs) != 10 {
+		t.Fatalf("AllAttributes() returned %d attributes, want 10", len(attrs))
+	}
+
+	attrs[0] = Attribute("corrupted")
+	freshAttrs := AllAttributes()
+	if freshAttrs[0] == Attribute("corrupted") {
+		t.Errorf("AllAttributes() is vulnerable to external slice mutation")
+	}
+}
+
+func TestAttribute_IsValid(t *testing.T) {
+	tests := []struct {
+		attr  Attribute
+		valid bool
+	}{
+		{AttributePhysical, true},
+		{AttributeHonedEdge, true},
+		{AttributeFire, true},
+		{AttributeIce, true},
+		{AttributeFrost, true},
+		{AttributeElectric, true},
+		{AttributeEther, true},
+		{AttributeAuricInk, true},
+		{AttributeWind, true},
+		{AttributeLumiflux, true},
+		{Attribute("Quantum"), false},
+		{Attribute(""), false},
+	}
+
+	for _, tt := range tests {
+		t.Run(string(tt.attr), func(t *testing.T) {
+			if got := tt.attr.IsValid(); got != tt.valid {
+				t.Errorf("Attribute(%q).IsValid() = %v, want %v", tt.attr, got, tt.valid)
+			}
+		})
+	}
+}
+
+func TestAllSpecialties(t *testing.T) {
+	specs := AllSpecialties()
+	if len(specs) != 6 {
+		t.Fatalf("AllSpecialties() returned %d specialties, want 6", len(specs))
+	}
+
+	specs[0] = Specialty("corrupted")
+	freshSpecs := AllSpecialties()
+	if freshSpecs[0] == Specialty("corrupted") {
+		t.Errorf("AllSpecialties() is vulnerable to external slice mutation")
+	}
+}
+
+func TestSpecialty_IsValid(t *testing.T) {
+	tests := []struct {
+		spec  Specialty
+		valid bool
+	}{
+		{SpecialtyAttack, true},
+		{SpecialtyStun, true},
+		{SpecialtyAnomaly, true},
+		{SpecialtySupport, true},
+		{SpecialtyDefense, true},
+		{SpecialtyRupture, true},
+		{Specialty("Healer"), false},
+		{Specialty(""), false},
+	}
+
+	for _, tt := range tests {
+		t.Run(string(tt.spec), func(t *testing.T) {
+			if got := tt.spec.IsValid(); got != tt.valid {
+				t.Errorf("Specialty(%q).IsValid() = %v, want %v", tt.spec, got, tt.valid)
+			}
+		})
+	}
+}
+
+func TestAllRarities(t *testing.T) {
+	rarities := AllRarities()
+	if len(rarities) != 3 {
+		t.Fatalf("AllRarities() returned %d rarities, want 3", len(rarities))
+	}
+
+	rarities[0] = Rarity("corrupted")
+	freshRarities := AllRarities()
+	if freshRarities[0] == Rarity("corrupted") {
+		t.Errorf("AllRarities() is vulnerable to external slice mutation")
+	}
+}
+
+func TestRarity_IsValid(t *testing.T) {
+	tests := []struct {
+		rarity Rarity
+		valid  bool
+	}{
+		{RarityS, true},
+		{RarityA, true},
+		{RarityB, true},
+		{Rarity("SSR"), false},
+		{Rarity("C"), false},
+		{Rarity(""), false},
+	}
+
+	for _, tt := range tests {
+		t.Run(string(tt.rarity), func(t *testing.T) {
+			if got := tt.rarity.IsValid(); got != tt.valid {
+				t.Errorf("Rarity(%q).IsValid() = %v, want %v", tt.rarity, got, tt.valid)
+			}
+		})
+	}
+}
+
+func TestAllSkillTypes(t *testing.T) {
+	types := AllSkillTypes()
+	if len(types) != 6 {
+		t.Fatalf("AllSkillTypes() returned %d skill types, want 6", len(types))
+	}
+
+	types[0] = SkillType("corrupted")
+	freshTypes := AllSkillTypes()
+	if freshTypes[0] == SkillType("corrupted") {
+		t.Errorf("AllSkillTypes() is vulnerable to external slice mutation")
+	}
+}
+
+func TestSkillType_IsValid(t *testing.T) {
+	tests := []struct {
+		skillType SkillType
+		valid     bool
+	}{
+		{SkillTypeBasic, true},
+		{SkillTypeDodge, true},
+		{SkillTypeAssist, true},
+		{SkillTypeSpecial, true},
+		{SkillTypeChain, true},
+		{SkillTypePassive, true},
+		{SkillType("ultimate"), false},
+		{SkillType(""), false},
+	}
+
+	for _, tt := range tests {
+		t.Run(string(tt.skillType), func(t *testing.T) {
+			if got := tt.skillType.IsValid(); got != tt.valid {
+				t.Errorf("SkillType(%q).IsValid() = %v, want %v", tt.skillType, got, tt.valid)
+			}
+		})
+	}
+}

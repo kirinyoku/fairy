@@ -69,3 +69,39 @@ func TestTitle_ColorHex(t *testing.T) {
 		})
 	}
 }
+
+func TestAllRegions(t *testing.T) {
+	regions := AllRegions()
+	if len(regions) != 4 {
+		t.Fatalf("AllRegions() returned %d regions, want 4", len(regions))
+	}
+
+	// Verify mutability protection (copy is returned)
+	regions[0] = Region("corrupted")
+	freshRegions := AllRegions()
+	if freshRegions[0] == Region("corrupted") {
+		t.Errorf("AllRegions() is vulnerable to external slice mutation")
+	}
+}
+
+func TestRegion_IsValid(t *testing.T) {
+	tests := []struct {
+		region Region
+		valid  bool
+	}{
+		{RegionEU, true},
+		{RegionNA, true},
+		{RegionAsia, true},
+		{RegionTWHKMO, true},
+		{Region("Mars"), false},
+		{Region(""), false},
+	}
+
+	for _, tt := range tests {
+		t.Run(string(tt.region), func(t *testing.T) {
+			if got := tt.region.IsValid(); got != tt.valid {
+				t.Errorf("Region(%q).IsValid() = %v, want %v", tt.region, got, tt.valid)
+			}
+		})
+	}
+}
