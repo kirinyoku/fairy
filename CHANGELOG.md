@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.11.1] - 2026-08-17
+
+### Fixed
+- Restored canonical in-game stat order in `UIStats.List()` and `Stats.List()`.
+
 ## [0.11.0] - 2026-08-17
 
 ### Added
