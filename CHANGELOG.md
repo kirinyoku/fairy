@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.11.0] - 2026-08-17
+
+### Added
+- Added `List()` method to `UIStats` returning combat stat breakdowns in canonical in-game display order.
+- Added `List()` method to `Stats` returning numeric combat stats as a slice of `StatValue`.
+- Added `PropBaseRpRecover`, `PropRpRecoverPercent`, and `PropRpRecover` property ID constants for Adrenaline Auto-Accumulation.
+
+### Fixed
+- Fixed stat naming and property ID in `UIStats.EnergyRegen` for Rupture specialty agents to correctly display Automatic Adrenaline Accumulation (`RpRecover`) instead of Energy Regen (`SpRecover`).
+- Fixed base stat and bonus calculations for Rupture agents to read `PropBaseRpRecover` (`32001`).
+
+### Tests
+- Added unit test coverage for `UIStats.List()` and `Stats.List()`.
+- Added unit test coverage for Rupture Adrenaline Auto-Accumulation base stat calculations and localization across languages.
+
 ## [0.10.0] - 2026-08-15
 
 ### Added
