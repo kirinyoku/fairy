@@ -305,12 +305,12 @@ func (s Stats) List() []StatValue {
 		{PropertyID: PropBaseImpact, Value: s.Impact, IsPercent: false, IconURL: PropBaseImpact.IconURL()},
 		{PropertyID: PropBaseCritRate, Value: s.CritRate, IsPercent: true, IconURL: PropBaseCritRate.IconURL()},
 		{PropertyID: PropBaseCritDMG, Value: s.CritDMG, IsPercent: true, IconURL: PropBaseCritDMG.IconURL()},
-		{PropertyID: propGroupGeneralDMG, Value: s.AttributeDMGBonus, IsPercent: true, IconURL: propGroupGeneralDMG.IconURL()},
 		{PropertyID: PropBaseAnomalyMastery, Value: s.AnomalyMastery, IsPercent: false, IconURL: PropBaseAnomalyMastery.IconURL()},
 		{PropertyID: PropBaseAnomalyProficiency, Value: s.AnomalyProficiency, IsPercent: false, IconURL: PropBaseAnomalyProficiency.IconURL()},
 		{PropertyID: PropBasePENRatio, Value: s.PenRatio, IsPercent: true, IconURL: PropBasePENRatio.IconURL()},
 		{PropertyID: PropBasePENFlat, Value: s.PenFlat, IsPercent: false, IconURL: PropBasePENFlat.IconURL()},
 		{PropertyID: PropBaseEnergyRegen, Value: s.EnergyRegen, IsPercent: false, IconURL: PropBaseEnergyRegen.IconURL()},
+		{PropertyID: propGroupGeneralDMG, Value: s.AttributeDMGBonus, IsPercent: true, IconURL: propGroupGeneralDMG.IconURL()},
 		{PropertyID: PropBaseSheerForce, Value: s.SheerForce, IsPercent: false, IconURL: PropBaseSheerForce.IconURL()},
 	}
 }

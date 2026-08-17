@@ -324,12 +324,12 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 			PropBaseImpact,
 			PropBaseCritRate,
 			PropBaseCritDMG,
-			PropIceDMGBonus,
 			PropBaseAnomalyMastery,
 			PropBaseAnomalyProficiency,
 			PropBasePENRatio,
 			PropBasePENFlat,
 			PropBaseEnergyRegen,
+			PropIceDMGBonus,
 			PropBaseSheerForce,
 		}
 
@@ -382,8 +382,8 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 		if list[4].DisplayValue() != "65.0%" {
 			t.Errorf("CritRate DisplayValue() = %q, want %q", list[4].DisplayValue(), "65.0%")
 		}
-		if list[11].PropertyID != PropBaseEnergyRegen || list[11].Value != 1.80 {
-			t.Errorf("EnergyRegen stat mismatch: got %+v", list[11])
+		if list[10].PropertyID != PropBaseEnergyRegen || list[10].Value != 1.80 {
+			t.Errorf("EnergyRegen stat mismatch: got %+v", list[10])
 		}
 	})
 }
