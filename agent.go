@@ -469,7 +469,14 @@ func formatAgentUIStats(a *Agent, s store.MetadataStore, lang Language) UIStats 
 	anomalyProficiencyName := getStatName(s, locKeyAnomalyProficiency, lang)
 	penRatioName := getStatName(s, locKeyPenRatio, lang)
 	penFlatName := getStatName(s, locKeyPenFlat, lang)
-	energyRegenName := getStatName(s, locKeyEnergyRegen, lang)
+
+	energyRegenKey := locKeyEnergyRegen
+	energyRegenProp := PropBaseEnergyRegen
+	if a.Specialty == SpecialtyRupture {
+		energyRegenKey = locKeyRpRecover
+		energyRegenProp = PropBaseRpRecover
+	}
+	energyRegenName := getStatName(s, energyRegenKey, lang)
 	sheerForceName := getStatName(s, locKeySheerForce, lang)
 
 	var attrDMGName string
@@ -507,7 +514,7 @@ func formatAgentUIStats(a *Agent, s store.MetadataStore, lang Language) UIStats 
 		AnomalyProficiency: formatFlatBreakdown(PropBaseAnomalyProficiency, anomalyProficiencyName, a.BaseStats.AnomalyProficiency, a.Stats.AnomalyProficiency, 0),
 		PenRatio:           formatPercentBreakdown(PropBasePENRatio, penRatioName, a.BaseStats.PenRatio, a.Stats.PenRatio, 1),
 		PenFlat:            formatFlatBreakdown(PropBasePENFlat, penFlatName, a.BaseStats.PenFlat, a.Stats.PenFlat, 0),
-		EnergyRegen:        formatFlatBreakdown(PropBaseEnergyRegen, energyRegenName, a.BaseStats.EnergyRegen, a.Stats.EnergyRegen, 2),
+		EnergyRegen:        formatFlatBreakdown(energyRegenProp, energyRegenName, a.BaseStats.EnergyRegen, a.Stats.EnergyRegen, 2),
 		SheerForce:         formatFlatBreakdown(PropBaseSheerForce, sheerForceName, a.BaseStats.SheerForce, a.Stats.SheerForce, 0),
 	}
 }

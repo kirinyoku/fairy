@@ -89,6 +89,13 @@ const (
 	// PropSheerForce represents an increase to Sheer Force.
 	PropSheerForce PropertyID = 12303
 
+	// PropBaseRpRecover represents the base Adrenaline Auto-Accumulation stat (for Rupture agents).
+	PropBaseRpRecover PropertyID = 32001
+	// PropRpRecoverPercent represents a percentage increase to Adrenaline Auto-Accumulation.
+	PropRpRecoverPercent PropertyID = 32002
+	// PropRpRecover represents an increase to Adrenaline Auto-Accumulation.
+	PropRpRecover PropertyID = 32003
+
 	// PropertyIDs for elemental damage bonuses.
 	PropPhysicalDMGBonus PropertyID = 31505
 	PropFireDMGBonus     PropertyID = 31605
@@ -122,8 +129,10 @@ const (
 	locKeyPenRatio           = "PenRatio"
 	locKeyPenFlat            = "PenDelta"
 	locKeyEnergyRegen        = "SpRecover"
+	locKeyRpRecover          = "RpRecover"
 	locKeySheerForce         = "SkipDefAtk"
 
+	locKeyGeneralDMGBonus  = "AddedDamageRatio"
 	locKeyPhysicalDMGBonus = "AddedDamageRatio_Physics"
 	locKeyFireDMGBonus     = "AddedDamageRatio_Fire"
 	locKeyIceDMGBonus      = "AddedDamageRatio_Ice"
@@ -241,6 +250,32 @@ type UIStats struct {
 	SheerForce         FormattedStatBreakdown `json:"sheer_force"`
 }
 
+// List returns all combat stat breakdowns as a slice in the canonical in-game display order.
+func (u UIStats) List() []FormattedStatBreakdown {
+	list := make([]FormattedStatBreakdown, 0, 13)
+	list = append(list,
+		u.HP,
+		u.ATK,
+		u.DEF,
+		u.Impact,
+		u.CritRate,
+		u.CritDMG,
+		u.AnomalyMastery,
+		u.AnomalyProficiency,
+		u.PenRatio,
+		u.PenFlat,
+		u.EnergyRegen,
+	)
+	// Skip Lumiflux
+	if u.AttributeDMGBonus.PropertyID != 0 && u.AttributeDMGBonus.Name != "" {
+		list = append(list, u.AttributeDMGBonus)
+	}
+	list = append(list,
+		u.SheerForce,
+	)
+	return list
+}
+
 // Formatted returns a new FormattedStats struct where all numerical stats
 // are converted into precise, human-readable strings (e.g. "50.0%" instead of 0.5).
 func (s *Stats) Formatted() FormattedStats {
@@ -258,6 +293,25 @@ func (s *Stats) Formatted() FormattedStats {
 		PenFlat:            fmt.Sprintf("%.0f", s.PenFlat),
 		EnergyRegen:        fmt.Sprintf("%.2f", s.EnergyRegen),
 		SheerForce:         fmt.Sprintf("%.0f", s.SheerForce),
+	}
+}
+
+// List returns all numeric combat stats as a slice of StatValue in canonical in-game display order.
+func (s Stats) List() []StatValue {
+	return []StatValue{
+		{PropertyID: PropBaseHP, Value: s.HP, IsPercent: false, IconURL: PropBaseHP.IconURL()},
+		{PropertyID: PropBaseATK, Value: s.ATK, IsPercent: false, IconURL: PropBaseATK.IconURL()},
+		{PropertyID: PropBaseDEF, Value: s.DEF, IsPercent: false, IconURL: PropBaseDEF.IconURL()},
+		{PropertyID: PropBaseImpact, Value: s.Impact, IsPercent: false, IconURL: PropBaseImpact.IconURL()},
+		{PropertyID: PropBaseCritRate, Value: s.CritRate, IsPercent: true, IconURL: PropBaseCritRate.IconURL()},
+		{PropertyID: PropBaseCritDMG, Value: s.CritDMG, IsPercent: true, IconURL: PropBaseCritDMG.IconURL()},
+		{PropertyID: propGroupGeneralDMG, Value: s.AttributeDMGBonus, IsPercent: true, IconURL: propGroupGeneralDMG.IconURL()},
+		{PropertyID: PropBaseAnomalyMastery, Value: s.AnomalyMastery, IsPercent: false, IconURL: PropBaseAnomalyMastery.IconURL()},
+		{PropertyID: PropBaseAnomalyProficiency, Value: s.AnomalyProficiency, IsPercent: false, IconURL: PropBaseAnomalyProficiency.IconURL()},
+		{PropertyID: PropBasePENRatio, Value: s.PenRatio, IsPercent: true, IconURL: PropBasePENRatio.IconURL()},
+		{PropertyID: PropBasePENFlat, Value: s.PenFlat, IsPercent: false, IconURL: PropBasePENFlat.IconURL()},
+		{PropertyID: PropBaseEnergyRegen, Value: s.EnergyRegen, IsPercent: false, IconURL: PropBaseEnergyRegen.IconURL()},
+		{PropertyID: PropBaseSheerForce, Value: s.SheerForce, IsPercent: false, IconURL: PropBaseSheerForce.IconURL()},
 	}
 }
 

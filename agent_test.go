@@ -256,6 +256,7 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 			{AttributeElectric, PropElectricDMGBonus},
 			{AttributeEther, PropEtherDMGBonus},
 			{AttributeWind, PropWindDMGBonus},
+			{AttributeLumiflux, 0},
 		}
 
 		for _, tt := range tests {
@@ -284,6 +285,105 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 		}
 		if uiRU.CritRate.Name != "Шанс крит. попадания" {
 			t.Errorf("uiRU.CritRate.Name = %q, want %q", uiRU.CritRate.Name, "Шанс крит. попадания")
+		}
+	})
+
+	t.Run("Rupture adrenaline accumulation localization and property", func(t *testing.T) {
+		ruptureAgent := &Agent{
+			Specialty: SpecialtyRupture,
+			Attribute: AttributeIce,
+			BaseStats: agent.BaseStats,
+			Stats:     agent.Stats,
+		}
+		uiEN := ruptureAgent.FormattedUIStats(LangEN)
+		uiRU := ruptureAgent.FormattedUIStats(LangRU)
+
+		if uiEN.EnergyRegen.PropertyID != PropBaseRpRecover {
+			t.Errorf("uiEN.EnergyRegen.PropertyID = %v, want %v", uiEN.EnergyRegen.PropertyID, PropBaseRpRecover)
+		}
+		if uiEN.EnergyRegen.Name != "Automatic Adrenaline Accumulation" {
+			t.Errorf("uiEN.EnergyRegen.Name = %q, want %q", uiEN.EnergyRegen.Name, "Automatic Adrenaline Accumulation")
+		}
+		if uiRU.EnergyRegen.Name != "Автонакопление адреналина" {
+			t.Errorf("uiRU.EnergyRegen.Name = %q, want %q", uiRU.EnergyRegen.Name, "Автонакопление адреналина")
+		}
+	})
+
+	t.Run("UIStats.List returns all stats in order", func(t *testing.T) {
+		ui := agent.FormattedUIStats(LangEN)
+		list := ui.List()
+
+		if len(list) != 13 {
+			t.Fatalf("expected 13 stats in List(), got %d", len(list))
+		}
+
+		expectedProps := []PropertyID{
+			PropBaseHP,
+			PropBaseATK,
+			PropBaseDEF,
+			PropBaseImpact,
+			PropBaseCritRate,
+			PropBaseCritDMG,
+			PropIceDMGBonus,
+			PropBaseAnomalyMastery,
+			PropBaseAnomalyProficiency,
+			PropBasePENRatio,
+			PropBasePENFlat,
+			PropBaseEnergyRegen,
+			PropBaseSheerForce,
+		}
+
+		for i, prop := range expectedProps {
+			if list[i].PropertyID != prop {
+				t.Errorf("stat[%d].PropertyID = %v, want %v", i, list[i].PropertyID, prop)
+			}
+			if list[i].Name == "" {
+				t.Errorf("stat[%d].Name is empty", i)
+			}
+			if list[i].Total == "" {
+				t.Errorf("stat[%d].Total is empty", i)
+			}
+		}
+	})
+
+	t.Run("UIStats.List omits AttributeDMGBonus for Lumiflux", func(t *testing.T) {
+		lumenAgent := &Agent{
+			Attribute: AttributeLumiflux,
+			BaseStats: agent.BaseStats,
+			Stats:     agent.Stats,
+		}
+		ui := lumenAgent.FormattedUIStats(LangEN)
+		list := ui.List()
+
+		if len(list) != 12 {
+			t.Fatalf("expected 12 stats for Lumiflux in List(), got %d", len(list))
+		}
+
+		for _, s := range list {
+			if s.PropertyID == PropPhysicalDMGBonus || s.PropertyID == PropFireDMGBonus || s.PropertyID == PropIceDMGBonus || s.PropertyID == PropElectricDMGBonus || s.PropertyID == PropEtherDMGBonus || s.PropertyID == PropWindDMGBonus || s.PropertyID == 0 {
+				t.Errorf("unexpected attribute damage bonus stat found in Lumiflux List(): %+v", s)
+			}
+		}
+	})
+
+	t.Run("Stats.List returns all numeric stats in order", func(t *testing.T) {
+		list := agent.Stats.List()
+
+		if len(list) != 13 {
+			t.Fatalf("expected 13 stats in agent.Stats.List(), got %d", len(list))
+		}
+
+		if list[0].PropertyID != PropBaseHP || list[0].Value != 1500 || list[0].IsPercent {
+			t.Errorf("HP stat mismatch: got %+v", list[0])
+		}
+		if list[4].PropertyID != PropBaseCritRate || list[4].Value != 0.65 || !list[4].IsPercent {
+			t.Errorf("CritRate stat mismatch: got %+v", list[4])
+		}
+		if list[4].DisplayValue() != "65.0%" {
+			t.Errorf("CritRate DisplayValue() = %q, want %q", list[4].DisplayValue(), "65.0%")
+		}
+		if list[11].PropertyID != PropBaseEnergyRegen || list[11].Value != 1.80 {
+			t.Errorf("EnergyRegen stat mismatch: got %+v", list[11])
 		}
 	})
 }

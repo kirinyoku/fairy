@@ -148,3 +148,18 @@ func TestCalcSheerForce(t *testing.T) {
 		t.Errorf("expected 209.0 base SheerForce, got %v", val)
 	}
 }
+
+func TestCalcAdrenalineAccumulation_Rupture(t *testing.T) {
+	meta := store.AvatarMeta{
+		BaseProps: map[int]int{
+			int(PropBaseRpRecover):   200, // 200 / 100 = 2.00
+			int(PropBaseEnergyRegen): 0,
+		},
+		GrowthProps: map[int]int{},
+	}
+
+	val := calcAgentBaseStat(meta, int(PropBaseRpRecover), 1, 0, 0) / 100.0
+	if val != 2.00 {
+		t.Errorf("expected 2.00 base Adrenaline Accumulation, got %v", val)
+	}
+}

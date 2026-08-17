@@ -99,7 +99,11 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	baseImpact := calcAgentBaseStat(meta, int(PropBaseImpact), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 	baseAnomalyMastery := calcAgentBaseStat(meta, int(PropBaseAnomalyMastery), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 	baseAnomalyProficiency := calcAgentBaseStat(meta, int(PropBaseAnomalyProficiency), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
-	baseEnergyRegen := calcAgentBaseStat(meta, int(PropBaseEnergyRegen), agent.Level, agent.Promotion, agent.CoreSkillEnhancement) / 100.0
+	baseEnergyRegenProp := PropBaseEnergyRegen
+	if agent.Specialty == SpecialtyRupture {
+		baseEnergyRegenProp = PropBaseRpRecover
+	}
+	baseEnergyRegen := calcAgentBaseStat(meta, int(baseEnergyRegenProp), agent.Level, agent.Promotion, agent.CoreSkillEnhancement) / 100.0
 	baseSheerForce := calcAgentBaseStat(meta, int(PropBaseSheerForce), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 
 	// Fixed Base stats
@@ -185,7 +189,7 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		AnomalyProficiency: math.Floor(baseAnomalyProficiency*(1.0+bonuses[int(PropAnomalyProficiencyPercent)]) + bonuses[int(PropBaseAnomalyProficiency)] + bonuses[int(PropAnomalyProficiency)]),
 		PenRatio:           basePenRatio + bonuses[int(PropBasePENRatio)] + bonuses[int(PropPENRatio)],
 		PenFlat:            math.Floor(basePenFlat + bonuses[int(PropBasePENFlat)] + bonuses[int(PropPENFlat)]),
-		EnergyRegen:        baseEnergyRegen*(1.0+bonuses[int(PropEnergyRegenPercent)]) + bonuses[int(PropBaseEnergyRegen)] + bonuses[int(PropEnergyRegen)],
+		EnergyRegen:        baseEnergyRegen*(1.0+bonuses[int(PropEnergyRegenPercent)]+bonuses[int(PropRpRecoverPercent)]) + bonuses[int(PropBaseEnergyRegen)] + bonuses[int(PropEnergyRegen)] + bonuses[int(PropBaseRpRecover)] + bonuses[int(PropRpRecover)],
 		SheerForce:         totalSheerForce,
 	}
 }
