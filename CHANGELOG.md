@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.11.2] - 2026-08-18
+
+### Added
+- Added runnable `Example*` functions for `pkg.go.dev`.
+
+### Changed
+- Expanded `doc.go` with Core Actions summary and Custom Client example.
+
 ## [0.11.1] - 2026-08-17
 
 ### Fixed
