@@ -7,10 +7,20 @@
 // calculating precise final combat stats taking into account base stats, weapon scalings,
 // disc substat rolls, and set bonuses across 13 supported languages.
 //
+// # Core Actions
+//
+// Fairy provides four actions for working with player profiles:
+//   - [GetProfile] — fetch and enrich a profile in the client's default language.
+//   - [GetProfileWithLang] — same, but override the language for a single request.
+//   - [GetRawProfile] — fetch the raw upstream API response without enrichment.
+//   - [Localize] — map a raw profile into an enriched [Profile] in memory (zero network calls).
+//
+// Each action is available both as a global convenience function (using a shared default client
+// with English localization) and as a method on [Client].
+//
 // # Quick Start
 //
-// The easiest way to get started is by using the global functions. By default, this uses
-// the embedded metadata store and English localization:
+// The easiest way to get started is by using the global functions:
 //
 //	profile, err := fairy.GetProfile(context.Background(), "1504687050")
 //	if err != nil {
@@ -24,11 +34,15 @@
 // you should create a dedicated client:
 //
 //	client, err := fairy.NewClient(
-//		fairy.WithDefaultLang(fairy.LangJA), // Default to Japanese
+//		fairy.WithDefaultLang(fairy.LangJA),
+//		fairy.WithEnkaOptions(zzz.Options{
+//			UserAgent:  "MyApp/1.0 (contact@example.com)",
+//			HTTPClient: &http.Client{Timeout: 10 * time.Second},
+//			Retry:      &zzz.RetryOptions{MaxAttempts: 2, Delay: 2 * time.Second},
+//			Cache:      myCacheInstance,
+//		}),
 //	)
 //	if err != nil {
 //		log.Fatal(err)
 //	}
-//
-// See https://github.com/kirinyoku/fairy for more advanced features.
 package fairy
