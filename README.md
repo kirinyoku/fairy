@@ -5,7 +5,7 @@
 **Fairy** is a Go library that brings full-featured [Zenless Zone Zero](https://zenless.hoyoverse.com) profile processing to your apps via the [EnkaNetwork API](https://enka.network). Just like the AI assistant from New Eridu, it handles all the heavy lifting — transforming raw game payloads into ready-to-use models with 13-language localization, CDN asset URLs, parsed Unity rich text, evaluated skill formulas, and detailed combat stat breakdowns.
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/kirinyoku/fairy.svg)](https://pkg.go.dev/github.com/kirinyoku/fairy)
-[![Go Version](https://img.shields.io/github/go-mod-go-version/kirinyoku/fairy)](https://golang.org/doc/devel/release.html)
+[![Go Version](https://img.shields.io/github/go-mod/go-version/kirinyoku/fairy)](https://golang.org/doc/devel/release.html)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Table of Contents
