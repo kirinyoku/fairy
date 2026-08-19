@@ -5,14 +5,13 @@ import (
 
 	"github.com/kirinyoku/enkanetwork-go/client/zzz"
 	"github.com/kirinyoku/fairy/internal/api"
-	"github.com/kirinyoku/fairy/store"
+	"github.com/kirinyoku/fairy/internal/store"
 )
 
 // Options holds the configuration for the fairy Client.
 type Options struct {
-	DefaultLang Language            // The default language for string localization.
-	Store       store.MetadataStore // The store providing game metadata.
-	EnkaOpts    zzz.Options         // Configuration for the underlying enkanetwork-go client.
+	DefaultLang Language    // The default language for string localization.
+	EnkaOpts    zzz.Options // Configuration for the underlying enkanetwork-go client.
 }
 
 // Option defines a functional option for the fairy Client.
@@ -22,13 +21,6 @@ type Option func(*Options)
 func WithDefaultLang(lang Language) Option {
 	return func(o *Options) {
 		o.DefaultLang = lang
-	}
-}
-
-// WithStore sets the metadata store for the Client.
-func WithStore(s store.MetadataStore) Option {
-	return func(o *Options) {
-		o.Store = s
 	}
 }
 
@@ -49,9 +41,8 @@ type Client struct {
 }
 
 // NewClient creates a new instance of Client.
-// If opts.Store is nil, it will automatically load the default store via store.Default().
 // If opts.DefaultLang is empty, it defaults to LangEN.
-// Returns an error if the fallback default store fails to load its internal files.
+// Returns an error if the embedded metadata store fails to load its internal files.
 func NewClient(opts ...Option) (*Client, error) {
 	var options Options
 	for _, opt := range opts {
@@ -63,13 +54,9 @@ func NewClient(opts ...Option) (*Client, error) {
 		lang = LangEN
 	}
 
-	st := options.Store
-	if st == nil {
-		emb, err := store.Default()
-		if err != nil {
-			return nil, err
-		}
-		st = emb
+	st, err := store.Default()
+	if err != nil {
+		return nil, err
 	}
 
 	c := &Client{

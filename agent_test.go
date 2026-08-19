@@ -3,6 +3,8 @@ package fairy
 import (
 	"math"
 	"testing"
+
+	"github.com/kirinyoku/fairy/internal/store"
 )
 
 func TestAgent_SubStatTotals(t *testing.T) {
@@ -181,6 +183,11 @@ func TestAgent_CountEffectiveRolls(t *testing.T) {
 }
 
 func TestAgent_FormattedUIStats(t *testing.T) {
+	st, err := store.Default()
+	if err != nil {
+		t.Fatalf("failed to load default store: %v", err)
+	}
+
 	agent := &Agent{
 		Attribute: AttributeIce,
 		BaseStats: Stats{
@@ -216,7 +223,7 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 	}
 
 	t.Run("stat breakdown and formatting values", func(t *testing.T) {
-		ui := agent.FormattedUIStats(LangEN)
+		ui := formatAgentUIStats(agent, st, LangEN)
 
 		// Flat stats
 		if ui.HP.Base != "1000" || ui.HP.Added != "500" || ui.HP.Total != "1500" {
@@ -262,7 +269,7 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 		for _, tt := range tests {
 			t.Run(string(tt.attr), func(t *testing.T) {
 				a := &Agent{Attribute: tt.attr}
-				ui := a.FormattedUIStats(LangEN)
+				ui := formatAgentUIStats(a, st, LangEN)
 				if ui.AttributeDMGBonus.PropertyID != tt.expectedProp {
 					t.Errorf("Attribute %s: PropertyID = %v, want %v", tt.attr, ui.AttributeDMGBonus.PropertyID, tt.expectedProp)
 				}
@@ -271,8 +278,8 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 	})
 
 	t.Run("localization with language parameter", func(t *testing.T) {
-		uiEN := agent.FormattedUIStats(LangEN)
-		uiRU := agent.FormattedUIStats(LangRU)
+		uiEN := formatAgentUIStats(agent, st, LangEN)
+		uiRU := formatAgentUIStats(agent, st, LangRU)
 
 		if uiEN.CritRate.Name == "" || uiRU.CritRate.Name == "" {
 			t.Errorf("expected non-empty localized stat names")
@@ -295,8 +302,8 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 			BaseStats: agent.BaseStats,
 			Stats:     agent.Stats,
 		}
-		uiEN := ruptureAgent.FormattedUIStats(LangEN)
-		uiRU := ruptureAgent.FormattedUIStats(LangRU)
+		uiEN := formatAgentUIStats(ruptureAgent, st, LangEN)
+		uiRU := formatAgentUIStats(ruptureAgent, st, LangRU)
 
 		if uiEN.EnergyRegen.PropertyID != PropBaseRpRecover {
 			t.Errorf("uiEN.EnergyRegen.PropertyID = %v, want %v", uiEN.EnergyRegen.PropertyID, PropBaseRpRecover)
@@ -310,7 +317,7 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 	})
 
 	t.Run("UIStats.List returns all stats in order", func(t *testing.T) {
-		ui := agent.FormattedUIStats(LangEN)
+		ui := formatAgentUIStats(agent, st, LangEN)
 		list := ui.List()
 
 		if len(list) != 13 {
@@ -352,7 +359,7 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 			BaseStats: agent.BaseStats,
 			Stats:     agent.Stats,
 		}
-		ui := lumenAgent.FormattedUIStats(LangEN)
+		ui := formatAgentUIStats(lumenAgent, st, LangEN)
 		list := ui.List()
 
 		if len(list) != 12 {

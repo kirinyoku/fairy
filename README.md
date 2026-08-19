@@ -136,7 +136,7 @@ The EnkaNetwork API returns raw game data: internal numeric IDs, unlabeled stats
 - 🖼️ **Ready-to-Use Assets** — Splash arts (agents & skins), W-Engines, discs, badges, plus vector SVG stat & attribute icons.
 - 🌍 **13 Languages** — In-memory localization for all game strings without extra network calls.
 - 📦 **Zero-Config Data** — All game tables and localization files embedded directly into the binary.
-- 🧩 **Flexible Client** — Functional options for custom stores, caching, timeouts, and retry policies.
+- 🧩 **Flexible Client** — Functional options for default language, custom HTTP client, caching, timeouts, and retry policies.
 
 ## Installation
 
@@ -343,9 +343,9 @@ Fairy provides three distinct ways to work with agent stats:
 Agents have two views of their abilities:
 
 - [`agent.Skills`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.Skills) — A flat list of every individual ability, core enhancement, and passive on the agent.
-- [`agent.GroupedSkills()`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.GroupedSkills) — Categorized into the 6 in-game UI tabs (`basic`, `special`, `dodge`, `chain`, `assist`, `passive`), tracking each tab's upgrade level (`Level`, 1–12 for active skills, 0–6 for core passives) with its nested skills.
+- [`agent.SkillGroups`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.SkillGroups) — Categorized into the 6 in-game UI tabs (`basic`, `special`, `dodge`, `chain`, `assist`, `passive`), tracking each tab's upgrade level (`Level`, 1–12 for active skills, 0–6 for core passives) with its nested skills.
 
-📖 See [`ExampleAgent_GroupedSkills`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Agent_GroupedSkills)
+📖 See [`ExampleAgent_SkillGroups`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Agent_SkillGroups)
 
 #### Drive Disc analysis
 

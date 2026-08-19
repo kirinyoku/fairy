@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/kirinyoku/enkanetwork-go/client/zzz"
-	"github.com/kirinyoku/fairy/store"
+	"github.com/kirinyoku/fairy/internal/store"
 )
 
 //go:embed internal/testdata/response.json

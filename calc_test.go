@@ -3,7 +3,7 @@ package fairy
 import (
 	"testing"
 
-	"github.com/kirinyoku/fairy/store"
+	"github.com/kirinyoku/fairy/internal/store"
 )
 
 type mockStore struct {

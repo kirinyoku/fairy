@@ -23,7 +23,7 @@ func (w *WEngine) FormatHTML() string {
 	if w == nil {
 		return ""
 	}
-	return FormatHTML(w.PassiveDescription)
+	return formatHTML(w.PassiveDescription)
 }
 
 // FormatPlainText returns the W-Engine passive description stripped of Rich Text formatting.
@@ -31,7 +31,7 @@ func (w *WEngine) FormatPlainText() string {
 	if w == nil {
 		return ""
 	}
-	return FormatPlainText(w.PassiveDescription)
+	return formatPlainText(w.PassiveDescription)
 }
 
 // FormatMarkdown returns the W-Engine passive description formatted with Markdown syntax.
@@ -39,7 +39,7 @@ func (w *WEngine) FormatMarkdown() string {
 	if w == nil {
 		return ""
 	}
-	return FormatMarkdown(w.PassiveDescription)
+	return formatMarkdown(w.PassiveDescription)
 }
 
 // Set represents a specific Drive Disc equipment set.
@@ -96,15 +96,15 @@ type SetEffect struct {
 
 // FormatHTML returns the set effect description formatted with HTML tags for web rendering.
 func (e SetEffect) FormatHTML() string {
-	return FormatHTML(e.Description)
+	return formatHTML(e.Description)
 }
 
 // FormatPlainText returns the set effect description stripped of Rich Text formatting.
 func (e SetEffect) FormatPlainText() string {
-	return FormatPlainText(e.Description)
+	return formatPlainText(e.Description)
 }
 
 // FormatMarkdown returns the set effect description formatted with Markdown syntax.
 func (e SetEffect) FormatMarkdown() string {
-	return FormatMarkdown(e.Description)
+	return formatMarkdown(e.Description)
 }

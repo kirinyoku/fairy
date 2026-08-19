@@ -31,14 +31,12 @@ func TestNewClient_Defaults(t *testing.T) {
 }
 
 func TestNewClient_WithOptions(t *testing.T) {
-	mockSt := mockStore{}
 	enkaOpts := zzz.Options{
 		UserAgent: "TestUserAgent/1.0",
 	}
 
 	client, err := NewClient(
 		WithDefaultLang(LangRU),
-		WithStore(mockSt),
 		WithEnkaOptions(enkaOpts),
 	)
 	if err != nil {
@@ -49,8 +47,8 @@ func TestNewClient_WithOptions(t *testing.T) {
 		t.Errorf("client.lang = %v, want %v", client.lang, LangRU)
 	}
 
-	if client.store != mockSt {
-		t.Errorf("client.store = %v, want %v", client.store, mockSt)
+	if client.store == nil {
+		t.Errorf("expected client.store to be initialized")
 	}
 
 	if client.enkaOpts.UserAgent != "TestUserAgent/1.0" {
@@ -163,14 +161,17 @@ func TestGlobal_Localize(t *testing.T) {
 		if profile == nil {
 			t.Fatal("expected non-nil profile")
 		}
-		// Check pre-computed agent.UIStats
+		// Check pre-computed agent.UIStats in Russian
 		if profile.Agents[0].UIStats.CritRate.Name != "Шанс крит. попадания" {
 			t.Errorf("profile.Agents[0].UIStats.CritRate.Name = %q, want %q", profile.Agents[0].UIStats.CritRate.Name, "Шанс крит. попадания")
 		}
-		// FormattedUIStats(LangEN) dynamically formats into English on demand
-		enStats := profile.Agents[0].FormattedUIStats(LangEN)
-		if enStats.CritRate.Name != "CRIT Rate" {
-			t.Errorf("enStats.CritRate.Name = %q, want %q", enStats.CritRate.Name, "CRIT Rate")
+		// Localize in English dynamically
+		enProfile, err := Localize(raw, LangEN)
+		if err != nil {
+			t.Fatalf("Localize(LangEN) failed: %v", err)
+		}
+		if enProfile.Agents[0].UIStats.CritRate.Name != "CRIT Rate" {
+			t.Errorf("enProfile.Agents[0].UIStats.CritRate.Name = %q, want %q", enProfile.Agents[0].UIStats.CritRate.Name, "CRIT Rate")
 		}
 	})
 }

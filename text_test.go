@@ -1,9 +1,7 @@
-package fairy_test
+package fairy
 
 import (
 	"testing"
-
-	"github.com/kirinyoku/fairy"
 )
 
 func TestEvaluateFormulas(t *testing.T) {
@@ -89,9 +87,9 @@ func TestEvaluateFormulas(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := fairy.EvaluateFormulas(tt.input, tt.skillLevel)
+			result := evaluateFormulas(tt.input, tt.skillLevel)
 			if result != tt.expected {
-				t.Errorf("EvaluateFormulas() = %q, want %q", result, tt.expected)
+				t.Errorf("evaluateFormulas() = %q, want %q", result, tt.expected)
 			}
 		})
 	}
@@ -154,9 +152,9 @@ func TestFormatHTML(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := fairy.FormatHTML(tt.input, tt.skillLevel...)
+			result := formatHTML(tt.input, tt.skillLevel...)
 			if result != tt.expected {
-				t.Errorf("FormatHTML() = %q, want %q", result, tt.expected)
+				t.Errorf("formatHTML() = %q, want %q", result, tt.expected)
 			}
 		})
 	}
@@ -184,9 +182,9 @@ func TestFormatPlainText(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := fairy.FormatPlainText(tt.input, tt.skillLevel...)
+			result := formatPlainText(tt.input, tt.skillLevel...)
 			if result != tt.expected {
-				t.Errorf("FormatPlainText() = %q, want %q", result, tt.expected)
+				t.Errorf("formatPlainText() = %q, want %q", result, tt.expected)
 			}
 		})
 	}
@@ -209,16 +207,16 @@ func TestFormatMarkdown(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := fairy.FormatMarkdown(tt.input, tt.skillLevel...)
+			result := formatMarkdown(tt.input, tt.skillLevel...)
 			if result != tt.expected {
-				t.Errorf("FormatMarkdown() = %q, want %q", result, tt.expected)
+				t.Errorf("formatMarkdown() = %q, want %q", result, tt.expected)
 			}
 		})
 	}
 }
 
 func TestSkillMethods(t *testing.T) {
-	skill := fairy.Skill{
+	skill := Skill{
 		Level:       12,
 		Name:        "Special Attack",
 		Description: "Deals <color=#98EFF0>{CAL:0.07+AvatarSkillLevel(1)*0.015,100,2}%</color> Ice DMG.",
@@ -252,7 +250,7 @@ func TestFormattingWrappers(t *testing.T) {
 	const expectedMD = "Increases **ATK** by 15%."
 
 	t.Run("WEngine formatting and nil receiver", func(t *testing.T) {
-		var nilWEngine *fairy.WEngine
+		var nilWEngine *WEngine
 		if nilWEngine.FormatHTML() != "" {
 			t.Errorf("nil WEngine FormatHTML() = %q, want empty", nilWEngine.FormatHTML())
 		}
@@ -263,7 +261,7 @@ func TestFormattingWrappers(t *testing.T) {
 			t.Errorf("nil WEngine FormatMarkdown() = %q, want empty", nilWEngine.FormatMarkdown())
 		}
 
-		w := &fairy.WEngine{PassiveDescription: sampleRichText}
+		w := &WEngine{PassiveDescription: sampleRichText}
 		if got := w.FormatHTML(); got != expectedHTML {
 			t.Errorf("WEngine.FormatHTML() = %q, want %q", got, expectedHTML)
 		}
@@ -276,7 +274,7 @@ func TestFormattingWrappers(t *testing.T) {
 	})
 
 	t.Run("MindscapeNode formatting", func(t *testing.T) {
-		node := fairy.MindscapeNode{Description: sampleRichText}
+		node := MindscapeNode{Description: sampleRichText}
 		if got := node.FormatHTML(); got != expectedHTML {
 			t.Errorf("MindscapeNode.FormatHTML() = %q, want %q", got, expectedHTML)
 		}
@@ -289,7 +287,7 @@ func TestFormattingWrappers(t *testing.T) {
 	})
 
 	t.Run("PotentialVisionNode formatting", func(t *testing.T) {
-		pvn := fairy.PotentialVisionNode{Description: sampleRichText}
+		pvn := PotentialVisionNode{Description: sampleRichText}
 		if got := pvn.FormatHTML(); got != expectedHTML {
 			t.Errorf("PotentialVisionNode.FormatHTML() = %q, want %q", got, expectedHTML)
 		}
@@ -302,7 +300,7 @@ func TestFormattingWrappers(t *testing.T) {
 	})
 
 	t.Run("SetEffect formatting", func(t *testing.T) {
-		eff := fairy.SetEffect{Description: sampleRichText}
+		eff := SetEffect{Description: sampleRichText}
 		if got := eff.FormatHTML(); got != expectedHTML {
 			t.Errorf("SetEffect.FormatHTML() = %q, want %q", got, expectedHTML)
 		}

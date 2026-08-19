@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/kirinyoku/enkanetwork-go/client/zzz"
-	"github.com/kirinyoku/fairy/store"
+	"github.com/kirinyoku/fairy/internal/store"
 )
 
 // profileMapper is responsible for translating raw EnkaNetwork API data into
@@ -269,7 +269,7 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 	calculateAgentStats(agent, m.store)
 
 	// Populate enriched JSON fields out-of-the-box
-	agent.SkillGroups = agent.GroupedSkills()
+	agent.SkillGroups = groupAgentSkills(agent.Skills)
 	agent.UIStats = formatAgentUIStats(agent, m.store, m.lang)
 
 	return agent
@@ -292,18 +292,18 @@ func (m *profileMapper) mapAgentSkills(raw *zzz.AvatarData) []Skill {
 		lvl := 0
 		switch skType {
 		case SkillTypeBasic:
-			lvl = levels[SkillIndexBasic]
+			lvl = levels[skillIndexBasic]
 		case SkillTypeDodge:
-			lvl = levels[SkillIndexDodge]
+			lvl = levels[skillIndexDodge]
 		case SkillTypeAssist:
-			lvl = levels[SkillIndexAssist]
+			lvl = levels[skillIndexAssist]
 		case SkillTypeSpecial:
-			lvl = levels[SkillIndexSpecial]
+			lvl = levels[skillIndexSpecial]
 		case SkillTypeChain:
-			if l, ok := levels[SkillIndexChain]; ok {
+			if l, ok := levels[skillIndexChain]; ok {
 				lvl = l
 			} else {
-				lvl = levels[SkillIndexChainAlt]
+				lvl = levels[skillIndexChainAlt]
 			}
 		case SkillTypePassive:
 			lvl = raw.CoreSkillEnhancement
@@ -517,7 +517,7 @@ func (m *profileMapper) detectSetBonuses(discs []DriveDisc) []DriveDiscSetBonus 
 			effects = append(effects, SetEffect{
 				PieceCount:    2,
 				Description:   desc,
-				FormattedHTML: FormatHTML(desc),
+				FormattedHTML: formatHTML(desc),
 				IsActive:      count >= 2,
 			})
 		}
@@ -526,7 +526,7 @@ func (m *profileMapper) detectSetBonuses(discs []DriveDisc) []DriveDiscSetBonus 
 			effects = append(effects, SetEffect{
 				PieceCount:    4,
 				Description:   desc,
-				FormattedHTML: FormatHTML(desc),
+				FormattedHTML: formatHTML(desc),
 				IsActive:      count >= 4,
 			})
 		}

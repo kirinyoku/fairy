@@ -3,7 +3,7 @@ package fairy
 import (
 	"encoding/base64"
 
-	"github.com/kirinyoku/fairy/store"
+	"github.com/kirinyoku/fairy/internal/store"
 )
 
 // Attribute represents the elemental attribute of an agent.
@@ -278,25 +278,25 @@ type SkillGroup struct {
 // EvaluatedDescription returns the skill description with all scaling formulas ({CAL:...})
 // evaluated for the skill's current level.
 func (s Skill) EvaluatedDescription() string {
-	return EvaluateFormulas(s.Description, s.Level)
+	return evaluateFormulas(s.Description, s.Level)
 }
 
 // FormatHTML returns the skill description formatted as HTML with inline CSS colors,
 // semantic icon spans, and scaling formulas evaluated for the skill's current level.
 func (s Skill) FormatHTML() string {
-	return FormatHTML(s.Description, s.Level)
+	return formatHTML(s.Description, s.Level)
 }
 
 // FormatPlainText returns the skill description as clean plain text with all tags stripped
 // and scaling formulas evaluated for the skill's current level.
 func (s Skill) FormatPlainText() string {
-	return FormatPlainText(s.Description, s.Level)
+	return formatPlainText(s.Description, s.Level)
 }
 
 // FormatMarkdown returns the skill description formatted in Markdown (bold tags for colored values)
 // with scaling formulas evaluated for the skill's current level.
 func (s Skill) FormatMarkdown() string {
-	return FormatMarkdown(s.Description, s.Level)
+	return formatMarkdown(s.Description, s.Level)
 }
 
 // Agent represents an enriched agent (character) showcased on a player's profile.
@@ -339,17 +339,17 @@ type MindscapeNode struct {
 
 // FormatHTML returns the Mindscape description formatted as HTML with inline CSS colors.
 func (m MindscapeNode) FormatHTML() string {
-	return FormatHTML(m.Description)
+	return formatHTML(m.Description)
 }
 
 // FormatPlainText returns the Mindscape description stripped of Rich Text formatting.
 func (m MindscapeNode) FormatPlainText() string {
-	return FormatPlainText(m.Description)
+	return formatPlainText(m.Description)
 }
 
 // FormatMarkdown returns the Mindscape description formatted with Markdown syntax.
 func (m MindscapeNode) FormatMarkdown() string {
-	return FormatMarkdown(m.Description)
+	return formatMarkdown(m.Description)
 }
 
 // PotentialVision represents Potential Vision status and nodes for an Agent.
@@ -372,17 +372,17 @@ type PotentialVisionNode struct {
 
 // FormatHTML returns the PotentialVisionNode description formatted as HTML with inline CSS colors.
 func (p PotentialVisionNode) FormatHTML() string {
-	return FormatHTML(p.Description)
+	return formatHTML(p.Description)
 }
 
 // FormatPlainText returns the PotentialVisionNode description stripped of Rich Text formatting.
 func (p PotentialVisionNode) FormatPlainText() string {
-	return FormatPlainText(p.Description)
+	return formatPlainText(p.Description)
 }
 
 // FormatMarkdown returns the PotentialVisionNode description formatted with Markdown syntax.
 func (p PotentialVisionNode) FormatMarkdown() string {
-	return FormatMarkdown(p.Description)
+	return formatMarkdown(p.Description)
 }
 
 // SubStatTotals calculates the sum of all sub-stats across all equipped Drive Discs.
@@ -438,18 +438,6 @@ func getStatName(st store.MetadataStore, key string, lang Language) string {
 		}
 	}
 	return key
-}
-
-// FormattedUIStats generates a complete breakdown of base vs added stats for UI display
-// in the specified language using the default metadata store.
-// To access the agent's pre-computed stats matching the profile's language, use the agent.UIStats field directly.
-func (a *Agent) FormattedUIStats(lang Language) UIStats {
-	st, err := store.Default()
-	if err != nil {
-		return a.UIStats
-	}
-
-	return formatAgentUIStats(a, st, lang)
 }
 
 // formatAgentUIStats generates a complete breakdown of base vs added stats for UI display
@@ -519,7 +507,7 @@ func formatAgentUIStats(a *Agent, s store.MetadataStore, lang Language) UIStats 
 	}
 }
 
-// GroupedSkills returns the agent's skills categorized into 6 distinct groups
+// groupAgentSkills categorizes an agent's skills into 6 distinct groups
 // matching the in-game skill buttons:
 // 1. Passives / Talents (Core Passive + Additional Ability)
 // 2. Basic Attack
@@ -527,10 +515,7 @@ func formatAgentUIStats(a *Agent, s store.MetadataStore, lang Language) UIStats 
 // 4. Assist
 // 5. Special Attack
 // 6. Chain Attack & Ultimate
-func (a *Agent) GroupedSkills() []SkillGroup {
-	if len(a.SkillGroups) > 0 {
-		return a.SkillGroups
-	}
+func groupAgentSkills(skills []Skill) []SkillGroup {
 	order := []SkillType{
 		SkillTypePassive,
 		SkillTypeBasic,
@@ -541,7 +526,7 @@ func (a *Agent) GroupedSkills() []SkillGroup {
 	}
 
 	groupsMap := make(map[SkillType]*SkillGroup)
-	for _, sk := range a.Skills {
+	for _, sk := range skills {
 		st := sk.Type
 		if st == "" {
 			st = SkillTypeBasic

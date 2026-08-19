@@ -4,7 +4,7 @@ import (
 	"math"
 	"strings"
 
-	"github.com/kirinyoku/fairy/store"
+	"github.com/kirinyoku/fairy/internal/store"
 )
 
 // calcAgentBaseStat calculates the base stats of an agent from level growth and core enhancements.
@@ -22,7 +22,7 @@ func calcAgentBaseStat(meta store.AvatarMeta, propID, level, promotionLevel, cor
 
 	// GrowthValue = (GrowthProps[PropertyId] * (Avatar.Level - 1)) / 10000
 	growthVal, _ := meta.GrowthStat(propID)
-	growth := float64(growthVal*(level-1)) / StatModifierScale
+	growth := float64(growthVal*(level-1)) / statModifierScale
 
 	val := base + growth
 
@@ -52,7 +52,7 @@ func calcWEngineMainStat(s store.MetadataStore, meta store.WeaponMeta, level, ph
 		starMod = starTpl.MainStat
 	}
 	// Result = MainStat.PropertyValue * (1 + WeaponLevel.MainStat / 10000 + WeaponStar.MainStat / 10000)
-	result := float64(baseVal) * (1.0 + float64(levelMod)/StatModifierScale + float64(starMod)/StatModifierScale)
+	result := float64(baseVal) * (1.0 + float64(levelMod)/statModifierScale + float64(starMod)/statModifierScale)
 	return int(math.Floor(result))
 }
 
@@ -66,7 +66,7 @@ func calcWEngineSecondaryStat(s store.MetadataStore, meta store.WeaponMeta, leve
 	levelMult := 1.0
 	if lvlTpl, ok := s.WeaponLevelTemplate(meta.Rarity, level); ok {
 		if lvlTpl.SubStatDenominator > 0 {
-			levelMult = StatModifierScale / float64(lvlTpl.SubStatDenominator)
+			levelMult = statModifierScale / float64(lvlTpl.SubStatDenominator)
 		}
 	}
 
@@ -75,8 +75,7 @@ func calcWEngineSecondaryStat(s store.MetadataStore, meta store.WeaponMeta, leve
 		starMod = starTpl.SubStat
 	}
 
-	result := float64(baseVal) * levelMult * (1.0 + float64(starMod)/StatModifierScale)
-	// Removed debug print
+	result := float64(baseVal) * levelMult * (1.0 + float64(starMod)/statModifierScale)
 	return int(math.Floor(result))
 }
 
@@ -107,10 +106,10 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	baseSheerForce := calcAgentBaseStat(meta, int(PropBaseSheerForce), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 
 	// Fixed Base stats
-	baseCritRate := DefaultBaseCritRate
-	baseCritDMG := DefaultBaseCritDMG
-	basePenRatio := DefaultBasePenRatio
-	basePenFlat := DefaultBasePenFlat
+	baseCritRate := defaultBaseCritRate
+	baseCritDMG := defaultBaseCritDMG
+	basePenRatio := defaultBasePenRatio
+	basePenFlat := defaultBasePenFlat
 
 	bonuses := make(map[int]float64)
 	addBonus := func(propID int, value float64) {
@@ -227,7 +226,7 @@ func accumulateWEngineBonus(agent *Agent, s store.MetadataStore, addBonus func(i
 	}
 
 	if isPercent {
-		addBonus(wSecStatId, float64(wSecStatVal)/StatModifierScale)
+		addBonus(wSecStatId, float64(wSecStatVal)/statModifierScale)
 	} else {
 		addBonus(wSecStatId, float64(wSecStatVal))
 	}
@@ -259,7 +258,7 @@ func accumulateSetBonus(agent *Agent, s store.MetadataStore, addBonus func(int, 
 					}
 				}
 				if isPercent {
-					addBonus(propID, float64(val)/StatModifierScale)
+					addBonus(propID, float64(val)/statModifierScale)
 				} else {
 					addBonus(propID, float64(val))
 				}

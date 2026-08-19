@@ -222,9 +222,9 @@ func ExampleAgent_CountEffectiveRolls() {
 	}
 }
 
-// ExampleAgent_GroupedSkills demonstrates organizing an agent's abilities by in-game UI tabs
+// ExampleAgent_SkillGroups demonstrates organizing an agent's abilities by in-game UI tabs
 // (Basic, Special, Dodge, Chain, Assist, Passives) with group progression levels.
-func ExampleAgent_GroupedSkills() {
+func ExampleAgent_SkillGroups() {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
@@ -241,7 +241,7 @@ func ExampleAgent_GroupedSkills() {
 	agent := profile.Agents[0]
 	fmt.Printf("=== Skills for %s ===\n", agent.Name)
 
-	for _, group := range agent.GroupedSkills() {
+	for _, group := range agent.SkillGroups {
 		fmt.Printf("\n[%s Tab] (Level %d)\n", group.TypeName, group.Level)
 		for _, skill := range group.Skills {
 			fmt.Printf("  • %s\n", skill.Name)

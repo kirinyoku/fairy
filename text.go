@@ -83,9 +83,9 @@ func init() {
 	iconMarkdownReplacer = strings.NewReplacer(mdPairs...)
 }
 
-// EvaluateFormulas evaluates and replaces all Unity skill calculation formulas
+// evaluateFormulas evaluates and replaces all Unity skill calculation formulas
 // in the format {CAL:expr,mult,precision} with calculated values for the given skill level.
-func EvaluateFormulas(text string, skillLevel int) string {
+func evaluateFormulas(text string, skillLevel int) string {
 	if text == "" || !strings.Contains(text, "{CAL:") {
 		return text
 	}
@@ -222,16 +222,16 @@ func prepareText(text string, skillLevel ...int) string {
 		return ""
 	}
 	if len(skillLevel) > 0 {
-		text = EvaluateFormulas(text, skillLevel[0])
+		text = evaluateFormulas(text, skillLevel[0])
 	}
 	return unwrapTermBrackets(text)
 }
 
-// FormatHTML converts Unity Rich Text tags (e.g. <color=#2BAD00>20%</color> and <IconMap:Icon_Special>)
+// formatHTML converts Unity Rich Text tags (e.g. <color=#2BAD00>20%</color> and <IconMap:Icon_Special>)
 // into web-compatible HTML with inline CSS styling, Enka CDN icon image tags, and break tags (<br>).
 // Untrusted HTML content is safely escaped to prevent XSS attacks.
 // If an optional skillLevel is passed, any {CAL:...} scaling formulas in text are evaluated automatically.
-func FormatHTML(text string, skillLevel ...int) string {
+func formatHTML(text string, skillLevel ...int) string {
 	text = prepareText(text, skillLevel...)
 	if text == "" {
 		return ""
@@ -296,11 +296,11 @@ func FormatHTML(text string, skillLevel ...int) string {
 	return res
 }
 
-// FormatPlainText strips all Unity Rich Text tags, color tags, and icon placeholders from text,
+// formatPlainText strips all Unity Rich Text tags, color tags, and icon placeholders from text,
 // replacing IconMap tags with clean readable labels (e.g. [Ultimate], [Special Attack]),
 // returning clean, human-readable plain text without any markup.
 // If an optional skillLevel is passed, any {CAL:...} scaling formulas in text are evaluated automatically.
-func FormatPlainText(text string, skillLevel ...int) string {
+func formatPlainText(text string, skillLevel ...int) string {
 	text = prepareText(text, skillLevel...)
 	if text == "" {
 		return ""
@@ -324,11 +324,11 @@ func FormatPlainText(text string, skillLevel ...int) string {
 	return res
 }
 
-// FormatMarkdown converts Unity Rich Text tags into Markdown-formatted text.
+// formatMarkdown converts Unity Rich Text tags into Markdown-formatted text.
 // Colored values are wrapped in bold (**text**), IconMap placeholders are replaced with bold labels (**[Ultimate]**),
 // and original text layout is preserved for platforms like Discord, Telegram, or Slack.
 // If an optional skillLevel is passed, any {CAL:...} scaling formulas in text are evaluated automatically.
-func FormatMarkdown(text string, skillLevel ...int) string {
+func formatMarkdown(text string, skillLevel ...int) string {
 	text = prepareText(text, skillLevel...)
 	if text == "" {
 		return ""
