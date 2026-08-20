@@ -422,12 +422,10 @@ func (m *profileMapper) mapDriveDisc(raw *zzz.Equipment, slot int) *DriveDisc {
 		Level: raw.Level,
 	}
 
-	meta, ok := m.store.EquipmentMeta(raw.ID)
-	if ok {
+	if meta, ok := m.store.EquipmentMeta(raw.ID); ok {
+		d.Set = Set{ID: SetID(meta.SuitID)}
 		d.Rarity = mapRarity(meta.Rarity)
-		d.Set = Set{ID: meta.SuitID}
-
-		if suitMeta, suitOk := m.store.EquipmentSuitMeta(meta.SuitID); suitOk {
+		if suitMeta, ok := m.store.EquipmentSuitMeta(meta.SuitID); ok {
 			d.Set.Name = m.store.Localize(suitMeta.Name, string(m.lang))
 			d.IconPath = buildEnkaURL(suitMeta.Icon)
 		}
@@ -490,8 +488,8 @@ func (m *profileMapper) mapStat(propID int, rawValue int, rolls int) StatValue {
 // This reports the highest achieved set bonus (2pc or 4pc) in the UI text,
 // but both 2pc and 4pc property bonuses are accumulated behind the scenes.
 func (m *profileMapper) detectSetBonuses(discs []DriveDisc) []DriveDiscSetBonus {
-	counts := make(map[int]int)
-	names := make(map[int]string)
+	counts := make(map[SetID]int)
+	names := make(map[SetID]string)
 
 	for _, d := range discs {
 		if d.Set.ID > 0 {
@@ -507,7 +505,7 @@ func (m *profileMapper) detectSetBonuses(discs []DriveDisc) []DriveDiscSetBonus 
 		}
 
 		var setMeta store.EquipmentSuitMeta
-		if meta, ok := m.store.EquipmentSuitMeta(setID); ok {
+		if meta, ok := m.store.EquipmentSuitMeta(int(setID)); ok {
 			setMeta = meta
 		}
 

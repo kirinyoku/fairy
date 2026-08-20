@@ -7,15 +7,14 @@ import (
 	"github.com/kirinyoku/fairy/internal/store"
 )
 
-// calcAgentBaseStat calculates the base stats of an agent from level growth and core enhancements.
-// ZZZ Math Quirk:
-// Agent Base stats consist of four parts:
-// 1. Initial base prop at level 1 (BaseProps from AvatarBaseTemplateTb)
-// 2. Growth from leveling up, divided by 10000 (GrowthProps from AvatarBaseTemplateTb)
-// 3. Flat additions from Promotion / Ascensions (PromotionProps from AvatarPromotionTemplateTb)
-// 4. Flat additions from Core Skill Enhancements (CoreEnhancementProps from AvatarSkillCoreTemplateTb)
+// calcAgentBaseStat calculates the base stats of an Agent from level growth, Promotion phase, and Core Skill Enhancement.
 //
-// The result should always be rounded down (math.Floor) to match the game's display.
+// In Zenless Zone Zero, an Agent's base stats before gear consist of four components:
+//  1. Initial base stat at level 1 (BaseProps in AvatarBaseTemplateTb).
+//  2. Growth from leveling up, scaled by statModifierScale (10000):
+//     GrowthValue = (GrowthProps[PropertyId] * (Agent.Level - 1)) / 10000.
+//  3. Flat stat additions from Promotion / Ascension phase (PromotionProps in AvatarPromotionTemplateTb).
+//  4. Flat stat additions from Core Skill Enhancements (CoreEnhancementProps in AvatarSkillCoreTemplateTb).
 func calcAgentBaseStat(meta store.AvatarMeta, propID, level, promotionLevel, coreEnhancement int) float64 {
 	baseVal, _ := meta.BaseStat(propID)
 	base := float64(baseVal)
@@ -37,10 +36,13 @@ func calcAgentBaseStat(meta store.AvatarMeta, propID, level, promotionLevel, cor
 	return val
 }
 
-// calcWEngineMainStat calculates the main stat value of a weapon.
-// W-Engine Main Stat uses two multipliers that are ADDITIVE to each other:
-// 1. The level multiplier from WeaponLevelTemplate (AHMDJCIHNKG)
-// 2. The phase/refinement multiplier from WeaponStarTemplate (NMFHJKEFLOG)
+// calcWEngineMainStat calculates the main stat value (Base ATK) of a W-Engine.
+//
+// W-Engine Main Stat uses two additive multipliers:
+//  1. The level multiplier from WeaponLevelTemplate (AHMDJCIHNKG / 10000).
+//  2. The star/phase multiplier from WeaponStarTemplate (NMFHJKEFLOG / 10000).
+//
+// Formula: BaseValue * (1 + LevelMod/10000 + StarMod/10000) rounded down.
 func calcWEngineMainStat(s store.MetadataStore, meta store.WeaponMeta, level, phase int) int {
 	baseVal := meta.MainStat.PropertyValue
 	levelMod := 0
@@ -56,11 +58,13 @@ func calcWEngineMainStat(s store.MetadataStore, meta store.WeaponMeta, level, ph
 	return int(math.Floor(result))
 }
 
-// calcWEngineSecondaryStat calculates the actual secondary stat value of a weapon.
-// W-Engine Secondary Stats are completely undocumented in API wrappers, but they DO scale with level.
-// However, instead of a direct level multiplier, they use a "Denominator" from WeaponLevelTemplate (IDBKOAPHGLC).
-// This is an inverse scaling trick. The level multiplier is calculated as `10000 / IDBKOAPHGLC`.
-// Example: At level 60, IDBKOAPHGLC is 4000, which gives a 2.5x multiplier to the base secondary stat (10000 / 4000 = 2.5).
+// calcWEngineSecondaryStat calculates the level-scaled secondary stat value of a W-Engine.
+//
+// W-Engine secondary stats scale via an inverse denominator from WeaponLevelTemplate (SubStatDenominator):
+//
+//	LevelMultiplier = 10000 / SubStatDenominator
+//
+// For example, at level 60 with denominator 4000, LevelMultiplier is 2.5x the base secondary stat (10000 / 4000 = 2.5).
 func calcWEngineSecondaryStat(s store.MetadataStore, meta store.WeaponMeta, level, phase int) int {
 	baseVal := meta.SecondaryStat.PropertyValue
 	levelMult := 1.0
@@ -79,12 +83,15 @@ func calcWEngineSecondaryStat(s store.MetadataStore, meta store.WeaponMeta, leve
 	return int(math.Floor(result))
 }
 
-// calculateAgentStats populates the BaseStats and Stats of an Agent.
-// It executes the full stat pipeline:
-// 1. Calculate base stats from character level, promotion, and core skills.
-// 2. Add W-Engine base attack (which merges into the character's base attack).
-// 3. Accumulate all percentage multipliers and flat bonuses from W-Engine substats, drive discs, and set bonuses.
-// 4. Apply the bonuses to the base stats in a strict order (Base * (1 + PercentBonus) + FlatBonus) to compute the final stats.
+// calculateAgentStats populates the BaseStats and final Stats of an [Agent].
+//
+// Pipeline execution order:
+//  1. Calculate innate base stats from Agent level growth, Promotion phase, and Core Skill Enhancements.
+//  2. Add W-Engine Base ATK (which merges directly into the Agent's innate Base ATK).
+//  3. Accumulate all percentage multipliers and flat bonuses from W-Engine substats, Drive Discs, and set bonuses.
+//  4. Compute final combat stats applying multipliers: Base * (1 + PercentBonus) + FlatBonus.
+//  5. Apply ZZZ rounding rules: math.Floor for HP, ATK, DEF, Impact, Anomaly, PenFlat, SheerForce;
+//     exact floating-point decimals for CritRate, CritDMG, PenRatio, and EnergyRegen.
 func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	meta, ok := s.AvatarMeta(agent.ID)
 	if !ok {
@@ -249,7 +256,7 @@ func accumulateSetBonus(agent *Agent, s store.MetadataStore, addBonus func(int, 
 		if bonus.Count < 2 {
 			continue
 		}
-		if suitMeta, ok := s.EquipmentSuitMeta(bonus.Set.ID); ok {
+		if suitMeta, ok := s.EquipmentSuitMeta(int(bonus.Set.ID)); ok {
 			for propID, val := range suitMeta.SetBonusProps {
 				isPercent := false
 				if pMeta, pOk := s.PropertyMeta(propID); pOk {

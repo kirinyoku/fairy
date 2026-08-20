@@ -7,10 +7,10 @@ import (
 	"github.com/kirinyoku/fairy/internal/store"
 )
 
-func TestAgent_SubStatTotals(t *testing.T) {
+func TestDriveDiscs_SubStatTotals(t *testing.T) {
 	tests := []struct {
 		name     string
-		discs    []DriveDisc
+		discs    DriveDiscs
 		expected []StatValue
 	}{
 		{
@@ -20,7 +20,7 @@ func TestAgent_SubStatTotals(t *testing.T) {
 		},
 		{
 			name: "single disc preserves substats",
-			discs: []DriveDisc{
+			discs: DriveDiscs{
 				{
 					SubStats: []StatValue{
 						{PropertyID: PropCritRate, Name: "CRIT Rate", Value: 4.8, Rolls: 2, IsPercent: true},
@@ -35,7 +35,7 @@ func TestAgent_SubStatTotals(t *testing.T) {
 		},
 		{
 			name: "multiple discs aggregate values and rolls while preserving first appearance order",
-			discs: []DriveDisc{
+			discs: DriveDiscs{
 				{
 					Slot: 1,
 					SubStats: []StatValue{
@@ -76,7 +76,7 @@ func TestAgent_SubStatTotals(t *testing.T) {
 			agent := &Agent{
 				DriveDiscs: tt.discs,
 			}
-			got := agent.SubStatTotals()
+			got := agent.DriveDiscs.SubStatTotals()
 
 			if len(got) != len(tt.expected) {
 				t.Fatalf("SubStatTotals() returned %d items, want %d", len(got), len(tt.expected))
@@ -104,69 +104,67 @@ func TestAgent_SubStatTotals(t *testing.T) {
 	}
 }
 
-func TestAgent_CountEffectiveRolls(t *testing.T) {
-	agent := &Agent{
-		DriveDiscs: []DriveDisc{
-			{
-				SubStats: []StatValue{
-					{PropertyID: PropCritRate, Rolls: 2},
-					{PropertyID: PropATKFlat, Rolls: 1},
-				},
+func TestDriveDiscs_CountEffectiveRolls(t *testing.T) {
+	discs := DriveDiscs{
+		{
+			SubStats: []StatValue{
+				{PropertyID: PropCritRate, Rolls: 2},
+				{PropertyID: PropATKFlat, Rolls: 1},
 			},
-			{
-				SubStats: []StatValue{
-					{PropertyID: PropCritDMG, Rolls: 3},
-					{PropertyID: PropCritRate, Rolls: 1},
-				},
+		},
+		{
+			SubStats: []StatValue{
+				{PropertyID: PropCritDMG, Rolls: 3},
+				{PropertyID: PropCritRate, Rolls: 1},
 			},
-			{
-				SubStats: []StatValue{
-					{PropertyID: PropPENRatio, Rolls: 2},
-					{PropertyID: PropHPPercent, Rolls: 1},
-				},
+		},
+		{
+			SubStats: []StatValue{
+				{PropertyID: PropPENRatio, Rolls: 2},
+				{PropertyID: PropHPPercent, Rolls: 1},
 			},
 		},
 	}
 
 	tests := []struct {
 		name        string
-		agent       *Agent
+		discs       DriveDiscs
 		targetProps []PropertyID
 		expected    int
 	}{
 		{
 			name:        "crit stats only (rate + dmg)",
-			agent:       agent,
+			discs:       discs,
 			targetProps: []PropertyID{PropCritRate, PropCritDMG},
 			expected:    6, // Disc 1 (2) + Disc 2 (3 + 1) = 6
 		},
 		{
 			name:        "single prop",
-			agent:       agent,
+			discs:       discs,
 			targetProps: []PropertyID{PropPENRatio},
 			expected:    2,
 		},
 		{
 			name:        "non matching prop",
-			agent:       agent,
+			discs:       discs,
 			targetProps: []PropertyID{PropDEFPercent},
 			expected:    0,
 		},
 		{
 			name:        "duplicate target props do not overcount",
-			agent:       agent,
+			discs:       discs,
 			targetProps: []PropertyID{PropCritRate, PropCritRate, PropCritDMG},
 			expected:    6,
 		},
 		{
 			name:        "empty targets",
-			agent:       agent,
+			discs:       discs,
 			targetProps: []PropertyID{},
 			expected:    0,
 		},
 		{
-			name:        "agent with no discs",
-			agent:       &Agent{},
+			name:        "empty discs",
+			discs:       nil,
 			targetProps: []PropertyID{PropCritRate},
 			expected:    0,
 		},
@@ -174,7 +172,7 @@ func TestAgent_CountEffectiveRolls(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := tt.agent.CountEffectiveRolls(tt.targetProps...)
+			got := tt.discs.CountEffectiveRolls(tt.targetProps...)
 			if got != tt.expected {
 				t.Errorf("CountEffectiveRolls() = %d, want %d", got, tt.expected)
 			}

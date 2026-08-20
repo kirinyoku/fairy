@@ -6,29 +6,30 @@ import (
 	"github.com/kirinyoku/fairy/internal/store"
 )
 
-// Attribute represents the elemental attribute of an agent.
+// Attribute represents the elemental combat attribute (damage type) of an [Agent].
 type Attribute string
 
+// Supported elemental combat attributes in Zenless Zone Zero.
 const (
-	// AttributePhysical represents the agent's Physical attribute.
+	// AttributePhysical represents the Physical damage attribute.
 	AttributePhysical Attribute = "Physical"
-	// AttributeHonedEdge represents the agent's Honed Edge attribute.
+	// AttributeHonedEdge represents the Honed Edge attribute (Physical variant).
 	AttributeHonedEdge Attribute = "HonedEdge"
-	// AttributeFire represents the agent's Fire attribute.
+	// AttributeFire represents the Fire damage attribute.
 	AttributeFire Attribute = "Fire"
-	// AttributeIce represents the agent's Ice attribute.
+	// AttributeIce represents the Ice damage attribute.
 	AttributeIce Attribute = "Ice"
-	// AttributeFrost represents the agent's Frost attribute.
+	// AttributeFrost represents the Frost attribute (Ice variant).
 	AttributeFrost Attribute = "Frost"
-	// AttributeElectric represents the agent's Electric attribute.
+	// AttributeElectric represents the Electric damage attribute.
 	AttributeElectric Attribute = "Electric"
-	// AttributeEther represents the agent's Ether attribute.
+	// AttributeEther represents the Ether damage attribute.
 	AttributeEther Attribute = "Ether"
-	// AttributeAuricInk represents the agent's Auric Ink attribute.
+	// AttributeAuricInk represents the Auric Ink attribute (Ether variant).
 	AttributeAuricInk Attribute = "AuricInk"
-	// AttributeWind represents the agent's Wind attribute.
+	// AttributeWind represents the Wind damage attribute.
 	AttributeWind Attribute = "Wind"
-	// AttributeLumiflux represents the agent's Lumiflux attribute.
+	// AttributeLumiflux represents the Lumiflux damage attribute.
 	AttributeLumiflux Attribute = "Lumiflux"
 )
 
@@ -45,14 +46,15 @@ var allAttributes = [...]Attribute{
 	AttributeLumiflux,
 }
 
-// AllAttributes returns a slice containing all agent elemental attributes.
+// AllAttributes returns a newly allocated slice containing all 10 supported [Attribute] constants.
+// The returned slice is a defensive copy and can be safely mutated by the caller.
 func AllAttributes() []Attribute {
 	attrs := make([]Attribute, len(allAttributes))
 	copy(attrs, allAttributes[:])
 	return attrs
 }
 
-// IsValid reports whether the attribute is a recognized agent elemental attribute.
+// IsValid reports whether the attribute is one of the recognized [Attribute] constants.
 func (a Attribute) IsValid() bool {
 	for _, attr := range allAttributes {
 		if a == attr {
@@ -62,21 +64,22 @@ func (a Attribute) IsValid() bool {
 	return false
 }
 
-// Specialty represents the combat role or class of an agent.
+// Specialty represents the combat role or class of an [Agent].
 type Specialty string
 
+// Supported combat specialties in Zenless Zone Zero.
 const (
-	// SpecialtyAttack represents the Attack combat role.
+	// SpecialtyAttack represents the Attack role.
 	SpecialtyAttack Specialty = "Attack"
-	// SpecialtyStun represents the Stun combat role.
+	// SpecialtyStun represents the Stun role.
 	SpecialtyStun Specialty = "Stun"
-	// SpecialtyAnomaly represents the Anomaly combat role.
+	// SpecialtyAnomaly represents the Anomaly role.
 	SpecialtyAnomaly Specialty = "Anomaly"
-	// SpecialtySupport represents the Support combat role.
+	// SpecialtySupport represents the Support role.
 	SpecialtySupport Specialty = "Support"
-	// SpecialtyDefense represents the Defense combat role.
+	// SpecialtyDefense represents the Defense role.
 	SpecialtyDefense Specialty = "Defense"
-	// SpecialtyRupture represents the Rupture combat role.
+	// SpecialtyRupture represents the Rupture role.
 	SpecialtyRupture Specialty = "Rupture"
 )
 
@@ -89,14 +92,15 @@ var allSpecialties = [...]Specialty{
 	SpecialtyRupture,
 }
 
-// AllSpecialties returns a slice containing all combat specialties/roles.
+// AllSpecialties returns a newly allocated slice containing all 6 supported [Specialty] constants.
+// The returned slice is a defensive copy and can be safely mutated by the caller.
 func AllSpecialties() []Specialty {
 	specs := make([]Specialty, len(allSpecialties))
 	copy(specs, allSpecialties[:])
 	return specs
 }
 
-// IsValid reports whether the specialty is a recognized combat role.
+// IsValid reports whether the specialty is one of the recognized [Specialty] constants.
 func (s Specialty) IsValid() bool {
 	for _, spec := range allSpecialties {
 		if s == spec {
@@ -106,15 +110,16 @@ func (s Specialty) IsValid() bool {
 	return false
 }
 
-// Rarity represents the rarity tier of agents and equipment.
+// Rarity represents the rarity tier (rank) of an [Agent], [WEngine], or [DriveDisc].
 type Rarity string
 
+// Supported rarity ranks in Zenless Zone Zero.
 const (
-	// RarityS represents the S-rank tier.
+	// RarityS represents the S-Rank tier.
 	RarityS Rarity = "S"
-	// RarityA represents the A-rank tier.
+	// RarityA represents the A-Rank tier.
 	RarityA Rarity = "A"
-	// RarityB represents the B-rank tier.
+	// RarityB represents the B-Rank tier (used for W-Engines and Drive Discs).
 	RarityB Rarity = "B"
 )
 
@@ -124,14 +129,15 @@ var allRarities = [...]Rarity{
 	RarityB,
 }
 
-// AllRarities returns a slice containing all rarity tiers.
+// AllRarities returns a newly allocated slice containing all supported [Rarity] constants.
+// The returned slice is a defensive copy and can be safely mutated by the caller.
 func AllRarities() []Rarity {
 	rarities := make([]Rarity, len(allRarities))
 	copy(rarities, allRarities[:])
 	return rarities
 }
 
-// IsValid reports whether the rarity is a recognized rarity tier.
+// IsValid reports whether the rarity is one of the recognized [Rarity] constants.
 func (r Rarity) IsValid() bool {
 	for _, rarity := range allRarities {
 		if r == rarity {
@@ -142,7 +148,8 @@ func (r Rarity) IsValid() bool {
 }
 
 // BaseAttribute returns the core elemental attribute that this attribute deals damage as.
-// For example, AuricInk deals Ether DMG, HonedEdge deals Physical DMG, and Frost deals Ice DMG.
+// For example, [AttributeAuricInk] deals Ether DMG, [AttributeHonedEdge] deals Physical DMG,
+// and [AttributeFrost] deals Ice DMG.
 func (a Attribute) BaseAttribute() Attribute {
 	switch a {
 	case AttributeAuricInk:
@@ -156,12 +163,13 @@ func (a Attribute) BaseAttribute() Attribute {
 	}
 }
 
-// SVG returns the raw inline SVG markup string for the attribute.
+// SVG returns the raw inline SVG markup string for the attribute icon.
 func (a Attribute) SVG() string {
 	return attributeSVGMap[a]
 }
 
-// IconURL returns the base64-encoded Data URI string containing the attribute's SVG icon.
+// IconURL returns a base64-encoded Data URI string ("data:image/svg+xml;base64,...")
+// containing the attribute's SVG icon for direct use in web frontend <img> tags.
 func (a Attribute) IconURL() string {
 	svg := a.SVG()
 	if svg == "" {
@@ -170,7 +178,7 @@ func (a Attribute) IconURL() string {
 	return "data:image/svg+xml;base64," + base64.StdEncoding.EncodeToString([]byte(svg))
 }
 
-// IconURL returns the official Enka CDN icon URL for the specialty.
+// IconURL returns the official EnkaNetwork CDN icon URL for the specialty.
 func (s Specialty) IconURL() string {
 	switch s {
 	case SpecialtyAttack:
@@ -190,7 +198,7 @@ func (s Specialty) IconURL() string {
 	}
 }
 
-// IconURL returns the official Enka CDN icon URL for the rarity tier.
+// IconURL returns the official EnkaNetwork CDN icon URL for the rarity tier.
 func (r Rarity) IconURL() string {
 	switch r {
 	case RarityS:
@@ -204,24 +212,38 @@ func (r Rarity) IconURL() string {
 	}
 }
 
-// Skin represents the equipped skin (outfit) of an agent.
+// Skin represents an equipped cosmetic skin (outfit) of an [Agent].
 type Skin struct {
-	ID           int    `json:"id"`             // The internal ID of the skin.
-	Name         string `json:"name"`           // The localized name of the skin.
-	Description  string `json:"description"`    // The localized description of the skin.
-	SplashArtURL string `json:"splash_art_url"` // The URL to the skin's splash art.
+	// ID is the internal numeric identifier of the skin.
+	ID int `json:"id"`
+
+	// Name is the localized name of the skin.
+	Name string `json:"name"`
+
+	// Description is the localized lore or description of the skin.
+	Description string `json:"description"`
+
+	// SplashArtURL is the absolute HTTPS URL pointing to the skin's splash art on the EnkaNetwork CDN.
+	SplashArtURL string `json:"splash_art_url"`
 }
 
-// SkillType represents a categorized category of combat skill.
+// SkillType represents a categorized category of combat skill matching in-game button inputs.
 type SkillType string
 
+// Supported combat skill categories in Zenless Zone Zero.
 const (
-	SkillTypeBasic   SkillType = "basic"   // Basic Attack
-	SkillTypeDodge   SkillType = "dodge"   // Dodge & Counter
-	SkillTypeAssist  SkillType = "assist"  // Quick & Defensive Assists
-	SkillTypeSpecial SkillType = "special" // Special & EX Special Attack
-	SkillTypeChain   SkillType = "chain"   // Chain Attack & Ultimate
-	SkillTypePassive SkillType = "passive" // Core Passive & Additional Ability
+	// SkillTypeBasic represents Basic Attack combos.
+	SkillTypeBasic SkillType = "basic"
+	// SkillTypeDodge represents Dodge, Dash Attack, and Dodge Counter.
+	SkillTypeDodge SkillType = "dodge"
+	// SkillTypeAssist represents Quick Assist, Defensive Assist, and Evasive Assist.
+	SkillTypeAssist SkillType = "assist"
+	// SkillTypeSpecial represents Special Attack and EX Special Attack.
+	SkillTypeSpecial SkillType = "special"
+	// SkillTypeChain represents Chain Attack and Ultimate.
+	SkillTypeChain SkillType = "chain"
+	// SkillTypePassive represents Core Passive and Additional Ability.
+	SkillTypePassive SkillType = "passive"
 )
 
 var allSkillTypes = [...]SkillType{
@@ -233,14 +255,15 @@ var allSkillTypes = [...]SkillType{
 	SkillTypePassive,
 }
 
-// AllSkillTypes returns a slice containing all combat skill categories.
+// AllSkillTypes returns a newly allocated slice containing all 6 supported [SkillType] categories.
+// The returned slice is a defensive copy and can be safely mutated by the caller.
 func AllSkillTypes() []SkillType {
 	types := make([]SkillType, len(allSkillTypes))
 	copy(types, allSkillTypes[:])
 	return types
 }
 
-// IsValid reports whether the skill type is a recognized skill category.
+// IsValid reports whether the skill type is one of the recognized [SkillType] categories.
 func (st SkillType) IsValid() bool {
 	for _, t := range allSkillTypes {
 		if st == t {
@@ -250,132 +273,227 @@ func (st SkillType) IsValid() bool {
 	return false
 }
 
-// SkillParam represents a calculated numeric parameter or multiplier for a skill.
+// SkillParam represents a calculated numeric parameter or damage multiplier for a skill.
 type SkillParam struct {
-	Name  string `json:"name"`  // Localized parameter name.
-	Value string `json:"value"` // Formatted value.
+	// Name is the localized parameter label (e.g. "1-Hit DMG").
+	Name string `json:"name"`
+
+	// Value is the pre-formatted value string with level scaling evaluated (e.g. "124.5%").
+	Value string `json:"value"`
 }
 
-// Skill represents an agent's combat skill or passive ability.
+// Skill represents an individual combat ability or passive effect of an [Agent].
 type Skill struct {
-	Level         int          `json:"level"`                    // The level of the skill.
-	Name          string       `json:"name"`                     // The localized name of the skill.
-	Description   string       `json:"description"`              // The localized description of the skill.
-	FormattedHTML string       `json:"formatted_html,omitempty"` // Formatted HTML description with inline colors and evaluated formulas.
-	Type          SkillType    `json:"type"`                     // Category type of the skill (basic, dodge, assist, special, chain, passive).
-	TypeName      string       `json:"type_name"`                // Localized category type name.
-	Params        []SkillParam `json:"params,omitempty"`         // Numeric parameters / multiplier table.
+	// Level is the current progression level of the skill.
+	Level int `json:"level"`
+
+	// Name is the localized display name of the skill.
+	Name string `json:"name"`
+
+	// Description is the localized description text with Unity Rich Text formatting and formula tags.
+	Description string `json:"description"`
+
+	// FormattedHTML is the web-ready HTML description with inline colors, icon tags, and evaluated formulas.
+	FormattedHTML string `json:"formatted_html,omitempty"`
+
+	// Type is the categorized [SkillType] of the skill (basic, dodge, assist, special, chain, passive).
+	Type SkillType `json:"type"`
+
+	// TypeName is the localized name of the skill category (e.g. "Basic Attack", "EX Special Attack").
+	TypeName string `json:"type_name"`
+
+	// Params is the list of calculated numeric parameters and multipliers evaluated for the skill's current level.
+	Params []SkillParam `json:"params,omitempty"`
 }
 
-// SkillGroup represents a categorized group of skills matching the in-game UI / Enka buttons.
+// SkillGroup represents a categorized group of skills matching the 6 in-game UI skill tabs/buttons.
 type SkillGroup struct {
-	Type     SkillType `json:"type"`      // Group category key ("basic", "special", "dodge", "chain", "assist", "passive").
-	TypeName string    `json:"type_name"` // Localized category group name.
-	Level    int       `json:"level"`     // Group level (1-12 for active skills, 0-6 for core passives).
-	Skills   []Skill   `json:"skills"`    // Individual skills belonging to this category group.
+	// Type is the group category key ([SkillTypeBasic], [SkillTypeSpecial], etc.).
+	Type SkillType `json:"type"`
+
+	// TypeName is the localized category tab name.
+	TypeName string `json:"type_name"`
+
+	// Level is the progression level of the group (1–12 for active skills, 0–6 for core passives).
+	Level int `json:"level"`
+
+	// Skills is the list of individual [Skill] abilities belonging to this category group tab.
+	Skills []Skill `json:"skills"`
 }
 
-// EvaluatedDescription returns the skill description with all scaling formulas ({CAL:...})
+// EvaluatedDescription returns the skill description with all dynamic scaling formulas ({CAL:...})
 // evaluated for the skill's current level.
 func (s Skill) EvaluatedDescription() string {
 	return evaluateFormulas(s.Description, s.Level)
 }
 
-// FormatHTML returns the skill description formatted as HTML with inline CSS colors,
-// semantic icon spans, and scaling formulas evaluated for the skill's current level.
+// FormatHTML returns the skill description formatted as HTML with inline CSS styling,
+// embedded Enka CDN icon tags, and scaling formulas evaluated for the skill's current level.
 func (s Skill) FormatHTML() string {
 	return formatHTML(s.Description, s.Level)
 }
 
-// FormatPlainText returns the skill description as clean plain text with all tags stripped
+// FormatPlainText returns the skill description as clean plain text with all Unity Rich Text tags stripped
 // and scaling formulas evaluated for the skill's current level.
 func (s Skill) FormatPlainText() string {
 	return formatPlainText(s.Description, s.Level)
 }
 
-// FormatMarkdown returns the skill description formatted in Markdown (bold tags for colored values)
+// FormatMarkdown returns the skill description formatted in Markdown (bold highlights for colored text)
 // with scaling formulas evaluated for the skill's current level.
 func (s Skill) FormatMarkdown() string {
 	return formatMarkdown(s.Description, s.Level)
 }
 
-// Agent represents an enriched agent (character) showcased on a player's profile.
-// A profile can showcase a maximum of 6 agents. It contains the agent's combat
-// metadata, equipped gear, and final stats.
+// Agent represents an enriched Agent showcased on a player's [Profile].
+// A profile can showcase up to 6 agents. It aggregates combat metadata,
+// equipped gear ([WEngine], [DriveDisc] entries), active set bonuses, and final combat [Stats].
 type Agent struct {
-	ID                   int                 `json:"id"`                     // The internal ID of the agent.
-	Name                 string              `json:"name"`                   // The localized name of the agent (e.g., "Ellen").
-	Level                int                 `json:"level"`                  // The current level of the agent (1-60).
-	Promotion            int                 `json:"promotion"`              // The promotion/ascension phase of the agent (0-5).
-	MindscapeCinema      int                 `json:"mindscape_cinema"`       // The unlocked Mindscape Cinema level (0-6).
-	CoreSkillEnhancement int                 `json:"core_skill_enhancement"` // The Core Skill enhancement level (0-6).
-	Attribute            Attribute           `json:"attribute"`              // The elemental damage type (e.g., Ice).
-	AttributeName        string              `json:"attribute_name"`         // The localized name of the attribute.
-	Specialty            Specialty           `json:"specialty"`              // The combat role (e.g., Attack).
-	SpecialtyName        string              `json:"specialty_name"`         // The localized name of the specialty.
-	Rarity               Rarity              `json:"rarity"`                 // The rarity tier (S or A).
-	Skin                 *Skin               `json:"skin"`                   // The currently equipped skin (can be nil if not found).
-	SplashArtURL         string              `json:"splash_art_url"`         // The URL to the agent's splash art.
-	Skills               []Skill             `json:"skills"`                 // The agent's skills and passives.
-	SkillGroups          []SkillGroup        `json:"grouped_skills"`         // Skills categorized into 6 UI groups (Passives, Basic, Special, Dodge, Chain, Assist).
-	Mindscapes           []MindscapeNode     `json:"mindscapes"`             // The agent's Mindscape Cinema levels (1-6).
-	PotentialVision      *PotentialVision    `json:"potential_vision"`       // Potential Vision upgrade mechanics (can be nil if agent has none).
-	WEngine              *WEngine            `json:"w_engine"`               // The currently equipped W-Engine (can be nil).
-	DriveDiscs           []DriveDisc         `json:"drive_discs"`            // The equipped Drive Discs (up to 6).
-	ActiveSetBonuses     []DriveDiscSetBonus `json:"active_set_bonuses"`     // The active 2-piece or 4-piece set bonuses.
-	BaseStats            Stats               `json:"base_stats"`             // The agent's base combat stats before gear/buffs.
-	Stats                Stats               `json:"stats"`                  // The agent's final combat stats including all gear/buffs.
-	UIStats              UIStats             `json:"ui_stats"`               // UI-ready formatted combat stats panel with icons and breakdowns.
+	// ID is the internal numeric identifier of the Agent.
+	ID int `json:"id"`
+
+	// Name is the localized display name of the Agent (e.g. "Ellen", "Zhu Yuan", "Miyabi").
+	Name string `json:"name"`
+
+	// Level is the current level of the Agent (1–60).
+	Level int `json:"level"`
+
+	// Promotion is the current Promotion (ascension) phase of the Agent (0–5).
+	Promotion int `json:"promotion"`
+
+	// MindscapeCinema is the unlocked Mindscape Cinema level of the Agent (0–6).
+	MindscapeCinema int `json:"mindscape_cinema"`
+
+	// CoreSkillEnhancement is the Core Skill Enhancement level of the Agent (0–6 / Core A–F).
+	CoreSkillEnhancement int `json:"core_skill_enhancement"`
+
+	// Attribute is the elemental combat damage type of the Agent (e.g. [AttributeIce], [AttributeEther]).
+	Attribute Attribute `json:"attribute"`
+
+	// AttributeName is the localized display name of the Agent's elemental attribute (e.g. "Ice", "Ether").
+	AttributeName string `json:"attribute_name"`
+
+	// Specialty is the combat role of the Agent (e.g. [SpecialtyAttack], [SpecialtyStun]).
+	Specialty Specialty `json:"specialty"`
+
+	// SpecialtyName is the localized display name of the Agent's combat specialty (e.g. "Attack", "Stun").
+	SpecialtyName string `json:"specialty_name"`
+
+	// Rarity is the rarity rank of the Agent ([RarityS] or [RarityA]).
+	Rarity Rarity `json:"rarity"`
+
+	// Skin is the currently equipped cosmetic outfit. May be nil if default appearance is used.
+	Skin *Skin `json:"skin"`
+
+	// SplashArtURL is the absolute HTTPS URL pointing to the Agent's full splash art on the EnkaNetwork CDN.
+	SplashArtURL string `json:"splash_art_url"`
+
+	// Skills is the flat list of all individual combat abilities and passives.
+	Skills []Skill `json:"skills"`
+
+	// SkillGroups contains the Agent's skills categorized into 6 UI groups matching in-game skill tabs.
+	SkillGroups []SkillGroup `json:"grouped_skills"`
+
+	// Mindscapes contains all 6 [MindscapeNode] levels (Cinema 1–6) with their unlocked status.
+	Mindscapes []MindscapeNode `json:"mindscapes"`
+
+	// PotentialVision holds Potential Vision upgrade status and nodes (nil if Agent has no Potential Vision).
+	PotentialVision *PotentialVision `json:"potential_vision"`
+
+	// WEngine is the currently equipped W-Engine. May be nil if no weapon is equipped.
+	WEngine *WEngine `json:"w_engine"`
+
+	// DriveDiscs is the collection of equipped [DriveDisc] pieces (up to 6 discs, slots 1–6).
+	DriveDiscs DriveDiscs `json:"drive_discs"`
+
+	// ActiveSetBonuses is the list of active 2-piece and 4-piece Drive Disc set bonuses.
+	ActiveSetBonuses []DriveDiscSetBonus `json:"active_set_bonuses"`
+
+	// BaseStats contains the Agent's innate combat stats (Agent level growth + W-Engine Base ATK).
+	BaseStats Stats `json:"base_stats"`
+
+	// Stats contains the Agent's final calculated combat stats after applying all gear and buffs.
+	Stats Stats `json:"stats"`
+
+	// UIStats contains pre-formatted combat stat breakdowns (Base + Added = Total) with localized names and icons ready for frontend rendering.
+	UIStats UIStats `json:"ui_stats"`
 }
 
-// MindscapeNode represents a single Mindscape Cinema level (1-6) for an Agent.
+// MindscapeNode represents a single Mindscape Cinema level (M1–M6) for an [Agent].
 type MindscapeNode struct {
-	Rank          int    `json:"rank"`                     // Cinema level (1 to 6).
-	Name          string `json:"name"`                     // Localized name of the Mindscape Cinema.
-	Description   string `json:"description"`              // Localized description of the effect.
-	FormattedHTML string `json:"formatted_html,omitempty"` // Formatted HTML description with inline colors.
-	Unlocked      bool   `json:"unlocked"`                 // True if unlocked (MindscapeCinema >= Rank).
+	// Rank is the Mindscape Cinema level (1 to 6).
+	Rank int `json:"rank"`
+
+	// Name is the localized name of the Mindscape Cinema node.
+	Name string `json:"name"`
+
+	// Description is the localized description text of the Mindscape Cinema node effect.
+	Description string `json:"description"`
+
+	// FormattedHTML is the web-ready HTML description with inline CSS colors.
+	FormattedHTML string `json:"formatted_html,omitempty"`
+
+	// Unlocked indicates whether this Mindscape Cinema node is unlocked on the Agent (MindscapeCinema >= Rank).
+	Unlocked bool `json:"unlocked"`
 }
 
-// FormatHTML returns the Mindscape description formatted as HTML with inline CSS colors.
+// FormatHTML returns the Mindscape Cinema node description formatted as HTML with inline CSS styling.
 func (m MindscapeNode) FormatHTML() string {
 	return formatHTML(m.Description)
 }
 
-// FormatPlainText returns the Mindscape description stripped of Rich Text formatting.
+// FormatPlainText returns the Mindscape Cinema node description stripped of Unity Rich Text formatting.
 func (m MindscapeNode) FormatPlainText() string {
 	return formatPlainText(m.Description)
 }
 
-// FormatMarkdown returns the Mindscape description formatted with Markdown syntax.
+// FormatMarkdown returns the Mindscape Cinema node description formatted with Markdown syntax (bold highlights).
 func (m MindscapeNode) FormatMarkdown() string {
 	return formatMarkdown(m.Description)
 }
 
-// PotentialVision represents Potential Vision status and nodes for an Agent.
+// PotentialVision holds Potential Vision upgrade mechanics and nodes for an [Agent].
 type PotentialVision struct {
-	IsUnlocked bool                  `json:"is_unlocked"` // True if Potential Vision mechanic is unlocked.
-	CurrentID  int                   `json:"current_id"`  // Current active Upgrade ID.
-	Nodes      []PotentialVisionNode `json:"nodes"`       // All potential vision upgrade nodes.
+	// IsUnlocked indicates whether the Potential Vision mechanic is unlocked.
+	IsUnlocked bool `json:"is_unlocked"`
+
+	// CurrentID is the currently active upgrade node ID.
+	CurrentID int `json:"current_id"`
+
+	// Nodes contains all Potential Vision upgrade nodes for the Agent.
+	Nodes []PotentialVisionNode `json:"nodes"`
 }
 
 // PotentialVisionNode represents a single Potential Vision upgrade node.
 type PotentialVisionNode struct {
-	ID            int    `json:"id"`                       // Upgrade node ID.
-	Level         int    `json:"level"`                    // Level threshold (1 to 6).
-	LevelName     string `json:"level_name"`               // Localized level title.
-	Title         string `json:"title"`                    // Localized title.
-	Description   string `json:"description"`              // Localized effect description.
-	FormattedHTML string `json:"formatted_html,omitempty"` // Formatted HTML description with inline colors.
-	IsActive      bool   `json:"is_active"`                // True if this node is active on the agent.
+	// ID is the internal numeric identifier of the upgrade node.
+	ID int `json:"id"`
+
+	// Level is the level threshold of the node (1 to 6).
+	Level int `json:"level"`
+
+	// LevelName is the localized level title.
+	LevelName string `json:"level_name"`
+
+	// Title is the localized title of the upgrade effect.
+	Title string `json:"title"`
+
+	// Description is the localized effect description.
+	Description string `json:"description"`
+
+	// FormattedHTML is the web-ready HTML description with inline CSS colors.
+	FormattedHTML string `json:"formatted_html,omitempty"`
+
+	// IsActive indicates whether this upgrade node is currently active on the Agent.
+	IsActive bool `json:"is_active"`
 }
 
-// FormatHTML returns the PotentialVisionNode description formatted as HTML with inline CSS colors.
+// FormatHTML returns the PotentialVisionNode description formatted as HTML with inline CSS styling.
 func (p PotentialVisionNode) FormatHTML() string {
 	return formatHTML(p.Description)
 }
 
-// FormatPlainText returns the PotentialVisionNode description stripped of Rich Text formatting.
+// FormatPlainText returns the PotentialVisionNode description stripped of Unity Rich Text formatting.
 func (p PotentialVisionNode) FormatPlainText() string {
 	return formatPlainText(p.Description)
 }
@@ -383,52 +501,6 @@ func (p PotentialVisionNode) FormatPlainText() string {
 // FormatMarkdown returns the PotentialVisionNode description formatted with Markdown syntax.
 func (p PotentialVisionNode) FormatMarkdown() string {
 	return formatMarkdown(p.Description)
-}
-
-// SubStatTotals calculates the sum of all sub-stats across all equipped Drive Discs.
-// It groups them by PropertyID and sums the Rolls and Values.
-// The returned slice is guaranteed to preserve the initial appearance order of sub-stats.
-func (a *Agent) SubStatTotals() []StatValue {
-	totals := make(map[PropertyID]StatValue)
-	var order []PropertyID // Keep track of the order to ensure deterministic output
-
-	for _, disc := range a.DriveDiscs {
-		for _, sub := range disc.SubStats {
-			if curr, exists := totals[sub.PropertyID]; exists {
-				curr.Value += sub.Value
-				curr.Rolls += sub.Rolls
-				totals[sub.PropertyID] = curr
-			} else {
-				totals[sub.PropertyID] = sub
-				order = append(order, sub.PropertyID)
-			}
-		}
-	}
-
-	result := make([]StatValue, 0, len(order))
-	for _, id := range order {
-		result = append(result, totals[id])
-	}
-	return result
-}
-
-// CountEffectiveRolls returns the total number of sub-stat rolls across all Drive Discs
-// that match any of the provided target property IDs (also known as "effective" or "useful" rolls).
-func (a *Agent) CountEffectiveRolls(targetProps ...PropertyID) int {
-	total := 0
-	targetMap := make(map[PropertyID]bool)
-	for _, p := range targetProps {
-		targetMap[p] = true
-	}
-
-	for _, disc := range a.DriveDiscs {
-		for _, sub := range disc.SubStats {
-			if targetMap[sub.PropertyID] {
-				total += sub.Rolls
-			}
-		}
-	}
-	return total
 }
 
 func getStatName(st store.MetadataStore, key string, lang Language) string {
