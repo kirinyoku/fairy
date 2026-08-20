@@ -1,22 +1,23 @@
 package fairy
 
 const (
-	// EnkaAssetBaseURL is the base URL for Enka Network Zenless Zone Zero UI assets.
+	// EnkaAssetBaseURL is the base HTTPS URL for Enka.Network Zenless Zone Zero CDN UI assets
+	// (such as agent splash arts, icons, badges, and W-Engine textures).
 	EnkaAssetBaseURL = "https://enka.network/ui/zzz/"
 
-	// statModifierScale is the fixed divisor used by ZZZ data tables to convert integer stat growth/modifiers into float multipliers.
+	// statModifierScale is the fixed divisor used by ZZZ data tables to convert integer stat growth/modifiers into float multipliers (10000 = 100%).
 	statModifierScale = 10000.0
 
-	// defaultBaseCritRate is the default base critical hit rate for all agents (5%).
+	// defaultBaseCritRate is the default innate base critical hit rate for all agents (5.0%).
 	defaultBaseCritRate = 0.05
 
-	// defaultBaseCritDMG is the default base critical hit damage for all agents (50%).
+	// defaultBaseCritDMG is the default innate base critical hit damage for all agents (50.0%).
 	defaultBaseCritDMG = 0.50
 
-	// defaultBasePenRatio is the default base penetration ratio for all agents (0%).
+	// defaultBasePenRatio is the default innate base penetration ratio for all agents (0.0%).
 	defaultBasePenRatio = 0.0
 
-	// defaultBasePenFlat is the default base flat penetration for all agents (0).
+	// defaultBasePenFlat is the default innate base flat penetration for all agents (0).
 	defaultBasePenFlat = 0.0
 )
 

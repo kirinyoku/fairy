@@ -8,18 +8,38 @@ import (
 	"strings"
 )
 
+// Regular expressions used for parsing Unity Rich Text and game description tags.
 var (
-	colorTagRegex        = regexp.MustCompile(`(?i)<color=(#[0-9a-fA-F]{3,8})>(.*?)</color>`)
-	bracketColorRegex    = regexp.MustCompile(`(?i)<color=(#[0-9a-fA-F]{3,8})>\[([^\]]+)\]</color>`)
-	termBracketRegex     = regexp.MustCompile(`\[([A-Z][A-Za-z0-9_\s:\'\-·]+)\]`)
-	iconTagRegex         = regexp.MustCompile(`<IconMap:Icon_([a-zA-Z0-9_]+)>`)
-	anyTagRegex          = regexp.MustCompile(`<[^>]*>`)
-	calTagRegex          = regexp.MustCompile(`\{CAL:([^,]+),([^,]+),([^\}]+)\}`)
-	skillLevelRegex      = regexp.MustCompile(`(?i)AvatarSkillLevel\(\d+\)`)
-	layoutSequenceRegex  = regexp.MustCompile(`(\{LAYOUT_[^}]+\})+`)
+	// colorTagRegex matches Unity rich text color tags, e.g. <color=#2BAD00>20%</color>.
+	colorTagRegex = regexp.MustCompile(`(?i)<color=(#[0-9a-fA-F]{3,8})>(.*?)</color>`)
+
+	// bracketColorRegex matches color tags wrapping bracketed terms, e.g. <color=#FE437E>[Ether DMG]</color>.
+	bracketColorRegex = regexp.MustCompile(`(?i)<color=(#[0-9a-fA-F]{3,8})>\[([^\]]+)\]</color>`)
+
+	// termBracketRegex matches capitalized in-game game terms enclosed in brackets, e.g. [Special Attack].
+	termBracketRegex = regexp.MustCompile(`\[([A-Z][A-Za-z0-9_\s:\'\-·]+)\]`)
+
+	// iconTagRegex matches Unity button and skill icon placeholders, e.g. <IconMap:Icon_SpecialReady>.
+	iconTagRegex = regexp.MustCompile(`<IconMap:Icon_([a-zA-Z0-9_]+)>`)
+
+	// anyTagRegex matches any XML/HTML-like tag for strip operations.
+	anyTagRegex = regexp.MustCompile(`<[^>]*>`)
+
+	// calTagRegex matches level-scaling calculation formula tags, e.g. {CAL:AvatarSkillLevel(1)*0.05+1,1,1}.
+	calTagRegex = regexp.MustCompile(`\{CAL:([^,]+),([^,]+),([^\}]+)\}`)
+
+	// skillLevelRegex matches the AvatarSkillLevel(N) placeholder inside calculation formulas.
+	skillLevelRegex = regexp.MustCompile(`(?i)AvatarSkillLevel\(\d+\)`)
+
+	// layoutSequenceRegex matches sequences of input layout substitution tags.
+	layoutSequenceRegex = regexp.MustCompile(`(\{LAYOUT_[^}]+\})+`)
+
+	// layoutSingleTagRegex matches individual input layout substitution tags, e.g. {LAYOUT_KEYBOARD#E}.
 	layoutSingleTagRegex = regexp.MustCompile(`\{LAYOUT_([^#]+)#([^}]+)\}`)
 )
 
+// resolveLayoutTags parses consecutive {LAYOUT_...#...} tags and selects the generic/fallback
+// representation to produce clean, platform-neutral description text.
 func resolveLayoutTags(text string) string {
 	return layoutSequenceRegex.ReplaceAllStringFunc(text, func(match string) string {
 		matches := layoutSingleTagRegex.FindAllStringSubmatch(match, -1)
@@ -35,6 +55,7 @@ func resolveLayoutTags(text string) string {
 	})
 }
 
+// unwrapTermBrackets strips cosmetic bracket markup around capitalized terms and normalizes color tags.
 func unwrapTermBrackets(text string) string {
 	res := bracketColorRegex.ReplaceAllString(text, "<color=$1>$2</color>")
 	return termBracketRegex.ReplaceAllStringFunc(res, func(match string) string {
@@ -46,6 +67,7 @@ func unwrapTermBrackets(text string) string {
 	})
 }
 
+// iconImageMap maps Unity button icon placeholders to absolute HTTPS URLs on the Enka CDN.
 var iconImageMap = map[string]string{
 	"<IconMap:Icon_UltimateReady>":   EnkaAssetBaseURL + "IconRoleSkillKeyUltimateV2.png",
 	"<IconMap:Icon_SpecialReady>":    EnkaAssetBaseURL + "IconRoleSkillKeySpecialV2.png",
@@ -56,6 +78,7 @@ var iconImageMap = map[string]string{
 	"<IconMap:Icon_Switch>":          EnkaAssetBaseURL + "IconRoleSkillKeySwitch.png",
 }
 
+// iconLabelMap maps Unity button icon placeholders to human-readable textual labels.
 var iconLabelMap = map[string]string{
 	"<IconMap:Icon_UltimateReady>":   "[Ultimate]",
 	"<IconMap:Icon_SpecialReady>":    "[EX Special Attack]",

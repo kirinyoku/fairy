@@ -5,13 +5,15 @@ import (
 	"fmt"
 )
 
-// PropertyID represents a strongly-typed ID for combat properties.
-// The naming convention follows:
-// - Base: The character's innate foundational stat.
-// - Percent / PercentBonus: A percentage modifier applied to the base stat.
-// - Flat / FlatBonus: A direct numerical addition applied after percentages.
+// PropertyID represents a strongly-typed numeric identifier for combat attributes and stats in Zenless Zone Zero.
+//
+// The naming conventions categorize stats into three distinct layers:
+//   - Base: The innate foundational stat before gear multipliers (e.g. [PropBaseATK], [PropBaseHP]).
+//   - Percent: A percentage modifier applied to the base stat (e.g. [PropATKPercent], [PropHPPercent]).
+//   - Flat: A direct numerical addition applied after percentage scaling (e.g. [PropATKFlat], [PropHPFlat]).
 type PropertyID int
 
+// Strongly-typed PropertyID constants for all combat attributes.
 const (
 	// PropBaseHP represents the base Health Points stat.
 	PropBaseHP PropertyID = 11101
@@ -38,7 +40,7 @@ const (
 	// PropDEFFlat represents a flat increase to Defense.
 	PropDEFFlat PropertyID = 13103
 
-	// PropBaseImpact represents the base Impact stat.
+	// PropBaseImpact represents the base Impact stat (influences Daze build-up).
 	PropBaseImpact PropertyID = 12201
 	// PropImpactPercent represents a percentage increase to Impact.
 	PropImpactPercent PropertyID = 12202
@@ -70,14 +72,14 @@ const (
 	// PropEnergyRegen represents an increase to Energy Regeneration.
 	PropEnergyRegen PropertyID = 30503
 
-	// PropBaseAnomalyProficiency represents the base Anomaly Proficiency stat.
+	// PropBaseAnomalyProficiency represents the base Anomaly Proficiency stat (scales Anomaly damage).
 	PropBaseAnomalyProficiency PropertyID = 31201
 	// PropAnomalyProficiencyPercent represents a percentage increase to Anomaly Proficiency.
 	PropAnomalyProficiencyPercent PropertyID = 31202
 	// PropAnomalyProficiency represents an increase to Anomaly Proficiency.
 	PropAnomalyProficiency PropertyID = 31203
 
-	// PropBaseAnomalyMastery represents the base Anomaly Mastery stat.
+	// PropBaseAnomalyMastery represents the base Anomaly Mastery stat (scales Anomaly build-up speed).
 	PropBaseAnomalyMastery PropertyID = 31401
 	// PropAnomalyMasteryPercent represents a percentage increase to Anomaly Mastery.
 	PropAnomalyMasteryPercent PropertyID = 31402
@@ -96,13 +98,18 @@ const (
 	// PropRpRecover represents an increase to Adrenaline Auto-Accumulation.
 	PropRpRecover PropertyID = 32003
 
-	// PropertyIDs for elemental damage bonuses.
+	// PropPhysicalDMGBonus represents the Physical Damage Bonus stat.
 	PropPhysicalDMGBonus PropertyID = 31505
-	PropFireDMGBonus     PropertyID = 31605
-	PropIceDMGBonus      PropertyID = 31705
+	// PropFireDMGBonus represents the Fire Damage Bonus stat.
+	PropFireDMGBonus PropertyID = 31605
+	// PropIceDMGBonus represents the Ice Damage Bonus stat.
+	PropIceDMGBonus PropertyID = 31705
+	// PropElectricDMGBonus represents the Electric Damage Bonus stat.
 	PropElectricDMGBonus PropertyID = 31805
-	PropEtherDMGBonus    PropertyID = 31905
-	PropWindDMGBonus     PropertyID = 32305
+	// PropEtherDMGBonus represents the Ether Damage Bonus stat.
+	PropEtherDMGBonus PropertyID = 31905
+	// PropWindDMGBonus represents the Wind Damage Bonus stat.
+	PropWindDMGBonus PropertyID = 32305
 )
 
 // Property group base prefixes for damage bonuses.
@@ -141,14 +148,25 @@ const (
 	locKeyWindDMGBonus     = "AddedDamageRatio_Wind"
 )
 
-// StatValue represents a single combat stat (main or sub stat).
+// StatValue represents a single combat stat or sub-stat entry (such as a Drive Disc main stat or substat roll).
 type StatValue struct {
-	PropertyID PropertyID `json:"property_id"` // The internal property ID (e.g., 12102 for ATK%).
-	Name       string     `json:"name"`        // The localized name of the stat.
-	Value      float64    `json:"value"`       // The final calculated value of the stat.
-	IsPercent  bool       `json:"is_percent"`  // Indicates if the stat is a percentage.
-	Rolls      int        `json:"rolls"`       // The number of times this stat was upgraded (1 for base, up to 5 for max upgrades).
-	IconURL    string     `json:"icon_url"`    // The base64 Data URI string containing the stat's SVG icon.
+	// PropertyID is the internal strongly-typed [PropertyID] (e.g. [PropATKPercent]).
+	PropertyID PropertyID `json:"property_id"`
+
+	// Name is the localized display name of the stat (e.g. "ATK", "CRIT Rate").
+	Name string `json:"name"`
+
+	// Value is the calculated numerical value of the stat. Percentage stats are stored in decimal format (e.g. 0.048 for 4.8%).
+	Value float64 `json:"value"`
+
+	// IsPercent indicates whether the stat represents a percentage value.
+	IsPercent bool `json:"is_percent"`
+
+	// Rolls is the number of times this stat was upgraded (1 for base roll, up to 5 with upgrades).
+	Rolls int `json:"rolls"`
+
+	// IconURL is the base64 Data URI string ("data:image/svg+xml;base64,...") containing the stat's SVG icon.
+	IconURL string `json:"icon_url"`
 }
 
 // SVG returns the raw inline SVG markup string for the stat property.
@@ -159,7 +177,8 @@ func (p PropertyID) SVG() string {
 	return ""
 }
 
-// IconURL returns the base64-encoded Data URI string containing the stat property's SVG icon.
+// IconURL returns a base64-encoded Data URI string ("data:image/svg+xml;base64,...")
+// containing the stat property's SVG icon for direct use in frontend <img> tags.
 func (p PropertyID) IconURL() string {
 	svg := p.SVG()
 	if svg == "" {
@@ -173,8 +192,7 @@ func (s StatValue) SVG() string {
 	return s.PropertyID.SVG()
 }
 
-// DisplayValue returns the stat's value formatted as a human-readable string.
-// Percentages are multiplied by 100 and formatted with a '%' sign.
+// DisplayValue returns the stat's value formatted as a human-readable string (e.g. "4.8%" or "310").
 func (s StatValue) DisplayValue() string {
 	if s.IsPercent {
 		return fmt.Sprintf("%.1f%%", s.Value*100)
@@ -182,72 +200,161 @@ func (s StatValue) DisplayValue() string {
 	return fmt.Sprintf("%.0f", s.Value)
 }
 
-// Stats represents the aggregated combat stats of an agent.
-// This structure keeps fields minimal and flat for easy access.
-// Internal representation of percentages is in decimal form (e.g., CritRate 0.05 = 5%).
-// EnergyRegen is also represented as its divided final value (e.g., 1.20).
-// Precise calculations and final formulas are opt-in via the calc package.
+// Stats represents the complete aggregated numerical combat stats of an [Agent].
+//
+// Value representations:
+//   - Percentage stats ([Stats.CritRate], [Stats.CritDMG], [Stats.AttributeDMGBonus], [Stats.PenRatio]) are stored as decimals (e.g. 0.05 = 5%, 1.50 = 150%).
+//   - [Stats.EnergyRegen] is stored as energy recovered per second (e.g. 1.20).
+//   - Flat stats ([Stats.HP], [Stats.ATK], [Stats.DEF], [Stats.Impact], [Stats.AnomalyMastery], [Stats.AnomalyProficiency], [Stats.PenFlat], [Stats.SheerForce]) are stored as raw floating-point numbers.
+//
+// Use [Stats.Formatted] or [Agent.UIStats] to retrieve pre-formatted string representations.
 type Stats struct {
-	HP                 float64 `json:"hp"`                  // Total Health Points.
-	ATK                float64 `json:"atk"`                 // Total Attack.
-	DEF                float64 `json:"def"`                 // Total Defense.
-	Impact             float64 `json:"impact"`              // Impact (influences Daze build-up).
-	CritRate           float64 `json:"crit_rate"`           // Critical Hit Rate (as a decimal, e.g., 0.05 for 5%).
-	CritDMG            float64 `json:"crit_dmg"`            // Critical Hit Damage (as a decimal, e.g., 1.50 for 150%).
-	AttributeDMGBonus  float64 `json:"attribute_dmg_bonus"` // Attribute DMG Bonus (as a decimal, e.g., 0.30 for 30%).
-	AnomalyMastery     float64 `json:"anomaly_mastery"`     // Anomaly Mastery (influences Anomaly Buildup rate).
-	AnomalyProficiency float64 `json:"anomaly_proficiency"` // Anomaly Proficiency (influences Anomaly Damage).
-	PenRatio           float64 `json:"pen_ratio"`           // Penetration Ratio (ignores a percentage of enemy DEF).
-	PenFlat            float64 `json:"pen_flat"`            // Flat Penetration (ignores a flat amount of enemy DEF).
-	EnergyRegen        float64 `json:"energy_regen"`        // Energy Regeneration rate (as a decimal, e.g., 1.20).
-	SheerForce         float64 `json:"sheer_force"`         // Sheer Force (damage multiplier for Rupture agents, ignoring DEF).
+	// HP is the total Health Points.
+	HP float64 `json:"hp"`
+
+	// ATK is the total Attack.
+	ATK float64 `json:"atk"`
+
+	// DEF is the total Defense.
+	DEF float64 `json:"def"`
+
+	// Impact is the Impact stat (influences Daze accumulation rate).
+	Impact float64 `json:"impact"`
+
+	// CritRate is the Critical Hit Rate as a decimal fraction (e.g. 0.05 for 5%).
+	CritRate float64 `json:"crit_rate"`
+
+	// CritDMG is the Critical Hit Damage as a decimal fraction (e.g. 1.50 for 150%).
+	CritDMG float64 `json:"crit_dmg"`
+
+	// AttributeDMGBonus is the matching elemental Damage Bonus as a decimal fraction (e.g. 0.30 for 30%).
+	AttributeDMGBonus float64 `json:"attribute_dmg_bonus"`
+
+	// AnomalyMastery is the Anomaly Mastery stat (influences Anomaly Buildup speed).
+	AnomalyMastery float64 `json:"anomaly_mastery"`
+
+	// AnomalyProficiency is the Anomaly Proficiency stat (scales Anomaly damage).
+	AnomalyProficiency float64 `json:"anomaly_proficiency"`
+
+	// PenRatio is the Penetration Ratio as a decimal fraction (ignores a percentage of enemy DEF).
+	PenRatio float64 `json:"pen_ratio"`
+
+	// PenFlat is the flat Penetration stat (ignores a flat amount of enemy DEF).
+	PenFlat float64 `json:"pen_flat"`
+
+	// EnergyRegen is the Energy Regeneration rate per second (e.g. 1.20).
+	EnergyRegen float64 `json:"energy_regen"`
+
+	// SheerForce is the Sheer Force stat (damage multiplier for Rupture agents, ignoring DEF).
+	SheerForce float64 `json:"sheer_force"`
 }
 
 // FormattedStats contains the agent's combat stats pre-formatted as human-readable strings.
-// This is extremely useful for UI/Frontend developers who just want to display the values.
+// This is convenient for frontend rendering where formatted values (e.g. "50.0%", "3,120") are required directly.
 type FormattedStats struct {
-	HP                 string `json:"hp"`
-	ATK                string `json:"atk"`
-	DEF                string `json:"def"`
-	Impact             string `json:"impact"`
-	CritRate           string `json:"crit_rate"`
-	CritDMG            string `json:"crit_dmg"`
-	AttributeDMGBonus  string `json:"attribute_dmg_bonus"`
-	AnomalyMastery     string `json:"anomaly_mastery"`
+	// HP is the formatted Health Points string.
+	HP string `json:"hp"`
+
+	// ATK is the formatted Attack string.
+	ATK string `json:"atk"`
+
+	// DEF is the formatted Defense string.
+	DEF string `json:"def"`
+
+	// Impact is the formatted Impact string.
+	Impact string `json:"impact"`
+
+	// CritRate is the formatted Critical Rate percentage string (e.g. "50.0%").
+	CritRate string `json:"crit_rate"`
+
+	// CritDMG is the formatted Critical Damage percentage string (e.g. "150.0%").
+	CritDMG string `json:"crit_dmg"`
+
+	// AttributeDMGBonus is the formatted Attribute Damage Bonus percentage string (e.g. "30.0%").
+	AttributeDMGBonus string `json:"attribute_dmg_bonus"`
+
+	// AnomalyMastery is the formatted Anomaly Mastery string.
+	AnomalyMastery string `json:"anomaly_mastery"`
+
+	// AnomalyProficiency is the formatted Anomaly Proficiency string.
 	AnomalyProficiency string `json:"anomaly_proficiency"`
-	PenRatio           string `json:"pen_ratio"`
-	PenFlat            string `json:"pen_flat"`
-	EnergyRegen        string `json:"energy_regen"`
-	SheerForce         string `json:"sheer_force"`
+
+	// PenRatio is the formatted Penetration Ratio percentage string (e.g. "24.0%").
+	PenRatio string `json:"pen_ratio"`
+
+	// PenFlat is the formatted Flat Penetration string.
+	PenFlat string `json:"pen_flat"`
+
+	// EnergyRegen is the formatted Energy Regeneration string (e.g. "1.20").
+	EnergyRegen string `json:"energy_regen"`
+
+	// SheerForce is the formatted Sheer Force string.
+	SheerForce string `json:"sheer_force"`
 }
 
-// FormattedStatBreakdown represents a single stat broken down into its base and added components,
-// pre-formatted as human-readable strings for UI display.
+// FormattedStatBreakdown represents a single combat stat broken down into its base and added components,
+// pre-formatted as human-readable strings ready for UI display.
 type FormattedStatBreakdown struct {
-	PropertyID PropertyID `json:"property_id"` // Strongly-typed PropertyID of the stat.
-	Name       string     `json:"name"`        // Localized stat display name.
-	Base       string     `json:"base"`        // Base stat value (pre-formatted string).
-	Added      string     `json:"added"`       // Added stat value from gear/buffs (pre-formatted string).
-	Total      string     `json:"total"`       // Final combat stat value (pre-formatted string).
-	IconURL    string     `json:"icon_url"`    // The base64 Data URI string containing the stat's SVG icon.
+	// PropertyID is the strongly-typed [PropertyID] of the stat.
+	PropertyID PropertyID `json:"property_id"`
+
+	// Name is the localized display name of the stat.
+	Name string `json:"name"`
+
+	// Base is the pre-formatted innate base stat value.
+	Base string `json:"base"`
+
+	// Added is the pre-formatted added stat value from W-Engines, Drive Discs, and set bonuses.
+	Added string `json:"added"`
+
+	// Total is the pre-formatted final combat stat value.
+	Total string `json:"total"`
+
+	// IconURL is the base64 Data URI string containing the stat's SVG icon.
+	IconURL string `json:"icon_url"`
 }
 
-// UIStats contains all combat stats broken down into base and added components,
-// ready to be displayed on a frontend.
+// UIStats contains all combat stats broken down into Base + Added = Total components,
+// with localized names and icon URLs, structured for frontend profile and agent inspect panels.
 type UIStats struct {
-	HP                 FormattedStatBreakdown `json:"hp"`
-	ATK                FormattedStatBreakdown `json:"atk"`
-	DEF                FormattedStatBreakdown `json:"def"`
-	Impact             FormattedStatBreakdown `json:"impact"`
-	CritRate           FormattedStatBreakdown `json:"crit_rate"`
-	CritDMG            FormattedStatBreakdown `json:"crit_dmg"`
-	AttributeDMGBonus  FormattedStatBreakdown `json:"attribute_dmg_bonus"`
-	AnomalyMastery     FormattedStatBreakdown `json:"anomaly_mastery"`
+	// HP is the Health Points breakdown.
+	HP FormattedStatBreakdown `json:"hp"`
+
+	// ATK is the Attack breakdown.
+	ATK FormattedStatBreakdown `json:"atk"`
+
+	// DEF is the Defense breakdown.
+	DEF FormattedStatBreakdown `json:"def"`
+
+	// Impact is the Impact breakdown.
+	Impact FormattedStatBreakdown `json:"impact"`
+
+	// CritRate is the Critical Rate breakdown.
+	CritRate FormattedStatBreakdown `json:"crit_rate"`
+
+	// CritDMG is the Critical Damage breakdown.
+	CritDMG FormattedStatBreakdown `json:"crit_dmg"`
+
+	// AttributeDMGBonus is the matching elemental Damage Bonus breakdown.
+	AttributeDMGBonus FormattedStatBreakdown `json:"attribute_dmg_bonus"`
+
+	// AnomalyMastery is the Anomaly Mastery breakdown.
+	AnomalyMastery FormattedStatBreakdown `json:"anomaly_mastery"`
+
+	// AnomalyProficiency is the Anomaly Proficiency breakdown.
 	AnomalyProficiency FormattedStatBreakdown `json:"anomaly_proficiency"`
-	PenRatio           FormattedStatBreakdown `json:"pen_ratio"`
-	PenFlat            FormattedStatBreakdown `json:"pen_flat"`
-	EnergyRegen        FormattedStatBreakdown `json:"energy_regen"`
-	SheerForce         FormattedStatBreakdown `json:"sheer_force"`
+
+	// PenRatio is the Penetration Ratio breakdown.
+	PenRatio FormattedStatBreakdown `json:"pen_ratio"`
+
+	// PenFlat is the Flat Penetration breakdown.
+	PenFlat FormattedStatBreakdown `json:"pen_flat"`
+
+	// EnergyRegen is the Energy Regeneration breakdown.
+	EnergyRegen FormattedStatBreakdown `json:"energy_regen"`
+
+	// SheerForce is the Sheer Force breakdown (for Rupture agents).
+	SheerForce FormattedStatBreakdown `json:"sheer_force"`
 }
 
 // List returns all combat stat breakdowns as a slice in the canonical in-game display order.
@@ -276,8 +383,8 @@ func (u UIStats) List() []FormattedStatBreakdown {
 	return list
 }
 
-// Formatted returns a new FormattedStats struct where all numerical stats
-// are converted into precise, human-readable strings (e.g. "50.0%" instead of 0.5).
+// Formatted returns a new [FormattedStats] struct where all numerical stats
+// are converted into precise, human-readable strings (e.g. "50.0%" instead of 0.5, "3120" instead of 3120.0).
 func (s *Stats) Formatted() FormattedStats {
 	return FormattedStats{
 		HP:                 fmt.Sprintf("%.0f", s.HP),
@@ -296,7 +403,7 @@ func (s *Stats) Formatted() FormattedStats {
 	}
 }
 
-// List returns all numeric combat stats as a slice of StatValue in canonical in-game display order.
+// List returns all numeric combat stats as a slice of [StatValue] in canonical in-game display order.
 func (s Stats) List() []StatValue {
 	return []StatValue{
 		{PropertyID: PropBaseHP, Value: s.HP, IsPercent: false, IconURL: PropBaseHP.IconURL()},
