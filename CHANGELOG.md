@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.0.0] - 2026-08-20
+
+### Added
+- Added `DriveDiscs` struct encapsulating `Slots` (discs 1–6) and `SetBonuses` (active 2-pc and 4-pc set bonuses).
+- Added typed `SetID` constants for all 30 official Zenless Zone Zero Drive Disc sets with `AllSetIDs()` and `IsValid()` helpers.
+- Added `Has2Piece(setID)`, `Has4Piece(setID)`, `BySlot(slot)`, and `SetCounts()` methods to `DriveDiscs`.
+- Added `EnrichWithLang` method and package function for explicit in-memory multi-language enrichment.
+
+### Changed
+- Promoted library to stable `v1.0.0` release with finalized public API.
+- Renamed in-memory mapping from `Localize` to `Enrich` and `EnrichWithLang`.
+- Moved `ActiveSetBonuses` from root `Agent` into `agent.DriveDiscs.SetBonuses`.
+- Encapsulated `store` package into `internal/store`.
+- Expanded GoDoc documentation across all public packages, types, and functions.
+- Updated `example_test.go` with 8 practical recipes for `pkg.go.dev`.
+
+### Tests
+- Added automated coverage test `TestAllSetIDs_StoreCoverage` verifying all Drive Disc set constants against embedded game data.
+- Added unit test coverage for `DriveDiscs` methods, `SetID` validation, and `Enrich` / `EnrichWithLang`.
+
 ## [0.11.2] - 2026-08-18
 
 ### Added
