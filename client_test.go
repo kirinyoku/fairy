@@ -56,23 +56,31 @@ func TestNewClient_WithOptions(t *testing.T) {
 	}
 }
 
-func TestClient_Localize(t *testing.T) {
+func TestClient_Enrich(t *testing.T) {
 	client, err := NewClient(WithDefaultLang(LangEN))
 	if err != nil {
 		t.Fatalf("NewClient() failed: %v", err)
 	}
 
 	t.Run("nil raw profile returns error", func(t *testing.T) {
-		p, err := client.Localize(nil, LangEN)
+		p, err := client.Enrich(nil)
 		if err == nil {
 			t.Errorf("expected error for nil raw profile, got nil")
 		}
 		if p != nil {
 			t.Errorf("expected nil profile, got %v", p)
 		}
+
+		pLang, errLang := client.EnrichWithLang(nil, LangEN)
+		if errLang == nil {
+			t.Errorf("expected error for nil raw profile with lang, got nil")
+		}
+		if pLang != nil {
+			t.Errorf("expected nil profile, got %v", pLang)
+		}
 	})
 
-	t.Run("valid raw profile localizes successfully", func(t *testing.T) {
+	t.Run("valid raw profile enriches successfully with default and custom language", func(t *testing.T) {
 		raw := &zzz.Profile{
 			Region: "Europe",
 			PlayerInfo: zzz.PlayerInfo{
@@ -94,9 +102,10 @@ func TestClient_Localize(t *testing.T) {
 			},
 		}
 
-		profile, err := client.Localize(raw, LangRU)
+		// Enrich with custom language (Russian)
+		profile, err := client.EnrichWithLang(raw, LangRU)
 		if err != nil {
-			t.Fatalf("client.Localize() failed: %v", err)
+			t.Fatalf("client.EnrichWithLang() failed: %v", err)
 		}
 
 		if profile == nil {
@@ -118,21 +127,38 @@ func TestClient_Localize(t *testing.T) {
 		if profile.Agents[0].UIStats.CritRate.Name != "Шанс крит. попадания" {
 			t.Errorf("profile.Agents[0].UIStats.CritRate.Name = %q, want %q", profile.Agents[0].UIStats.CritRate.Name, "Шанс крит. попадания")
 		}
+
+		// Enrich with client default language (English)
+		enProfile, err := client.Enrich(raw)
+		if err != nil {
+			t.Fatalf("client.Enrich() failed: %v", err)
+		}
+		if enProfile.Agents[0].UIStats.CritRate.Name != "CRIT Rate" {
+			t.Errorf("enProfile.Agents[0].UIStats.CritRate.Name = %q, want %q", enProfile.Agents[0].UIStats.CritRate.Name, "CRIT Rate")
+		}
 	})
 }
 
-func TestGlobal_Localize(t *testing.T) {
+func TestGlobal_Enrich(t *testing.T) {
 	t.Run("nil raw profile returns error", func(t *testing.T) {
-		p, err := Localize(nil, LangEN)
+		p, err := Enrich(nil)
 		if err == nil {
 			t.Errorf("expected error for nil raw profile, got nil")
 		}
 		if p != nil {
 			t.Errorf("expected nil profile, got %v", p)
 		}
+
+		pLang, errLang := EnrichWithLang(nil, LangEN)
+		if errLang == nil {
+			t.Errorf("expected error for nil raw profile, got nil")
+		}
+		if pLang != nil {
+			t.Errorf("expected nil profile, got %v", pLang)
+		}
 	})
 
-	t.Run("valid raw profile localizes via global function", func(t *testing.T) {
+	t.Run("valid raw profile enriches via global function", func(t *testing.T) {
 		raw := &zzz.Profile{
 			Region: "Europe",
 			PlayerInfo: zzz.PlayerInfo{
@@ -154,9 +180,10 @@ func TestGlobal_Localize(t *testing.T) {
 			},
 		}
 
-		profile, err := Localize(raw, LangRU)
+		// Russian explicit
+		profile, err := EnrichWithLang(raw, LangRU)
 		if err != nil {
-			t.Fatalf("Localize() failed: %v", err)
+			t.Fatalf("EnrichWithLang() failed: %v", err)
 		}
 		if profile == nil {
 			t.Fatal("expected non-nil profile")
@@ -165,10 +192,11 @@ func TestGlobal_Localize(t *testing.T) {
 		if profile.Agents[0].UIStats.CritRate.Name != "Шанс крит. попадания" {
 			t.Errorf("profile.Agents[0].UIStats.CritRate.Name = %q, want %q", profile.Agents[0].UIStats.CritRate.Name, "Шанс крит. попадания")
 		}
-		// Localize in English dynamically
-		enProfile, err := Localize(raw, LangEN)
+
+		// Default English
+		enProfile, err := Enrich(raw)
 		if err != nil {
-			t.Fatalf("Localize(LangEN) failed: %v", err)
+			t.Fatalf("Enrich() failed: %v", err)
 		}
 		if enProfile.Agents[0].UIStats.CritRate.Name != "CRIT Rate" {
 			t.Errorf("enProfile.Agents[0].UIStats.CritRate.Name = %q, want %q", enProfile.Agents[0].UIStats.CritRate.Name, "CRIT Rate")

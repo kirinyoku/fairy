@@ -128,9 +128,9 @@ func ExampleNewClient() {
 	}
 }
 
-// ExampleLocalize demonstrates fetching raw API data once with GetRawProfile, caching it,
-// and localizing it into multiple languages in memory using Localize with zero additional network requests.
-func ExampleLocalize() {
+// ExampleEnrich demonstrates fetching raw API data once with GetRawProfile, caching it,
+// and enriching it into multiple languages in memory using Enrich and EnrichWithLang with zero additional network requests.
+func ExampleEnrich() {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
@@ -141,26 +141,28 @@ func ExampleLocalize() {
 		return
 	}
 
-	// 2. Localize into German, Japanese, and Russian in memory (instant, no extra network overhead)
-	deProfile, err := fairy.Localize(rawProfile, fairy.LangDE)
+	// 2. Enrich in memory with zero extra network overhead
+	// Default English:
+	enProfile, err := fairy.Enrich(rawProfile)
 	if err != nil {
-		log.Printf("German localization failed: %v", err)
+		log.Printf("English enrichment failed: %v", err)
 		return
 	}
 
-	jaProfile, err := fairy.Localize(rawProfile, fairy.LangJA)
+	// Specific languages on the fly:
+	jaProfile, err := fairy.EnrichWithLang(rawProfile, fairy.LangJA)
 	if err != nil {
-		log.Printf("Japanese localization failed: %v", err)
+		log.Printf("Japanese enrichment failed: %v", err)
 		return
 	}
 
-	ruProfile, err := fairy.Localize(rawProfile, fairy.LangRU)
+	ruProfile, err := fairy.EnrichWithLang(rawProfile, fairy.LangRU)
 	if err != nil {
-		log.Printf("Russian localization failed: %v", err)
+		log.Printf("Russian enrichment failed: %v", err)
 		return
 	}
 
-	fmt.Println("German Agent 0:", deProfile.Agents[0].Name, "—", deProfile.Agents[0].SpecialtyName)
+	fmt.Println("English Agent 0:", enProfile.Agents[0].Name, "—", enProfile.Agents[0].SpecialtyName)
 	fmt.Println("Japanese Agent 0:", jaProfile.Agents[0].Name, "—", jaProfile.Agents[0].SpecialtyName)
 	fmt.Println("Russian Agent 0:", ruProfile.Agents[0].Name, "—", ruProfile.Agents[0].SpecialtyName)
 }

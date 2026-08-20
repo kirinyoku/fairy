@@ -138,7 +138,7 @@ func GetProfileWithLang(ctx context.Context, uid string, lang Language) (*Profil
 // using the shared default client.
 //
 // Use this function when you only need the raw numeric IDs from the upstream API without metadata enrichment,
-// or when you want to fetch the upstream payload once and localize it into multiple languages via [Localize].
+// or when you want to fetch the upstream payload once and enrich it into multiple languages via [EnrichWithLang].
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
 // Returns sentinel errors such as [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
@@ -150,15 +150,30 @@ func GetRawProfile(ctx context.Context, uid string) (*zzz.Profile, error) {
 	return client.GetRawProfile(ctx, uid)
 }
 
-// Localize transforms a raw upstream [zzz.Profile] into an enriched [Profile] in the requested [Language].
+// Enrich transforms a raw upstream [zzz.Profile] into an enriched [Profile]
+// using the default [Language] (English).
 //
 // This function operates completely in-memory using the embedded metadata store and makes ZERO network requests.
-// It is ideal for multi-language applications that fetch a player's raw profile once via [GetRawProfile]
-// and render it dynamically across different languages.
-func Localize(raw *zzz.Profile, lang Language) (*Profile, error) {
+// It resolves all progression data, computes scaled combat stats, parses Unity Rich Text into HTML,
+// and assembles the full domain model.
+func Enrich(raw *zzz.Profile) (*Profile, error) {
 	client, err := getDefaultClient()
 	if err != nil {
 		return nil, err
 	}
-	return client.Localize(raw, lang)
+	return client.Enrich(raw)
+}
+
+// EnrichWithLang transforms a raw upstream [zzz.Profile] into an enriched [Profile]
+// in the requested [Language].
+//
+// This function operates completely in-memory using the embedded metadata store and makes ZERO network requests.
+// It is ideal for multi-language applications that fetch a player's raw profile once via [GetRawProfile]
+// and render it dynamically across different languages.
+func EnrichWithLang(raw *zzz.Profile, lang Language) (*Profile, error) {
+	client, err := getDefaultClient()
+	if err != nil {
+		return nil, err
+	}
+	return client.EnrichWithLang(raw, lang)
 }

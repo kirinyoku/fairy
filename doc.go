@@ -13,7 +13,7 @@
 // # Key Features
 //
 //   - Zero-Allocation Metadata Store: Embedded game data loaded once and shared across all queries.
-//   - Full Localization: 13 officially supported languages with on-the-fly in-memory localization ([Localize]).
+//   - Full Localization: 13 officially supported languages with on-the-fly in-memory enrichment ([Enrich], [EnrichWithLang]).
 //   - Accurate Combat Math: Emulates the exact ZZZ stat calculations.
 //   - UI-Ready Stats Breakdown: Pre-calculated base, added, and total values formatted for frontends ([UIStats], [FormattedStatBreakdown]).
 //   - Rich Text Parsers: Convert game descriptions to clean HTML, Plain Text, or Markdown ([Skill.FormatHTML], [Skill.FormatPlainText], [Skill.FormatMarkdown]).
@@ -28,7 +28,7 @@
 //	       ▼ (HTTP Request via internal API client)
 //	[zzz.Profile (Raw Upstream Model)]
 //	       │
-//	       ▼ (Localize / mapper using embedded MetadataStore)
+//	       ▼ (Enrich / mapper using embedded MetadataStore)
 //	[fairy.Profile (Enriched Domain Model)]
 //	       ├── Account Info (UID, Nickname, InterknotLevel, Region, Title, Avatar, Badges)
 //	       └── Showcase Agents (max 6)
@@ -46,11 +46,12 @@
 //
 // # Core Operations
 //
-// Fairy provides four core operations for working with player profiles:
+// Fairy provides core operations for working with player profiles:
 //   - [GetProfile]: Fetch and enrich a player profile using the client's default language.
 //   - [GetProfileWithLang]: Fetch and enrich a player profile with a specific language override for the request.
 //   - [GetRawProfile]: Fetch the raw upstream API response ([zzz.Profile]) without enrichment.
-//   - [Localize]: Map a raw [zzz.Profile] into an enriched [Profile] in memory (zero additional network requests).
+//   - [Enrich]: Transform a raw [zzz.Profile] into an enriched [Profile] using the default language (zero additional network requests).
+//   - [EnrichWithLang]: Transform a raw [zzz.Profile] into an enriched [Profile] in the specified language (zero additional network requests).
 //
 // Each operation is available as a global top-level function (using a shared thread-safe default client)
 // and as a method on [Client].
@@ -98,10 +99,10 @@
 //
 //	profile, err := client.GetProfile(context.Background(), "1504687050")
 //
-// # In-Memory Multi-Language Localization
+// # In-Memory Multi-Language Enrichment
 //
 // If you need to present the same player profile in multiple languages, fetch the raw profile once
-// and localize it in memory with [Localize] without repeating network requests.
+// and enrich it in memory with [Enrich] or [EnrichWithLang] without repeating network requests.
 //
 //	raw, err := fairy.GetRawProfile(ctx, "1504687050")
 //	if err != nil {
@@ -109,9 +110,9 @@
 //	}
 //
 //	// In-memory mapping — instant, no extra network overhead
-//	deProfile, _ := fairy.Localize(raw, fairy.LangDE)
-//	jaProfile, _ := fairy.Localize(raw, fairy.LangJA)
-//	ruProfile, _ := fairy.Localize(raw, fairy.LangRU)
+//	enProfile, _ := fairy.Enrich(raw) // Default English
+//	jaProfile, _ := fairy.EnrichWithLang(raw, fairy.LangJA)
+//	ruProfile, _ := fairy.EnrichWithLang(raw, fairy.LangRU)
 //
 // # Combat Stat Breakdown & UI Display
 //

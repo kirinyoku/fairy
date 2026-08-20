@@ -181,16 +181,16 @@ Fetches the raw [`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanet
 raw, err := fairy.GetRawProfile(ctx, "1504687050")
 ```
 
-#### `Localize`
+#### `Enrich` / `EnrichWithLang`
 
 Maps a raw [`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile) into an enriched [`*Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile) for the specified language. **Makes zero network calls.**
 
 ```go
-enProfile, err := fairy.Localize(raw, fairy.LangEN)
-jaProfile, err := fairy.Localize(raw, fairy.LangJA)
+enProfile, err := fairy.Enrich(raw) // Default English
+jaProfile, err := fairy.EnrichWithLang(raw, fairy.LangJA)
 ```
 
-📖 See [`ExampleLocalize`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Localize)
+📖 See [`ExampleEnrich`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Enrich)
 
 ---
 
@@ -198,7 +198,7 @@ jaProfile, err := fairy.Localize(raw, fairy.LangJA)
 
 Every action is available in two forms:
 
-**Global functions** — `fairy.GetProfile(ctx, uid)`, `fairy.Localize(raw, lang)`, etc. — use a lazily initialized shared client with default settings.
+**Global functions** — `fairy.GetProfile(ctx, uid)`, `fairy.Enrich(raw)`, `fairy.EnrichWithLang(raw, lang)`, etc. — use a lazily initialized shared client with default settings.
 
 **Client methods** — created via [`fairy.NewClient`](https://pkg.go.dev/github.com/kirinyoku/fairy#NewClient) — give you full control over HTTP client configuration, retries, and caching.
 

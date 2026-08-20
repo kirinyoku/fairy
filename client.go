@@ -123,13 +123,13 @@ func (c *Client) GetProfileWithLang(ctx context.Context, uid string, lang Langua
 		return nil, err
 	}
 
-	return c.Localize(raw, lang)
+	return c.EnrichWithLang(raw, lang)
 }
 
 // GetRawProfile fetches the raw, un-enriched [zzz.Profile] directly from the EnkaNetwork API.
 //
 // Use this method if you only need the raw numeric IDs provided by the upstream API,
-// or when you want to fetch the payload once and localize it into multiple languages via [Client.Localize].
+// or when you want to fetch the payload once and enrich it into multiple languages via [Client.EnrichWithLang].
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
 // Returns sentinel errors such as [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
@@ -137,12 +137,23 @@ func (c *Client) GetRawProfile(ctx context.Context, uid string) (*zzz.Profile, e
 	return c.apiClient.GetProfile(ctx, uid)
 }
 
-// Localize maps a raw upstream [zzz.Profile] into an enriched [Profile] using the specified [Language].
+// Enrich transforms a raw upstream [zzz.Profile] into an enriched [Profile]
+// using the client's configured default [Language].
 //
 // This method operates entirely in-memory using the client's metadata store and performs ZERO network calls.
-// It is ideal for multi-language applications that fetch a player's raw profile once via [GetRawProfile]
+// It resolves all progression data, computes scaled combat stats, parses Unity Rich Text into HTML,
+// and assembles the full domain model.
+func (c *Client) Enrich(raw *zzz.Profile) (*Profile, error) {
+	return c.EnrichWithLang(raw, c.lang)
+}
+
+// EnrichWithLang transforms a raw upstream [zzz.Profile] into an enriched [Profile]
+// using the specified [Language] localization.
+//
+// This method operates entirely in-memory using the client's metadata store and performs ZERO network calls.
+// It is ideal for multi-language applications that fetch a player's raw profile once via [Client.GetRawProfile]
 // and render it dynamically across different languages.
-func (c *Client) Localize(raw *zzz.Profile, lang Language) (*Profile, error) {
+func (c *Client) EnrichWithLang(raw *zzz.Profile, lang Language) (*Profile, error) {
 	m := newMapper(c.store, lang)
 	p, err := m.ToProfile(raw)
 	if err != nil {
