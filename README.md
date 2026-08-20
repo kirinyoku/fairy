@@ -20,10 +20,11 @@
   - [Custom client](#custom-client)
   - [Error handling](#error-handling)
   - [Feature highlights](#feature-highlights)
-    - [Agent stats](#agent-stats)
-    - [Agent skills](#agent-skills)
-    - [Drive Disc analysis](#drive-disc-analysis)
-    - [Rich text formatting](#rich-text-formatting)
+    - [Player showcase & customization](#player-showcase--customization)
+    - [Agent stats breakdown](#agent-stats-breakdown)
+    - [Agent skills & rich text](#agent-skills--rich-text)
+    - [Mindscape Cinema & Potential Vision](#mindscape-cinema--potential-vision)
+    - [Drive Disc analysis & build rating](#drive-disc-analysis--build-rating)
 - [Supported Languages](#supported-languages)
 - [License](#license)
 
@@ -172,8 +173,6 @@ Same as `GetProfile`, but overrides the localization language for this single re
 profile, err := fairy.GetProfileWithLang(ctx, "1504687050", fairy.LangJA)
 ```
 
-📖 See [`ExampleGetProfileWithLang`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-GetProfileWithLang)
-
 #### `GetRawProfile`
 
 Fetches the raw [`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile) from the API without applying any enrichment or localization.
@@ -191,7 +190,7 @@ enProfile, err := fairy.Localize(raw, fairy.LangEN)
 jaProfile, err := fairy.Localize(raw, fairy.LangJA)
 ```
 
-📖 See [ExampleLocalize](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Localize).
+📖 See [`ExampleLocalize`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Localize)
 
 ---
 
@@ -326,7 +325,17 @@ Fairy exposes sentinel errors for common API failure scenarios.
 
 ### Feature highlights
 
-#### Agent stats
+#### Player Showcase & Customization
+
+Fairy extracts the complete player showcase profile:
+
+- Player Nickname, Inter-Knot Level, and Server Region.
+- Two-color gradient titles with hex color helpers (`PrimaryColorHex()`, `SecondaryColorHex()`).
+- High-resolution Avatars, Namecards, and achievement Badges.
+
+📖 See [`ExampleProfile`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Profile)
+
+#### Agent Stats Breakdown
 
 Fairy provides three distinct ways to work with agent stats:
 
@@ -338,35 +347,32 @@ Fairy provides three distinct ways to work with agent stats:
 
 📖 See [`ExampleUIStats_List`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-UIStats_List)
 
-#### Agent Skills
+#### Agent Skills & Rich Text
 
 Agents have two views of their abilities:
 
 - [`agent.Skills`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.Skills) — A flat list of every individual ability, core enhancement, and passive on the agent.
 - [`agent.SkillGroups`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.SkillGroups) — Categorized into the 6 in-game UI tabs (`basic`, `special`, `dodge`, `chain`, `assist`, `passive`), tracking each tab's upgrade level (`Level`, 1–12 for active skills, 0–6 for core passives) with its nested skills.
 
+Descriptions contain Unity Rich Text markup which can be rendered directly with `FormatHTML()`, `FormatMarkdown()`, or `FormatPlainText()`.
+
 📖 See [`ExampleAgent_SkillGroups`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Agent_SkillGroups)
 
-#### Drive Disc analysis
+#### Mindscape Cinema & Potential Vision
 
-- [`agent.SubStatTotals()`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.SubStatTotals) aggregates sub-stat values and roll counts across all 6 Drive Discs. 
-- [`agent.CountEffectiveRolls(props ...PropertyID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.CountEffectiveRolls) counts how many rolls landed on the properties you care about — useful for evaluating build quality.
+- [`agent.MindscapeCinema`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent) tracks the unlocked constellation rank (M0–M6).
+- [`agent.Mindscapes`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.Mindscapes) provides all 6 Mindscape nodes with their `Unlocked` status and formatted effect descriptions.
+- [`agent.PotentialVision`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.PotentialVision) tracks character upgrade nodes with active states.
 
-📖 See [`ExampleAgent_SubStatTotals`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Agent_SubStatTotals), [`ExampleAgent_CountEffectiveRolls`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Agent_CountEffectiveRolls)
+📖 See [`ExampleAgent_Mindscapes`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Agent_Mindscapes)
 
-#### Rich text formatting
+#### Drive Disc Analysis & Build Rating
 
-Skill descriptions, Mindscape effects, Potential Vision effects, W-Engine passives, and Drive Disc set bonuses contain Unity Rich Text markup. Built-in formatters convert the markup and evaluate level-scaling formulas, outputting your target format:
+- Active 2-piece and 4-piece set bonuses with active status tracking.
+- [`agent.DriveDiscs.SubStatTotals()`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.SubStatTotals) aggregates sub-stat values and roll counts across all 6 Drive Discs. 
+- [`agent.DriveDiscs.CountEffectiveRolls(props ...PropertyID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.CountEffectiveRolls) counts how many rolls landed on target priority stats for build scoring.
 
-| Method | Output |
-| :--- | :--- |
-| `FormatHTML()` | `<span style="color:...">` + `<img>` icons + `<br>` |
-| `FormatMarkdown()` | `**bold**` highlights + text icon labels |
-| `FormatPlainText()` | Clean text, all tags stripped |
-
-These methods are available on [`Skill`](https://pkg.go.dev/github.com/kirinyoku/fairy#Skill), [`MindscapeNode`](https://pkg.go.dev/github.com/kirinyoku/fairy#MindscapeNode), [`PotentialVisionNode`](https://pkg.go.dev/github.com/kirinyoku/fairy#PotentialVisionNode), [`WEngine`](https://pkg.go.dev/github.com/kirinyoku/fairy#WEngine), and [`SetEffect`](https://pkg.go.dev/github.com/kirinyoku/fairy#SetEffect).
-
-📖 See [`ExampleSkill_FormatHTML`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Skill_FormatHTML), [`ExampleSkill_FormatMarkdown`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Skill_FormatMarkdown), [`ExampleSkill_FormatPlainText`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Skill_FormatPlainText).
+📖 See [`ExampleDriveDiscs_SubStatTotals`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-DriveDiscs_SubStatTotals)
 
 ## Supported Languages
 
