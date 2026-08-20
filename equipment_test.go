@@ -163,10 +163,9 @@ func TestAllSetIDs(t *testing.T) {
 		t.Errorf("AllSetIDs() returned %d sets, want 30", len(sets))
 	}
 
-	// Verify defensive copy
-	origLen := len(sets)
-	sets = append(sets, SetID(99999))
-	if len(AllSetIDs()) != origLen {
+	// Verify defensive copy (modifying returned slice does not mutate internal array)
+	sets[0] = SetID(99999)
+	if AllSetIDs()[0] == SetID(99999) {
 		t.Errorf("AllSetIDs() is not returning a defensive copy")
 	}
 }
