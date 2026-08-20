@@ -159,7 +159,7 @@ Full API documentation is available on [pkg.go.dev](https://pkg.go.dev/github.co
 
 ### Core actions
 
-`fairy` exposes four actions. The first three hit the [EnkaNetwork API](https://enka.network) over HTTP; the fourth is a pure in-memory transformation.
+`fairy` provides five core operations. The first three hit the [EnkaNetwork API](https://enka.network) over HTTP; the last two are pure in-memory transformations.
 
 #### `GetProfile`
 
@@ -187,16 +187,23 @@ Fetches the raw [`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanet
 raw, err := fairy.GetRawProfile(ctx, "1504687050")
 ```
 
-#### `Enrich` / `EnrichWithLang`
+#### `Enrich`
 
-Maps a raw [`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile) into an enriched [`*Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile) for the specified language. **Makes zero network calls.**
+Transforms a raw [`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile) into an enriched [`*Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile) using the default language. **Makes zero network calls.**
 
 ```go
-enProfile, err := fairy.Enrich(raw) // Default English
-jaProfile, err := fairy.EnrichWithLang(raw, fairy.LangJA)
+profile, err := fairy.Enrich(raw)
 ```
 
 📖 See [`ExampleEnrich`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Enrich)
+
+#### `EnrichWithLang`
+
+Transforms a raw [`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile) into an enriched [`*Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile) for the specified language. **Makes zero network calls.**
+
+```go
+profile, err := fairy.EnrichWithLang(raw, fairy.LangJA)
+```
 
 ---
 
