@@ -403,11 +403,8 @@ type Agent struct {
 	// WEngine is the currently equipped W-Engine. May be nil if no weapon is equipped.
 	WEngine *WEngine `json:"w_engine"`
 
-	// DriveDiscs is the collection of equipped [DriveDisc] pieces (up to 6 discs, slots 1–6).
+	// DriveDiscs holds the equipped Drive Discs (slots 1–6) and active set bonuses.
 	DriveDiscs DriveDiscs `json:"drive_discs"`
-
-	// ActiveSetBonuses is the list of active 2-piece and 4-piece Drive Disc set bonuses.
-	ActiveSetBonuses []DriveDiscSetBonus `json:"active_set_bonuses"`
 
 	// BaseStats contains the Agent's innate combat stats (Agent level growth + W-Engine Base ATK).
 	BaseStats Stats `json:"base_stats"`

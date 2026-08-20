@@ -99,17 +99,23 @@ The EnkaNetwork API returns raw game data: internal numeric IDs, unlabeled stats
       "value": 713
     }
   },
-  "drive_discs": [{
-    "slot": 1,
-    "set": {"id": 33000, "name": "Phaethon's Melody"},
-    "level": 15,
-    "main_stat": {"property_id": 11103, "name": "HP", "value": 2200, "is_percent": false},
-    "sub_stats": [
-      {"property_id": 12103, "name": "ATK",         "value": 38,   "is_percent": false, "rolls": 2},
-      {"property_id": 31203, "name": "Anomaly Prof","value": 27,   "is_percent": false, "rolls": 3},
-      {"property_id": 12102, "name": "Percent ATK", "value": 0.09, "is_percent": true,  "rolls": 3}
-    ]
-  }],
+  "drive_discs": {
+    "slots": [{
+      "slot": 1,
+      "set": {"id": 33000, "name": "Phaethon's Melody"},
+      "level": 15,
+      "main_stat": {"property_id": 11103, "name": "HP", "value": 2200, "is_percent": false},
+      "sub_stats": [
+        {"property_id": 12103, "name": "ATK",          "value": 38,   "is_percent": false, "rolls": 2},
+        {"property_id": 31203, "name": "Anomaly Prof", "value": 27,   "is_percent": false, "rolls": 3},
+        {"property_id": 12102, "name": "ATK",          "value": 0.09, "is_percent": true,  "rolls": 3}
+      ]
+    }],
+    "set_bonuses": [{
+      "set": {"id": 33000, "name": "Phaethon's Melody"},
+      "count": 4
+    }]
+  },
   "stats": {
     "hp": 11188, "atk": 2866,
     "crit_rate": 0.074, "crit_dmg": 0.548,
@@ -368,9 +374,11 @@ Descriptions contain Unity Rich Text markup which can be rendered directly with 
 
 #### Drive Disc Analysis & Build Rating
 
-- Active 2-piece and 4-piece set bonuses with active status tracking.
-- [`agent.DriveDiscs.SubStatTotals()`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.SubStatTotals) aggregates sub-stat values and roll counts across all 6 Drive Discs. 
-- [`agent.DriveDiscs.CountEffectiveRolls(props ...PropertyID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.CountEffectiveRolls) counts how many rolls landed on target priority stats for build scoring.
+- [`agent.DriveDiscs.Slots`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs): Equipped discs in partition slots 1–6 with main stats, substats, and upgrade rolls.
+- [`agent.DriveDiscs.SetBonuses`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs): Active 2-piece and 4-piece set bonuses with descriptions and formatted HTML.
+- [`agent.DriveDiscs.Has4Piece(setID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.Has4Piece) / [`Has2Piece(setID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.Has2Piece): Boolean set bonus queries using typed constants (e.g. `fairy.SetPolarMetal`).
+- [`agent.DriveDiscs.SubStatTotals()`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.SubStatTotals): Aggregates sub-stat values and roll counts across all Drive Discs.
+- [`agent.DriveDiscs.CountEffectiveRolls(props ...PropertyID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.CountEffectiveRolls): Counts how many rolls landed on target priority stats for build scoring.
 
 📖 See [`ExampleDriveDiscs_SubStatTotals`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-DriveDiscs_SubStatTotals)
 

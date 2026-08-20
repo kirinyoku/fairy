@@ -235,8 +235,14 @@ type DriveDisc struct {
 	SubStats []StatValue `json:"sub_stats"`
 }
 
-// DriveDiscs represents a collection of [DriveDisc] entries equipped on an [Agent] or stored in inventory.
-type DriveDiscs []DriveDisc
+// DriveDiscs represents the complete Drive Disc equipment layout on an [Agent],
+// containing the equipped discs in partition slots 1–6 and active 2-piece and 4-piece set bonuses.
+type DriveDiscs struct {
+	// Slots is the list of equipped [DriveDisc] pieces (up to 6 discs, partition slots 1–6).
+	Slots []DriveDisc `json:"slots"`
+	// SetBonuses is the list of active 2-piece and 4-piece Drive Disc set bonuses.
+	SetBonuses []DriveDiscSetBonus `json:"set_bonuses"`
+}
 
 // SubStatTotals aggregates and sums sub-stat values and roll counts across all discs in the collection.
 // It groups them by [PropertyID] and preserves the deterministic appearance order of the sub-stats.
@@ -247,11 +253,11 @@ type DriveDiscs []DriveDisc
 //	for _, stat := range totals {
 //		fmt.Printf("%-20s +%-6s (%d rolls)\n", stat.Name, stat.DisplayValue(), stat.Rolls)
 //	}
-func (discs DriveDiscs) SubStatTotals() []StatValue {
+func (d DriveDiscs) SubStatTotals() []StatValue {
 	totals := make(map[PropertyID]StatValue)
 	var order []PropertyID
 
-	for _, disc := range discs {
+	for _, disc := range d.Slots {
 		for _, sub := range disc.SubStats {
 			if curr, exists := totals[sub.PropertyID]; exists {
 				curr.Value += sub.Value
@@ -279,14 +285,14 @@ func (discs DriveDiscs) SubStatTotals() []StatValue {
 //	// Evaluate build quality on an Attack Agent across all 6 equipped discs:
 //	rolls := agent.DriveDiscs.CountEffectiveRolls(fairy.PropCritRate, fairy.PropCritDMG, fairy.PropATKPercent)
 //	fmt.Printf("Effective rolls: %d\n", rolls)
-func (discs DriveDiscs) CountEffectiveRolls(targetProps ...PropertyID) int {
+func (d DriveDiscs) CountEffectiveRolls(targetProps ...PropertyID) int {
 	total := 0
 	targetMap := make(map[PropertyID]bool)
 	for _, p := range targetProps {
 		targetMap[p] = true
 	}
 
-	for _, disc := range discs {
+	for _, disc := range d.Slots {
 		for _, sub := range disc.SubStats {
 			if targetMap[sub.PropertyID] {
 				total += sub.Rolls
@@ -298,19 +304,19 @@ func (discs DriveDiscs) CountEffectiveRolls(targetProps ...PropertyID) int {
 
 // BySlot returns a pointer to the [DriveDisc] equipped in the specified partition slot (1–6),
 // or nil if no disc is equipped in that slot.
-func (discs DriveDiscs) BySlot(slot int) *DriveDisc {
-	for i := range discs {
-		if discs[i].Slot == slot {
-			return &discs[i]
+func (d DriveDiscs) BySlot(slot int) *DriveDisc {
+	for i := range d.Slots {
+		if d.Slots[i].Slot == slot {
+			return &d.Slots[i]
 		}
 	}
 	return nil
 }
 
 // SetCounts groups equipped discs by their [Set] and returns the count of pieces equipped for each set.
-func (discs DriveDiscs) SetCounts() map[Set]int {
+func (d DriveDiscs) SetCounts() map[Set]int {
 	counts := make(map[Set]int)
-	for _, disc := range discs {
+	for _, disc := range d.Slots {
 		if disc.Set.ID > 0 {
 			counts[disc.Set]++
 		}
@@ -325,9 +331,9 @@ func (discs DriveDiscs) SetCounts() map[Set]int {
 //	if agent.DriveDiscs.Has2Piece(fairy.SetSwingJazz) {
 //		fmt.Println("Swing Jazz 2-pc is active (+20% Energy Regen)")
 //	}
-func (discs DriveDiscs) Has2Piece(setID SetID) bool {
+func (d DriveDiscs) Has2Piece(setID SetID) bool {
 	count := 0
-	for _, disc := range discs {
+	for _, disc := range d.Slots {
 		if disc.Set.ID == setID {
 			count++
 			if count >= 2 {
@@ -345,9 +351,9 @@ func (discs DriveDiscs) Has2Piece(setID SetID) bool {
 //	if agent.DriveDiscs.Has4Piece(fairy.SetWoodpeckerElectro) {
 //		fmt.Println("Woodpecker Electro 4-pc is active")
 //	}
-func (discs DriveDiscs) Has4Piece(setID SetID) bool {
+func (d DriveDiscs) Has4Piece(setID SetID) bool {
 	count := 0
-	for _, disc := range discs {
+	for _, disc := range d.Slots {
 		if disc.Set.ID == setID {
 			count++
 			if count >= 4 {

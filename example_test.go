@@ -266,7 +266,7 @@ func ExampleDriveDiscs_SubStatTotals() {
 
 	// 1. Detect active Drive Disc Set Bonuses (2-piece and 4-piece thresholds)
 	fmt.Println("Active Set Bonuses:")
-	for _, bonus := range agent.ActiveSetBonuses {
+	for _, bonus := range agent.DriveDiscs.SetBonuses {
 		fmt.Printf("  • %s (%d pieces equipped)\n", bonus.Set.Name, bonus.Count)
 		for _, effect := range bonus.Effects {
 			if effect.IsActive {

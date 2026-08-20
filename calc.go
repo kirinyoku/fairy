@@ -241,7 +241,7 @@ func accumulateWEngineBonus(agent *Agent, s store.MetadataStore, addBonus func(i
 }
 
 func accumulateDriveDiscBonus(agent *Agent, addBonus func(int, float64)) {
-	for _, disc := range agent.DriveDiscs {
+	for _, disc := range agent.DriveDiscs.Slots {
 		if disc.MainStat.PropertyID != 0 {
 			addBonus(int(disc.MainStat.PropertyID), disc.MainStat.Value)
 		}
@@ -252,7 +252,7 @@ func accumulateDriveDiscBonus(agent *Agent, addBonus func(int, float64)) {
 }
 
 func accumulateSetBonus(agent *Agent, s store.MetadataStore, addBonus func(int, float64)) {
-	for _, bonus := range agent.ActiveSetBonuses {
+	for _, bonus := range agent.DriveDiscs.SetBonuses {
 		if bonus.Count < 2 {
 			continue
 		}

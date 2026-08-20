@@ -15,16 +15,18 @@ func TestDriveDiscs_SubStatTotals(t *testing.T) {
 	}{
 		{
 			name:     "no drive discs",
-			discs:    nil,
+			discs:    DriveDiscs{},
 			expected: []StatValue{},
 		},
 		{
 			name: "single disc preserves substats",
 			discs: DriveDiscs{
-				{
-					SubStats: []StatValue{
-						{PropertyID: PropCritRate, Name: "CRIT Rate", Value: 4.8, Rolls: 2, IsPercent: true},
-						{PropertyID: PropATKFlat, Name: "ATK", Value: 19.0, Rolls: 1, IsPercent: false},
+				Slots: []DriveDisc{
+					{
+						SubStats: []StatValue{
+							{PropertyID: PropCritRate, Name: "CRIT Rate", Value: 4.8, Rolls: 2, IsPercent: true},
+							{PropertyID: PropATKFlat, Name: "ATK", Value: 19.0, Rolls: 1, IsPercent: false},
+						},
 					},
 				},
 			},
@@ -36,25 +38,27 @@ func TestDriveDiscs_SubStatTotals(t *testing.T) {
 		{
 			name: "multiple discs aggregate values and rolls while preserving first appearance order",
 			discs: DriveDiscs{
-				{
-					Slot: 1,
-					SubStats: []StatValue{
-						{PropertyID: PropCritRate, Name: "CRIT Rate", Value: 2.4, Rolls: 1, IsPercent: true},
-						{PropertyID: PropATKPercent, Name: "ATK%", Value: 3.0, Rolls: 1, IsPercent: true},
+				Slots: []DriveDisc{
+					{
+						Slot: 1,
+						SubStats: []StatValue{
+							{PropertyID: PropCritRate, Name: "CRIT Rate", Value: 2.4, Rolls: 1, IsPercent: true},
+							{PropertyID: PropATKPercent, Name: "ATK%", Value: 3.0, Rolls: 1, IsPercent: true},
+						},
 					},
-				},
-				{
-					Slot: 2,
-					SubStats: []StatValue{
-						{PropertyID: PropCritDMG, Name: "CRIT DMG", Value: 9.6, Rolls: 2, IsPercent: true},
-						{PropertyID: PropCritRate, Name: "CRIT Rate", Value: 4.8, Rolls: 2, IsPercent: true},
+					{
+						Slot: 2,
+						SubStats: []StatValue{
+							{PropertyID: PropCritDMG, Name: "CRIT DMG", Value: 9.6, Rolls: 2, IsPercent: true},
+							{PropertyID: PropCritRate, Name: "CRIT Rate", Value: 4.8, Rolls: 2, IsPercent: true},
+						},
 					},
-				},
-				{
-					Slot: 3,
-					SubStats: []StatValue{
-						{PropertyID: PropATKPercent, Name: "ATK%", Value: 6.0, Rolls: 2, IsPercent: true},
-						{PropertyID: PropHPFlat, Name: "HP", Value: 112.0, Rolls: 1, IsPercent: false},
+					{
+						Slot: 3,
+						SubStats: []StatValue{
+							{PropertyID: PropATKPercent, Name: "ATK%", Value: 6.0, Rolls: 2, IsPercent: true},
+							{PropertyID: PropHPFlat, Name: "HP", Value: 112.0, Rolls: 1, IsPercent: false},
+						},
 					},
 				},
 			},
@@ -106,22 +110,24 @@ func TestDriveDiscs_SubStatTotals(t *testing.T) {
 
 func TestDriveDiscs_CountEffectiveRolls(t *testing.T) {
 	discs := DriveDiscs{
-		{
-			SubStats: []StatValue{
-				{PropertyID: PropCritRate, Rolls: 2},
-				{PropertyID: PropATKFlat, Rolls: 1},
+		Slots: []DriveDisc{
+			{
+				SubStats: []StatValue{
+					{PropertyID: PropCritRate, Rolls: 2},
+					{PropertyID: PropATKFlat, Rolls: 1},
+				},
 			},
-		},
-		{
-			SubStats: []StatValue{
-				{PropertyID: PropCritDMG, Rolls: 3},
-				{PropertyID: PropCritRate, Rolls: 1},
+			{
+				SubStats: []StatValue{
+					{PropertyID: PropCritDMG, Rolls: 3},
+					{PropertyID: PropCritRate, Rolls: 1},
+				},
 			},
-		},
-		{
-			SubStats: []StatValue{
-				{PropertyID: PropPENRatio, Rolls: 2},
-				{PropertyID: PropHPPercent, Rolls: 1},
+			{
+				SubStats: []StatValue{
+					{PropertyID: PropPENRatio, Rolls: 2},
+					{PropertyID: PropHPPercent, Rolls: 1},
+				},
 			},
 		},
 	}
@@ -164,7 +170,7 @@ func TestDriveDiscs_CountEffectiveRolls(t *testing.T) {
 		},
 		{
 			name:        "empty discs",
-			discs:       nil,
+			discs:       DriveDiscs{},
 			targetProps: []PropertyID{PropCritRate},
 			expected:    0,
 		},

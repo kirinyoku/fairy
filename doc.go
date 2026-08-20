@@ -37,8 +37,7 @@
 //	             ├── Mindscape Cinema (Ranks 1–6 with unlocked status)
 //	             ├── Potential Vision (Active nodes & descriptions)
 //	             ├── Equipped W-Engine (MainStat, SecondaryStat, Modification)
-//	             ├── Equipped Drive Discs (Slots 1–6, MainStat, Substats with Roll counts)
-//	             ├── Active Drive Disc Set Bonuses (2-piece & 4-piece thresholds)
+//	             ├── Drive Discs (Slots 1–6 with roll counts, active 2-piece & 4-piece Set Bonuses)
 //	             └── Combat Stats Pipeline
 //	                   ├── BaseStats (Agent + W-Engine Base ATK)
 //	                   ├── Stats (Final calculated combat stats)

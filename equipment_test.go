@@ -84,9 +84,11 @@ func TestDriveDisc_CountEffectiveRolls(t *testing.T) {
 
 func TestDriveDiscs_BySlot(t *testing.T) {
 	discs := DriveDiscs{
-		{Slot: 1, Level: 15, UID: "disc-1"},
-		{Slot: 3, Level: 12, UID: "disc-3"},
-		{Slot: 6, Level: 15, UID: "disc-6"},
+		Slots: []DriveDisc{
+			{Slot: 1, Level: 15, UID: "disc-1"},
+			{Slot: 3, Level: 12, UID: "disc-3"},
+			{Slot: 6, Level: 15, UID: "disc-6"},
+		},
 	}
 
 	if d := discs.BySlot(1); d == nil || d.UID != "disc-1" {
@@ -108,12 +110,14 @@ func TestDriveDiscs_SetHelpers(t *testing.T) {
 	setB := Set{ID: SetPolarMetal, Name: "Polar Metal"}
 
 	discs := DriveDiscs{
-		{Slot: 1, Set: setA},
-		{Slot: 2, Set: setA},
-		{Slot: 3, Set: setA},
-		{Slot: 4, Set: setA},
-		{Slot: 5, Set: setB},
-		{Slot: 6, Set: setB},
+		Slots: []DriveDisc{
+			{Slot: 1, Set: setA},
+			{Slot: 2, Set: setA},
+			{Slot: 3, Set: setA},
+			{Slot: 4, Set: setA},
+			{Slot: 5, Set: setB},
+			{Slot: 6, Set: setB},
+		},
 	}
 
 	// 1. SetCounts

@@ -235,16 +235,19 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 		agent.WEngine = m.mapWEngine(raw.Weapon)
 	}
 
-	agent.DriveDiscs = make([]DriveDisc, 0, len(raw.EquippedList))
+	discs := make([]DriveDisc, 0, len(raw.EquippedList))
 	for _, eq := range raw.EquippedList {
 		if eq.Equipment != nil {
 			disc := m.mapDriveDisc(eq.Equipment, eq.Slot)
 			if disc != nil {
-				agent.DriveDiscs = append(agent.DriveDiscs, *disc)
+				discs = append(discs, *disc)
 			}
 		}
 	}
-	agent.ActiveSetBonuses = m.detectSetBonuses(agent.DriveDiscs)
+	agent.DriveDiscs = DriveDiscs{
+		Slots:      discs,
+		SetBonuses: m.detectSetBonuses(discs),
+	}
 
 	agent.Skills = m.mapAgentSkills(raw)
 
