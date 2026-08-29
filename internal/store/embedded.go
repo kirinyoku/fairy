@@ -1,8 +1,10 @@
 package store
 
 import (
+	"compress/gzip"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/fs"
 	"strconv"
 	"sync"
@@ -15,6 +17,8 @@ import (
 // directly into the binary. This ensures that the library requires no external
 // file dependencies at runtime and loads instantaneously into memory.
 type EmbeddedStore struct {
+	fsys                 fs.FS
+	locsMu               sync.RWMutex
 	avatars              map[int]AvatarMeta
 	weapons              map[int]WeaponMeta
 	equipments           map[int]EquipmentMeta
@@ -75,12 +79,40 @@ func readJSON[T any](fsys fs.FS, path string) (T, error) {
 	return result, nil
 }
 
+// readGzJSON reads and unmarshals a gzip-compressed JSON file from the embedded filesystem.
+func readGzJSON[T any](fsys fs.FS, path string) (T, error) {
+	var result T
+	f, err := fsys.Open(path)
+	if err != nil {
+		return result, fmt.Errorf("failed to open %s: %w", path, err)
+	}
+	defer func() { _ = f.Close() }()
+
+	gzReader, err := gzip.NewReader(f)
+	if err != nil {
+		return result, fmt.Errorf("failed to create gzip reader for %s: %w", path, err)
+	}
+	defer func() { _ = gzReader.Close() }()
+
+	data, err := io.ReadAll(gzReader)
+	if err != nil {
+		return result, fmt.Errorf("failed to read gzipped %s: %w", path, err)
+	}
+
+	if err := json.Unmarshal(data, &result); err != nil {
+		return result, fmt.Errorf("failed to unmarshal %s: %w", path, err)
+	}
+	return result, nil
+}
+
 // parseStore builds the EmbeddedStore by loading all embedded JSON files.
 // It loads all files sequentially. Currently, it returns an error if any
 // file fails to load to ensure data consistency, as missing a file
 // would result in silently incorrect stat calculations.
 func parseStore(fsys fs.FS) (*EmbeddedStore, error) {
 	s := &EmbeddedStore{
+		fsys:                 fsys,
+		locs:                 make(map[string]map[string]string),
 		avatars:              make(map[int]AvatarMeta),
 		weapons:              make(map[int]WeaponMeta),
 		equipments:           make(map[int]EquipmentMeta),
@@ -255,12 +287,6 @@ func (s *EmbeddedStore) loadWeaponsAndEquipments(fsys fs.FS, parseID func(string
 }
 
 func (s *EmbeddedStore) loadTitlesAndMeta(fsys fs.FS, parseID func(string, string) (int, error)) error {
-	locs, err := readJSON[map[string]map[string]string](fsys, "locs.json")
-	if err != nil {
-		return err
-	}
-	s.locs = locs
-
 	titles, err := readJSON[titleContainer](fsys, "titles.json")
 	if err != nil {
 		return err
@@ -420,20 +446,51 @@ func (s *EmbeddedStore) loadTemplates(fsys fs.FS) error {
 	return nil
 }
 
+func (s *EmbeddedStore) getLanguageDict(lang string) map[string]string {
+	if s == nil || s.fsys == nil {
+		return nil
+	}
+
+	s.locsMu.RLock()
+	dict, exists := s.locs[lang]
+	s.locsMu.RUnlock()
+	if exists {
+		return dict
+	}
+
+	s.locsMu.Lock()
+	defer s.locsMu.Unlock()
+
+	// Double-checked locking
+	if dict, exists = s.locs[lang]; exists {
+		return dict
+	}
+
+	path := fmt.Sprintf("locs/%s.json.gz", lang)
+	loadedDict, err := readGzJSON[map[string]string](s.fsys, path)
+	if err != nil {
+		// Cache empty map so we avoid repeatedly trying to read a missing or invalid file
+		s.locs[lang] = make(map[string]string)
+		return s.locs[lang]
+	}
+
+	s.locs[lang] = loadedDict
+	return loadedDict
+}
+
 // Localize translates a text hash into the specified language.
 func (s *EmbeddedStore) Localize(hash string, lang string) string {
-	if s.locs == nil {
-		return hash
-	}
-	if langDict, ok := s.locs[lang]; ok {
+	if langDict := s.getLanguageDict(lang); langDict != nil {
 		if text, found := langDict[hash]; found && text != "" {
 			return text
 		}
 	}
 	// Fallback to English dictionary if key is missing in target language
-	if enDict, ok := s.locs["en"]; ok {
-		if text, found := enDict[hash]; found && text != "" {
-			return text
+	if lang != "en" {
+		if enDict := s.getLanguageDict("en"); enDict != nil {
+			if text, found := enDict[hash]; found && text != "" {
+				return text
+			}
 		}
 	}
 	return hash

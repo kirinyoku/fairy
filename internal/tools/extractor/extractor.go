@@ -1,8 +1,11 @@
 package main
 
 import (
+	"bytes"
+	"compress/gzip"
 	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"path/filepath"
@@ -21,10 +24,41 @@ func readJSON(path string, v interface{}) {
 	check(err)
 }
 
+func readGzJSON(path string, v interface{}) error {
+	b, err := os.ReadFile(path)
+	if err != nil {
+		return err
+	}
+	gzReader, err := gzip.NewReader(bytes.NewReader(b))
+	if err != nil {
+		return err
+	}
+	defer func() { _ = gzReader.Close() }()
+	data, err := io.ReadAll(gzReader)
+	if err != nil {
+		return err
+	}
+	return json.Unmarshal(data, v)
+}
+
 func writeJSON(path string, v interface{}) {
 	b, err := json.MarshalIndent(v, "", "  ")
 	check(err)
 	err = os.WriteFile(path, b, 0644)
+	check(err)
+}
+
+func writeGzJSON(path string, v interface{}) {
+	b, err := json.Marshal(v)
+	check(err)
+	var buf bytes.Buffer
+	gzWriter, err := gzip.NewWriterLevel(&buf, gzip.BestCompression)
+	check(err)
+	_, err = gzWriter.Write(b)
+	check(err)
+	err = gzWriter.Close()
+	check(err)
+	err = os.WriteFile(path, buf.Bytes(), 0644)
 	check(err)
 }
 
@@ -38,9 +72,6 @@ func main() {
 
 	var equipments map[string]interface{}
 	readJSON(filepath.Join(assetsDir, "equipments.json"), &equipments)
-
-	var locs map[string]map[string]string
-	readJSON(filepath.Join(assetsDir, "locs.json"), &locs)
 
 	// 2. Load TextMaps for all supported languages
 	langFiles := map[string]string{
@@ -57,6 +88,20 @@ func main() {
 		"vi":    "TextMap_VITemplateTb.json",
 		"zh-cn": "TextMapTemplateTb.json",
 		"zh-tw": "TextMap_CHTTemplateTb.json",
+	}
+
+	locsDir := filepath.Join(assetsDir, "locs")
+	_ = os.MkdirAll(locsDir, 0755)
+
+	locs := make(map[string]map[string]string)
+	for lang := range langFiles {
+		var langDict map[string]string
+		gzPath := filepath.Join(locsDir, lang+".json.gz")
+		if err := readGzJSON(gzPath, &langDict); err == nil && langDict != nil {
+			locs[lang] = langDict
+		} else {
+			locs[lang] = make(map[string]string)
+		}
 	}
 
 	textMaps := make(map[string]map[string]string)
@@ -377,7 +422,9 @@ func main() {
 		}
 	}
 
-	writeJSON(filepath.Join(assetsDir, "locs.json"), locs)
+	for lang, mapping := range locs {
+		writeGzJSON(filepath.Join(locsDir, lang+".json.gz"), mapping)
+	}
 	fmt.Printf("Extraction complete. Processed %d keys across %d languages.\n", len(keysToExtract), len(langFiles))
 	for lang, count := range addedStats {
 		fmt.Printf("  - %s: %d strings\n", lang, count)
