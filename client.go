@@ -104,7 +104,7 @@ func NewClient(opts ...Option) (*Client, error) {
 //   - Pre-calculated combat [Stats] and frontend-ready [UIStats] breakdowns.
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
-// Returns sentinel errors such as [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
+// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
 func (c *Client) GetProfile(ctx context.Context, uid string) (*Profile, error) {
 	return c.GetProfileWithLang(ctx, uid, c.lang)
 }
@@ -116,7 +116,7 @@ func (c *Client) GetProfile(ctx context.Context, uid string) (*Profile, error) {
 // without modifying the client instance, making it safe for concurrent multi-language usage.
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
-// Returns sentinel errors such as [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
+// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
 func (c *Client) GetProfileWithLang(ctx context.Context, uid string, lang Language) (*Profile, error) {
 	raw, err := c.GetRawProfile(ctx, uid)
 	if err != nil {
@@ -132,8 +132,11 @@ func (c *Client) GetProfileWithLang(ctx context.Context, uid string, lang Langua
 // or when you want to fetch the payload once and enrich it into multiple languages via [Client.EnrichWithLang].
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
-// Returns sentinel errors such as [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
+// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
 func (c *Client) GetRawProfile(ctx context.Context, uid string) (*zzz.Profile, error) {
+	if err := validateUID(uid); err != nil {
+		return nil, err
+	}
 	return c.apiClient.GetProfile(ctx, uid)
 }
 

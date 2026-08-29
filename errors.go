@@ -12,6 +12,8 @@ import (
 //	profile, err := fairy.GetProfile(ctx, uid)
 //	if err != nil {
 //		switch {
+//		case errors.Is(err, fairy.ErrInvalidUID):
+//			// Player UID format is invalid (must be 10 digits starting with 10, 13, 15, or 17)
 //		case errors.Is(err, fairy.ErrProfileNotFound):
 //			// Player profile does not exist on game servers
 //		case errors.Is(err, fairy.ErrRateLimit):
@@ -25,6 +27,10 @@ import (
 //		}
 //	}
 var (
+	// ErrInvalidUID is returned when a provided player UID has an invalid format
+	// (e.g. empty, non-numeric characters, length other than 10 digits, or unrecognized server prefix).
+	ErrInvalidUID = api.ErrInvalidUID
+
 	// ErrProfileNotFound is returned when the requested player profile with specified UID does not exist
 	// or cannot be found by the upstream EnkaNetwork API (HTTP 404).
 	ErrProfileNotFound = api.ErrProfileNotFound

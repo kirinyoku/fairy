@@ -39,6 +39,8 @@ func (c *Client) GetProfile(ctx context.Context, uid string) (*zzz.Profile, erro
 }
 
 var (
+	// ErrInvalidUID is returned when a provided player UID has an invalid format.
+	ErrInvalidUID = errors.New("invalid UID format: must be 10 numeric digits starting with prefix 10, 13, 15, or 17")
 	// ErrProfileNotFound is returned when the player profile is not found.
 	ErrProfileNotFound = errors.New("profile not found")
 	// ErrRateLimit is returned when the player is rate limited by the EnkaNetwork API.

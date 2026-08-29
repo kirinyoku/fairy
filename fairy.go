@@ -109,7 +109,7 @@ func getDefaultClient() (*Client, error) {
 //   - Pre-calculated combat [Stats] and frontend-ready [UIStats] breakdowns.
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
-// Returns sentinel errors such as [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
+// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
 func GetProfile(ctx context.Context, uid string) (*Profile, error) {
 	client, err := getDefaultClient()
 	if err != nil {
@@ -125,7 +125,7 @@ func GetProfile(ctx context.Context, uid string) (*Profile, error) {
 // without modifying the shared default client.
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
-// Returns sentinel errors such as [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
+// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
 func GetProfileWithLang(ctx context.Context, uid string, lang Language) (*Profile, error) {
 	client, err := getDefaultClient()
 	if err != nil {
@@ -141,7 +141,7 @@ func GetProfileWithLang(ctx context.Context, uid string, lang Language) (*Profil
 // or when you want to fetch the upstream payload once and enrich it into multiple languages via [EnrichWithLang].
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
-// Returns sentinel errors such as [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
+// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
 func GetRawProfile(ctx context.Context, uid string) (*zzz.Profile, error) {
 	client, err := getDefaultClient()
 	if err != nil {

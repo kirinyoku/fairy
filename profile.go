@@ -40,6 +40,63 @@ func (r Region) IsValid() bool {
 	return false
 }
 
+// validateUID checks whether the provided string is a syntactically valid global Zenless Zone Zero UID.
+// A valid global ZZZ UID consists of 10 ASCII numeric digits starting with a recognized server prefix:
+//   - "10" (America)
+//   - "13" (Asia)
+//   - "15" (Europe)
+//   - "17" (TW/HK/MO)
+//
+// Returns [ErrInvalidUID] if the length, characters, or prefix are invalid, or nil if valid.
+func validateUID(uid string) error {
+	if len(uid) != 10 {
+		return ErrInvalidUID
+	}
+	for i := 0; i < 10; i++ {
+		if uid[i] < '0' || uid[i] > '9' {
+			return ErrInvalidUID
+		}
+	}
+	switch uid[:2] {
+	case "10", "13", "15", "17":
+		return nil
+	default:
+		return ErrInvalidUID
+	}
+}
+
+// IsValidUID reports whether the provided string is a syntactically valid global Zenless Zone Zero UID
+// (10 numeric digits starting with prefix 10, 13, 15, or 17).
+func IsValidUID(uid string) bool {
+	return validateUID(uid) == nil
+}
+
+// RegionFromUID determines the game server [Region] from the prefix of a 10-digit international ZZZ UID
+// without performing any network requests.
+//
+// Recognized 10-digit prefixes:
+//   - "10" -> [RegionNA] (America)
+//   - "13" -> [RegionAsia] (Asia)
+//   - "15" -> [RegionEU] (Europe)
+//   - "17" -> [RegionTWHKMO] (TW/HK/MO)
+//
+// Returns the matched [Region] and true, or empty string and false if the UID prefix is not recognized.
+func RegionFromUID(uid string) (Region, bool) {
+	if len(uid) == 10 {
+		switch uid[:2] {
+		case "10":
+			return RegionNA, true
+		case "13":
+			return RegionAsia, true
+		case "15":
+			return RegionEU, true
+		case "17":
+			return RegionTWHKMO, true
+		}
+	}
+	return "", false
+}
+
 // Profile represents an enriched Zenless Zone Zero player profile.
 // It aggregates account-level metadata and the player's showcased [Agent] lineup.
 type Profile struct {

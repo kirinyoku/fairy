@@ -254,7 +254,7 @@ func TestClient_ErrorHandling(t *testing.T) {
 			}
 
 			// Test GetProfile
-			_, err = client.GetProfile(context.Background(), "100000001")
+			_, err = client.GetProfile(context.Background(), "1000000001")
 			if err == nil {
 				t.Fatalf("expected error, got nil")
 			}
@@ -263,7 +263,7 @@ func TestClient_ErrorHandling(t *testing.T) {
 			}
 
 			// Test GetProfileWithLang
-			_, err = client.GetProfileWithLang(context.Background(), "100000001", LangRU)
+			_, err = client.GetProfileWithLang(context.Background(), "1000000001", LangRU)
 			if err == nil {
 				t.Fatalf("expected error, got nil")
 			}
@@ -272,7 +272,7 @@ func TestClient_ErrorHandling(t *testing.T) {
 			}
 
 			// Test GetRawProfile
-			_, err = client.GetRawProfile(context.Background(), "100000001")
+			_, err = client.GetRawProfile(context.Background(), "1000000001")
 			if err == nil {
 				t.Fatalf("expected error, got nil")
 			}
@@ -281,6 +281,42 @@ func TestClient_ErrorHandling(t *testing.T) {
 			}
 		})
 	}
+
+	t.Run("invalid UID returns ErrInvalidUID without network call", func(t *testing.T) {
+		requestsReceived := 0
+		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			requestsReceived++
+			w.WriteHeader(http.StatusOK)
+		}))
+		defer server.Close()
+
+		client, err := NewClient(WithEnkaOptions(zzz.Options{
+			BaseURL: server.URL,
+		}))
+		if err != nil {
+			t.Fatalf("NewClient() failed: %v", err)
+		}
+
+		invalidUIDs := []string{"", "abc", "12345", "1234567890123", "150468705a"}
+		for _, uid := range invalidUIDs {
+			_, err = client.GetProfile(context.Background(), uid)
+			if !errors.Is(err, ErrInvalidUID) {
+				t.Errorf("GetProfile(%q) error = %v, want %v", uid, err, ErrInvalidUID)
+			}
+			_, err = client.GetProfileWithLang(context.Background(), uid, LangRU)
+			if !errors.Is(err, ErrInvalidUID) {
+				t.Errorf("GetProfileWithLang(%q) error = %v, want %v", uid, err, ErrInvalidUID)
+			}
+			_, err = client.GetRawProfile(context.Background(), uid)
+			if !errors.Is(err, ErrInvalidUID) {
+				t.Errorf("GetRawProfile(%q) error = %v, want %v", uid, err, ErrInvalidUID)
+			}
+		}
+
+		if requestsReceived != 0 {
+			t.Errorf("expected 0 HTTP requests for invalid UIDs, got %d", requestsReceived)
+		}
+	})
 
 	t.Run("network error on invalid host", func(t *testing.T) {
 		client, err := NewClient(WithEnkaOptions(zzz.Options{
@@ -291,7 +327,7 @@ func TestClient_ErrorHandling(t *testing.T) {
 			t.Fatalf("NewClient() failed: %v", err)
 		}
 
-		_, err = client.GetProfile(context.Background(), "100000001")
+		_, err = client.GetProfile(context.Background(), "1000000001")
 		if err == nil {
 			t.Fatalf("expected network error, got nil")
 		}
@@ -318,7 +354,7 @@ func TestClient_ErrorHandling(t *testing.T) {
 		ctx, cancel := context.WithCancel(context.Background())
 		cancel() // cancel immediately
 
-		_, err = client.GetProfile(ctx, "100000001")
+		_, err = client.GetProfile(ctx, "1000000001")
 		if err == nil {
 			t.Fatalf("expected error on canceled context, got nil")
 		}
@@ -342,7 +378,7 @@ func TestClient_ErrorHandling(t *testing.T) {
 		ctx, cancel := context.WithTimeout(context.Background(), 20*time.Millisecond)
 		defer cancel()
 
-		_, err = client.GetProfile(ctx, "100000001")
+		_, err = client.GetProfile(ctx, "1000000001")
 		if err == nil {
 			t.Fatalf("expected timeout error, got nil")
 		}
