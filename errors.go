@@ -1,10 +1,12 @@
 package fairy
 
 import (
+	"errors"
+
 	"github.com/kirinyoku/fairy/internal/api"
 )
 
-// Sentinel errors returned by [GetProfile], [GetProfileWithLang], [GetRawProfile], and [*Client] methods.
+// Sentinel errors returned by [GetProfile], [GetProfileWithLang], [GetRawProfile], [Enrich], [EnrichWithLang], and [*Client] methods.
 // Callers should inspect errors using standard [errors.Is] checks.
 //
 // Example:
@@ -22,6 +24,8 @@ import (
 //			// Upstream API or game servers are under maintenance
 //		case errors.Is(err, fairy.ErrNetwork):
 //			// Network connection reset or request timeout
+//		case errors.Is(err, fairy.ErrEnrichment):
+//			// In-memory data transformation or metadata mapping failed
 //		default:
 //			// Other unexpected error
 //		}
@@ -46,4 +50,8 @@ var (
 	// ErrNetwork is returned when a transport-level network error occurs while communicating with the API
 	// (e.g. DNS resolution failure, connection refused, TLS handshake failure, or context timeout).
 	ErrNetwork = api.ErrNetwork
+
+	// ErrEnrichment is returned when in-memory transformation, metadata mapping,
+	// or stat calculation fails on raw profile data.
+	ErrEnrichment = errors.New("failed to enrich profile data")
 )

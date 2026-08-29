@@ -67,6 +67,9 @@ func TestClient_Enrich(t *testing.T) {
 		if err == nil {
 			t.Errorf("expected error for nil raw profile, got nil")
 		}
+		if !errors.Is(err, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", err)
+		}
 		if p != nil {
 			t.Errorf("expected nil profile, got %v", p)
 		}
@@ -74,6 +77,9 @@ func TestClient_Enrich(t *testing.T) {
 		pLang, errLang := client.EnrichWithLang(nil, LangEN)
 		if errLang == nil {
 			t.Errorf("expected error for nil raw profile with lang, got nil")
+		}
+		if !errors.Is(errLang, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", errLang)
 		}
 		if pLang != nil {
 			t.Errorf("expected nil profile, got %v", pLang)
@@ -145,6 +151,9 @@ func TestGlobal_Enrich(t *testing.T) {
 		if err == nil {
 			t.Errorf("expected error for nil raw profile, got nil")
 		}
+		if !errors.Is(err, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", err)
+		}
 		if p != nil {
 			t.Errorf("expected nil profile, got %v", p)
 		}
@@ -152,6 +161,9 @@ func TestGlobal_Enrich(t *testing.T) {
 		pLang, errLang := EnrichWithLang(nil, LangEN)
 		if errLang == nil {
 			t.Errorf("expected error for nil raw profile, got nil")
+		}
+		if !errors.Is(errLang, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", errLang)
 		}
 		if pLang != nil {
 			t.Errorf("expected nil profile, got %v", pLang)

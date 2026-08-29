@@ -109,7 +109,7 @@ func getDefaultClient() (*Client, error) {
 //   - Pre-calculated combat [Stats] and frontend-ready [UIStats] breakdowns.
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
-// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
+// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], [ErrNetwork], or [ErrEnrichment].
 func GetProfile(ctx context.Context, uid string) (*Profile, error) {
 	client, err := getDefaultClient()
 	if err != nil {
@@ -125,7 +125,7 @@ func GetProfile(ctx context.Context, uid string) (*Profile, error) {
 // without modifying the shared default client.
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
-// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
+// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], [ErrNetwork], or [ErrEnrichment].
 func GetProfileWithLang(ctx context.Context, uid string, lang Language) (*Profile, error) {
 	client, err := getDefaultClient()
 	if err != nil {
@@ -156,6 +156,7 @@ func GetRawProfile(ctx context.Context, uid string) (*zzz.Profile, error) {
 // This function operates completely in-memory using the embedded metadata store and makes ZERO network requests.
 // It resolves all progression data, computes scaled combat stats, parses Unity Rich Text into HTML,
 // and assembles the full domain model.
+// Returns [ErrEnrichment] if the raw profile payload is nil or corrupt.
 func Enrich(raw *zzz.Profile) (*Profile, error) {
 	client, err := getDefaultClient()
 	if err != nil {
@@ -170,6 +171,7 @@ func Enrich(raw *zzz.Profile) (*Profile, error) {
 // This function operates completely in-memory using the embedded metadata store and makes ZERO network requests.
 // It is ideal for multi-language applications that fetch a player's raw profile once via [GetRawProfile]
 // and render it dynamically across different languages.
+// Returns [ErrEnrichment] if the raw profile payload is nil or corrupt.
 func EnrichWithLang(raw *zzz.Profile, lang Language) (*Profile, error) {
 	client, err := getDefaultClient()
 	if err != nil {

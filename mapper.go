@@ -28,7 +28,7 @@ func newMapper(s store.MetadataStore, lang Language) *profileMapper {
 // ToProfile converts a raw zzz.Profile into an enriched Profile.
 func (m *profileMapper) ToProfile(raw *zzz.Profile) (*Profile, error) {
 	if raw == nil {
-		return nil, fmt.Errorf("raw profile is nil")
+		return nil, fmt.Errorf("%w: raw profile is nil", ErrEnrichment)
 	}
 
 	p := &Profile{

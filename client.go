@@ -104,7 +104,7 @@ func NewClient(opts ...Option) (*Client, error) {
 //   - Pre-calculated combat [Stats] and frontend-ready [UIStats] breakdowns.
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
-// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
+// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], [ErrNetwork], or [ErrEnrichment].
 func (c *Client) GetProfile(ctx context.Context, uid string) (*Profile, error) {
 	return c.GetProfileWithLang(ctx, uid, c.lang)
 }
@@ -116,7 +116,7 @@ func (c *Client) GetProfile(ctx context.Context, uid string) (*Profile, error) {
 // without modifying the client instance, making it safe for concurrent multi-language usage.
 //
 // The provided [context.Context] controls the HTTP request lifecycle, cancellation, and timeout.
-// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], or [ErrNetwork].
+// Returns sentinel errors such as [ErrInvalidUID], [ErrProfileNotFound], [ErrRateLimit], [ErrMaintenance], [ErrNetwork], or [ErrEnrichment].
 func (c *Client) GetProfileWithLang(ctx context.Context, uid string, lang Language) (*Profile, error) {
 	raw, err := c.GetRawProfile(ctx, uid)
 	if err != nil {
@@ -146,6 +146,7 @@ func (c *Client) GetRawProfile(ctx context.Context, uid string) (*zzz.Profile, e
 // This method operates entirely in-memory using the client's metadata store and performs ZERO network calls.
 // It resolves all progression data, computes scaled combat stats, parses Unity Rich Text into HTML,
 // and assembles the full domain model.
+// Returns [ErrEnrichment] if the raw profile payload is nil or corrupt.
 func (c *Client) Enrich(raw *zzz.Profile) (*Profile, error) {
 	return c.EnrichWithLang(raw, c.lang)
 }
@@ -156,6 +157,7 @@ func (c *Client) Enrich(raw *zzz.Profile) (*Profile, error) {
 // This method operates entirely in-memory using the client's metadata store and performs ZERO network calls.
 // It is ideal for multi-language applications that fetch a player's raw profile once via [Client.GetRawProfile]
 // and render it dynamically across different languages.
+// Returns [ErrEnrichment] if the raw profile payload is nil or corrupt.
 func (c *Client) EnrichWithLang(raw *zzz.Profile, lang Language) (*Profile, error) {
 	m := newMapper(c.store, lang)
 	p, err := m.ToProfile(raw)
