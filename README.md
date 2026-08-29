@@ -329,10 +329,12 @@ Fairy exposes sentinel errors for common API failure scenarios.
 
 | Error | Description |
 | :--- | :--- |
+| `fairy.ErrInvalidUID` | The provided player UID format is invalid (must be 10 numeric digits starting with 10, 13, 15, or 17). |
 | `fairy.ErrProfileNotFound` | The requested profile with the UID does not exist. |
 | `fairy.ErrRateLimit` | EnkaNetwork API rate limit exceeded. |
 | `fairy.ErrMaintenance` | API or game servers are under maintenance or temporarily unavailable. |
 | `fairy.ErrNetwork` | Network-level error (timeout, DNS, etc.). |
+| `fairy.ErrEnrichment` | In-memory metadata mapping or stat calculation failed. |
 
 ---
 
@@ -342,7 +344,7 @@ Fairy exposes sentinel errors for common API failure scenarios.
 
 Fairy extracts the complete player showcase profile:
 
-- Player Nickname, Inter-Knot Level, and Server Region.
+- Player Nickname, Inter-Knot Level, Server Region, and Server Cache TTL (`CacheTTL()`).
 - Two-color gradient titles with hex color helpers (`PrimaryColorHex()`, `SecondaryColorHex()`).
 - High-resolution Avatars, Namecards, and achievement Badges.
 
