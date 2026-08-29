@@ -1,5 +1,7 @@
 package fairy
 
+import "time"
+
 // Region represents the game server region hosting a player's account.
 type Region string
 
@@ -100,8 +102,12 @@ func RegionFromUID(uid string) (Region, bool) {
 // Profile represents an enriched Zenless Zone Zero player profile.
 // It aggregates account-level metadata and the player's showcased [Agent] lineup.
 type Profile struct {
-	// UID is the unique in-game identifier of the player (typically a 9- or 10-digit string).
+	// UID is the unique in-game identifier of the player (typically a 10-digit string).
 	UID string `json:"uid"`
+
+	// TTL indicates the remaining cache lifetime in seconds returned by the upstream EnkaNetwork API.
+	// Making repeated requests before this TTL expires consumes rate limit quota without yielding newer game data.
+	TTL int `json:"ttl"`
 
 	// Nickname is the display name chosen by the player. Can be empty if omitted by upstream API.
 	Nickname string `json:"nickname"`
@@ -127,6 +133,15 @@ type Profile struct {
 	// Agents is the list of up to 6 showcased [Agent] entries configured by the player in-game.
 	// May be empty if the player's in-game showcase is empty or has details hidden.
 	Agents []Agent `json:"agents"`
+}
+
+// CacheTTL returns the remaining cache lifetime as a [time.Duration].
+// Returns 0 if the profile is nil or TTL is non-positive.
+func (p *Profile) CacheTTL() time.Duration {
+	if p == nil || p.TTL <= 0 {
+		return 0
+	}
+	return time.Duration(p.TTL) * time.Second
 }
 
 // Avatar represents a player's equipped profile avatar (profile picture).

@@ -33,6 +33,7 @@ func (m *profileMapper) ToProfile(raw *zzz.Profile) (*Profile, error) {
 
 	p := &Profile{
 		Region: mapRegion(raw.Region),
+		TTL:    raw.TTL,
 		Agents: make([]Agent, 0),
 	}
 

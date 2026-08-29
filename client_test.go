@@ -89,6 +89,7 @@ func TestClient_Enrich(t *testing.T) {
 	t.Run("valid raw profile enriches successfully with default and custom language", func(t *testing.T) {
 		raw := &zzz.Profile{
 			Region: "Europe",
+			TTL:    45,
 			PlayerInfo: zzz.PlayerInfo{
 				SocialDetail: &zzz.SocialDetail{
 					ProfileDetail: &zzz.ProfileDetail{
@@ -116,6 +117,12 @@ func TestClient_Enrich(t *testing.T) {
 
 		if profile == nil {
 			t.Fatal("expected non-nil profile")
+		}
+		if profile.TTL != 45 {
+			t.Errorf("profile.TTL = %d, want 45", profile.TTL)
+		}
+		if profile.CacheTTL() != 45*time.Second {
+			t.Errorf("profile.CacheTTL() = %v, want %v", profile.CacheTTL(), 45*time.Second)
 		}
 		if profile.UID != "100000001" {
 			t.Errorf("profile.UID = %q, want %q", profile.UID, "100000001")
@@ -399,6 +406,7 @@ func TestClient_ErrorHandling(t *testing.T) {
 	t.Run("successful profile fetch through mock server", func(t *testing.T) {
 		mockProfileJSON := `{
 			"region": "Europe",
+			"ttl": 60,
 			"PlayerInfo": {
 				"SocialDetail": {
 					"ProfileDetail": {
@@ -439,6 +447,12 @@ func TestClient_ErrorHandling(t *testing.T) {
 		}
 		if profile.UID != "1504687050" {
 			t.Errorf("profile.UID = %q, want %q", profile.UID, "1504687050")
+		}
+		if profile.TTL != 60 {
+			t.Errorf("profile.TTL = %d, want 60", profile.TTL)
+		}
+		if profile.CacheTTL() != 60*time.Second {
+			t.Errorf("profile.CacheTTL() = %v, want %v", profile.CacheTTL(), 60*time.Second)
 		}
 		if profile.Nickname != "Belle" {
 			t.Errorf("profile.Nickname = %q, want %q", profile.Nickname, "Belle")

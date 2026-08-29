@@ -2,6 +2,7 @@ package fairy
 
 import (
 	"testing"
+	"time"
 )
 
 func TestTitle_ColorHex(t *testing.T) {
@@ -171,5 +172,27 @@ func TestRegionFromUID(t *testing.T) {
 				t.Errorf("RegionFromUID(%q) region = %q, want %q", tt.uid, reg, tt.wantRegion)
 			}
 		})
+	}
+}
+
+func TestProfile_CacheTTL(t *testing.T) {
+	var nilProfile *Profile
+	if got := nilProfile.CacheTTL(); got != 0 {
+		t.Errorf("nil Profile.CacheTTL() = %v, want 0", got)
+	}
+
+	pZero := &Profile{TTL: 0}
+	if got := pZero.CacheTTL(); got != 0 {
+		t.Errorf("Profile{TTL: 0}.CacheTTL() = %v, want 0", got)
+	}
+
+	pNegative := &Profile{TTL: -5}
+	if got := pNegative.CacheTTL(); got != 0 {
+		t.Errorf("Profile{TTL: -5}.CacheTTL() = %v, want 0", got)
+	}
+
+	p60 := &Profile{TTL: 60}
+	if got := p60.CacheTTL(); got != 60*time.Second {
+		t.Errorf("Profile{TTL: 60}.CacheTTL() = %v, want %v", got, 60*time.Second)
 	}
 }
