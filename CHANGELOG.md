@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.1.0] - 2026-08-29
+
+### Added
+- Added `TTL` field and `CacheTTL()` helper method to `Profile`.
+- Added `IsValidUID(uid)` predicate and `RegionFromUID(uid)` server resolution helper.
+- Added `ErrInvalidUID` and `ErrEnrichment` sentinel errors.
+
+### Changed
+- Added pre-network UID format validation to `GetProfile`, `GetProfileWithLang`, and `GetRawProfile`.
+- Replaced monolithic `locs.json` with per-language gzip-compressed assets (`internal/assets/data/locs/*.json.gz`).
+- Implemented lazy loading for embedded localization dictionaries with `sync.RWMutex`.
+- Updated `internal/tools/extractor` to read and write per-language compressed files.
+
+### Performance
+- Reduced binary size by ~62%.
+- Reduced cold start store initialization time from ~150 ms to <10 ms.
+- Reduced resident heap memory consumption for single-language usage by ~90% (~1.5 MB vs ~25 MB).
+
+### Tests
+- Added unit and concurrency tests for lazy loading in `internal/store`.
+- Added unit tests for UID validation, server region lookup, and `Profile.CacheTTL()`.
+- Added performance benchmarks for `store.Default()` and `Localize()`.
+
 ## [1.0.0] - 2026-08-20
 
 ### Added
