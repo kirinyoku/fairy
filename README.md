@@ -1,44 +1,102 @@
 <div align="center">
   <img src=".github/assets/fairy.png" alt="Fairy — Zenless Zone Zero profile library" width="100%">
+
+  # Fairy
+
+**A Go library for fetching and enriching Zenless Zone Zero player profiles**
+
+  [![Go Reference](https://pkg.go.dev/badge/github.com/kirinyoku/fairy.svg)](https://pkg.go.dev/github.com/kirinyoku/fairy)
+  [![Go Version](https://img.shields.io/github/go-mod/go-version/kirinyoku/fairy)](https://golang.org/doc/devel/release.html)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+  *Fetch and enrich Zenless Zone Zero player profiles via the [EnkaNetwork API](https://enka.network) with localized names, calculated agent stats, and ready-to-use assets.*
 </div>
 
-**Fairy** is a Go library that brings full-featured [Zenless Zone Zero](https://zenless.hoyoverse.com) profile processing to your apps via the [EnkaNetwork API](https://enka.network). Just like the AI assistant from New Eridu, it handles all the heavy lifting — transforming raw game payloads into ready-to-use models with 13-language localization, CDN asset URLs, parsed Unity rich text, evaluated skill formulas, and detailed combat stat breakdowns.
+---
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/kirinyoku/fairy.svg)](https://pkg.go.dev/github.com/kirinyoku/fairy)
-[![Go Version](https://img.shields.io/github/go-mod/go-version/kirinyoku/fairy)](https://golang.org/doc/devel/release.html)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## At a Glance
 
-## Table of Contents
+```go
+profile, err := fairy.GetProfile(ctx, "1504687050")
 
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Core actions](#core-actions)
-  - [Global functions vs Client](#global-functions-vs-client)
-  - [Quick start](#quick-start)
-  - [Custom client](#custom-client)
-  - [Error handling](#error-handling)
-  - [Feature highlights](#feature-highlights)
-    - [Player showcase & customization](#player-showcase--customization)
-    - [Agent stats breakdown](#agent-stats-breakdown)
-    - [Agent skills & rich text](#agent-skills--rich-text)
-    - [Mindscape Cinema & Potential Vision](#mindscape-cinema--potential-vision)
-    - [Drive Disc analysis & build rating](#drive-disc-analysis--build-rating)
-- [Supported Languages](#supported-languages)
-- [License](#license)
+fmt.Println(profile.Nickname)                 // "LOWLEVEL"
+fmt.Println(profile.Agents[0].Name)           // "Nangong Yu"
+fmt.Println(profile.Agents[0].Stats.CritRate) // 0.074 (7.4%)
+```
 
-## Overview
+---
 
-The EnkaNetwork API returns raw game data: internal numeric IDs, unlabeled stats, and unparsed skill templates with no asset URLs. Building a UI on top of it usually means maintaining your own mapping tables, localization files, and stat formulas across game patches.
+## Installation
 
-**Fairy solves this in a single call.** Provide a player UID, and Fairy returns a fully hydrated model with 13-language localization, CDN asset links, evaluated skill formulas, combat stats, and Drive Disc roll analysis. The comparison below shows the difference — raw API response vs. Fairy's enriched output:
+Requires **Go 1.22+**
 
+```bash
+go get github.com/kirinyoku/fairy
+```
+
+---
+
+## Quick Start
+
+Fetch a player's showcase profile and inspect their agents with zero configuration:
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "time"
+
+    "github.com/kirinyoku/fairy"
+)
+
+func main() {
+    ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+    defer cancel()
+
+    profile, err := fairy.GetProfile(ctx, "1504687050")
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Player: %s (Inter-Knot Lv.%d • %s)\n",
+        profile.Nickname, profile.InterknotLevel, profile.Region)
+
+    for _, agent := range profile.Agents {
+        fmt.Printf("  • %s Lv.%d [%s / %s]\n",
+            agent.Name, agent.Level, agent.AttributeName, agent.SpecialtyName)
+    }
+}
+```
+
+```text
+Player: LOWLEVEL (Inter-Knot Lv.60 • Europe)
+  • Nangong Yu Lv.60 [Ether / Stun]
+  • Yixuan Lv.60 [Auric Ink / Rupture]
+  • Ye Shunguang Lv.60 [Honed Edge / Attack]
+  • Harumasa Lv.60 [Electric / Attack]
+  • Miyabi Lv.60 [Frost / Anomaly]
+  • Remielle Lv.60 [Lumiflux / Anomaly]
+```
+
+---
+
+## Why Fairy?
+
+The raw EnkaNetwork API returns internal numeric IDs, unlabeled stat keys, and unparsed Unity formula strings. Building apps directly on top of it requires maintaining mapping tables and stat formulas across every game patch.
+
+**Fairy handles all of this automatically in-memory.**
+
+<details>
+<summary><b>🔍 Click to compare: Raw EnkaNetwork API vs Fairy Enriched Output</b></summary>
+<br>
 
 <table>
 <tr>
-<th>ENKANETWORK API RESPONSE</th>
-<th>FAIRY ENRICHED OUTPUT</th>
+<th>Raw EnkaNetwork API</th>
+<th>Fairy Enriched Output</th>
 </tr>
 <tr>
 <td>
@@ -128,288 +186,152 @@ The EnkaNetwork API returns raw game data: internal numeric IDs, unlabeled stats
 </tr>
 </table>
 
-> [!NOTE]
-> The JSON examples above are **simplified and shortened** to highlight the key differences. The actual API responses and Fairy's models contain significantly more data.
+> *Note: JSON snippets are simplified for illustration. Fairy's models provide complete asset URLs, formulas, and breakdown fields.*
 
-## Features
-
-- 🧮 **Stat Engine** — Computes final combat stats from agent base values, W-Engines, Drive Discs, and set bonuses.
-- 🎨 **UI-Ready Breakdown** — Base / Added / Total stat splits with localized names and SVG icons, matching the in-game attributes screen.
-- ⚔️ **Skill Scaling & Formulas** — Evaluates dynamic damage and daze formulas per skill level, organized into categorized skill tabs.
-- 🔍 **Drive Disc Analysis** — Aggregates sub-stat totals across all discs and calculates effective roll efficiency.
-- 📝 **Rich Text Engine** — Formats Unity markup into styled HTML, Markdown, or clean plain text.
-- ⭐ **Mindscapes & Potential Vision** — Cinema ranks (1–6) and Potential Vision upgrade nodes with unlock state tracking.
-- 👤 **Player Showcase** — Player level, server region, customizable titles with hex gradient colors, avatars, namecards, and badges.
-- 🖼️ **Ready-to-Use Assets** — Splash arts (agents & skins), W-Engines, discs, badges, plus vector SVG stat & attribute icons.
-- 🌍 **13 Languages** — In-memory localization for all game strings without extra network calls.
-- 📦 **Zero-Config Data** — All game tables and localization files embedded directly into the binary.
-- 🧩 **Flexible Client** — Functional options for default language, custom HTTP client, caching, timeouts, and retry policies.
-
-## Installation
-
-Requires **Go 1.22+**
-
-```bash
-go get github.com/kirinyoku/fairy
-```
-
-## Usage
-
-Full API documentation is available on [pkg.go.dev](https://pkg.go.dev/github.com/kirinyoku/fairy). However, auto-generated docs list every type and function alphabetically, which makes it hard to see the big picture or know where to start. The guide below walks you through the library's key concepts in a logical order — from basic fetching to advanced features — so you can get productive quickly.
-
-### Core actions
-
-`fairy` provides five core operations. The first three hit the [EnkaNetwork API](https://enka.network) over HTTP; the last two are pure in-memory transformations.
-
-#### `GetProfile`
-
-Fetches a player's profile from the API and returns a fully enriched [`*Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile) in the client's default language (English for the global function).
-
-```go
-profile, err := fairy.GetProfile(ctx, "1504687050")
-```
-
-📖 See [`ExampleGetProfile`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-GetProfile)
-
-#### `GetProfileWithLang`
-
-Same as `GetProfile`, but overrides the localization language for this single request.
-
-```go
-profile, err := fairy.GetProfileWithLang(ctx, "1504687050", fairy.LangJA)
-```
-
-#### `GetRawProfile`
-
-Fetches the raw [`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile) from the API without applying any enrichment or localization.
-
-```go
-raw, err := fairy.GetRawProfile(ctx, "1504687050")
-```
-
-#### `Enrich`
-
-Transforms a raw [`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile) into an enriched [`*Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile) using the default language. **Makes zero network calls.**
-
-```go
-profile, err := fairy.Enrich(raw)
-```
-
-📖 See [`ExampleEnrich`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Enrich)
-
-#### `EnrichWithLang`
-
-Transforms a raw [`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile) into an enriched [`*Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile) for the specified language. **Makes zero network calls.**
-
-```go
-profile, err := fairy.EnrichWithLang(raw, fairy.LangJA)
-```
+</details>
 
 ---
 
-### Global functions vs Client
+## Core API
 
-Every action is available in two forms:
+Fairy provides global functions for quick one-liners, and a [`Client`](https://pkg.go.dev/github.com/kirinyoku/fairy#Client) struct for full control over networking, caching, and default language.
 
-**Global functions** — `fairy.GetProfile(ctx, uid)`, `fairy.Enrich(raw)`, `fairy.EnrichWithLang(raw, lang)`, etc. — use a lazily initialized shared client with default settings.
-
-**Client methods** — created via [`fairy.NewClient`](https://pkg.go.dev/github.com/kirinyoku/fairy#NewClient) — give you full control over HTTP client configuration, retries, and caching.
-
-```go
-// Global function
-profile, err := fairy.GetProfile(ctx, "1504687050")
-
-// Client method
-client, err := fairy.NewClient()
-profile, err := client.GetProfile(ctx, "1504687050")
-```
+| Method | Description | Network |
+| :--- | :--- | :---: |
+| [`fairy.GetProfile(ctx, uid)`](https://pkg.go.dev/github.com/kirinyoku/fairy#GetProfile) | Fetch and enrich player profile in default language | 🌐 HTTP |
+| [`fairy.GetProfileWithLang(ctx, uid, lang)`](https://pkg.go.dev/github.com/kirinyoku/fairy#GetProfileWithLang) | Fetch and enrich profile in a specific language ([`fairy.LangJA`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangJA), [`fairy.LangRU`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangRU), etc.) | 🌐 HTTP |
+| [`fairy.GetRawProfile(ctx, uid)`](https://pkg.go.dev/github.com/kirinyoku/fairy#GetRawProfile) | Fetch raw unparsed profile directly from EnkaNetwork API | 🌐 HTTP |
+| [`fairy.Enrich(raw)`](https://pkg.go.dev/github.com/kirinyoku/fairy#Enrich) | Transform raw profile into an enriched model in default language | ⚡ In-memory |
+| [`fairy.EnrichWithLang(raw, lang)`](https://pkg.go.dev/github.com/kirinyoku/fairy#EnrichWithLang) | Transform raw profile into an enriched model in a specific language ([`fairy.LangJA`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangJA), [`fairy.LangRU`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangRU), etc.) | ⚡ In-memory |
 
 ---
 
-### Quick start
+## Feature Highlights
 
-```go
-package main
+### 1. Agent Stats — 3 Flexible Representations
+Fairy calculates the complete combat stat sheet from base attributes, W-Engines, and Drive Discs:
 
-import (
-    "context"
-    "fmt"
-    "log"
-    "time"
-
-    "github.com/kirinyoku/fairy"
-)
-
-func main() {
-    ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-    defer cancel()
-
-    profile, err := fairy.GetProfile(ctx, "1504687050")
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    fmt.Printf("Player: %s (Inter-Knot Lv.%d • %s)\n",
-        profile.Nickname, profile.InterknotLevel, profile.Region)
-
-    for _, agent := range profile.Agents {
-        fmt.Printf("  %s Lv.%d [%s/%s]\n",
-            agent.Name, agent.Level, agent.AttributeName, agent.SpecialtyName)
-    }
-}
-```
-
-Example Output:
-
-```
-Player: LOWLEVEL (Inter-Knot Lv.60 • Europe)
-  Nangong Yu Lv.60 [Ether/Stun]
-  Yixuan Lv.60 [Auric Ink/Rupture]
-  Ye Shunguang Lv.60 [Honed Edge/Attack]
-  Harumasa Lv.60 [Electric/Attack]
-  Miyabi Lv.60 [Frost/Anomaly]
-  Remielle Lv.60 [Lumiflux/Anomaly]
-```
-
----
-
-### Custom client
-
-Use `NewClient` to set a different default language, configure HTTP timeouts, retries, caching, or a custom User-Agent header.
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "net/http"
-    "time"
-
-    "github.com/kirinyoku/enkanetwork-go/client/zzz"
-    "github.com/kirinyoku/fairy"
-)
-
-func main() {
-    client, err := fairy.NewClient(
-        fairy.WithDefaultLang(fairy.LangJA),
-        fairy.WithEnkaOptions(zzz.Options{
-            UserAgent:  "MyApp/1.0 (contact@example.com)",
-            HTTPClient: &http.Client{Timeout: 10 * time.Second},
-            Retry:      &zzz.RetryOptions{MaxAttempts: 2, Delay: 2 * time.Second},
-            // Cache: myCacheInstance, // plug in your own zzz.Cache implementation
-        }),
-    )
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-    defer cancel()
-
-    profile, err := client.GetProfile(ctx, "1504687050")
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    fmt.Printf("Player: %s\n", profile.Nickname)
-    for _, agent := range profile.Agents {
-        fmt.Printf("  • %s Lv.%-2d [%s / %s]\n",
-            agent.Name, agent.Level, agent.AttributeName, agent.SpecialtyName)
-    }
-}
-```
-
----
-
-### Error handling
-
-Fairy exposes sentinel errors for common API failure scenarios.
-
-| Error | Description |
-| :--- | :--- |
-| `fairy.ErrInvalidUID` | The provided player UID format is invalid (must be 10 numeric digits starting with 10, 13, 15, or 17). |
-| `fairy.ErrProfileNotFound` | The requested profile with the UID does not exist. |
-| `fairy.ErrRateLimit` | EnkaNetwork API rate limit exceeded. |
-| `fairy.ErrMaintenance` | API or game servers are under maintenance or temporarily unavailable. |
-| `fairy.ErrNetwork` | Network-level error (timeout, DNS, etc.). |
-| `fairy.ErrEnrichment` | In-memory metadata mapping or stat calculation failed. |
-
----
-
-### Feature highlights
-
-#### Player Showcase & Customization
-
-Fairy extracts the complete player showcase profile:
-
-- Player Nickname, Inter-Knot Level, Server Region, and Server Cache TTL (`CacheTTL()`).
-- Two-color gradient titles with hex color helpers (`PrimaryColorHex()`, `SecondaryColorHex()`).
-- High-resolution Avatars, Namecards, and achievement Badges.
-
-📖 See [`ExampleProfile`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Profile)
-
-#### Agent Stats Breakdown
-
-Fairy provides three distinct ways to work with agent stats:
-
-| Representation | Type | Format | Use case |
+| Mode | Accessor | Type | Best for |
 | :--- | :--- | :--- | :--- |
-| **`agent.Stats`** | [`Stats`](https://pkg.go.dev/github.com/kirinyoku/fairy#Stats) | Raw `float64` values (`CritRate: 0.05`, `HP: 11188`) | Calculations, damage formulas, stat comparisons |
-| **`agent.Stats.Formatted()`** | [`FormattedStats`](https://pkg.go.dev/github.com/kirinyoku/fairy#FormattedStats) | Formatted strings (`CritRate: "5.0%"`, `HP: "11188"`) | Simple text views, logging, summaries |
-| **`agent.UIStats`** | [`UIStats`](https://pkg.go.dev/github.com/kirinyoku/fairy#UIStats) | `Base` + `Added` = `Total` breakdown with localized names & SVG icons | Rich character sheet UIs matching the in-game stats panel |
+| **Numeric** | `agent.Stats` | [`Stats`](https://pkg.go.dev/github.com/kirinyoku/fairy#Stats) | Math calculations, damage simulators (`CritRate: 0.05`) |
+| **Formatted** | `agent.Stats.Formatted()` | [`FormattedStats`](https://pkg.go.dev/github.com/kirinyoku/fairy#FormattedStats) | Text output, logs, summaries (`CritRate: "5.0%"`) |
+| **UI Breakdown** | `agent.UIStats` | [`UIStats`](https://pkg.go.dev/github.com/kirinyoku/fairy#UIStats) | In-game style `Base` + `Added` = `Total` with SVG icons & localized names |
 
-📖 See [`ExampleUIStats_List`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-UIStats_List)
+📖 See [`ExampleUIStats_List`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-UIStats.List)
 
-#### Agent Skills & Rich Text
+---
 
-Agents have two views of their abilities:
+### 2. Drive Disc Analysis & Build Scoring
+Deep breakdown of Drive Disc sets, substat aggregations, and roll quality:
 
-- [`agent.Skills`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.Skills) — A flat list of every individual ability, core enhancement, and passive on the agent.
-- [`agent.SkillGroups`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.SkillGroups) — Categorized into the 6 in-game UI tabs (`basic`, `special`, `dodge`, `chain`, `assist`, `passive`), tracking each tab's upgrade level (`Level`, 1–12 for active skills, 0–6 for core passives) with its nested skills.
+- **Partition Slots (1–6):** Main stats, substats, upgrade rolls, and set identifiers via [`agent.DriveDiscs.Slots`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs).
+- **Set Bonuses:** Active 2-pc and 4-pc set bonuses via [`agent.DriveDiscs.SetBonuses`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs), or boolean queries via [`Has4Piece(setID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.Has4Piece) / [`Has2Piece(setID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.Has2Piece) (e.g. [`fairy.SetPolarMetal`](https://pkg.go.dev/github.com/kirinyoku/fairy#SetPolarMetal)).
+- **Substat Totals:** Aggregates all rolls and stat values across all discs with [`agent.DriveDiscs.SubStatTotals()`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.SubStatTotals).
+- **Roll Scoring:** Count effective rolls for specific priority stats with [`agent.DriveDiscs.CountEffectiveRolls(...)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.CountEffectiveRolls).
 
-Descriptions contain Unity Rich Text markup which can be rendered directly with `FormatHTML()`, `FormatMarkdown()`, or `FormatPlainText()`.
+📖 See [`ExampleDriveDiscs_SubStatTotals`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-DriveDiscs.SubStatTotals)
+
+---
+
+### 3. Skills, Scaling & Rich Text
+- **Flat & Grouped Views:** Access all abilities via [`agent.Skills`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.Skills), or categorized into the 6 in-game UI tabs (`basic`, `special`, `dodge`, `chain`, `assist`, `passive`) with upgrade levels (1–12 active, 0–6 core) via [`agent.SkillGroups`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.SkillGroups).
+- **Dynamic Formulas:** Scaling values and daze ratios are evaluated dynamically per skill level.
+- **Unity Rich Text:** Built-in converters for in-game markup: [`FormatHTML()`](https://pkg.go.dev/github.com/kirinyoku/fairy#Skill.FormatHTML), [`FormatMarkdown()`](https://pkg.go.dev/github.com/kirinyoku/fairy#Skill.FormatMarkdown), or [`FormatPlainText()`](https://pkg.go.dev/github.com/kirinyoku/fairy#Skill.FormatPlainText).
 
 📖 See [`ExampleAgent_SkillGroups`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Agent_SkillGroups)
 
-#### Mindscape Cinema & Potential Vision
+---
 
-- [`agent.MindscapeCinema`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent) tracks the unlocked constellation rank (M0–M6).
-- [`agent.Mindscapes`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.Mindscapes) provides all 6 Mindscape nodes with their `Unlocked` status and formatted effect descriptions.
-- [`agent.PotentialVision`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.PotentialVision) tracks character upgrade nodes with active states.
+### 4. Mindscape Cinema & Potential Vision
+- **Mindscape Cinema:** Constellation rank (M0–M6) via [`agent.MindscapeCinema`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent).
+- **Node Tracking:** Access all 6 Mindscape nodes with unlock status and formatted effect descriptions via [`agent.Mindscapes`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.Mindscapes).
+- **Potential Vision:** Character upgrade nodes with active unlock states via [`agent.PotentialVision`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.PotentialVision).
 
 📖 See [`ExampleAgent_Mindscapes`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Agent_Mindscapes)
 
-#### Drive Disc Analysis & Build Rating
+---
 
-- [`agent.DriveDiscs.Slots`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs): Equipped discs in partition slots 1–6 with main stats, substats, and upgrade rolls.
-- [`agent.DriveDiscs.SetBonuses`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs): Active 2-piece and 4-piece set bonuses with descriptions and formatted HTML.
-- [`agent.DriveDiscs.Has4Piece(setID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.Has4Piece) / [`Has2Piece(setID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.Has2Piece): Boolean set bonus queries using typed constants (e.g. `fairy.SetPolarMetal`).
-- [`agent.DriveDiscs.SubStatTotals()`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.SubStatTotals): Aggregates sub-stat values and roll counts across all Drive Discs.
-- [`agent.DriveDiscs.CountEffectiveRolls(props ...PropertyID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.CountEffectiveRolls): Counts how many rolls landed on target priority stats for build scoring.
+### 5. Player Showcase & Visual Assets
+- **Profile Info:** Player Nickname, Inter-Knot Level, Server Region, and Server Cache TTL via [`profile.CacheTTL()`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile.CacheTTL).
+- **Gradient Titles:** Two-color gradient titles with hex color helpers ([`PrimaryColorHex()`](https://pkg.go.dev/github.com/kirinyoku/fairy#Title.PrimaryColorHex), [`SecondaryColorHex()`](https://pkg.go.dev/github.com/kirinyoku/fairy#Title.SecondaryColorHex)).
+- **Media CDN Assets:** Direct URLs for high-resolution splash art (agents & skins), W-Engines, discs, badges, namecards, plus vector SVG stat & attribute icons.
 
-📖 See [`ExampleDriveDiscs_SubStatTotals`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-DriveDiscs_SubStatTotals)
+📖 See [`ExampleProfile`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-Profile)
+
+---
+
+## Advanced Configuration & Errors
+
+<details>
+<summary><b>🔧 Custom Client (Timeouts, Retries, Caching, User-Agent)</b></summary>
+<br>
+
+Use [`fairy.NewClient`](https://pkg.go.dev/github.com/kirinyoku/fairy#NewClient) with functional options for production deployments:
+
+```go
+// import "github.com/kirinyoku/enkanetwork-go/client/zzz"
+
+client, err := fairy.NewClient(
+    fairy.WithDefaultLang(fairy.LangJA),
+    fairy.WithEnkaOptions(zzz.Options{
+        UserAgent:  "MyApp/1.0 (contact@example.com)",
+        HTTPClient: &http.Client{Timeout: 10 * time.Second},
+        Retry:      &zzz.RetryOptions{MaxAttempts: 2, Delay: 2 * time.Second},
+        // Cache: myCacheInstance, // plug in your own zzz.Cache implementation
+    }),
+)
+
+profile, err := client.GetProfile(ctx, "1504687050")
+```
+
+</details>
+
+<details>
+<summary><b>🚨 Error Handling & Sentinel Errors</b></summary>
+<br>
+
+Fairy returns structured sentinel errors for reliable error handling with `errors.Is`:
+
+| Error | Description |
+| :--- | :--- |
+| [`fairy.ErrInvalidUID`](https://pkg.go.dev/github.com/kirinyoku/fairy#ErrInvalidUID) | UID format is invalid (must be 10 numeric digits starting with 10, 13, 15, or 17). |
+| [`fairy.ErrProfileNotFound`](https://pkg.go.dev/github.com/kirinyoku/fairy#ErrProfileNotFound) | The requested profile does not exist or has showcase hidden. |
+| [`fairy.ErrRateLimit`](https://pkg.go.dev/github.com/kirinyoku/fairy#ErrRateLimit) | EnkaNetwork API rate limit exceeded. |
+| [`fairy.ErrMaintenance`](https://pkg.go.dev/github.com/kirinyoku/fairy#ErrMaintenance) | API or game servers are under maintenance. |
+| [`fairy.ErrNetwork`](https://pkg.go.dev/github.com/kirinyoku/fairy#ErrNetwork) | Network-level failure (DNS, connection timeout, etc.). |
+| [`fairy.ErrEnrichment`](https://pkg.go.dev/github.com/kirinyoku/fairy#ErrEnrichment) | In-memory metadata mapping or formula evaluation error. |
+
+</details>
+
+---
 
 ## Supported Languages
 
-Fairy supports all 13 official in-game languages. All localization data is embedded directly into the binary — no external files or network requests are needed at runtime.
+Fairy includes **zero-config in-memory localization** for all 13 official languages — embedded directly into the binary with no extra network requests.
+
+<details>
+<summary><b>🌐 Supported Languages Table</b></summary>
+<br>
 
 | Language | Native Name | Constant | Code |
 | :--- | :--- | :--- | :--- |
-| English | English | `fairy.LangEN` | `"en"` |
-| Russian | Русский | `fairy.LangRU` | `"ru"` |
-| German | Deutsch | `fairy.LangDE` | `"de"` |
-| Spanish | Español | `fairy.LangES` | `"es"` |
-| French | Français | `fairy.LangFR` | `"fr"` |
-| Indonesian | Bahasa Indonesia | `fairy.LangID` | `"id"` |
-| Japanese | 日本語 | `fairy.LangJA` | `"ja"` |
-| Korean | 한국어 | `fairy.LangKO` | `"ko"` |
-| Portuguese | Português | `fairy.LangPT` | `"pt"` |
-| Thai | ภาษาไทย | `fairy.LangTH` | `"th"` |
-| Vietnamese | Tiếng Việt | `fairy.LangVI` | `"vi"` |
-| Chinese (Simplified) | 简体中文 | `fairy.LangZHCN` | `"zh-cn"` |
-| Chinese (Traditional) | 繁體中文 | `fairy.LangZHTW` | `"zh-tw"` |
+| English | English | [`fairy.LangEN`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangEN) | `"en"` |
+| Russian | Русский | [`fairy.LangRU`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangRU) | `"ru"` |
+| Japanese | 日本語 | [`fairy.LangJA`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangJA) | `"ja"` |
+| Chinese (Simplified) | 简体中文 | [`fairy.LangZHCN`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangZHCN) | `"zh-cn"` |
+| Chinese (Traditional) | 繁體中文 | [`fairy.LangZHTW`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangZHTW) | `"zh-tw"` |
+| Korean | 한국어 | [`fairy.LangKO`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangKO) | `"ko"` |
+| German | Deutsch | [`fairy.LangDE`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangDE) | `"de"` |
+| French | Français | [`fairy.LangFR`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangFR) | `"fr"` |
+| Spanish | Español | [`fairy.LangES`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangES) | `"es"` |
+| Portuguese | Português | [`fairy.LangPT`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangPT) | `"pt"` |
+| Indonesian | Bahasa Indonesia | [`fairy.LangID`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangID) | `"id"` |
+| Thai | ภาษาไทย | [`fairy.LangTH`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangTH) | `"th"` |
+| Vietnamese | Tiếng Việt | [`fairy.LangVI`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangVI) | `"vi"` |
+
+</details>
+
+---
 
 ## License
 
