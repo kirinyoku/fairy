@@ -190,29 +190,27 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 		return nil
 	}
 
+	meta, ok := m.store.AvatarMeta(raw.ID)
+	if !ok {
+		return nil
+	}
+
 	agent := &Agent{
 		ID:                   raw.ID,
 		Level:                raw.Level,
 		Promotion:            raw.PromotionLevel,
 		MindscapeCinema:      raw.TalentLevel,
 		CoreSkillEnhancement: raw.CoreSkillEnhancement,
+		Name:                 m.store.Localize(meta.Name, string(m.lang)),
+		Rarity:               mapRarity(meta.Rarity),
+		SplashArtURL:         buildEnkaURL(meta.Image),
+		Specialty:            Specialty(meta.ProfessionType),
+		SpecialtyName:        m.store.Localize(mapSpecialtyLocKey(meta.ProfessionType), string(m.lang)),
 	}
 
-	meta, ok := m.store.AvatarMeta(raw.ID)
-	if ok {
-		agent.Name = m.store.Localize(meta.Name, string(m.lang))
-		agent.Rarity = mapRarity(meta.Rarity)
-		agent.SplashArtURL = buildEnkaURL(meta.Image)
-
-		if len(meta.ElementTypes) > 0 {
-			agent.Attribute = mapRawToAttribute(meta.ElementTypes[0])
-			agent.AttributeName = m.store.Localize("ElementType_"+meta.ElementTypes[0], string(m.lang))
-		}
-
-		agent.Specialty = Specialty(meta.ProfessionType)
-		agent.SpecialtyName = m.store.Localize(mapSpecialtyLocKey(meta.ProfessionType), string(m.lang))
-	} else {
-		agent.Name = fmt.Sprintf("Unknown Agent (%d)", raw.ID)
+	if len(meta.ElementTypes) > 0 {
+		agent.Attribute = mapRawToAttribute(meta.ElementTypes[0])
+		agent.AttributeName = m.store.Localize("ElementType_"+meta.ElementTypes[0], string(m.lang))
 	}
 
 	var skinMeta store.SkinMeta
@@ -381,33 +379,38 @@ func (m *profileMapper) mapAgentPotentialVision(raw *zzz.AvatarData) *PotentialV
 // corresponding to the weapon's phase/refinement level (0-4). We use the (1-indexed)
 // Modification level - 1 to look up the correct description text.
 func (m *profileMapper) mapWEngine(raw *zzz.Weapon) *WEngine {
-	w := &WEngine{
-		ID:           raw.ID,
-		UID:          strconv.Itoa(raw.UID),
-		Level:        raw.Level,
-		Phase:        raw.BreakLevel,
-		Modification: raw.UpgradeLevel,
+	if raw == nil {
+		return nil
 	}
 
 	meta, ok := m.store.WeaponMeta(raw.ID)
-	if ok {
-		w.Name = m.store.Localize(meta.ItemName, string(m.lang))
-		w.Rarity = mapRarity(meta.Rarity)
-		w.Specialty = Specialty(meta.ProfessionType)
-		w.SpecialtyName = m.store.Localize(mapSpecialtyLocKey(meta.ProfessionType), string(m.lang))
-		w.IconURL = buildEnkaURL(meta.ImagePath)
+	if !ok {
+		return nil
+	}
 
-		wPhase := raw.UpgradeLevel - 1
-		if wPhase < 0 {
-			wPhase = 0
-		}
-		w.MainStat = m.mapStat(meta.MainStat.PropertyID, calcWEngineMainStat(m.store, meta, raw.Level, raw.BreakLevel), 0)
-		w.SecondaryStat = m.mapStat(meta.SecondaryStat.PropertyID, calcWEngineSecondaryStat(m.store, meta, raw.Level, wPhase), 0)
+	wPhase := raw.UpgradeLevel - 1
+	if wPhase < 0 {
+		wPhase = 0
+	}
 
-		if wPhase < len(meta.PassiveDescKeys) {
-			w.PassiveDescription = m.store.Localize(meta.PassiveDescKeys[wPhase], string(m.lang))
-			w.FormattedHTML = w.FormatHTML()
-		}
+	w := &WEngine{
+		ID:            raw.ID,
+		UID:           strconv.Itoa(raw.UID),
+		Level:         raw.Level,
+		Phase:         raw.BreakLevel,
+		Modification:  raw.UpgradeLevel,
+		Name:          m.store.Localize(meta.ItemName, string(m.lang)),
+		Rarity:        mapRarity(meta.Rarity),
+		Specialty:     Specialty(meta.ProfessionType),
+		SpecialtyName: m.store.Localize(mapSpecialtyLocKey(meta.ProfessionType), string(m.lang)),
+		IconURL:       buildEnkaURL(meta.ImagePath),
+		MainStat:      m.mapStat(meta.MainStat.PropertyID, calcWEngineMainStat(m.store, meta, raw.Level, raw.BreakLevel), 0),
+		SecondaryStat: m.mapStat(meta.SecondaryStat.PropertyID, calcWEngineSecondaryStat(m.store, meta, raw.Level, wPhase), 0),
+	}
+
+	if wPhase < len(meta.PassiveDescKeys) {
+		w.PassiveDescription = m.store.Localize(meta.PassiveDescKeys[wPhase], string(m.lang))
+		w.FormattedHTML = w.FormatHTML()
 	}
 
 	return w

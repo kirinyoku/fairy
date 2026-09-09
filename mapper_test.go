@@ -93,3 +93,80 @@ func TestMapAgentSkills_Fallback(t *testing.T) {
 		}
 	})
 }
+
+func TestFilterUnknownEntities(t *testing.T) {
+	s, err := store.Default()
+	if err != nil {
+		t.Fatalf("failed to init default store: %v", err)
+	}
+
+	mapper := newMapper(s, LangEN)
+
+	t.Run("unknown avatar returns nil from ToAgent", func(t *testing.T) {
+		agent := mapper.ToAgent(&zzz.AvatarData{ID: 999999})
+		if agent != nil {
+			t.Errorf("expected nil agent for unknown ID 999999, got %+v", agent)
+		}
+	})
+
+	t.Run("unknown weapon returns nil from mapWEngine", func(t *testing.T) {
+		weapon := mapper.mapWEngine(&zzz.Weapon{ID: 999999})
+		if weapon != nil {
+			t.Errorf("expected nil weapon for unknown ID 999999, got %+v", weapon)
+		}
+	})
+
+	t.Run("showcase filters out unknown avatars cleanly", func(t *testing.T) {
+		raw := &zzz.Profile{
+			PlayerInfo: zzz.PlayerInfo{
+				ShowcaseDetail: &zzz.ShowcaseDetail{
+					AvatarList: []zzz.AvatarData{
+						{ID: 1011, Level: 50}, // Known (Anby)
+						{ID: 999999, Level: 60}, // Unknown
+						{ID: 1021, Level: 60}, // Known (Nekomata)
+					},
+				},
+			},
+		}
+
+		p, err := mapper.ToProfile(raw)
+		if err != nil {
+			t.Fatalf("ToProfile failed: %v", err)
+		}
+		if len(p.Agents) != 2 {
+			t.Fatalf("expected exactly 2 known agents, got %d", len(p.Agents))
+		}
+		if p.Agents[0].ID != 1011 || p.Agents[1].ID != 1021 {
+			t.Errorf("unexpected agents in profile: %+v", p.Agents)
+		}
+	})
+
+	t.Run("known avatar with unknown weapon has nil WEngine", func(t *testing.T) {
+		raw := &zzz.Profile{
+			PlayerInfo: zzz.PlayerInfo{
+				ShowcaseDetail: &zzz.ShowcaseDetail{
+					AvatarList: []zzz.AvatarData{
+						{
+							ID:    1011,
+							Level: 50,
+							Weapon: &zzz.Weapon{
+								ID: 999999,
+							},
+						},
+					},
+				},
+			},
+		}
+
+		p, err := mapper.ToProfile(raw)
+		if err != nil {
+			t.Fatalf("ToProfile failed: %v", err)
+		}
+		if len(p.Agents) != 1 {
+			t.Fatalf("expected 1 agent, got %d", len(p.Agents))
+		}
+		if p.Agents[0].WEngine != nil {
+			t.Errorf("expected nil WEngine for unknown weapon, got %+v", p.Agents[0].WEngine)
+		}
+	})
+}
