@@ -5,24 +5,14 @@
 
 **A Go library for fetching and enriching Zenless Zone Zero player profiles**
 
-  [![Go Reference](https://pkg.go.dev/badge/github.com/kirinyoku/fairy.svg)](https://pkg.go.dev/github.com/kirinyoku/fairy)
+  [![CI](https://github.com/kirinyoku/fairy/actions/workflows/ci.yml/badge.svg)](https://github.com/kirinyoku/fairy/actions/workflows/ci.yml)
+  [![Game Version](https://img.shields.io/badge/ZZZ%20Version-3.2-blue.svg)](https://zenless.hoyoverse.com)
   [![Go Version](https://img.shields.io/github/go-mod/go-version/kirinyoku/fairy)](https://golang.org/doc/devel/release.html)
+  [![Go Reference](https://pkg.go.dev/badge/github.com/kirinyoku/fairy.svg)](https://pkg.go.dev/github.com/kirinyoku/fairy)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   *Fetch and enrich Zenless Zone Zero player profiles via the [EnkaNetwork API](https://enka.network) with localized names, calculated agent stats, and ready-to-use assets.*
 </div>
-
----
-
-## At a Glance
-
-```go
-profile, err := fairy.GetProfile(ctx, "1504687050")
-
-fmt.Println(profile.Nickname)                 // "LOWLEVEL"
-fmt.Println(profile.Agents[0].Name)           // "Nangong Yu"
-fmt.Println(profile.Agents[0].Stats.CritRate) // 0.074 (7.4%)
-```
 
 ---
 
