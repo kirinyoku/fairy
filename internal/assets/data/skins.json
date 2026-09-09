@@ -774,5 +774,21 @@
         "DescKey": "AvatarSkin_Belle_Desc_002",
         "Icon": "IconRole34_02",
         "IsDefault": false
+    },
+    "3116110": {
+        "Id": 3116110,
+        "AvatarId": 1611,
+        "NameKey": "AvatarSkin_Claret_Name_000",
+        "DescKey": "AvatarSkin_Claret_Desc_000",
+        "Icon": "IconRole1611",
+        "IsDefault": true
+    },
+    "3116210": {
+        "Id": 3116210,
+        "AvatarId": 1621,
+        "NameKey": "AvatarSkin_Pryce_Name_000",
+        "DescKey": "AvatarSkin_Pryce_Desc_000",
+        "Icon": "IconRole68",
+        "IsDefault": true
     }
 }

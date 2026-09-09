@@ -104,10 +104,36 @@ func main() {
 		}
 	}
 
+	overwriteFiles := map[string]string{
+		"de":    "TextMap_DEOverwriteTemplateTb.json",
+		"en":    "TextMap_ENOverwriteTemplateTb.json",
+		"es":    "TextMap_ESOverwriteTemplateTb.json",
+		"fr":    "TextMap_FROverwriteTemplateTb.json",
+		"id":    "TextMap_IDOverwriteTemplateTb.json",
+		"ja":    "TextMap_JAOverwriteTemplateTb.json",
+		"ko":    "TextMap_KOOverwriteTemplateTb.json",
+		"pt":    "TextMap_PTOverwriteTemplateTb.json",
+		"ru":    "TextMap_RUOverwriteTemplateTb.json",
+		"th":    "TextMap_THOverwriteTemplateTb.json",
+		"vi":    "TextMap_VIOverwriteTemplateTb.json",
+		"zh-cn": "TextMapOverwriteTemplateTb.json",
+		"zh-tw": "TextMap_CHTOverwriteTemplateTb.json",
+	}
+
 	textMaps := make(map[string]map[string]string)
 	for lang, filename := range langFiles {
 		var tm map[string]string
 		readJSON(filepath.Join(zenlessDir, "TextMap", filename), &tm)
+		if owFile, ok := overwriteFiles[lang]; ok {
+			owPath := filepath.Join(zenlessDir, "TextMap", owFile)
+			if _, err := os.Stat(owPath); err == nil {
+				var ow map[string]string
+				readJSON(owPath, &ow)
+				for k, v := range ow {
+					tm[k] = v
+				}
+			}
+		}
 		textMaps[lang] = tm
 	}
 
@@ -133,6 +159,9 @@ func main() {
 	}
 
 	for id, w := range weapons {
+		if name, ok := w["ItemName"].(string); ok && name != "" {
+			keysToExtract[name] = true
+		}
 		if keys, ok := wtMap[id]; ok && len(keys) > 0 {
 			w["PassiveDescKeys"] = keys
 			for _, k := range keys {
@@ -149,6 +178,46 @@ func main() {
 		}
 	}
 	writeJSON(filepath.Join(assetsDir, "weapons.json"), weapons)
+
+	var avatars map[string]map[string]interface{}
+	readJSON(filepath.Join(assetsDir, "avatars.json"), &avatars)
+	for _, a := range avatars {
+		if name, ok := a["Name"].(string); ok && name != "" {
+			keysToExtract[name] = true
+		}
+	}
+
+	var mindscapes map[string][]map[string]interface{}
+	readJSON(filepath.Join(assetsDir, "mindscapes.json"), &mindscapes)
+	for _, mList := range mindscapes {
+		for _, m := range mList {
+			if t, ok := m["TitleKey"].(string); ok && t != "" {
+				keysToExtract[t] = true
+			}
+			if d, ok := m["DescKey"].(string); ok && d != "" {
+				keysToExtract[d] = true
+			}
+		}
+	}
+
+	var props map[string]map[string]interface{}
+	readJSON(filepath.Join(assetsDir, "property.json"), &props)
+	for _, p := range props {
+		if name, ok := p["Name"].(string); ok && name != "" {
+			keysToExtract[name] = true
+		}
+	}
+
+	var skins map[string]map[string]interface{}
+	readJSON(filepath.Join(assetsDir, "skins.json"), &skins)
+	for _, s := range skins {
+		if name, ok := s["NameKey"].(string); ok && name != "" {
+			keysToExtract[name] = true
+		}
+		if desc, ok := s["DescKey"].(string); ok && desc != "" {
+			keysToExtract[desc] = true
+		}
+	}
 
 	// 4. Process Equipments
 	suitsRaw := equipments["Suits"].(map[string]interface{})
@@ -327,13 +396,13 @@ func main() {
 
 	// 5.6 Process Weapon and Equipment Templates
 	type rawWeaponLevelItem struct {
-		Rarity             int `json:"ICPMKHFGPOG"`
-		Level              int `json:"EMLFBEMHINK"`
-		MainStat           int `json:"AHMDJCIHNKG"`
-		SubStatDenominator int `json:"IDBKOAPHGLC"`
+		Rarity             int `json:"APDCBEGPHJO"`
+		Level              int `json:"GJGMIBEOBHP"`
+		MainStat           int `json:"EOMOGNMMOEJ"`
+		SubStatDenominator int `json:"EPEINPIGGBJ"`
 	}
 	var rawWeaponLevelData struct {
-		List []rawWeaponLevelItem `json:"OOFFGGKCDID"`
+		List []rawWeaponLevelItem `json:"MLOEFHJHCID"`
 	}
 	weaponLevelFile := filepath.Join(zenlessDir, "FileCfg", "WeaponLevelTemplateTb.json")
 	if _, err := os.Stat(weaponLevelFile); err == nil {
@@ -354,13 +423,13 @@ func main() {
 	}
 
 	type rawWeaponStarItem struct {
-		Rarity     int `json:"ICPMKHFGPOG"`
-		BreakLevel int `json:"BBOCBHBGMML"`
-		MainStat   int `json:"NMFHJKEFLOG"`
-		SubStat    int `json:"FCLIIPBDDKP"`
+		Rarity     int `json:"APDCBEGPHJO"`
+		BreakLevel int `json:"LMBCLMNIJNA"`
+		MainStat   int `json:"EENDAEFLEJO"`
+		SubStat    int `json:"IIPAHNFIJOH"`
 	}
 	var rawWeaponStarData struct {
-		List []rawWeaponStarItem `json:"OOFFGGKCDID"`
+		List []rawWeaponStarItem `json:"MLOEFHJHCID"`
 	}
 	weaponStarFile := filepath.Join(zenlessDir, "FileCfg", "WeaponStarTemplateTb.json")
 	if _, err := os.Stat(weaponStarFile); err == nil {
@@ -381,12 +450,12 @@ func main() {
 	}
 
 	type rawEquipLevelItem struct {
-		Rarity   int `json:"GMKDLJLLBPO"`
-		Level    int `json:"FNPIELBFDEJ"`
-		MainStat int `json:"JEKGLLBALFE"`
+		Rarity   int `json:"APDCBEGPHJO"`
+		Level    int `json:"GJGMIBEOBHP"`
+		MainStat int `json:"EOMOGNMMOEJ"`
 	}
 	var rawEquipLevelData struct {
-		List []rawEquipLevelItem `json:"MIJCMCEDADM"`
+		List []rawEquipLevelItem `json:"MLOEFHJHCID"`
 	}
 	equipLevelFile := filepath.Join(zenlessDir, "FileCfg", "EquipmentLevelTemplateTb.json")
 	if _, err := os.Stat(equipLevelFile); err == nil {

@@ -117,6 +117,7 @@ func TestClient_Enrich(t *testing.T) {
 
 		if profile == nil {
 			t.Fatal("expected non-nil profile")
+			return
 		}
 		if profile.TTL != 45 {
 			t.Errorf("profile.TTL = %d, want 45", profile.TTL)
@@ -206,6 +207,7 @@ func TestGlobal_Enrich(t *testing.T) {
 		}
 		if profile == nil {
 			t.Fatal("expected non-nil profile")
+			return
 		}
 		// Check pre-computed agent.UIStats in Russian
 		if profile.Agents[0].UIStats.CritRate.Name != "Шанс крит. попадания" {
@@ -444,6 +446,7 @@ func TestClient_ErrorHandling(t *testing.T) {
 		}
 		if profile == nil {
 			t.Fatal("expected non-nil profile")
+			return
 		}
 		if profile.UID != "1504687050" {
 			t.Errorf("profile.UID = %q, want %q", profile.UID, "1504687050")

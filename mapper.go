@@ -558,6 +558,8 @@ func mapSpecialtyLocKey(raw string) string {
 		return "ProfessionName_Defence"
 	case "Rupture":
 		return "ProfessionName_Rupture"
+	case "Armorer":
+		return "ProfessionName_Armorer"
 	default:
 		return "ProfessionName_" + raw
 	}

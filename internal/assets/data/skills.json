@@ -15198,5 +15198,613 @@
       "NameKey": "Sigrid_MathSkill_Title",
       "DescKey": "Sigrid_MathSkill_Desc"
     }
+  ],
+  "1611": [
+    {
+      "NameKey": "Claret_Skill_Normal_Title",
+      "DescKey": "Claret_Skill_Normal_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_01",
+          "Formula": "{Skill:1611001, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_02",
+          "Formula": "{Skill:1611002, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_03",
+          "Formula": "{Skill:1611003, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_04",
+          "Formula": "{Skill:1611004, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_01",
+          "Formula": "{Skill:1611001, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_02",
+          "Formula": "{Skill:1611002, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_03",
+          "Formula": "{Skill:1611003, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_04",
+          "Formula": "{Skill:1611004, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_Normal_Enhance_Title",
+      "DescKey": "Claret_Skill_Normal_Enhance_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_01",
+          "Formula": "{Skill:1611005, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_02",
+          "Formula": "{Skill:1611006, Prop:1001}"
+        },
+        {
+          "NameKey": "Claret_Property_Enhanced_03_01_Desc_DamageRatio",
+          "Formula": "{Skill:1611007, Prop:1001}"
+        },
+        {
+          "NameKey": "Claret_Property_Enhanced_03_02_Desc_DamageRatio",
+          "Formula": "{Skill:1611029, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_01",
+          "Formula": "{Skill:1611005, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_02",
+          "Formula": "{Skill:1611006, Prop:1002}"
+        },
+        {
+          "NameKey": "Claret_Property_Enhanced_03_01_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611007, Prop:1002}"
+        },
+        {
+          "NameKey": "Claret_Property_Enhanced_03_02_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611029, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_Normal_Enhance_04_Title",
+      "DescKey": "Claret_Skill_Normal_Enhance_04_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611008, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611008, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_Special_Title",
+      "DescKey": "Claret_Skill_Special_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611009, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611009, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_Branch_01_Title",
+      "DescKey": "Claret_Skill_Branch_01_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611010, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611010, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_CpConsume",
+          "Formula": "Claret_Property_ExSpecial_CpCostValue_01"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_ExSpecial_01_Title",
+      "DescKey": "Claret_Skill_ExSpecial_01_Desc",
+      "Params": [
+        {
+          "NameKey": "Claret_Property_ExSpecial_01_01_Desc_DamageRatio",
+          "Formula": "{Skill:1611011, Prop:1001}"
+        },
+        {
+          "NameKey": "Claret_Property_ExSpecial_01_02_Desc_DamageRatio",
+          "Formula": "{Skill:1611012, Prop:1001}"
+        },
+        {
+          "NameKey": "Claret_Property_ExSpecial_01_01_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611011, Prop:1002}"
+        },
+        {
+          "NameKey": "Claret_Property_ExSpecial_01_02_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611012, Prop:1002}"
+        },
+        {
+          "NameKey": "Claret_Property_MaimWound_Desc_DamageRatio",
+          "Formula": "{Skill:1611013, Prop:1001}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_ExSpecial_02_Title",
+      "DescKey": "Claret_Skill_ExSpecial_02_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611014, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611014, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_Evade_Title",
+      "DescKey": "Claret_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Claret_Skill_Rush_Title",
+      "DescKey": "Claret_Skill_Rush_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611016, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611016, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_Counter_Title",
+      "DescKey": "Claret_Skill_Counter_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611018, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611018, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_Counter_Enhance_Title",
+      "DescKey": "Claret_Skill_Counter_Enhance_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611019, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611019, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_QTE_Title",
+      "DescKey": "Claret_Skill_QTE_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611020, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611020, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_ExQTE_Title",
+      "DescKey": "Claret_Skill_ExQTE_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611021, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611021, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_BeHitAid_Title",
+      "DescKey": "Claret_Skill_BeHitAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611022, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611022, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_BeHitAid_Enhance_Title",
+      "DescKey": "Claret_Skill_BeHitAid_Enhance_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611023, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611023, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_ParryAid_Title",
+      "DescKey": "Claret_Skill_ParryAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_01",
+          "Formula": "{Skill:1611024, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_02",
+          "Formula": "{Skill:1611025, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_03",
+          "Formula": "{Skill:1611026, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_AssaultAid_Title",
+      "DescKey": "Claret_Skill_AssaultAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611027, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611027, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_CounterAssist_Title",
+      "DescKey": "Claret_Skill_CounterAssist_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611028, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611028, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_Skill_WrestleAid_Title",
+      "DescKey": "Claret_Skill_WrestleAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1611030, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1611030, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Claret_UniqueSkill_Title",
+      "DescKey": "Claret_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Claret_MathSkill_Title",
+      "DescKey": "Claret_MathSkill_Desc"
+    }
+  ],
+  "1621": [
+    {
+      "NameKey": "Pryce_Skill_Normal_Title",
+      "DescKey": "Pryce_Skill_Normal_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_01",
+          "Formula": "{Skill:1621001, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_02",
+          "Formula": "{Skill:1621002, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_03",
+          "Formula": "{Skill:1621003, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_04",
+          "Formula": "{Skill:1621004, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_01",
+          "Formula": "{Skill:1621001, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_02",
+          "Formula": "{Skill:1621002, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_03",
+          "Formula": "{Skill:1621003, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_04",
+          "Formula": "{Skill:1621004, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_Special_Title",
+      "DescKey": "Pryce_Skill_Special_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1621006, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621006, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_Branch_Title",
+      "DescKey": "Pryce_Skill_Branch_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1621005, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621005, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_ExSpecial_01_Title",
+      "DescKey": "Pryce_Skill_ExSpecial_01_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1621007, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621007, Prop:1002}"
+        },
+        {
+          "NameKey": "Pryce_Property_ExSpecial_01_Desc_SpCost_01",
+          "Formula": "Pryce_Property_ExSpecial_01_Desc_SpCostValue"
+        },
+        {
+          "NameKey": "Common_Property_Desc_SpConsume",
+          "Formula": "Pryce_Property_ExSpecial_01_Desc_Value_01"
+        },
+        {
+          "NameKey": "Pryce_Property_ExSpecial_01_Desc_Dmg_02",
+          "Formula": "{Skill:1621008, Prop:1001}"
+        },
+        {
+          "NameKey": "Pryce_Property_ExSpecial_01_Desc_Stun_02",
+          "Formula": "{Skill:1621008, Prop:1002}"
+        },
+        {
+          "NameKey": "Pryce_Property_ExSpecial_01_Desc_SpCost_02",
+          "Formula": "Pryce_Property_ExSpecial_01_Desc_Value_02"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_ExSpecial_02_Title",
+      "DescKey": "Pryce_Skill_ExSpecial_02_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1621023, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621023, Prop:1002}"
+        },
+        {
+          "NameKey": "Pryce_Property_ExSpecial_02_Desc_Dmg_02",
+          "Formula": "{Skill:1621021, Prop:1001}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_WindEye_Title",
+      "DescKey": "Pryce_Skill_WindEye_Desc",
+      "Params": [
+        {
+          "NameKey": "Pryce_Property_WindEye_Desc_Dmg_01",
+          "Formula": "{Skill:1621022, Prop:1001}"
+        },
+        {
+          "NameKey": "Pryce_Property_WindEye_Desc_Dmg_02",
+          "Formula": "{Skill:1621019, Prop:1001}"
+        },
+        {
+          "NameKey": "Pryce_Property_WindEye_Desc_Stun_02",
+          "Formula": "{Skill:1621019, Prop:1002}"
+        },
+        {
+          "NameKey": "Pryce_Property_WindEye_Desc_Dmg_03",
+          "Formula": "{Skill:1621020, Prop:1001}"
+        },
+        {
+          "NameKey": "Pryce_Property_WindEye_Desc_Stun_03",
+          "Formula": "{Skill:1621020, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_Evade_Title",
+      "DescKey": "Pryce_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Pryce_Skill_Rush_Title",
+      "DescKey": "Pryce_Skill_Rush_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1621009, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621009, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_Counter_Title",
+      "DescKey": "Pryce_Skill_Counter_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1621010, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621010, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_QTE_Title",
+      "DescKey": "Pryce_Skill_QTE_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1621011, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621011, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_ExQTE_Title",
+      "DescKey": "Pryce_Skill_ExQTE_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1621012, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621012, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_Appear_Title",
+      "DescKey": "Pryce_Skill_Appear_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1621018, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621018, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621017, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_BeHitAid_Title",
+      "DescKey": "Pryce_Skill_BeHitAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1621013, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621013, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_ParryAid_Title",
+      "DescKey": "Pryce_Skill_ParryAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_01",
+          "Formula": "{Skill:1621014, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_02",
+          "Formula": "{Skill:1621015, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_03",
+          "Formula": "{Skill:1621016, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_Skill_AssaultAid_Title",
+      "DescKey": "Pryce_Skill_AssaultAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1621017, Prop:1001}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pryce_UniqueSkill_Title",
+      "DescKey": "Pryce_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Pryce_MathSkill_Title",
+      "DescKey": "Pryce_MathSkill_Desc"
+    }
   ]
 }

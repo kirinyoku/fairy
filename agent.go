@@ -81,6 +81,8 @@ const (
 	SpecialtyDefense Specialty = "Defense"
 	// SpecialtyRupture represents the Rupture role.
 	SpecialtyRupture Specialty = "Rupture"
+	// SpecialtyArmorer represents the Armorer role.
+	SpecialtyArmorer Specialty = "Armorer"
 )
 
 var allSpecialties = [...]Specialty{
@@ -90,9 +92,10 @@ var allSpecialties = [...]Specialty{
 	SpecialtySupport,
 	SpecialtyDefense,
 	SpecialtyRupture,
+	SpecialtyArmorer,
 }
 
-// AllSpecialties returns a newly allocated slice containing all 6 supported [Specialty] constants.
+// AllSpecialties returns a newly allocated slice containing all 7 supported [Specialty] constants.
 // The returned slice is a defensive copy and can be safely mutated by the caller.
 func AllSpecialties() []Specialty {
 	specs := make([]Specialty, len(allSpecialties))
@@ -193,6 +196,8 @@ func (s Specialty) IconURL() string {
 		return EnkaAssetBaseURL + "IconDefense.png"
 	case SpecialtyRupture:
 		return EnkaAssetBaseURL + "IconRupture.png"
+	case SpecialtyArmorer:
+		return EnkaAssetBaseURL + "IconArmorer.png"
 	default:
 		return ""
 	}
@@ -529,9 +534,13 @@ func formatAgentUIStats(a *Agent, s store.MetadataStore, lang Language) UIStats 
 
 	energyRegenKey := locKeyEnergyRegen
 	energyRegenProp := PropBaseEnergyRegen
-	if a.Specialty == SpecialtyRupture {
+	switch a.Specialty {
+	case SpecialtyRupture:
 		energyRegenKey = locKeyRpRecover
 		energyRegenProp = PropBaseRpRecover
+	case SpecialtyArmorer:
+		energyRegenKey = locKeyEpRecover
+		energyRegenProp = PropBaseEpRecover
 	}
 	energyRegenName := getStatName(s, energyRegenKey, lang)
 	sheerForceName := getStatName(s, locKeySheerForce, lang)

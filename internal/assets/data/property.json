@@ -898,5 +898,41 @@
     "32305": {
         "Name": "AddedDamageRatio_Wind",
         "Format": "{0:0.#%}"
+    },
+    "21301": {
+        "Name": "SharpCriticalDamage",
+        "Format": "{0:0.#%}"
+    },
+    "21303": {
+        "Name": "SharpCriticalDamage",
+        "Format": "{0:0.#%}"
+    },
+    "21305": {
+        "Name": "Actor_SharpCriticalDamage",
+        "Format": "{0:0.#%}"
+    },
+    "32401": {
+        "Name": "EpRecover",
+        "Format": "{0:0.##}"
+    },
+    "32402": {
+        "Name": "EpRecover",
+        "Format": "{0:0.#%}"
+    },
+    "32403": {
+        "Name": "EpRecover",
+        "Format": "{0:0.##}"
+    },
+    "32404": {
+        "Name": "Actor_EpRecoverRatio",
+        "Format": "{0:0.#%}"
+    },
+    "32405": {
+        "Name": "Actor_EpRecoverDelta",
+        "Format": "{0:0.##}"
+    },
+    "32505": {
+        "Name": "Actor_EpGetRatio",
+        "Format": "{0:0.#%}"
     }
 }

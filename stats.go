@@ -98,6 +98,18 @@ const (
 	// PropRpRecover represents an increase to Adrenaline Auto-Accumulation.
 	PropRpRecover PropertyID = 32003
 
+	// PropBaseEpRecover represents the base Automatic Sharpness Accumulation stat (for Armorer agents).
+	PropBaseEpRecover PropertyID = 32401
+	// PropEpRecoverPercent represents a percentage increase to Automatic Sharpness Accumulation.
+	PropEpRecoverPercent PropertyID = 32402
+	// PropEpRecover represents an increase to Automatic Sharpness Accumulation.
+	PropEpRecover PropertyID = 32403
+
+	// PropBaseSharpCritDMG represents the base Laceration DMG stat.
+	PropBaseSharpCritDMG PropertyID = 21301
+	// PropSharpCritDMG represents an increase to Laceration DMG.
+	PropSharpCritDMG PropertyID = 21303
+
 	// PropPhysicalDMGBonus represents the Physical Damage Bonus stat.
 	PropPhysicalDMGBonus PropertyID = 31505
 	// PropFireDMGBonus represents the Fire Damage Bonus stat.
@@ -137,6 +149,8 @@ const (
 	locKeyPenFlat            = "PenDelta"
 	locKeyEnergyRegen        = "SpRecover"
 	locKeyRpRecover          = "RpRecover"
+	locKeyEpRecover          = "EpRecover"
+	locKeySharpCritDMG       = "SharpCriticalDamage"
 	locKeySheerForce         = "SkipDefAtk"
 
 	locKeyGeneralDMGBonus  = "AddedDamageRatio"

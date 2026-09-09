@@ -61,6 +61,13 @@ var propertySVGMap = map[PropertyID]string{
 	PropRpRecoverPercent: svgEnergyRegen,
 	PropRpRecover:        svgEnergyRegen,
 
+	PropBaseEpRecover:    svgEnergyRegen,
+	PropEpRecoverPercent: svgEnergyRegen,
+	PropEpRecover:        svgEnergyRegen,
+
+	PropBaseSharpCritDMG: svgCritDMG,
+	PropSharpCritDMG:     svgCritDMG,
+
 	PropBaseAnomalyProficiency:    svgAnomalyProficiency,
 	PropAnomalyProficiencyPercent: svgAnomalyProficiency,
 	PropAnomalyProficiency:        svgAnomalyProficiency,

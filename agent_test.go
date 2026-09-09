@@ -442,8 +442,8 @@ func TestAttribute_IsValid(t *testing.T) {
 
 func TestAllSpecialties(t *testing.T) {
 	specs := AllSpecialties()
-	if len(specs) != 6 {
-		t.Fatalf("AllSpecialties() returned %d specialties, want 6", len(specs))
+	if len(specs) != 7 {
+		t.Fatalf("AllSpecialties() returned %d specialties, want 7", len(specs))
 	}
 
 	specs[0] = Specialty("corrupted")
@@ -464,6 +464,7 @@ func TestSpecialty_IsValid(t *testing.T) {
 		{SpecialtySupport, true},
 		{SpecialtyDefense, true},
 		{SpecialtyRupture, true},
+		{SpecialtyArmorer, true},
 		{Specialty("Healer"), false},
 		{Specialty(""), false},
 	}
