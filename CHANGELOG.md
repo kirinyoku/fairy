@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1] - 2026-09-11
+
+### Changed
+- Omit `EnergyRegen` from `UIStats.List()` and `Stats.List()` when zero (e.g. Armorer agents).
+- Synchronized `Stats.List()` stat ordering with `UIStats.List()`, placing `SharpCritDMG` directly after `CritDMG`.
+- Dynamically resolve energy property ID (`PropBaseRpRecover`, `PropBaseEpRecover`) in `Stats.List()`.
+- Updated calculation pipeline doc comments and added Armorer UI stat tests.
+
 ## [1.2.0] - 2026-09-11
 
 ### Added
