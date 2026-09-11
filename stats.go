@@ -405,7 +405,7 @@ func (u UIStats) List() []FormattedStatBreakdown {
 	if u.AttributeDMGBonus.PropertyID != 0 && u.AttributeDMGBonus.Name != "" {
 		list = append(list, u.AttributeDMGBonus)
 	}
-	if u.SheerForce.PropertyID != 0 && (u.SheerForce.Total != "0" || u.SharpCritDMG.Total == "" || u.SharpCritDMG.Total == "0.0%") {
+	if u.SheerForce.PropertyID != 0 && u.SheerForce.Total != "" && u.SheerForce.Total != "0" {
 		list = append(list, u.SheerForce)
 	}
 	return list
@@ -447,7 +447,14 @@ func (s Stats) List() []StatValue {
 		{PropertyID: PropBasePENFlat, Value: s.PenFlat, IsPercent: false, IconURL: PropBasePENFlat.IconURL()},
 		{PropertyID: PropBaseEnergyRegen, Value: s.EnergyRegen, IsPercent: false, IconURL: PropBaseEnergyRegen.IconURL()},
 		{PropertyID: propGroupGeneralDMG, Value: s.AttributeDMGBonus, IsPercent: true, IconURL: propGroupGeneralDMG.IconURL()},
-		{PropertyID: PropBaseSheerForce, Value: s.SheerForce, IsPercent: false, IconURL: PropBaseSheerForce.IconURL()},
+	}
+	if s.SheerForce > 0 {
+		list = append(list, StatValue{
+			PropertyID: PropBaseSheerForce,
+			Value:      s.SheerForce,
+			IsPercent:  false,
+			IconURL:    PropBaseSheerForce.IconURL(),
+		})
 	}
 	if s.SharpCritDMG > 0 {
 		list = append(list, StatValue{

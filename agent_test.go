@@ -377,6 +377,44 @@ func TestAgent_FormattedUIStats(t *testing.T) {
 		}
 	})
 
+	t.Run("UIStats.List and Stats.List omit SheerForce and SharpCritDMG when zero", func(t *testing.T) {
+		stdAgent := &Agent{
+			Attribute: AttributeFire,
+			BaseStats: agent.BaseStats,
+			Stats:     agent.Stats,
+		}
+		stdAgent.BaseStats.SheerForce = 0
+		stdAgent.Stats.SheerForce = 0
+		stdAgent.BaseStats.SharpCritDMG = 0
+		stdAgent.Stats.SharpCritDMG = 0
+
+		ui := formatAgentUIStats(stdAgent, st, LangEN)
+		list := ui.List()
+
+		if len(list) != 12 {
+			t.Fatalf("expected 12 stats for standard agent in List(), got %d", len(list))
+		}
+
+		for _, s := range list {
+			if s.PropertyID == PropBaseSheerForce {
+				t.Errorf("unexpected SheerForce found in standard agent List()")
+			}
+			if s.PropertyID == PropBaseSharpCritDMG {
+				t.Errorf("unexpected SharpCritDMG found in standard agent List()")
+			}
+		}
+
+		numericList := stdAgent.Stats.List()
+		if len(numericList) != 12 {
+			t.Fatalf("expected 12 numeric stats for standard agent in Stats.List(), got %d", len(numericList))
+		}
+		for _, s := range numericList {
+			if s.PropertyID == PropBaseSheerForce || s.PropertyID == PropBaseSharpCritDMG {
+				t.Errorf("unexpected specialty stat found in standard agent Stats.List(): %v", s.PropertyID)
+			}
+		}
+	})
+
 	t.Run("Stats.List returns all numeric stats in order", func(t *testing.T) {
 		list := agent.Stats.List()
 
