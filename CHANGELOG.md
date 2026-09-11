@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0] - 2026-09-11
+
+### Added
+- Added Zenless Zone Zero v3.2 patch support (metadata, icons, localizations).
+- Added `SpecialtyArmorer` specialty, mechanics constants, and `SharpCritDMG` stat field.
+- Added metadata for new agents (Claret, Roxy) and W-Engines (Crimson Thirst, etc.).
+
+### Changed
+- Updated stat calculation for Armorer specialty (W-Engine base DEF, Core passive scaling, and Claret's CD-to-CR conversion).
+- Improved `UIStats` breakdown formatting to include Laceration DMG and hide unused stats.
+- Filter out unknown avatars and weapons without metadata from `Profile.Agents`.
+- Updated extractor tool to support v3.2 schema and overwrite textmaps.
+
 ## [1.1.0] - 2026-08-29
 
 ### Added
