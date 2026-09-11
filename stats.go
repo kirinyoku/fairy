@@ -264,6 +264,10 @@ type Stats struct {
 
 	// SharpCritDMG is the Laceration DMG stat (damage multiplier for Armorer agents, scaling with DEF).
 	SharpCritDMG float64 `json:"sharp_crit_dmg"`
+
+	// EnergyPropertyID is the specific property ID for the agent's energy regeneration mechanism
+	// (PropBaseEnergyRegen for standard agents, PropBaseRpRecover for Rupture, PropBaseEpRecover for Armorer).
+	EnergyPropertyID PropertyID `json:"energy_property_id,omitempty"`
 }
 
 // FormattedStats contains the agent's combat stats pre-formatted as human-readable strings.
@@ -399,8 +403,10 @@ func (u UIStats) List() []FormattedStatBreakdown {
 		u.AnomalyProficiency,
 		u.PenRatio,
 		u.PenFlat,
-		u.EnergyRegen,
 	)
+	if u.EnergyRegen.PropertyID != 0 && u.EnergyRegen.Total != "" && u.EnergyRegen.Total != "0.00" && u.EnergyRegen.Total != "0" {
+		list = append(list, u.EnergyRegen)
+	}
 	// Skip Lumiflux
 	if u.AttributeDMGBonus.PropertyID != 0 && u.AttributeDMGBonus.Name != "" {
 		list = append(list, u.AttributeDMGBonus)
@@ -434,34 +440,53 @@ func (s *Stats) Formatted() FormattedStats {
 
 // List returns all numeric combat stats as a slice of [StatValue] in canonical in-game display order.
 func (s Stats) List() []StatValue {
-	list := []StatValue{
-		{PropertyID: PropBaseHP, Value: s.HP, IsPercent: false, IconURL: PropBaseHP.IconURL()},
-		{PropertyID: PropBaseATK, Value: s.ATK, IsPercent: false, IconURL: PropBaseATK.IconURL()},
-		{PropertyID: PropBaseDEF, Value: s.DEF, IsPercent: false, IconURL: PropBaseDEF.IconURL()},
-		{PropertyID: PropBaseImpact, Value: s.Impact, IsPercent: false, IconURL: PropBaseImpact.IconURL()},
-		{PropertyID: PropBaseCritRate, Value: s.CritRate, IsPercent: true, IconURL: PropBaseCritRate.IconURL()},
-		{PropertyID: PropBaseCritDMG, Value: s.CritDMG, IsPercent: true, IconURL: PropBaseCritDMG.IconURL()},
-		{PropertyID: PropBaseAnomalyMastery, Value: s.AnomalyMastery, IsPercent: false, IconURL: PropBaseAnomalyMastery.IconURL()},
-		{PropertyID: PropBaseAnomalyProficiency, Value: s.AnomalyProficiency, IsPercent: false, IconURL: PropBaseAnomalyProficiency.IconURL()},
-		{PropertyID: PropBasePENRatio, Value: s.PenRatio, IsPercent: true, IconURL: PropBasePENRatio.IconURL()},
-		{PropertyID: PropBasePENFlat, Value: s.PenFlat, IsPercent: false, IconURL: PropBasePENFlat.IconURL()},
-		{PropertyID: PropBaseEnergyRegen, Value: s.EnergyRegen, IsPercent: false, IconURL: PropBaseEnergyRegen.IconURL()},
-		{PropertyID: propGroupGeneralDMG, Value: s.AttributeDMGBonus, IsPercent: true, IconURL: propGroupGeneralDMG.IconURL()},
-	}
-	if s.SheerForce > 0 {
-		list = append(list, StatValue{
-			PropertyID: PropBaseSheerForce,
-			Value:      s.SheerForce,
-			IsPercent:  false,
-			IconURL:    PropBaseSheerForce.IconURL(),
-		})
-	}
+	list := make([]StatValue, 0, 14)
+	list = append(list,
+		StatValue{PropertyID: PropBaseHP, Value: s.HP, IsPercent: false, IconURL: PropBaseHP.IconURL()},
+		StatValue{PropertyID: PropBaseATK, Value: s.ATK, IsPercent: false, IconURL: PropBaseATK.IconURL()},
+		StatValue{PropertyID: PropBaseDEF, Value: s.DEF, IsPercent: false, IconURL: PropBaseDEF.IconURL()},
+		StatValue{PropertyID: PropBaseImpact, Value: s.Impact, IsPercent: false, IconURL: PropBaseImpact.IconURL()},
+		StatValue{PropertyID: PropBaseCritRate, Value: s.CritRate, IsPercent: true, IconURL: PropBaseCritRate.IconURL()},
+		StatValue{PropertyID: PropBaseCritDMG, Value: s.CritDMG, IsPercent: true, IconURL: PropBaseCritDMG.IconURL()},
+	)
 	if s.SharpCritDMG > 0 {
 		list = append(list, StatValue{
 			PropertyID: PropBaseSharpCritDMG,
 			Value:      s.SharpCritDMG,
 			IsPercent:  true,
 			IconURL:    PropBaseSharpCritDMG.IconURL(),
+		})
+	}
+	list = append(list,
+		StatValue{PropertyID: PropBaseAnomalyMastery, Value: s.AnomalyMastery, IsPercent: false, IconURL: PropBaseAnomalyMastery.IconURL()},
+		StatValue{PropertyID: PropBaseAnomalyProficiency, Value: s.AnomalyProficiency, IsPercent: false, IconURL: PropBaseAnomalyProficiency.IconURL()},
+		StatValue{PropertyID: PropBasePENRatio, Value: s.PenRatio, IsPercent: true, IconURL: PropBasePENRatio.IconURL()},
+		StatValue{PropertyID: PropBasePENFlat, Value: s.PenFlat, IsPercent: false, IconURL: PropBasePENFlat.IconURL()},
+	)
+	if s.EnergyRegen > 0 {
+		energyProp := s.EnergyPropertyID
+		if energyProp == 0 {
+			energyProp = PropBaseEnergyRegen
+		}
+		list = append(list, StatValue{
+			PropertyID: energyProp,
+			Value:      s.EnergyRegen,
+			IsPercent:  false,
+			IconURL:    energyProp.IconURL(),
+		})
+	}
+	list = append(list, StatValue{
+		PropertyID: propGroupGeneralDMG,
+		Value:      s.AttributeDMGBonus,
+		IsPercent:  true,
+		IconURL:    propGroupGeneralDMG.IconURL(),
+	})
+	if s.SheerForce > 0 {
+		list = append(list, StatValue{
+			PropertyID: PropBaseSheerForce,
+			Value:      s.SheerForce,
+			IsPercent:  false,
+			IconURL:    PropBaseSheerForce.IconURL(),
 		})
 	}
 	return list

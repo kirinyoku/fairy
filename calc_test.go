@@ -226,4 +226,37 @@ func TestCalculateAgentStats_Armorer_Claret(t *testing.T) {
 	if math.Abs(agent.Stats.CritRate-expectedCritRate) > 1e-4 {
 		t.Errorf("expected CritRate %v, got %v", expectedCritRate, agent.Stats.CritRate)
 	}
+
+	// UIStats formatting check
+	agent.UIStats = formatAgentUIStats(agent, st, LangRU)
+	uiList := agent.UIStats.List()
+
+	// In UIStats.List(), SharpCritDMG should be placed right after CritDMG (index 6)
+	if len(uiList) < 7 || uiList[6].PropertyID != PropBaseSharpCritDMG {
+		t.Errorf("expected SharpCritDMG at index 6 in UIStats.List(), got %+v", uiList)
+	}
+
+	// Verify EnergyRegen ("0.00") and SheerForce ("0") are omitted for Armorer
+	for _, s := range uiList {
+		if s.PropertyID == PropBaseEpRecover || s.PropertyID == PropBaseEnergyRegen || s.PropertyID == PropBaseRpRecover {
+			t.Errorf("unexpected energy regen stat in Armorer UIStats.List(): %+v", s)
+		}
+		if s.PropertyID == PropBaseSheerForce {
+			t.Errorf("unexpected SheerForce in Armorer UIStats.List(): %+v", s)
+		}
+	}
+
+	// Verify Stats.List() numeric alignment
+	numericList := agent.Stats.List()
+	if len(numericList) < 7 || numericList[6].PropertyID != PropBaseSharpCritDMG {
+		t.Errorf("expected SharpCritDMG at index 6 in Stats.List(), got %+v", numericList)
+	}
+	for _, s := range numericList {
+		if s.PropertyID == PropBaseEpRecover || s.PropertyID == PropBaseEnergyRegen || s.PropertyID == PropBaseRpRecover {
+			t.Errorf("unexpected energy regen stat in Armorer Stats.List(): %+v", s)
+		}
+		if s.PropertyID == PropBaseSheerForce {
+			t.Errorf("unexpected SheerForce in Armorer Stats.List(): %+v", s)
+		}
+	}
 }

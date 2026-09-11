@@ -121,9 +121,9 @@ func TestFilterUnknownEntities(t *testing.T) {
 			PlayerInfo: zzz.PlayerInfo{
 				ShowcaseDetail: &zzz.ShowcaseDetail{
 					AvatarList: []zzz.AvatarData{
-						{ID: 1011, Level: 50}, // Known (Anby)
+						{ID: 1011, Level: 50},   // Known (Anby)
 						{ID: 999999, Level: 60}, // Unknown
-						{ID: 1021, Level: 60}, // Known (Nekomata)
+						{ID: 1021, Level: 60},   // Known (Nekomata)
 					},
 				},
 			},

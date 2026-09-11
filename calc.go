@@ -87,10 +87,10 @@ func calcWEngineSecondaryStat(s store.MetadataStore, meta store.WeaponMeta, leve
 //
 // Pipeline execution order:
 //  1. Calculate innate base stats from Agent level growth, Promotion phase, and Core Skill Enhancements.
-//  2. Add W-Engine Base ATK (which merges directly into the Agent's innate Base ATK).
+//  2. Add W-Engine Base ATK / Base DEF (which merges directly into the Agent's innate Base stats).
 //  3. Accumulate all percentage multipliers and flat bonuses from W-Engine substats, Drive Discs, and set bonuses.
 //  4. Compute final combat stats applying multipliers: Base * (1 + PercentBonus) + FlatBonus.
-//  5. Apply ZZZ rounding rules: math.Floor for HP, ATK, DEF, Impact, Anomaly, PenFlat, SheerForce;
+//  5. Apply ZZZ rounding rules: math.Round for HP; math.Floor for ATK, DEF, Impact, Anomaly, PenFlat, SheerForce;
 //     exact floating-point decimals for CritRate, CritDMG, PenRatio, and EnergyRegen.
 func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	meta, ok := s.AvatarMeta(agent.ID)
@@ -98,7 +98,7 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		return
 	}
 
-	// 1. Calculate Base Stats (Avatar + W-Engine Base ATK)
+	// 1. Calculate Base Stats (Avatar + W-Engine Base ATK / Base DEF)
 	baseHp := calcAgentBaseStat(meta, int(PropBaseHP), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 	baseAtk := calcAgentBaseStat(meta, int(PropBaseATK), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 	baseDef := calcAgentBaseStat(meta, int(PropBaseDEF), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
@@ -173,6 +173,7 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		EnergyRegen:        baseEnergyRegen,
 		SheerForce:         baseSheerForce,
 		SharpCritDMG:       baseSharpCritDMG,
+		EnergyPropertyID:   baseEnergyRegenProp,
 	}
 
 	accumulateDriveDiscBonus(agent, addBonus)
@@ -233,6 +234,7 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		EnergyRegen:        baseEnergyRegen*(1.0+bonuses[int(PropEnergyRegenPercent)]+bonuses[int(PropRpRecoverPercent)]+bonuses[int(PropEpRecoverPercent)]) + bonuses[int(PropBaseEnergyRegen)] + bonuses[int(PropEnergyRegen)] + bonuses[int(PropBaseRpRecover)] + bonuses[int(PropRpRecover)] + bonuses[int(PropBaseEpRecover)] + bonuses[int(PropEpRecover)],
 		SheerForce:         totalSheerForce,
 		SharpCritDMG:       totalSharpCritDMG,
+		EnergyPropertyID:   baseEnergyRegenProp,
 	}
 }
 
