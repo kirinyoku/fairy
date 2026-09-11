@@ -14,6 +14,9 @@ const (
 	// defaultBaseCritDMG is the default innate base critical hit damage for all agents (50.0%).
 	defaultBaseCritDMG = 0.50
 
+	// defaultBaseSharpCritDMG is the default innate base Laceration DMG for Armorer agents (150.0%).
+	defaultBaseSharpCritDMG = 1.50
+
 	// defaultBasePenRatio is the default innate base penetration ratio for all agents (0.0%).
 	defaultBasePenRatio = 0.0
 

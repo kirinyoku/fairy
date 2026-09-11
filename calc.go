@@ -115,9 +115,29 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 	baseEnergyRegen := calcAgentBaseStat(meta, int(baseEnergyRegenProp), agent.Level, agent.Promotion, agent.CoreSkillEnhancement) / 100.0
 	baseSheerForce := calcAgentBaseStat(meta, int(PropBaseSheerForce), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 
-	// Fixed Base stats
+	// Fixed / Core-scaled Base stats
+	baseCritRateVal := calcAgentBaseStat(meta, int(PropBaseCritRate), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 	baseCritRate := defaultBaseCritRate
+	if baseCritRateVal > 0 {
+		baseCritRate = baseCritRateVal / statModifierScale
+	}
+
+	baseCritDMGVal := calcAgentBaseStat(meta, int(PropBaseCritDMG), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 	baseCritDMG := defaultBaseCritDMG
+	if baseCritDMGVal > 0 {
+		baseCritDMG = baseCritDMGVal / statModifierScale
+	}
+
+	var baseSharpCritDMG float64
+	if agent.Specialty == SpecialtyArmorer {
+		baseSharpCritDMGVal := calcAgentBaseStat(meta, int(PropBaseSharpCritDMG), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
+		if baseSharpCritDMGVal > 0 {
+			baseSharpCritDMG = baseSharpCritDMGVal / statModifierScale
+		} else {
+			baseSharpCritDMG = defaultBaseSharpCritDMG
+		}
+	}
+
 	basePenRatio := defaultBasePenRatio
 	basePenFlat := defaultBasePenFlat
 
@@ -126,10 +146,10 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		bonuses[propID] += value
 	}
 
-	wEngineBaseAtk := accumulateWEngineBonus(agent, s, addBonus)
+	wEngineBaseAtk, wEngineBaseDef := accumulateWEngineBonus(agent, s, addBonus)
 
 	baseAtk = math.Floor(baseAtk) + math.Floor(wEngineBaseAtk)
-	baseDef = math.Floor(baseDef)
+	baseDef = math.Floor(baseDef) + math.Floor(wEngineBaseDef)
 	baseImpact = math.Floor(baseImpact)
 	baseAnomalyMastery = math.Floor(baseAnomalyMastery)
 	baseAnomalyProficiency = math.Floor(baseAnomalyProficiency)
@@ -152,16 +172,28 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		PenFlat:            basePenFlat,
 		EnergyRegen:        baseEnergyRegen,
 		SheerForce:         baseSheerForce,
+		SharpCritDMG:       baseSharpCritDMG,
 	}
 
 	accumulateDriveDiscBonus(agent, addBonus)
 	accumulateSetBonus(agent, s, addBonus)
 
+	// Claret (ID 1611) Core Passive: For every 1% of initial CRIT DMG, initial CRIT Rate increases by 0.35%.
+	if agent.ID == 1611 {
+		totalCritDMG := baseCritDMG + bonuses[int(PropBaseCritDMG)] + bonuses[int(PropCritDMG)]
+		bonuses[int(PropCritRate)] += totalCritDMG * 0.35
+	}
+
+	var totalSharpCritDMG float64
+	if agent.Specialty == SpecialtyArmorer {
+		totalSharpCritDMG = baseSharpCritDMG + bonuses[int(PropBaseSharpCritDMG)] + bonuses[int(PropSharpCritDMG)]
+	}
+
 	// Apply bonuses in order of operations.
 	// 1. Multiply the aggregated Base Stat by (1 + sum of all Percent Multipliers).
 	// 2. Add the sum of all Flat Bonuses.
 	// 3. Most stats are floored, but CritRate, CritDMG, PenRatio, and EnergyRegen are NOT floored.
-	totalHp := math.Floor(baseHp*(1.0+bonuses[int(PropHPPercent)]+bonuses[int(PropHPPercentBonus)]) + bonuses[int(PropHPFlat)] + bonuses[int(PropHPFlatBonus)])
+	totalHp := math.Round(baseHp*(1.0+bonuses[int(PropHPPercent)]+bonuses[int(PropHPPercentBonus)]) + bonuses[int(PropHPFlat)] + bonuses[int(PropHPFlatBonus)])
 	totalAtk := math.Floor(baseAtk*(1.0+bonuses[int(PropATKPercent)]) + bonuses[int(PropATKFlat)])
 
 	totalSheerForce := math.Floor(bonuses[int(PropBaseSheerForce)] + bonuses[int(PropSheerForce)])
@@ -200,17 +232,18 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		PenFlat:            math.Floor(basePenFlat + bonuses[int(PropBasePENFlat)] + bonuses[int(PropPENFlat)]),
 		EnergyRegen:        baseEnergyRegen*(1.0+bonuses[int(PropEnergyRegenPercent)]+bonuses[int(PropRpRecoverPercent)]+bonuses[int(PropEpRecoverPercent)]) + bonuses[int(PropBaseEnergyRegen)] + bonuses[int(PropEnergyRegen)] + bonuses[int(PropBaseRpRecover)] + bonuses[int(PropRpRecover)] + bonuses[int(PropBaseEpRecover)] + bonuses[int(PropEpRecover)],
 		SheerForce:         totalSheerForce,
+		SharpCritDMG:       totalSharpCritDMG,
 	}
 }
 
-func accumulateWEngineBonus(agent *Agent, s store.MetadataStore, addBonus func(int, float64)) float64 {
-	var wEngineBaseAtk float64
+func accumulateWEngineBonus(agent *Agent, s store.MetadataStore, addBonus func(int, float64)) (float64, float64) {
+	var wEngineBaseAtk, wEngineBaseDef float64
 	if agent.WEngine == nil {
-		return wEngineBaseAtk
+		return wEngineBaseAtk, wEngineBaseDef
 	}
 	wMeta, ok := s.WeaponMeta(agent.WEngine.ID)
 	if !ok {
-		return wEngineBaseAtk
+		return wEngineBaseAtk, wEngineBaseDef
 	}
 
 	wPhase := agent.WEngine.Modification - 1
@@ -221,8 +254,11 @@ func accumulateWEngineBonus(agent *Agent, s store.MetadataStore, addBonus func(i
 	wMainStatId := wMeta.MainStat.PropertyID
 	wMainStatVal := calcWEngineMainStat(s, wMeta, agent.WEngine.Level, agent.WEngine.Phase)
 
-	if wMainStatId == int(PropBaseATK) {
+	switch PropertyID(wMainStatId) {
+	case PropBaseATK:
 		wEngineBaseAtk += float64(wMainStatVal)
+	case PropBaseDEF:
+		wEngineBaseDef += float64(wMainStatVal)
 	}
 
 	wSecStatId := wMeta.SecondaryStat.PropertyID
@@ -240,7 +276,7 @@ func accumulateWEngineBonus(agent *Agent, s store.MetadataStore, addBonus func(i
 	} else {
 		addBonus(wSecStatId, float64(wSecStatVal))
 	}
-	return wEngineBaseAtk
+	return wEngineBaseAtk, wEngineBaseDef
 }
 
 func accumulateDriveDiscBonus(agent *Agent, addBonus func(int, float64)) {

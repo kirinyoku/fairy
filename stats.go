@@ -261,6 +261,9 @@ type Stats struct {
 
 	// SheerForce is the Sheer Force stat (damage multiplier for Rupture agents, ignoring DEF).
 	SheerForce float64 `json:"sheer_force"`
+
+	// SharpCritDMG is the Laceration DMG stat (damage multiplier for Armorer agents, scaling with DEF).
+	SharpCritDMG float64 `json:"sharp_crit_dmg"`
 }
 
 // FormattedStats contains the agent's combat stats pre-formatted as human-readable strings.
@@ -304,6 +307,9 @@ type FormattedStats struct {
 
 	// SheerForce is the formatted Sheer Force string.
 	SheerForce string `json:"sheer_force"`
+
+	// SharpCritDMG is the formatted Laceration DMG string.
+	SharpCritDMG string `json:"sharp_crit_dmg"`
 }
 
 // FormattedStatBreakdown represents a single combat stat broken down into its base and added components,
@@ -369,11 +375,14 @@ type UIStats struct {
 
 	// SheerForce is the Sheer Force breakdown (for Rupture agents).
 	SheerForce FormattedStatBreakdown `json:"sheer_force"`
+
+	// SharpCritDMG is the Laceration DMG breakdown (for Armorer agents).
+	SharpCritDMG FormattedStatBreakdown `json:"sharp_crit_dmg"`
 }
 
 // List returns all combat stat breakdowns as a slice in the canonical in-game display order.
 func (u UIStats) List() []FormattedStatBreakdown {
-	list := make([]FormattedStatBreakdown, 0, 13)
+	list := make([]FormattedStatBreakdown, 0, 14)
 	list = append(list,
 		u.HP,
 		u.ATK,
@@ -381,6 +390,11 @@ func (u UIStats) List() []FormattedStatBreakdown {
 		u.Impact,
 		u.CritRate,
 		u.CritDMG,
+	)
+	if u.SharpCritDMG.PropertyID != 0 && u.SharpCritDMG.Total != "" && u.SharpCritDMG.Total != "0.0%" {
+		list = append(list, u.SharpCritDMG)
+	}
+	list = append(list,
 		u.AnomalyMastery,
 		u.AnomalyProficiency,
 		u.PenRatio,
@@ -391,9 +405,9 @@ func (u UIStats) List() []FormattedStatBreakdown {
 	if u.AttributeDMGBonus.PropertyID != 0 && u.AttributeDMGBonus.Name != "" {
 		list = append(list, u.AttributeDMGBonus)
 	}
-	list = append(list,
-		u.SheerForce,
-	)
+	if u.SheerForce.PropertyID != 0 && (u.SheerForce.Total != "0" || u.SharpCritDMG.Total == "" || u.SharpCritDMG.Total == "0.0%") {
+		list = append(list, u.SheerForce)
+	}
 	return list
 }
 
@@ -414,12 +428,13 @@ func (s *Stats) Formatted() FormattedStats {
 		PenFlat:            fmt.Sprintf("%.0f", s.PenFlat),
 		EnergyRegen:        fmt.Sprintf("%.2f", s.EnergyRegen),
 		SheerForce:         fmt.Sprintf("%.0f", s.SheerForce),
+		SharpCritDMG:       fmt.Sprintf("%.1f%%", s.SharpCritDMG*100),
 	}
 }
 
 // List returns all numeric combat stats as a slice of [StatValue] in canonical in-game display order.
 func (s Stats) List() []StatValue {
-	return []StatValue{
+	list := []StatValue{
 		{PropertyID: PropBaseHP, Value: s.HP, IsPercent: false, IconURL: PropBaseHP.IconURL()},
 		{PropertyID: PropBaseATK, Value: s.ATK, IsPercent: false, IconURL: PropBaseATK.IconURL()},
 		{PropertyID: PropBaseDEF, Value: s.DEF, IsPercent: false, IconURL: PropBaseDEF.IconURL()},
@@ -434,6 +449,15 @@ func (s Stats) List() []StatValue {
 		{PropertyID: propGroupGeneralDMG, Value: s.AttributeDMGBonus, IsPercent: true, IconURL: propGroupGeneralDMG.IconURL()},
 		{PropertyID: PropBaseSheerForce, Value: s.SheerForce, IsPercent: false, IconURL: PropBaseSheerForce.IconURL()},
 	}
+	if s.SharpCritDMG > 0 {
+		list = append(list, StatValue{
+			PropertyID: PropBaseSharpCritDMG,
+			Value:      s.SharpCritDMG,
+			IsPercent:  true,
+			IconURL:    PropBaseSharpCritDMG.IconURL(),
+		})
+	}
+	return list
 }
 
 // formatFlatBreakdown is a helper to format a flat stat breakdown.

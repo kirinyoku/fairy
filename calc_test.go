@@ -1,6 +1,7 @@
 package fairy
 
 import (
+	"math"
 	"testing"
 
 	"github.com/kirinyoku/fairy/internal/store"
@@ -161,5 +162,68 @@ func TestCalcAdrenalineAccumulation_Rupture(t *testing.T) {
 	val := calcAgentBaseStat(meta, int(PropBaseRpRecover), 1, 0, 0) / 100.0
 	if val != 2.00 {
 		t.Errorf("expected 2.00 base Adrenaline Accumulation, got %v", val)
+	}
+}
+
+func TestCalcWEngineMainStat_BaseDEF(t *testing.T) {
+	meta := store.WeaponMeta{
+		Rarity: 4,
+		MainStat: store.PropertyStat{
+			PropertyID:    int(PropBaseDEF),
+			PropertyValue: 29,
+		},
+	}
+
+	ms := mockStore{}
+	// At Lv60, phase 0: 29 * (1 + 2000/10000 + 500/10000) = 29 * 1.25 = 36.25 -> 36
+	val := calcWEngineMainStat(ms, meta, 60, 0)
+	if val != 36 {
+		t.Errorf("expected 36 base DEF, got %d", val)
+	}
+}
+
+func TestCalculateAgentStats_Armorer_Claret(t *testing.T) {
+	st, err := store.Default()
+	if err != nil {
+		t.Fatalf("failed to load default store: %v", err)
+	}
+
+	agent := &Agent{
+		ID:                   1611, // Claret
+		Level:                60,
+		Promotion:            6,
+		CoreSkillEnhancement: 6,
+		Specialty:            SpecialtyArmorer,
+		Attribute:            AttributeElectric,
+		WEngine: &WEngine{
+			ID:           14161, // Scarlet Thirst
+			Level:        60,
+			Phase:        5,
+			Modification: 1,
+		},
+	}
+
+	calculateAgentStats(agent, st)
+
+	// Base DEF: 441 (agent) + 431 (w-engine) = 872
+	if agent.BaseStats.DEF != 872 {
+		t.Errorf("expected Base DEF 872, got %v", agent.BaseStats.DEF)
+	}
+
+	// Base CRIT Rate: 5% + 28.8% (Core F) = 33.8%
+	if math.Abs(agent.BaseStats.CritRate-0.338) > 1e-4 {
+		t.Errorf("expected Base CritRate 0.338, got %v", agent.BaseStats.CritRate)
+	}
+
+	// Base SharpCritDMG: 150% (1.50)
+	if math.Abs(agent.BaseStats.SharpCritDMG-1.50) > 1e-4 {
+		t.Errorf("expected Base SharpCritDMG 1.50, got %v", agent.BaseStats.SharpCritDMG)
+	}
+
+	// Claret passive conversion: 50% base CD * 0.35 = 17.5% added to CRIT Rate
+	// Final CritRate without discs: 33.8% + 17.5% = 51.3%
+	expectedCritRate := 0.338 + (0.50 * 0.35)
+	if math.Abs(agent.Stats.CritRate-expectedCritRate) > 1e-4 {
+		t.Errorf("expected CritRate %v, got %v", expectedCritRate, agent.Stats.CritRate)
 	}
 }

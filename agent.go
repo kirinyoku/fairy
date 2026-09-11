@@ -544,6 +544,7 @@ func formatAgentUIStats(a *Agent, s store.MetadataStore, lang Language) UIStats 
 	}
 	energyRegenName := getStatName(s, energyRegenKey, lang)
 	sheerForceName := getStatName(s, locKeySheerForce, lang)
+	sharpCritDMGName := getStatName(s, locKeySharpCritDMG, lang)
 
 	var attrDMGName string
 	var attrDMGProp PropertyID
@@ -582,6 +583,7 @@ func formatAgentUIStats(a *Agent, s store.MetadataStore, lang Language) UIStats 
 		PenFlat:            formatFlatBreakdown(PropBasePENFlat, penFlatName, a.BaseStats.PenFlat, a.Stats.PenFlat, 0),
 		EnergyRegen:        formatFlatBreakdown(energyRegenProp, energyRegenName, a.BaseStats.EnergyRegen, a.Stats.EnergyRegen, 2),
 		SheerForce:         formatFlatBreakdown(PropBaseSheerForce, sheerForceName, a.BaseStats.SheerForce, a.Stats.SheerForce, 0),
+		SharpCritDMG:       formatPercentBreakdown(PropBaseSharpCritDMG, sharpCritDMGName, a.BaseStats.SharpCritDMG, a.Stats.SharpCritDMG, 1),
 	}
 }
 
