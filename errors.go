@@ -6,7 +6,7 @@ import (
 	"github.com/kirinyoku/fairy/internal/api"
 )
 
-// Sentinel errors returned by [GetProfile], [GetProfileWithLang], [GetRawProfile], [Enrich], [EnrichWithLang], and [*Client] methods.
+// Sentinel errors returned by [GetProfile], [GetProfileWithLang], [GetRawProfile], [Enrich], [EnrichWithLang], [EnrichAgent], [EnrichAgentWithLang], and [*Client] methods.
 // Callers should inspect errors using standard [errors.Is] checks.
 //
 // Example:
@@ -52,6 +52,6 @@ var (
 	ErrNetwork = api.ErrNetwork
 
 	// ErrEnrichment is returned when in-memory transformation, metadata mapping,
-	// or stat calculation fails on raw profile data.
+	// or stat calculation fails on raw profile or avatar data.
 	ErrEnrichment = errors.New("failed to enrich profile data")
 )

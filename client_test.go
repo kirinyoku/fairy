@@ -225,6 +225,214 @@ func TestGlobal_Enrich(t *testing.T) {
 	})
 }
 
+func TestClient_EnrichAgent(t *testing.T) {
+	client, err := NewClient(WithDefaultLang(LangEN))
+	if err != nil {
+		t.Fatalf("NewClient() failed: %v", err)
+	}
+
+	t.Run("nil raw avatar returns error", func(t *testing.T) {
+		agent, err := client.EnrichAgent(nil)
+		if err == nil {
+			t.Errorf("expected error for nil raw avatar, got nil")
+		}
+		if !errors.Is(err, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", err)
+		}
+		if agent != nil {
+			t.Errorf("expected nil agent, got %v", agent)
+		}
+
+		agentLang, errLang := client.EnrichAgentWithLang(nil, LangEN)
+		if errLang == nil {
+			t.Errorf("expected error for nil raw avatar with lang, got nil")
+		}
+		if !errors.Is(errLang, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", errLang)
+		}
+		if agentLang != nil {
+			t.Errorf("expected nil agent, got %v", agentLang)
+		}
+	})
+
+	t.Run("unknown avatar ID returns error", func(t *testing.T) {
+		raw := &zzz.AvatarData{
+			ID:    999999,
+			Level: 50,
+		}
+
+		agent, err := client.EnrichAgent(raw)
+		if err == nil {
+			t.Errorf("expected error for unknown avatar ID, got nil")
+		}
+		if !errors.Is(err, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", err)
+		}
+		if agent != nil {
+			t.Errorf("expected nil agent, got %v", agent)
+		}
+
+		agentLang, errLang := client.EnrichAgentWithLang(raw, LangRU)
+		if errLang == nil {
+			t.Errorf("expected error for unknown avatar ID with lang, got nil")
+		}
+		if !errors.Is(errLang, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", errLang)
+		}
+		if agentLang != nil {
+			t.Errorf("expected nil agent, got %v", agentLang)
+		}
+	})
+
+	t.Run("valid raw avatar enriches successfully with default and custom language", func(t *testing.T) {
+		raw := &zzz.AvatarData{
+			ID:    1011, // Anby Demara
+			Level: 60,
+		}
+
+		// Enrich with custom language (Russian)
+		agentRU, err := client.EnrichAgentWithLang(raw, LangRU)
+		if err != nil {
+			t.Fatalf("client.EnrichAgentWithLang() failed: %v", err)
+		}
+		if agentRU == nil {
+			t.Fatal("expected non-nil agent")
+			return
+		}
+		if agentRU.ID != 1011 {
+			t.Errorf("agentRU.ID = %d, want 1011", agentRU.ID)
+		}
+		if agentRU.Level != 60 {
+			t.Errorf("agentRU.Level = %d, want 60", agentRU.Level)
+		}
+		if agentRU.Name != "Энби" {
+			t.Errorf("agentRU.Name = %q, want %q", agentRU.Name, "Энби")
+		}
+		if agentRU.SpecialtyName != "Устрашение" {
+			t.Errorf("agentRU.SpecialtyName = %q, want %q", agentRU.SpecialtyName, "Устрашение")
+		}
+		if agentRU.UIStats.CritRate.Name != "Шанс крит. попадания" {
+			t.Errorf("agentRU.UIStats.CritRate.Name = %q, want %q", agentRU.UIStats.CritRate.Name, "Шанс крит. попадания")
+		}
+
+		// Enrich with client default language (English)
+		agentEN, err := client.EnrichAgent(raw)
+		if err != nil {
+			t.Fatalf("client.EnrichAgent() failed: %v", err)
+		}
+		if agentEN == nil {
+			t.Fatal("expected non-nil agent")
+			return
+		}
+		if agentEN.ID != 1011 {
+			t.Errorf("agentEN.ID = %d, want 1011", agentEN.ID)
+		}
+		if agentEN.Name != "Anby" {
+			t.Errorf("agentEN.Name = %q, want %q", agentEN.Name, "Anby")
+		}
+		if agentEN.SpecialtyName != "Stun" {
+			t.Errorf("agentEN.SpecialtyName = %q, want %q", agentEN.SpecialtyName, "Stun")
+		}
+		if agentEN.UIStats.CritRate.Name != "CRIT Rate" {
+			t.Errorf("agentEN.UIStats.CritRate.Name = %q, want %q", agentEN.UIStats.CritRate.Name, "CRIT Rate")
+		}
+	})
+}
+
+func TestGlobal_EnrichAgent(t *testing.T) {
+	t.Run("nil raw avatar returns error", func(t *testing.T) {
+		agent, err := EnrichAgent(nil)
+		if err == nil {
+			t.Errorf("expected error for nil raw avatar, got nil")
+		}
+		if !errors.Is(err, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", err)
+		}
+		if agent != nil {
+			t.Errorf("expected nil agent, got %v", agent)
+		}
+
+		agentLang, errLang := EnrichAgentWithLang(nil, LangEN)
+		if errLang == nil {
+			t.Errorf("expected error for nil raw avatar with lang, got nil")
+		}
+		if !errors.Is(errLang, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", errLang)
+		}
+		if agentLang != nil {
+			t.Errorf("expected nil agent, got %v", agentLang)
+		}
+	})
+
+	t.Run("unknown avatar ID returns error", func(t *testing.T) {
+		raw := &zzz.AvatarData{
+			ID:    999999,
+			Level: 50,
+		}
+
+		agent, err := EnrichAgent(raw)
+		if err == nil {
+			t.Errorf("expected error for unknown avatar ID, got nil")
+		}
+		if !errors.Is(err, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", err)
+		}
+		if agent != nil {
+			t.Errorf("expected nil agent, got %v", agent)
+		}
+
+		agentLang, errLang := EnrichAgentWithLang(raw, LangRU)
+		if errLang == nil {
+			t.Errorf("expected error for unknown avatar ID with lang, got nil")
+		}
+		if !errors.Is(errLang, ErrEnrichment) {
+			t.Errorf("expected ErrEnrichment, got %v", errLang)
+		}
+		if agentLang != nil {
+			t.Errorf("expected nil agent, got %v", agentLang)
+		}
+	})
+
+	t.Run("valid raw avatar enriches via global function", func(t *testing.T) {
+		raw := &zzz.AvatarData{
+			ID:    1011, // Anby Demara
+			Level: 60,
+		}
+
+		// Russian explicit
+		agentRU, err := EnrichAgentWithLang(raw, LangRU)
+		if err != nil {
+			t.Fatalf("EnrichAgentWithLang() failed: %v", err)
+		}
+		if agentRU == nil {
+			t.Fatal("expected non-nil agent")
+			return
+		}
+		if agentRU.Name != "Энби" {
+			t.Errorf("agentRU.Name = %q, want %q", agentRU.Name, "Энби")
+		}
+		if agentRU.UIStats.CritRate.Name != "Шанс крит. попадания" {
+			t.Errorf("agentRU.UIStats.CritRate.Name = %q, want %q", agentRU.UIStats.CritRate.Name, "Шанс крит. попадания")
+		}
+
+		// Default English
+		agentEN, err := EnrichAgent(raw)
+		if err != nil {
+			t.Fatalf("EnrichAgent() failed: %v", err)
+		}
+		if agentEN == nil {
+			t.Fatal("expected non-nil agent")
+			return
+		}
+		if agentEN.Name != "Anby" {
+			t.Errorf("agentEN.Name = %q, want %q", agentEN.Name, "Anby")
+		}
+		if agentEN.UIStats.CritRate.Name != "CRIT Rate" {
+			t.Errorf("agentEN.UIStats.CritRate.Name = %q, want %q", agentEN.UIStats.CritRate.Name, "CRIT Rate")
+		}
+	})
+}
+
 func TestClient_ErrorHandling(t *testing.T) {
 	tests := []struct {
 		name          string

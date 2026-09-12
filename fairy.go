@@ -179,3 +179,33 @@ func EnrichWithLang(raw *zzz.Profile, lang Language) (*Profile, error) {
 	}
 	return client.EnrichWithLang(raw, lang)
 }
+
+// EnrichAgent transforms a raw upstream [zzz.AvatarData] into an enriched [Agent]
+// using the default [Language] (English).
+//
+// This function operates completely in-memory using the embedded metadata store and makes ZERO network requests.
+// It resolves all agent metadata, progression data, equipped gear ([WEngine], [DriveDisc] entries),
+// active set bonuses, computes scaled combat stats, and formats UI stats.
+// Returns [ErrEnrichment] if the raw avatar payload is nil or refers to an unknown avatar ID.
+func EnrichAgent(raw *zzz.AvatarData) (*Agent, error) {
+	client, err := getDefaultClient()
+	if err != nil {
+		return nil, err
+	}
+	return client.EnrichAgent(raw)
+}
+
+// EnrichAgentWithLang transforms a raw upstream [zzz.AvatarData] into an enriched [Agent]
+// in the requested [Language].
+//
+// This function operates completely in-memory using the embedded metadata store and makes ZERO network requests.
+// It is ideal for multi-language applications that fetch player data once and render individual agents
+// dynamically across different languages.
+// Returns [ErrEnrichment] if the raw avatar payload is nil or refers to an unknown avatar ID.
+func EnrichAgentWithLang(raw *zzz.AvatarData, lang Language) (*Agent, error) {
+	client, err := getDefaultClient()
+	if err != nil {
+		return nil, err
+	}
+	return client.EnrichAgentWithLang(raw, lang)
+}

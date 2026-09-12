@@ -167,6 +167,33 @@ func ExampleEnrich() {
 	fmt.Println("Russian Agent 0:", ruProfile.Agents[0].Name, "—", ruProfile.Agents[0].SpecialtyName)
 }
 
+// ExampleEnrichAgent demonstrates enriching a standalone raw [zzz.AvatarData] payload directly
+// into an enriched [fairy.Agent] model using [fairy.EnrichAgent] and [fairy.EnrichAgentWithLang]
+// without needing a full profile.
+func ExampleEnrichAgent() {
+	rawAvatar := &zzz.AvatarData{
+		ID:                   1011, // Anby Demara
+		Level:                60,
+		PromotionLevel:       5,
+		TalentLevel:          6,
+		CoreSkillEnhancement: 6,
+	}
+
+	// 1. Enrich into default language (English)
+	agentEN, err := fairy.EnrichAgent(rawAvatar)
+	if err != nil {
+		log.Fatalf("EnrichAgent failed: %v", err)
+	}
+	fmt.Printf("%s [%s / %s]\n", agentEN.Name, agentEN.AttributeName, agentEN.SpecialtyName)
+
+	// 2. Enrich into Japanese localization
+	agentJA, err := fairy.EnrichAgentWithLang(rawAvatar, fairy.LangJA)
+	if err != nil {
+		log.Fatalf("EnrichAgentWithLang (JA) failed: %v", err)
+	}
+	fmt.Printf("%s [%s / %s]\n", agentJA.Name, agentJA.AttributeName, agentJA.SpecialtyName)
+}
+
 // ExampleUIStats_List demonstrates rendering an Agent's combat stats panel with pre-formatted
 // Base + Added = Total breakdowns and localized stat names matching the in-game attributes screen.
 func ExampleUIStats_List() {

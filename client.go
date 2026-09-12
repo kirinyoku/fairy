@@ -2,6 +2,7 @@ package fairy
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/kirinyoku/enkanetwork-go/client/zzz"
 	"github.com/kirinyoku/fairy/internal/api"
@@ -165,4 +166,35 @@ func (c *Client) EnrichWithLang(raw *zzz.Profile, lang Language) (*Profile, erro
 		return nil, err
 	}
 	return p, nil
+}
+
+// EnrichAgent transforms a raw upstream [zzz.AvatarData] into an enriched [Agent]
+// using the client's configured default [Language].
+//
+// This method operates entirely in-memory using the client's metadata store and performs ZERO network calls.
+// It resolves all agent metadata, progression data, equipped gear ([WEngine], [DriveDisc] entries),
+// active set bonuses, computes scaled combat stats, and formats UI stats.
+// Returns [ErrEnrichment] if the raw avatar payload is nil or refers to an unknown avatar ID.
+func (c *Client) EnrichAgent(raw *zzz.AvatarData) (*Agent, error) {
+	return c.EnrichAgentWithLang(raw, c.lang)
+}
+
+// EnrichAgentWithLang transforms a raw upstream [zzz.AvatarData] into an enriched [Agent]
+// using the specified [Language] localization.
+//
+// This method operates entirely in-memory using the client's metadata store and performs ZERO network calls.
+// It is ideal for multi-language applications that fetch player data once and render individual agents
+// dynamically across different languages.
+// Returns [ErrEnrichment] if the raw avatar payload is nil or refers to an unknown avatar ID.
+func (c *Client) EnrichAgentWithLang(raw *zzz.AvatarData, lang Language) (*Agent, error) {
+	if raw == nil {
+		return nil, fmt.Errorf("%w: raw avatar data is nil", ErrEnrichment)
+	}
+
+	m := newMapper(c.store, lang)
+	agent := m.ToAgent(raw)
+	if agent == nil {
+		return nil, fmt.Errorf("%w: unknown avatar id %d", ErrEnrichment, raw.ID)
+	}
+	return agent, nil
 }
