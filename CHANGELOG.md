@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0] - 2026-09-12
+
+### Added
+- Added `EnrichAgent` and `EnrichAgentWithLang` methods on `Client` and global functions for standalone avatar enrichment.
+- Added `ExampleEnrichAgent` and unit test suites for single-agent enrichment with multi-language coverage.
+
 ## [1.2.1] - 2026-09-11
 
 ### Changed
