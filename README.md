@@ -188,11 +188,13 @@ Fairy provides global functions for quick one-liners, and a [`Client`](https://p
 
 | Method | Description | Network |
 | :--- | :--- | :---: |
-| [`fairy.GetProfile(ctx, uid)`](https://pkg.go.dev/github.com/kirinyoku/fairy#GetProfile) | Fetch and enrich player profile in default language | 🌐 HTTP |
-| [`fairy.GetProfileWithLang(ctx, uid, lang)`](https://pkg.go.dev/github.com/kirinyoku/fairy#GetProfileWithLang) | Fetch and enrich profile in a specific language ([`fairy.LangJA`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangJA), [`fairy.LangRU`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangRU), etc.) | 🌐 HTTP |
-| [`fairy.GetRawProfile(ctx, uid)`](https://pkg.go.dev/github.com/kirinyoku/fairy#GetRawProfile) | Fetch raw unparsed profile directly from EnkaNetwork API | 🌐 HTTP |
-| [`fairy.Enrich(raw)`](https://pkg.go.dev/github.com/kirinyoku/fairy#Enrich) | Transform raw profile into an enriched model in default language | ⚡ In-memory |
-| [`fairy.EnrichWithLang(raw, lang)`](https://pkg.go.dev/github.com/kirinyoku/fairy#EnrichWithLang) | Transform raw profile into an enriched model in a specific language ([`fairy.LangJA`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangJA), [`fairy.LangRU`](https://pkg.go.dev/github.com/kirinyoku/fairy#LangRU), etc.) | ⚡ In-memory |
+| [`fairy.GetProfile(ctx, uid)`](https://pkg.go.dev/github.com/kirinyoku/fairy#GetProfile) | Fetch, enrich, and return player profile as [`*fairy.Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile) in default language | 🌐 HTTP |
+| [`fairy.GetProfileWithLang(ctx, uid, lang)`](https://pkg.go.dev/github.com/kirinyoku/fairy#GetProfileWithLang) | Fetch, enrich, and return player profile as [`*fairy.Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile) in a specific language | 🌐 HTTP |
+| [`fairy.GetRawProfile(ctx, uid)`](https://pkg.go.dev/github.com/kirinyoku/fairy#GetRawProfile) | Fetch raw unparsed profile ([`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile)) directly from EnkaNetwork API via [`enkanetwork-go`](https://github.com/kirinyoku/enkanetwork-go) | 🌐 HTTP |
+| [`fairy.Enrich(raw)`](https://pkg.go.dev/github.com/kirinyoku/fairy#Enrich) | Transform raw profile ([`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile)) into an enriched model ([`*fairy.Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile)) in default language | ⚡ In-memory |
+| [`fairy.EnrichWithLang(raw, lang)`](https://pkg.go.dev/github.com/kirinyoku/fairy#EnrichWithLang) | Transform raw profile ([`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile)) into an enriched model ([`*fairy.Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile)) in a specific language | ⚡ In-memory |
+| [`fairy.EnrichAgent(raw)`](https://pkg.go.dev/github.com/kirinyoku/fairy#EnrichAgent) | Transform raw avatar data ([`*zzz.AvatarData`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#AvatarData)) into an enriched Agent model ([`*fairy.Agent`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent)) in default language | ⚡ In-memory |
+| [`fairy.EnrichAgentWithLang(raw, lang)`](https://pkg.go.dev/github.com/kirinyoku/fairy#EnrichAgentWithLang) | Transform raw avatar data ([`*zzz.AvatarData`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#AvatarData)) into an enriched Agent model ([`*fairy.Agent`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent)) in a specific language | ⚡ In-memory |
 
 ---
 
