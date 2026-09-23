@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0] - 2026-09-23
+
+### Added
+- Added `HighlightProps` and `RecommendedSubStats` fields to `Agent` for recommended combat stats and Drive Disc sub-stats.
+- Added `AgentRecommendedSubStats` and `AgentHighlightProps` lookup helpers on `Client` and package level.
+- Added `IsRecommendedSubStat`, `IsHighlightProp`, and `CountEffectiveRolls` methods to `Agent` to inspect and evaluate Drive Disc sub-stats.
+- Added `AllAvatarMetas()` method to `store.MetadataStore` interface and `EmbeddedStore`.
+
 ## [1.3.0] - 2026-09-12
 
 ### Added
