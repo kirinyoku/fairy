@@ -183,6 +183,11 @@ type StatValue struct {
 	IconURL string `json:"icon_url"`
 }
 
+// family returns the base property family grouping identifier.
+func (p PropertyID) family() int {
+	return int(p) / 100
+}
+
 // SVG returns the raw inline SVG markup string for the stat property.
 func (p PropertyID) SVG() string {
 	if svg, ok := propertySVGMap[p]; ok {

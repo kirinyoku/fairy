@@ -14,6 +14,9 @@ type MetadataStore interface {
 	// Returns false if the agent is not found.
 	AvatarMeta(id int) (AvatarMeta, bool)
 
+	// AllAvatarMetas returns a map containing all avatar metadata indexed by avatar ID.
+	AllAvatarMetas() map[int]AvatarMeta
+
 	// AvatarSkillsMeta returns the skills metadata for a specific agent by its internal ID.
 	AvatarSkillsMeta(avatarID int) ([]SkillMeta, bool)
 

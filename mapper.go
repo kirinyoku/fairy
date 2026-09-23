@@ -195,6 +195,11 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 		return nil
 	}
 
+	highlightProps := make([]PropertyID, 0, len(meta.HighlightProps))
+	for _, p := range meta.HighlightProps {
+		highlightProps = append(highlightProps, PropertyID(p))
+	}
+
 	agent := &Agent{
 		ID:                   raw.ID,
 		Level:                raw.Level,
@@ -206,6 +211,8 @@ func (m *profileMapper) ToAgent(raw *zzz.AvatarData) *Agent {
 		SplashArtURL:         buildEnkaURL(meta.Image),
 		Specialty:            Specialty(meta.ProfessionType),
 		SpecialtyName:        m.store.Localize(mapSpecialtyLocKey(meta.ProfessionType), string(m.lang)),
+		HighlightProps:       highlightProps,
+		RecommendedSubStats:  AgentRecommendedSubStats(raw.ID),
 	}
 
 	if len(meta.ElementTypes) > 0 {

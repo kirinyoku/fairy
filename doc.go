@@ -36,7 +36,7 @@
 //	  [fairy.Profile (Enriched Domain Model)]
 //	         ├── Account Info (UID, Nickname, InterknotLevel, Region, Title, Avatar, Badges)
 //	         └── Showcase Agents (max 6)
-//	               ├── Agent Meta (Attribute, Specialty, Rarity, Skin, SplashArt)
+//	               ├── Agent Meta (Attribute, Specialty, Rarity, Skin, SplashArt, HighlightProps, RecommendedSubStats)
 //	               ├── Skills & Groups (Basic, Dodge, Special, Chain, Assist, Passives)
 //	               ├── Mindscape Cinema (Ranks 1–6 with unlocked status)
 //	               ├── Potential Vision (Active nodes & descriptions)
@@ -63,6 +63,10 @@
 //   - [EnrichWithLang]: Transform a raw [zzz.Profile] into an enriched [Profile] in the specified language (zero additional network requests).
 //   - [EnrichAgent]: Transform a raw [zzz.AvatarData] into an enriched [Agent] using the default language (zero additional network requests).
 //   - [EnrichAgentWithLang]: Transform a raw [zzz.AvatarData] into an enriched [Agent] in the specified language (zero additional network requests).
+//   - [AgentHighlightProps]: Retrieve the recommended combat property IDs for an agent profile by numeric ID.
+//   - [AllAgentHighlightProps]: Retrieve a map of all agents' recommended profile combat property IDs indexed by agent ID.
+//   - [AgentRecommendedSubStats]: Retrieve the recommended Drive Disc sub-stat property IDs for an agent by numeric ID.
+//   - [AllAgentRecommendedSubStats]: Retrieve a map of all agents' recommended Drive Disc sub-stats indexed by agent ID.
 //
 // Each operation is available as a global top-level function (using a shared thread-safe default client)
 // and as a method on [Client].
@@ -155,7 +159,7 @@
 //
 // # Drive Disc & Set Bonus Analysis
 //
-// Fairy provides helper methods on [DriveDiscs] to inspect and evaluate equipped Drive Discs:
+// Fairy provides helper methods on [DriveDiscs] and [Agent] to inspect, evaluate, and score equipped Drive Discs:
 //
 //	// 1. Check active Drive Disc set bonuses (2-piece and 4-piece thresholds)
 //	if agent.DriveDiscs.Has4Piece(fairy.SetPolarMetal) {
@@ -168,13 +172,30 @@
 //		fmt.Printf("%-20s +%-6s (%d rolls)\n", sub.Name, sub.DisplayValue(), sub.Rolls)
 //	}
 //
-//	// 3. Count "effective" (useful) substat rolls for a build
-//	usefulRolls := agent.DriveDiscs.CountEffectiveRolls(
-//		fairy.PropCritRate,
-//		fairy.PropCritDMG,
-//		fairy.PropATKPercent,
-//	)
-//	fmt.Printf("Useful Substat Rolls: %d\n", usefulRolls)
+//	// 3. Detect recommended / highlighted sub-stats (matching in-game yellow highlights)
+//	for _, disc := range agent.DriveDiscs.Slots {
+//		for _, sub := range disc.SubStats {
+//			if agent.IsRecommendedSubStat(sub.PropertyID) {
+//				fmt.Printf("★ Highlighted: %s +%s\n", sub.Name, sub.DisplayValue())
+//			}
+//		}
+//	}
+//
+//	// 4. Count effective substat rolls:
+//	// Automatically evaluated against the agent's recommended sub-stats (RecommendedSubStats):
+//	usefulRolls := agent.CountEffectiveRolls()
+//	fmt.Printf("Recommended Substat Rolls: %d\n", usefulRolls)
+//
+//	// Or evaluated against custom priority stats (e.g. CRIT only):
+//	critRolls := agent.CountEffectiveRolls(fairy.PropCritRate, fairy.PropCritDMG)
+//	fmt.Printf("CRIT Substat Rolls: %d\n", critRolls)
+//
+// # In-Game Recommendation Data
+//
+// Recommended Drive Disc sub-stats accessed via [AgentRecommendedSubStats], [AllAgentRecommendedSubStats],
+// and [Agent.RecommendedSubStats] are verified directly against the official Zenless Zone Zero
+// in-game equipment recommendation system ("Recommend" / L3 build guide). They correspond precisely
+// to the yellow highlight badges displayed next to sub-stats on Drive Discs in the in-game equipment UI.
 //
 // # Error Handling
 //

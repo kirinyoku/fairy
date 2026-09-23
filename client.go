@@ -198,3 +198,87 @@ func (c *Client) EnrichAgentWithLang(raw *zzz.AvatarData, lang Language) (*Agent
 	}
 	return agent, nil
 }
+
+// AgentHighlightProps returns the recommended combat property IDs ([PropertyID]) for an Agent by their numeric ID,
+// or nil if the agent is not found.
+// The returned slice is a defensive copy and can be safely mutated by the caller.
+func (c *Client) AgentHighlightProps(agentID int) []PropertyID {
+	if c == nil || c.store == nil {
+		return nil
+	}
+	meta, ok := c.store.AvatarMeta(agentID)
+	if !ok || len(meta.HighlightProps) == 0 {
+		return nil
+	}
+	props := make([]PropertyID, len(meta.HighlightProps))
+	for i, p := range meta.HighlightProps {
+		props[i] = PropertyID(p)
+	}
+	return props
+}
+
+// AllAgentHighlightProps returns a map of all agents' recommended combat property IDs indexed by agent ID.
+// This is useful for code generation, static tooling, or caching build recommendation tables.
+func (c *Client) AllAgentHighlightProps() map[int][]PropertyID {
+	if c == nil || c.store == nil {
+		return nil
+	}
+	allMetas := c.store.AllAvatarMetas()
+	res := make(map[int][]PropertyID, len(allMetas))
+	for id, meta := range allMetas {
+		props := make([]PropertyID, len(meta.HighlightProps))
+		for i, p := range meta.HighlightProps {
+			props[i] = PropertyID(p)
+		}
+		res[id] = props
+	}
+	return res
+}
+
+// AgentRecommendedSubStats returns the recommended Drive Disc sub-stat property IDs ([PropertyID]) for an Agent by numeric ID.
+// These values correspond directly to the official in-game Drive Disc recommendation system (yellow highlights in equipment UI).
+func (c *Client) AgentRecommendedSubStats(agentID int) []PropertyID {
+	if curated, exists := agentRecommendedSubStats[agentID]; exists {
+		res := make([]PropertyID, len(curated))
+		copy(res, curated)
+		return res
+	}
+
+	hl := c.AgentHighlightProps(agentID)
+	if len(hl) == 0 {
+		return []PropertyID{}
+	}
+
+	var res []PropertyID
+	for _, prop := range hl {
+		switch prop {
+		case PropBaseATK:
+			res = append(res, PropATKPercent)
+		case PropBaseHP:
+			res = append(res, PropHPPercent)
+		case PropBaseDEF:
+			res = append(res, PropDEFPercent)
+		case PropBaseCritRate:
+			res = append(res, PropCritRate)
+		case PropBaseCritDMG:
+			res = append(res, PropCritDMG)
+		case PropBaseAnomalyProficiency:
+			res = append(res, PropAnomalyProficiency)
+		}
+	}
+	if res == nil {
+		return []PropertyID{}
+	}
+	return res
+}
+
+// AllAgentRecommendedSubStats returns a map of all known agents to their recommended Drive Disc sub-stats,
+// matching the in-game equipment UI sub-stat highlights.
+func (c *Client) AllAgentRecommendedSubStats() map[int][]PropertyID {
+	allAvatars := c.AllAgentHighlightProps()
+	res := make(map[int][]PropertyID, len(allAvatars))
+	for id := range allAvatars {
+		res[id] = c.AgentRecommendedSubStats(id)
+	}
+	return res
+}

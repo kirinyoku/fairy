@@ -309,13 +309,11 @@ func ExampleDriveDiscs_SubStatTotals() {
 			stat.Name, stat.DisplayValue(), stat.Rolls)
 	}
 
-	// 3. Count effective upgrade rolls for the agent's priority stats (e.g. Crit Rate, Crit DMG, ATK%)
-	if agent.Specialty == fairy.SpecialtyAttack {
-		usefulRolls := agent.DriveDiscs.CountEffectiveRolls(
-			fairy.PropCritRate,
-			fairy.PropCritDMG,
-			fairy.PropATKPercent,
-		)
-		fmt.Printf("\nBuild Rating: %d effective substat rolls on priority stats\n", usefulRolls)
-	}
+	// 3. Count effective upgrade rolls automatically evaluated against the agent's recommended stats (RecommendedSubStats)
+	usefulRolls := agent.CountEffectiveRolls()
+	fmt.Printf("\nBuild Rating: %d effective substat rolls on recommended stats\n", usefulRolls)
+
+	// Alternatively, evaluate against custom priority stats (e.g. only CRIT stats):
+	critRolls := agent.CountEffectiveRolls(fairy.PropCritRate, fairy.PropCritDMG)
+	fmt.Printf("CRIT Roll Rating: %d rolls on CRIT Rate / CRIT DMG\n", critRolls)
 }

@@ -587,3 +587,41 @@ func TestSkillType_IsValid(t *testing.T) {
 		})
 	}
 }
+
+func TestPropertyID_family(t *testing.T) {
+	tests := []struct {
+		prop PropertyID
+		want int
+	}{
+		{PropBaseHP, 111},
+		{PropHPPercent, 111},
+		{PropHPFlat, 111},
+		{PropBaseATK, 121},
+		{PropATKPercent, 121},
+		{PropATKFlat, 121},
+		{PropBaseDEF, 131},
+		{PropDEFPercent, 131},
+		{PropBaseImpact, 122},
+		{PropImpactPercent, 122},
+		{PropBaseCritRate, 201},
+		{PropCritRate, 201},
+		{PropBaseCritDMG, 211},
+		{PropCritDMG, 211},
+		{PropBaseAnomalyProficiency, 312},
+		{PropAnomalyProficiency, 312},
+		{PropBaseAnomalyMastery, 314},
+		{PropAnomalyMastery, 314},
+		// Penetration families: Ratio 231xx -> 231, Flat 232xx -> 232
+		{PropBasePENRatio, 231},
+		{PropPENRatio, 231},
+		{PropBasePENFlat, 232},
+		{PropPENFlat, 232},
+	}
+
+	for _, tt := range tests {
+		got := tt.prop.family()
+		if got != tt.want {
+			t.Errorf("PropertyID(%d).family() = %d; want %d", tt.prop, got, tt.want)
+		}
+	}
+}

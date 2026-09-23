@@ -387,6 +387,19 @@ type Agent struct {
 	// Rarity is the rarity rank of the Agent ([RarityS] or [RarityA]).
 	Rarity Rarity `json:"rarity"`
 
+	// HighlightProps contains the recommended combat property IDs for this Agent
+	// displayed on the agent's profile screen (e.g. [PropBaseATK], [PropBaseCritRate], [PropBasePENRatio]).
+	// It is always initialized to a non-nil slice (empty [] if no recommendations exist).
+	HighlightProps []PropertyID `json:"highlight_props"`
+
+	// RecommendedSubStats contains the recommended Drive Disc sub-stat property IDs for this Agent
+	// (e.g. [PropCritRate], [PropCritDMG], [PropATKPercent]).
+	// These values reflect the official in-game Drive Disc recommendation system in Zenless Zone Zero
+	// (matching the yellow highlight badges displayed on disc sub-stats in the equipment UI).
+	// Used for Drive Disc sub-stat highlighting and calculating the in-game Active Modifier Count.
+	// It is always initialized to a non-nil slice (empty [] if no recommendations exist).
+	RecommendedSubStats []PropertyID `json:"recommended_sub_stats"`
+
 	// Skin is the currently equipped cosmetic outfit. May be nil if default appearance is used.
 	Skin *Skin `json:"skin"`
 
@@ -419,6 +432,78 @@ type Agent struct {
 
 	// UIStats contains pre-formatted combat stat breakdowns (Base + Added = Total) with localized names and icons ready for frontend rendering.
 	UIStats UIStats `json:"ui_stats"`
+}
+
+// IsHighlightProp reports whether the given property matches one of the recommended combat stats
+// for this Agent's profile screen (Base Stats).
+func (a *Agent) IsHighlightProp(prop PropertyID) bool {
+	if a == nil || len(a.HighlightProps) == 0 {
+		return false
+	}
+	targetFamily := prop.family()
+	for _, hp := range a.HighlightProps {
+		if hp.family() == targetFamily {
+			return true
+		}
+	}
+	return false
+}
+
+// IsRecommendedSubStat reports whether the given Drive Disc sub-stat property is recommended for this Agent,
+// corresponding to the yellow highlight indicator displayed on Drive Disc sub-stats in the in-game equipment UI.
+// It matches percentage modifiers (ATK%, HP%, DEF%) and flat properties according to the Agent's
+// specific sub-stat recommendations.
+func (a *Agent) IsRecommendedSubStat(prop PropertyID) bool {
+	if a == nil || len(a.RecommendedSubStats) == 0 {
+		return false
+	}
+	targetFamily := prop.family()
+	for _, rec := range a.RecommendedSubStats {
+		switch rec.family() {
+		case 111, 121, 131, 231:
+			if rec == prop {
+				return true
+			}
+		default:
+			if rec == prop || rec.family() == targetFamily {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+// CountEffectiveRolls returns the total number of useful substat upgrade rolls across all equipped Drive Discs
+// (matching the in-game "Active Modifier Count").
+// If customProps are provided, it evaluates against them via [DriveDiscs.CountEffectiveRolls].
+// If no arguments are passed, it evaluates against this Agent's recommended disc sub-stats ([Agent.RecommendedSubStats])
+// or falls back to [Agent.HighlightProps] if no disc sub-stats are configured.
+func (a *Agent) CountEffectiveRolls(customProps ...PropertyID) int {
+	if a == nil {
+		return 0
+	}
+	if len(customProps) > 0 {
+		return a.DriveDiscs.CountEffectiveRolls(customProps...)
+	}
+	total := 0
+	if len(a.RecommendedSubStats) > 0 {
+		for _, disc := range a.DriveDiscs.Slots {
+			for _, sub := range disc.SubStats {
+				if a.IsRecommendedSubStat(sub.PropertyID) {
+					total += sub.Rolls
+				}
+			}
+		}
+		return total
+	}
+	for _, disc := range a.DriveDiscs.Slots {
+		for _, sub := range disc.SubStats {
+			if a.IsHighlightProp(sub.PropertyID) {
+				total += sub.Rolls
+			}
+		}
+	}
+	return total
 }
 
 // MindscapeNode represents a single Mindscape Cinema level (M1–M6) for an [Agent].

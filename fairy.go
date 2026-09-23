@@ -209,3 +209,36 @@ func EnrichAgentWithLang(raw *zzz.AvatarData, lang Language) (*Agent, error) {
 	}
 	return client.EnrichAgentWithLang(raw, lang)
 }
+
+// AgentHighlightProps returns the recommended combat property IDs ([PropertyID]) for an Agent by their numeric ID,
+// or nil if the agent is not found or fails to initialize the shared default client.
+// The returned slice is a defensive copy and can be safely mutated by the caller.
+//
+// Example:
+//
+//	props := fairy.AgentHighlightProps(1011) // Anby Demara
+//	// props -> [PropBaseImpact] (12201)
+func AgentHighlightProps(agentID int) []PropertyID {
+	client, err := getDefaultClient()
+	if err != nil {
+		return nil
+	}
+	return client.AgentHighlightProps(agentID)
+}
+
+// AllAgentHighlightProps returns a map of all agents' recommended combat property IDs indexed by agent ID,
+// using the shared default client.
+//
+// Example:
+//
+//	allProps := fairy.AllAgentHighlightProps()
+//	for agentID, props := range allProps {
+//		fmt.Printf("Agent %d: %v\n", agentID, props)
+//	}
+func AllAgentHighlightProps() map[int][]PropertyID {
+	client, err := getDefaultClient()
+	if err != nil {
+		return nil
+	}
+	return client.AllAgentHighlightProps()
+}

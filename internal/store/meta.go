@@ -10,6 +10,8 @@ type AvatarMeta struct {
 	ProfessionType string
 	Camp           string
 	ElementTypes   []string
+	// HighlightProps contains recommended property IDs for this avatar.
+	HighlightProps []int
 	// BaseProps maps PropertyID to the base stat value at Level 1.
 	BaseProps map[int]int
 	// GrowthProps maps PropertyID to the stat growth coefficient per level.
@@ -190,6 +192,7 @@ type avatarRecord struct {
 	ProfessionType       string           `json:"ProfessionType"`
 	Camp                 string           `json:"Camp"`
 	ElementTypes         []string         `json:"ElementTypes"`
+	HighlightProps       []int            `json:"HighlightProps"`
 	BaseProps            map[string]int   `json:"BaseProps"`
 	GrowthProps          map[string]int   `json:"GrowthProps"`
 	PromotionProps       []map[string]int `json:"PromotionProps"`

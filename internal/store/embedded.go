@@ -214,11 +214,15 @@ func (s *EmbeddedStore) loadAvatars(fsys fs.FS, parseID func(string, string) (in
 			coreProps[i] = p
 		}
 
+		hlProps := make([]int, len(rec.HighlightProps))
+		copy(hlProps, rec.HighlightProps)
+
 		s.avatars[id] = AvatarMeta{
 			Name:                 rec.Name,
 			Rarity:               rec.Rarity,
 			ProfessionType:       rec.ProfessionType,
 			ElementTypes:         rec.ElementTypes,
+			HighlightProps:       hlProps,
 			BaseProps:            baseProps,
 			GrowthProps:          growthProps,
 			PromotionProps:       promProps,
@@ -499,6 +503,14 @@ func (s *EmbeddedStore) Localize(hash string, lang string) string {
 func (s *EmbeddedStore) AvatarMeta(id int) (AvatarMeta, bool) {
 	m, ok := s.avatars[id]
 	return m, ok
+}
+
+func (s *EmbeddedStore) AllAvatarMetas() map[int]AvatarMeta {
+	metas := make(map[int]AvatarMeta, len(s.avatars))
+	for k, v := range s.avatars {
+		metas[k] = v
+	}
+	return metas
 }
 func (s *EmbeddedStore) AvatarSkillsMeta(avatarID int) ([]SkillMeta, bool) {
 	m, ok := s.skills[avatarID]

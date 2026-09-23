@@ -195,6 +195,10 @@ Fairy provides global functions for quick one-liners, and a [`Client`](https://p
 | [`fairy.EnrichWithLang(raw, lang)`](https://pkg.go.dev/github.com/kirinyoku/fairy#EnrichWithLang) | Transform raw profile ([`*zzz.Profile`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#Profile)) into an enriched model ([`*fairy.Profile`](https://pkg.go.dev/github.com/kirinyoku/fairy#Profile)) in a specific language | ⚡ In-memory |
 | [`fairy.EnrichAgent(raw)`](https://pkg.go.dev/github.com/kirinyoku/fairy#EnrichAgent) | Transform raw avatar data ([`*zzz.AvatarData`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#AvatarData)) into an enriched Agent model ([`*fairy.Agent`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent)) in default language | ⚡ In-memory |
 | [`fairy.EnrichAgentWithLang(raw, lang)`](https://pkg.go.dev/github.com/kirinyoku/fairy#EnrichAgentWithLang) | Transform raw avatar data ([`*zzz.AvatarData`](https://pkg.go.dev/github.com/kirinyoku/enkanetwork-go/client/zzz#AvatarData)) into an enriched Agent model ([`*fairy.Agent`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent)) in a specific language | ⚡ In-memory |
+| [`fairy.AgentHighlightProps(agentID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#AgentHighlightProps) | Retrieve recommended combat property IDs ([`[]PropertyID`](https://pkg.go.dev/github.com/kirinyoku/fairy#PropertyID)) for an agent profile by ID | ⚡ In-memory |
+| [`fairy.AllAgentHighlightProps()`](https://pkg.go.dev/github.com/kirinyoku/fairy#AllAgentHighlightProps) | Retrieve a map of all agents' recommended profile combat property IDs indexed by agent ID | ⚡ In-memory |
+| [`fairy.AgentRecommendedSubStats(agentID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#AgentRecommendedSubStats) | Retrieve recommended Drive Disc sub-stat property IDs ([`[]PropertyID`](https://pkg.go.dev/github.com/kirinyoku/fairy#PropertyID)) for an agent by ID | ⚡ In-memory |
+| [`fairy.AllAgentRecommendedSubStats()`](https://pkg.go.dev/github.com/kirinyoku/fairy#AllAgentRecommendedSubStats) | Retrieve a map of all agents' recommended Drive Disc sub-stats indexed by agent ID | ⚡ In-memory |
 
 ---
 
@@ -216,10 +220,13 @@ Fairy calculates the complete combat stat sheet from base attributes, W-Engines,
 ### 2. Drive Disc Analysis & Build Scoring
 Deep breakdown of Drive Disc sets, substat aggregations, and roll quality:
 
-- **Partition Slots (1–6):** Main stats, substats, upgrade rolls, and set identifiers via [`agent.DriveDiscs.Slots`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs).
-- **Set Bonuses:** Active 2-pc and 4-pc set bonuses via [`agent.DriveDiscs.SetBonuses`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs), or boolean queries via [`Has4Piece(setID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.Has4Piece) / [`Has2Piece(setID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.Has2Piece) (e.g. [`fairy.SetPolarMetal`](https://pkg.go.dev/github.com/kirinyoku/fairy#SetPolarMetal)).
-- **Substat Totals:** Aggregates all rolls and stat values across all discs with [`agent.DriveDiscs.SubStatTotals()`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.SubStatTotals).
-- **Roll Scoring:** Count effective rolls for specific priority stats with [`agent.DriveDiscs.CountEffectiveRolls(...)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.CountEffectiveRolls).
+- **Slots & Set Bonuses:** Inspect discs 1–6 via [`agent.DriveDiscs.Slots`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs), and check active 2-pc / 4-pc set bonuses via [`Has2Piece(setID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.Has2Piece) and [`Has4Piece(setID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.Has4Piece).
+- **Substat Totals:** Aggregate roll counts and cumulative values across all equipped discs with [`agent.DriveDiscs.SubStatTotals()`](https://pkg.go.dev/github.com/kirinyoku/fairy#DriveDiscs.SubStatTotals).
+- **In-Game Recommendations & Highlights:** Query recommended Drive Disc sub-stats via [`agent.RecommendedSubStats`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.RecommendedSubStats) and profile stats via [`agent.HighlightProps`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.HighlightProps), or test individual stats with [`IsRecommendedSubStat(propID)`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.IsRecommendedSubStat).
+- **Build Scoring:** Automatically score effective substat rolls against recommended stats with [`agent.CountEffectiveRolls()`](https://pkg.go.dev/github.com/kirinyoku/fairy#Agent.CountEffectiveRolls), or evaluate against custom target properties.
+
+> [!NOTE]
+> Recommended Drive Disc sub-stats are **not** subjective community opinions or arbitrary theorycrafting. They are sourced directly from the official **Zenless Zone Zero** in-game recommendation system.
 
 📖 See [`ExampleDriveDiscs_SubStatTotals`](https://pkg.go.dev/github.com/kirinyoku/fairy#example-DriveDiscs.SubStatTotals)
 
