@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.4.1] - 2026-10-01
+
+### Fixed
+- Fixed Qingyi (agent ID `1251`) recommended Drive Disc sub-stats by removing `PropCritDMG`.
+
 ## [1.4.0] - 2026-09-23
 
 ### Added
