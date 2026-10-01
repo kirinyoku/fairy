@@ -76,8 +76,8 @@ var agentRecommendedSubStats = map[int][]PropertyID{
 	// 1241: Zhu Yuan (Attack) - ATK%, CRIT Rate, CRIT DMG
 	1241: {PropATKPercent, PropCritRate, PropCritDMG},
 
-	// 1251: Qingyi (Stun) - ATK%, CRIT Rate, CRIT DMG
-	1251: {PropATKPercent, PropCritRate, PropCritDMG},
+	// 1251: Qingyi (Stun) - ATK%, CRIT Rate
+	1251: {PropATKPercent, PropCritRate},
 
 	// 1261: Jane Doe (Anomaly) - ATK%, Anomaly Proficiency
 	1261: {PropATKPercent, PropAnomalyProficiency},

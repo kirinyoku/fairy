@@ -178,7 +178,7 @@ func TestNewAgents_RecommendedSubStats(t *testing.T) {
 		{
 			name:     "Qingyi",
 			agentID:  1251,
-			expected: []fairy.PropertyID{fairy.PropATKPercent, fairy.PropCritRate, fairy.PropCritDMG},
+			expected: []fairy.PropertyID{fairy.PropATKPercent, fairy.PropCritRate},
 		},
 		{
 			name:     "Norma",
@@ -217,6 +217,9 @@ func TestNewAgents_RecommendedSubStats(t *testing.T) {
 				if !agent.IsRecommendedSubStat(prop) {
 					t.Errorf("%s: expected IsRecommendedSubStat(%v) to be true", tc.name, prop)
 				}
+			}
+			if tc.agentID == 1251 && agent.IsRecommendedSubStat(fairy.PropCritDMG) {
+				t.Errorf("expected Qingyi to NOT have PropCritDMG recommended")
 			}
 		})
 	}
