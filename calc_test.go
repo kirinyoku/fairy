@@ -265,3 +265,137 @@ func TestCalculateAgentStats_Armorer_Claret(t *testing.T) {
 		}
 	}
 }
+
+func TestCalculateAgentStats_Sunna_CoreBonus(t *testing.T) {
+	st, err := store.Default()
+	if err != nil {
+		t.Fatalf("failed to load default store: %v", err)
+	}
+
+	agent := &Agent{
+		ID:                   1491, // Sunna
+		Level:                60,
+		Promotion:            6,
+		CoreSkillEnhancement: 6, // Rank F (gives 21% ATK and 75 Base ATK)
+		Specialty:            SpecialtySupport,
+		Attribute:            AttributePhysical,
+		WEngine: &WEngine{
+			ID:           13115, // Kaboom the Cannon (Бум-пушка)
+			Level:        60,
+			Phase:        5,
+			Modification: 5,
+		},
+		DriveDiscs: DriveDiscs{
+			Slots: []DriveDisc{
+				{
+					MainStat: StatValue{PropertyID: PropHPFlat, Value: 2200},
+					SubStats: []StatValue{
+						{PropertyID: PropDEFPercent, Value: 0.144},
+						{PropertyID: PropATKPercent, Value: 0.090},
+						{PropertyID: PropATKFlat, Value: 19},
+						{PropertyID: PropCritDMG, Value: 0.048},
+					},
+				},
+				{
+					MainStat: StatValue{PropertyID: PropATKFlat, Value: 316},
+					SubStats: []StatValue{
+						{PropertyID: PropHPFlat, Value: 112},
+						{PropertyID: PropATKPercent, Value: 0.120},
+						{PropertyID: PropCritDMG, Value: 0.048},
+						{PropertyID: PropAnomalyProficiency, Value: 18},
+					},
+				},
+				{
+					MainStat: StatValue{PropertyID: PropDEFFlat, Value: 184},
+					SubStats: []StatValue{
+						{PropertyID: PropPENFlat, Value: 18},
+						{PropertyID: PropCritRate, Value: 0.024},
+						{PropertyID: PropATKPercent, Value: 0.090},
+						{PropertyID: PropCritDMG, Value: 0.096},
+					},
+				},
+				{
+					MainStat: StatValue{PropertyID: PropATKPercent, Value: 0.300},
+					SubStats: []StatValue{
+						{PropertyID: PropDEFFlat, Value: 45},
+						{PropertyID: PropCritRate, Value: 0.048},
+						{PropertyID: PropAnomalyProficiency, Value: 27},
+						{PropertyID: PropCritDMG, Value: 0.048},
+					},
+				},
+				{
+					MainStat: StatValue{PropertyID: PropATKPercent, Value: 0.300},
+					SubStats: []StatValue{
+						{PropertyID: PropDEFFlat, Value: 30},
+						{PropertyID: PropAnomalyProficiency, Value: 18},
+						{PropertyID: PropHPFlat, Value: 224},
+						{PropertyID: PropATKFlat, Value: 57},
+					},
+				},
+				{
+					MainStat: StatValue{PropertyID: PropEnergyRegenPercent, Value: 0.600},
+					SubStats: []StatValue{
+						{PropertyID: PropHPPercent, Value: 0.060},
+						{PropertyID: PropPENFlat, Value: 18},
+						{PropertyID: PropCritDMG, Value: 0.048},
+						{PropertyID: PropATKFlat, Value: 57},
+					},
+				},
+			},
+			SetBonuses: []DriveDiscSetBonus{
+				{Set: Set{ID: 33400}, Count: 4}, // Moonlit Lullaby 2pc (+20% Energy Regen)
+				{Set: Set{ID: 31600}, Count: 2}, // Swing Jazz 2pc (+20% Energy Regen)
+			},
+		},
+	}
+
+	calculateAgentStats(agent, st)
+
+	// Base ATK: 750 (Sunna + 75 from core) + 624 (weapon) = 1374
+	if agent.BaseStats.ATK != 1374 {
+		t.Errorf("expected Base ATK 1374, got %v", agent.BaseStats.ATK)
+	}
+
+	// Total ATK: floor(1374 * (1 + 0.90 + 0.21) + 449) = 3348 (was 3059 without 21% core bonus)
+	if agent.Stats.ATK != 3348 {
+		t.Errorf("expected total ATK 3348, got %v", agent.Stats.ATK)
+	}
+
+	// Energy Regen: base 1.0 * (1 + 0.50 [weapon] + 0.60 [disc 6] + 0.20 [moonlit] + 0.20 [swing]) = 2.50
+	if math.Abs(agent.Stats.EnergyRegen-2.50) > 1e-4 {
+		t.Errorf("expected Energy Regen 2.50, got %v", agent.Stats.EnergyRegen)
+	}
+
+	// HP: 11522
+	if agent.Stats.HP != 11522 {
+		t.Errorf("expected HP 11522, got %v", agent.Stats.HP)
+	}
+
+	// DEF: 945
+	if agent.Stats.DEF != 945 {
+		t.Errorf("expected DEF 945, got %v", agent.Stats.DEF)
+	}
+}
+
+func TestCalculateAgentStats_Rina_PENRatio(t *testing.T) {
+	st, err := store.Default()
+	if err != nil {
+		t.Fatalf("failed to load default store: %v", err)
+	}
+
+	agent := &Agent{
+		ID:                   1211, // Rina
+		Level:                60,
+		Promotion:            5,
+		CoreSkillEnhancement: 6, // Rank F (gives 14.4% Base PEN Ratio via 23101: 1440)
+		Specialty:            SpecialtySupport,
+		Attribute:            AttributeElectric,
+	}
+
+	calculateAgentStats(agent, st)
+
+	// Base PEN Ratio should be 14.4% (0.144)
+	if math.Abs(agent.BaseStats.PenRatio-0.144) > 1e-4 {
+		t.Errorf("expected Base PEN Ratio 0.144 for Rina, got %v", agent.BaseStats.PenRatio)
+	}
+}

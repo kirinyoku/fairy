@@ -131,7 +131,11 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 		}
 	}
 
+	basePenRatioVal := calcAgentBaseStat(meta, int(PropBasePENRatio), agent.Level, agent.Promotion, agent.CoreSkillEnhancement)
 	basePenRatio := defaultBasePenRatio
+	if basePenRatioVal > 0 {
+		basePenRatio = basePenRatioVal / statModifierScale
+	}
 	basePenFlat := defaultBasePenFlat
 
 	bonuses := make(map[int]float64)
@@ -171,6 +175,7 @@ func calculateAgentStats(agent *Agent, s store.MetadataStore) {
 
 	accumulateDriveDiscBonus(agent, addBonus)
 	accumulateSetBonus(agent, s, addBonus)
+	accumulateCoreEnhancementBonus(agent, s, addBonus)
 
 	// Claret (ID 1611) Core Passive: For every 1% of initial CRIT DMG, initial CRIT Rate increases by 0.35%.
 	if agent.ID == 1611 {
@@ -298,6 +303,34 @@ func accumulateSetBonus(agent *Agent, s store.MetadataStore, addBonus func(int, 
 				} else {
 					addBonus(propID, float64(val))
 				}
+			}
+		}
+	}
+}
+
+// accumulateCoreEnhancementBonus collects non-base stat modifiers from the Agent's Core Skill Enhancement
+// (such as PropATKPercent 12102, PropHPPercent 11102) and adds them into bonuses.
+func accumulateCoreEnhancementBonus(agent *Agent, s store.MetadataStore, addBonus func(int, float64)) {
+	if agent.CoreSkillEnhancement <= 0 {
+		return
+	}
+	meta, ok := s.AvatarMeta(agent.ID)
+	if !ok || agent.CoreSkillEnhancement >= len(meta.CoreEnhancementProps) {
+		return
+	}
+
+	for propID, val := range meta.CoreEnhancementProps[agent.CoreSkillEnhancement] {
+		// Properties that are not base stats (i.e. not ending in 01, such as 12102 ATK%, 11102 HP%)
+		// represent percentage or flat combat bonuses rather than innate base stats.
+		if propID%100 != 1 {
+			isPercent := false
+			if pMeta, pOk := s.PropertyMeta(propID); pOk {
+				isPercent = strings.Contains(pMeta.Format, "%")
+			}
+			if isPercent {
+				addBonus(propID, float64(val)/statModifierScale)
+			} else {
+				addBonus(propID, float64(val))
 			}
 		}
 	}
