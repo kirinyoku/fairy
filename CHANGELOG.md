@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2] - 2026-10-02
+
+### Fixed
+- Fixed stat calculations omitting non-base modifiers (e.g. `PropATKPercent`, `PropHPPercent`) from Agent Core Skill Enhancements.
+- Fixed base PEN Ratio calculation omitting Core Skill additions (e.g. Rina).
+- Fixed W-Engine secondary stat scaling with refinement rank instead of ascension phase (`breakLevel`).
+
 ## [1.4.1] - 2026-10-01
 
 ### Fixed
