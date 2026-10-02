@@ -22,6 +22,12 @@ func (m mockStore) WeaponLevelTemplate(rarity, level int) (store.WeaponLevelTemp
 }
 
 func (m mockStore) WeaponStarTemplate(rarity, phase int) (store.WeaponStarTemplate, bool) {
+	if rarity == 4 && phase == 5 {
+		return store.WeaponStarTemplate{
+			MainStat: 44610,
+			SubStat:  15000,
+		}, true
+	}
 	if rarity == 4 && phase == 0 {
 		return store.WeaponStarTemplate{
 			MainStat: 500,
@@ -115,18 +121,17 @@ func TestCalcWEngineSecondaryStat(t *testing.T) {
 	ms := mockStore{}
 
 	tests := []struct {
-		name     string
-		level    int
-		phase    int
-		expected int
+		name       string
+		breakLevel int
+		expected   int
 	}{
-		{"Level 60, Phase 0", 60, 0, 262}, // 100 * (10000/4000) * (1 + 500/10000) = 100 * 2.5 * 1.05 = 262.5 -> 262
-		{"Level 1, Phase 0", 1, 0, 105},   // Level mult = 1, star mult = 500. 100 * 1.05 = 105
+		{"BreakLevel 5 (Max)", 5, 250}, // 100 * (1 + 15000/10000) = 250
+		{"BreakLevel 0 (Base)", 0, 105}, // 100 * (1 + 500/10000) = 105
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			val := calcWEngineSecondaryStat(ms, meta, tt.level, tt.phase)
+			val := calcWEngineSecondaryStat(ms, meta, tt.breakLevel)
 			if val != tt.expected {
 				t.Errorf("expected %v, got %v", tt.expected, val)
 			}

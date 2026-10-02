@@ -412,7 +412,7 @@ func (m *profileMapper) mapWEngine(raw *zzz.Weapon) *WEngine {
 		SpecialtyName: m.store.Localize(mapSpecialtyLocKey(meta.ProfessionType), string(m.lang)),
 		IconURL:       buildEnkaURL(meta.ImagePath),
 		MainStat:      m.mapStat(meta.MainStat.PropertyID, calcWEngineMainStat(m.store, meta, raw.Level, raw.BreakLevel), 0),
-		SecondaryStat: m.mapStat(meta.SecondaryStat.PropertyID, calcWEngineSecondaryStat(m.store, meta, raw.Level, wPhase), 0),
+		SecondaryStat: m.mapStat(meta.SecondaryStat.PropertyID, calcWEngineSecondaryStat(m.store, meta, raw.BreakLevel), 0),
 	}
 
 	if wPhase < len(meta.PassiveDescKeys) {

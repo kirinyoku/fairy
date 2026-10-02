@@ -58,28 +58,21 @@ func calcWEngineMainStat(s store.MetadataStore, meta store.WeaponMeta, level, ph
 	return int(math.Floor(result))
 }
 
-// calcWEngineSecondaryStat calculates the level-scaled secondary stat value of a W-Engine.
+// calcWEngineSecondaryStat calculates the break-level-scaled secondary stat value of a W-Engine.
 //
-// W-Engine secondary stats scale via an inverse denominator from WeaponLevelTemplate (SubStatDenominator):
+// In Zenless Zone Zero, W-Engine secondary stats scale solely with the weapon's ascension phase (BreakLevel):
 //
-//	LevelMultiplier = 10000 / SubStatDenominator
+//	Result = SecondaryStat.PropertyValue * (1 + WeaponStarTemplate.SubStat / 10000)
 //
-// For example, at level 60 with denominator 4000, LevelMultiplier is 2.5x the base secondary stat (10000 / 4000 = 2.5).
-func calcWEngineSecondaryStat(s store.MetadataStore, meta store.WeaponMeta, level, phase int) int {
+// For example, at BreakLevel 5 (Level 50-60), SubStat is 15000, giving a 2.5x multiplier on the base secondary stat.
+func calcWEngineSecondaryStat(s store.MetadataStore, meta store.WeaponMeta, breakLevel int) int {
 	baseVal := meta.SecondaryStat.PropertyValue
-	levelMult := 1.0
-	if lvlTpl, ok := s.WeaponLevelTemplate(meta.Rarity, level); ok {
-		if lvlTpl.SubStatDenominator > 0 {
-			levelMult = statModifierScale / float64(lvlTpl.SubStatDenominator)
-		}
-	}
-
 	starMod := 0
-	if starTpl, ok := s.WeaponStarTemplate(meta.Rarity, phase); ok {
+	if starTpl, ok := s.WeaponStarTemplate(meta.Rarity, breakLevel); ok {
 		starMod = starTpl.SubStat
 	}
 
-	result := float64(baseVal) * levelMult * (1.0 + float64(starMod)/statModifierScale)
+	result := float64(baseVal) * (1.0 + float64(starMod)/statModifierScale)
 	return int(math.Floor(result))
 }
 
@@ -248,11 +241,6 @@ func accumulateWEngineBonus(agent *Agent, s store.MetadataStore, addBonus func(i
 		return wEngineBaseAtk, wEngineBaseDef
 	}
 
-	wPhase := agent.WEngine.Modification - 1
-	if wPhase < 0 {
-		wPhase = 0
-	}
-
 	wMainStatId := wMeta.MainStat.PropertyID
 	wMainStatVal := calcWEngineMainStat(s, wMeta, agent.WEngine.Level, agent.WEngine.Phase)
 
@@ -264,7 +252,7 @@ func accumulateWEngineBonus(agent *Agent, s store.MetadataStore, addBonus func(i
 	}
 
 	wSecStatId := wMeta.SecondaryStat.PropertyID
-	wSecStatVal := calcWEngineSecondaryStat(s, wMeta, agent.WEngine.Level, wPhase)
+	wSecStatVal := calcWEngineSecondaryStat(s, wMeta, agent.WEngine.Phase)
 
 	isPercent := false
 	if pMeta, pOk := s.PropertyMeta(wSecStatId); pOk {
