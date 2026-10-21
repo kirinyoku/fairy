@@ -304,5 +304,95 @@
         "Icon": "/ui/zzz/AssaultHard05.png",
         "TipNum": "MedalTipsNum9",
         "PrefixIcon": "/ui/zzz/Crown.png"
+    },
+    "16001": {
+        "Name": "MedalName16001",
+        "Icon": "/ui/zzz/ZenkovS201.png",
+        "TipNum": "MedalTipsNum8",
+        "PrefixIcon": ""
+    },
+    "16002": {
+        "Name": "MedalName16002",
+        "Icon": "/ui/zzz/ZenkovS202.png",
+        "TipNum": "MedalTipsNum8",
+        "PrefixIcon": ""
+    },
+    "16003": {
+        "Name": "MedalName16003",
+        "Icon": "/ui/zzz/ZenkovS203.png",
+        "TipNum": "MedalTipsNum8",
+        "PrefixIcon": ""
+    },
+    "16004": {
+        "Name": "MedalName16004",
+        "Icon": "/ui/zzz/ZenkovS204.png",
+        "TipNum": "MedalTipsNum6",
+        "PrefixIcon": "UI/Sprite/A1DynamicLoad/IconMedal/UnPacker/FriendMedal/Crown03"
+    },
+    "16005": {
+        "Name": "MedalName16005",
+        "Icon": "/ui/zzz/ZenkovS205.png",
+        "TipNum": "MedalTipsNum6",
+        "PrefixIcon": "UI/Sprite/A1DynamicLoad/IconMedal/UnPacker/FriendMedal/Crown03"
+    },
+    "16006": {
+        "Name": "MedalName16006",
+        "Icon": "/ui/zzz/ZenkovS206.png",
+        "TipNum": "MedalTipsNum6",
+        "PrefixIcon": "UI/Sprite/A1DynamicLoad/IconMedal/UnPacker/FriendMedal/Crown03"
+    },
+    "17001": {
+        "Name": "MedalName17001",
+        "Icon": "/ui/zzz/HardCoreBoss_Hayyot.png",
+        "TipNum": "MedalTipsNum6",
+        "PrefixIcon": "UI/Sprite/A1DynamicLoad/IconMedal/UnPacker/FriendMedal/IconStrongMark"
+    },
+    "17002": {
+        "Name": "MedalName17002",
+        "Icon": "/ui/zzz/HardCoreBoss_InfernalRevenant.png",
+        "TipNum": "MedalTipsNum6",
+        "PrefixIcon": "UI/Sprite/A1DynamicLoad/IconMedal/UnPacker/FriendMedal/IconStrongMark"
+    },
+    "17003": {
+        "Name": "MedalName17003",
+        "Icon": "/ui/zzz/HardCoreBoss_HereticHunter.png",
+        "TipNum": "MedalTipsNum6",
+        "PrefixIcon": "UI/Sprite/A1DynamicLoad/IconMedal/UnPacker/FriendMedal/IconStrongMark"
+    },
+    "18001": {
+        "Name": "MedalName18001",
+        "Icon": "/ui/zzz/ZenkovS301.png",
+        "TipNum": "MedalTipsNum8",
+        "PrefixIcon": ""
+    },
+    "18002": {
+        "Name": "MedalName18002",
+        "Icon": "/ui/zzz/ZenkovS302.png",
+        "TipNum": "MedalTipsNum8",
+        "PrefixIcon": ""
+    },
+    "18003": {
+        "Name": "MedalName18003",
+        "Icon": "/ui/zzz/ZenkovS303.png",
+        "TipNum": "MedalTipsNum8",
+        "PrefixIcon": ""
+    },
+    "18004": {
+        "Name": "MedalName18004",
+        "Icon": "/ui/zzz/ZenkovS304.png",
+        "TipNum": "MedalTipsNum6",
+        "PrefixIcon": "UI/Sprite/A1DynamicLoad/IconMedal/UnPacker/FriendMedal/Crown03"
+    },
+    "18005": {
+        "Name": "MedalName18005",
+        "Icon": "/ui/zzz/ZenkovS305.png",
+        "TipNum": "MedalTipsNum6",
+        "PrefixIcon": "UI/Sprite/A1DynamicLoad/IconMedal/UnPacker/FriendMedal/Crown03"
+    },
+    "18006": {
+        "Name": "MedalName18006",
+        "Icon": "/ui/zzz/ZenkovS306.png",
+        "TipNum": "MedalTipsNum6",
+        "PrefixIcon": "UI/Sprite/A1DynamicLoad/IconMedal/UnPacker/FriendMedal/Crown03"
     }
 }

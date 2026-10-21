@@ -355,5 +355,11 @@
     },
     "3231621": {
         "Icon": "/ui/zzz/IconInterKnotRole0068.png"
+    },
+    "3231631": {
+        "Icon": "/ui/zzz/IconInterKnotRole1631.png"
+    },
+    "3231641": {
+        "Icon": "/ui/zzz/IconInterKnotRole1641.png"
     }
 }

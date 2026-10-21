@@ -6,7 +6,7 @@
   **Fast, zero-overhead Go library for fetching and enriching Zenless Zone Zero player profiles.**
 
   [![CI](https://github.com/kirinyoku/fairy/actions/workflows/ci.yml/badge.svg)](https://github.com/kirinyoku/fairy/actions/workflows/ci.yml)
-  [![Game Version](https://img.shields.io/badge/ZZZ%20Version-3.2-blue.svg)](https://zenless.hoyoverse.com)
+  [![Game Version](https://img.shields.io/badge/ZZZ%20Version-3.3-blue.svg)](https://zenless.hoyoverse.com)
   [![Go Version](https://img.shields.io/github/go-mod/go-version/kirinyoku/fairy)](https://golang.org/doc/devel/release.html)
   [![Go Reference](https://pkg.go.dev/badge/github.com/kirinyoku/fairy.svg)](https://pkg.go.dev/github.com/kirinyoku/fairy)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

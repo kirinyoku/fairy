@@ -532,5 +532,41 @@
     },
     "3321591": {
         "Icon": "/ui/zzz/ImgCardRole0066.png"
+    },
+    "3300021": {
+        "Icon": "/ui/zzz/ImgCardBP20.png"
+    },
+    "3300022": {
+        "Icon": "/ui/zzz/ImgCardBP21.png"
+    },
+    "3301033": {
+        "Icon": "/ui/zzz/ImgCardEvent29.png"
+    },
+    "3301034": {
+        "Icon": "/ui/zzz/ImgCardEvent30.png"
+    },
+    "3311611": {
+        "Icon": "/ui/zzz/ImgCardRoleS0069.png"
+    },
+    "3311621": {
+        "Icon": "/ui/zzz/ImgCardRoleS0068.png"
+    },
+    "3311631": {
+        "Icon": "/ui/zzz/ImgCardRoleS1631.png"
+    },
+    "3311641": {
+        "Icon": "/ui/zzz/ImgCardRoleS1641.png"
+    },
+    "3321611": {
+        "Icon": "/ui/zzz/ImgCardRole0069.png"
+    },
+    "3321621": {
+        "Icon": "/ui/zzz/ImgCardRole0068.png"
+    },
+    "3321631": {
+        "Icon": "/ui/zzz/ImgCardRole1631.png"
+    },
+    "3321641": {
+        "Icon": "/ui/zzz/ImgCardRole1641.png"
     }
 }

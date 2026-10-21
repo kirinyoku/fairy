@@ -141,12 +141,12 @@ func main() {
 
 	// 3. Process Weapons
 	type WeaponTalentItem struct {
-		WeaponID int    `json:"COEEBFOBGND"`
-		Phase    int    `json:"APAEMLCPFID"`
-		DescKey  string `json:"POLEJGCKKFI"`
+		WeaponID int    `json:"HGFJOGONPJG"`
+		Phase    int    `json:"MGBBDLDBNKK"`
+		DescKey  string `json:"FMIFFHCNGCP"`
 	}
 	var weaponTalentData struct {
-		Items []WeaponTalentItem `json:"MLOEFHJHCID"`
+		Items []WeaponTalentItem `json:"IAEFFFFLKNB"`
 	}
 	readJSON(filepath.Join(zenlessDir, "FileCfg", "WeaponTalentTemplateTb.json"), &weaponTalentData)
 
@@ -234,23 +234,23 @@ func main() {
 
 	// 5. Process Skills
 	type SkillDesItem struct {
-		AvatarID int    `json:"PJABHBNCJOI"`
-		Title    string `json:"LECKPHICFOA"`
-		Desc     string `json:"DLADMENPFPD"`
-		Formula  string `json:"KLPLBBJABBL"`
+		AvatarID int    `json:"PBNPPFFJCGN"`
+		Title    string `json:"FLLDOEFBOMB"`
+		Desc     string `json:"KGLIAHOGMIO"`
+		Formula  string `json:"OKCGOIHCKPA"`
 	}
 	var skillDesData struct {
-		Items []SkillDesItem `json:"MLOEFHJHCID"`
+		Items []SkillDesItem `json:"IAEFFFFLKNB"`
 	}
 	readJSON(filepath.Join(zenlessDir, "FileCfg", "AvatarSkillDesTemplateTb.json"), &skillDesData)
 
 	type PassiveSkillDesItem struct {
-		AvatarID int      `json:"PJABHBNCJOI"`
-		Titles   []string `json:"OHBPFPBILBL"`
-		Descs    []string `json:"IHDLHHGEHMP"`
+		AvatarID int      `json:"PBNPPFFJCGN"`
+		Titles   []string `json:"DJKBMAOKDFG"`
+		Descs    []string `json:"DLLEJMOICAE"`
 	}
 	var passiveSkillDesData struct {
-		Items []PassiveSkillDesItem `json:"MLOEFHJHCID"`
+		Items []PassiveSkillDesItem `json:"IAEFFFFLKNB"`
 	}
 	readJSON(filepath.Join(zenlessDir, "FileCfg", "AvatarPassiveSkillDesTemplateTb.json"), &passiveSkillDesData)
 
@@ -335,13 +335,13 @@ func main() {
 
 	// Extract skill templates (multiplier calculations)
 	type SkillTemplateRaw struct {
-		ID       int `json:"DALBKGGEJEF"`
-		BaseDmg  int `json:"IKAABAIDFAO"`
-		GrowDmg  int `json:"DGHHKAHHIPM"`
-		BaseStun int `json:"OMFJHOLBIKA"`
-		GrowStun int `json:"KICLLNBEAEN"`
-		ExtraDmg int `json:"ECHPKCNANMI"`
-		Cost     int `json:"BLGOMFMHNKA"`
+		ID       int `json:"PFOAJKNPCHL"`
+		BaseDmg  int `json:"BALHEIIFHLN"`
+		GrowDmg  int `json:"KBEFIIEFCGH"`
+		BaseStun int `json:"PLEPHHBDMGD"`
+		GrowStun int `json:"BJCBBHKLCLB"`
+		ExtraDmg int `json:"AKFLKECDEPG"`
+		Cost     int `json:"NFCOCPMBCKO"`
 	}
 
 	type SkillTemplateMeta struct {
@@ -354,7 +354,7 @@ func main() {
 	}
 
 	var skillTemplateData struct {
-		Items []SkillTemplateRaw `json:"MLOEFHJHCID"`
+		Items []SkillTemplateRaw `json:"IAEFFFFLKNB"`
 	}
 	readJSON(filepath.Join(zenlessDir, "FileCfg", "AvatarSkillTemplateTb.json"), &skillTemplateData)
 
@@ -377,11 +377,11 @@ func main() {
 
 	// 5.5 Process Professions
 	type ProfessionItem struct {
-		NameKey string `json:"PCPJBDFHKNK"`
-		DescKey string `json:"OLBIEFEPDLC"`
+		NameKey string `json:"AHPMICNNCFC"`
+		DescKey string `json:"HCLAEHBIAEL"`
 	}
 	var professionData struct {
-		Items []ProfessionItem `json:"MLOEFHJHCID"`
+		Items []ProfessionItem `json:"IAEFFFFLKNB"`
 	}
 	readJSON(filepath.Join(zenlessDir, "FileCfg", "AvatarProfessionTemplateTb.json"), &professionData)
 
@@ -396,13 +396,13 @@ func main() {
 
 	// 5.6 Process Weapon and Equipment Templates
 	type rawWeaponLevelItem struct {
-		Rarity             int `json:"APDCBEGPHJO"`
-		Level              int `json:"GJGMIBEOBHP"`
-		MainStat           int `json:"EOMOGNMMOEJ"`
-		SubStatDenominator int `json:"EPEINPIGGBJ"`
+		Rarity             int `json:"CECLEKPMEJB"`
+		Level              int `json:"MPBONOJLLPF"`
+		MainStat           int `json:"DPKJPJNGJEK"`
+		SubStatDenominator int `json:"MKLLDEHFGCN"`
 	}
 	var rawWeaponLevelData struct {
-		List []rawWeaponLevelItem `json:"MLOEFHJHCID"`
+		List []rawWeaponLevelItem `json:"IAEFFFFLKNB"`
 	}
 	weaponLevelFile := filepath.Join(zenlessDir, "FileCfg", "WeaponLevelTemplateTb.json")
 	if _, err := os.Stat(weaponLevelFile); err == nil {
@@ -423,13 +423,13 @@ func main() {
 	}
 
 	type rawWeaponStarItem struct {
-		Rarity     int `json:"APDCBEGPHJO"`
-		BreakLevel int `json:"LMBCLMNIJNA"`
-		MainStat   int `json:"EENDAEFLEJO"`
-		SubStat    int `json:"IIPAHNFIJOH"`
+		Rarity     int `json:"CECLEKPMEJB"`
+		BreakLevel int `json:"EDIOFIDLPPF"`
+		MainStat   int `json:"PFPPMCPKOEE"`
+		SubStat    int `json:"PFMPCAJKLBE"`
 	}
 	var rawWeaponStarData struct {
-		List []rawWeaponStarItem `json:"MLOEFHJHCID"`
+		List []rawWeaponStarItem `json:"IAEFFFFLKNB"`
 	}
 	weaponStarFile := filepath.Join(zenlessDir, "FileCfg", "WeaponStarTemplateTb.json")
 	if _, err := os.Stat(weaponStarFile); err == nil {
@@ -450,12 +450,12 @@ func main() {
 	}
 
 	type rawEquipLevelItem struct {
-		Rarity   int `json:"APDCBEGPHJO"`
-		Level    int `json:"GJGMIBEOBHP"`
-		MainStat int `json:"EOMOGNMMOEJ"`
+		Rarity   int `json:"CECLEKPMEJB"`
+		Level    int `json:"MPBONOJLLPF"`
+		MainStat int `json:"DPKJPJNGJEK"`
 	}
 	var rawEquipLevelData struct {
-		List []rawEquipLevelItem `json:"MLOEFHJHCID"`
+		List []rawEquipLevelItem `json:"IAEFFFFLKNB"`
 	}
 	equipLevelFile := filepath.Join(zenlessDir, "FileCfg", "EquipmentLevelTemplateTb.json")
 	if _, err := os.Stat(equipLevelFile); err == nil {
@@ -472,6 +472,30 @@ func main() {
 			cleanData.List = append(cleanData.List, cleanEquipLevel(it))
 		}
 		writeJSON(filepath.Join(assetsDir, "EquipmentLevelTemplateTb.json"), cleanData)
+	}
+
+	// 5.7 Process Medals and Titles
+	var medals map[string]map[string]interface{}
+	readJSON(filepath.Join(assetsDir, "medals.json"), &medals)
+	for _, m := range medals {
+		if name, ok := m["Name"].(string); ok && name != "" {
+			keysToExtract[name] = true
+		}
+		if tip, ok := m["TipNum"].(string); ok && tip != "" {
+			keysToExtract[tip] = true
+		}
+	}
+
+	var titles map[string]interface{}
+	readJSON(filepath.Join(assetsDir, "titles.json"), &titles)
+	if titlesMap, ok := titles["Titles"].(map[string]interface{}); ok {
+		for _, t := range titlesMap {
+			if tMap, ok := t.(map[string]interface{}); ok {
+				if text, ok := tMap["TitleText"].(string); ok && text != "" {
+					keysToExtract[text] = true
+				}
+			}
+		}
 	}
 
 	// 6. Update Locs

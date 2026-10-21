@@ -934,5 +934,57 @@
     "32505": {
         "Name": "Actor_EpGetRatio",
         "Format": "{0:0.#%}"
+    },
+    "10": {
+        "Name": "",
+        "Format": "{0:0}"
+    },
+    "120": {
+        "Name": "EpMax",
+        "Format": "{0:0}"
+    },
+    "213": {
+        "Name": "SharpCriticalDamage",
+        "Format": "{0:0.#%}"
+    },
+    "324": {
+        "Name": "EpRecover",
+        "Format": "{0:0.##}"
+    },
+    "325": {
+        "Name": "EpGetRatio",
+        "Format": "{0:0.#%}"
+    },
+    "1213": {
+        "Name": "SharpCriticalDamage",
+        "Format": "{0:0.#%}"
+    },
+    "1324": {
+        "Name": "EpRecover",
+        "Format": "{0:0.##}"
+    },
+    "1325": {
+        "Name": "EpGetRatio",
+        "Format": "{0:0.#%}"
+    },
+    "12001": {
+        "Name": "",
+        "Format": "{0:0}"
+    },
+    "12003": {
+        "Name": "EpMax",
+        "Format": "{0:0}"
+    },
+    "12005": {
+        "Name": "EpMax",
+        "Format": "{0:0}"
+    },
+    "32501": {
+        "Name": "EpGetRatio",
+        "Format": "{0:0.#%}"
+    },
+    "32503": {
+        "Name": "EpGetRatio",
+        "Format": "{0:0.#%}"
     }
 }

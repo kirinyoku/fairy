@@ -790,5 +790,77 @@
         "DescKey": "AvatarSkin_Pryce_Desc_000",
         "Icon": "IconRole68",
         "IsDefault": true
+    },
+    "3116310": {
+        "Id": 3116310,
+        "AvatarId": 1631,
+        "NameKey": "AvatarSkin_Severian_Name_000",
+        "DescKey": "AvatarSkin_Severian_Desc_000",
+        "Icon": "IconRole1631",
+        "IsDefault": true
+    },
+    "3116311": {
+        "Id": 3116311,
+        "AvatarId": 1631,
+        "NameKey": "AvatarSkin_Severian_Name_001",
+        "DescKey": "AvatarSkin_Severian_Desc_001",
+        "Icon": "IconRole1631_01",
+        "IsDefault": false
+    },
+    "3116410": {
+        "Id": 3116410,
+        "AvatarId": 1641,
+        "NameKey": "AvatarSkin_Pheony_Name_000",
+        "DescKey": "AvatarSkin_Pheony_Desc_000",
+        "Icon": "IconRole1641",
+        "IsDefault": true
+    },
+    "3116411": {
+        "Id": 3116411,
+        "AvatarId": 1641,
+        "NameKey": "AvatarSkin_Pheony_Name_001",
+        "DescKey": "AvatarSkin_Pheony_Desc_001",
+        "Icon": "IconRole1641_01",
+        "IsDefault": false
+    },
+    "3116412": {
+        "Id": 3116412,
+        "AvatarId": 1641,
+        "NameKey": "AvatarSkin_Pheony_Name_002",
+        "DescKey": "AvatarSkin_Pheony_Desc_002",
+        "Icon": "IconRole1641_02",
+        "IsDefault": false
+    },
+    "3114912": {
+        "Id": 3114912,
+        "AvatarId": 1491,
+        "NameKey": "AvatarSkin_Summer_Name_002",
+        "DescKey": "AvatarSkin_Summer_Desc_002",
+        "Icon": "IconRole58_02",
+        "IsDefault": false
+    },
+    "3115012": {
+        "Id": 3115012,
+        "AvatarId": 1501,
+        "NameKey": "AvatarSkin_Aria_Name_002",
+        "DescKey": "AvatarSkin_Aria_Desc_002",
+        "Icon": "IconRole57_02",
+        "IsDefault": false
+    },
+    "3115022": {
+        "Id": 3115022,
+        "AvatarId": 1502,
+        "NameKey": "AvatarSkin_Aria_Name_002",
+        "DescKey": "AvatarSkin_Aria_Desc_002",
+        "Icon": "IconRole57_Form2",
+        "IsDefault": false
+    },
+    "3115112": {
+        "Id": 3115112,
+        "AvatarId": 1511,
+        "NameKey": "AvatarSkin_NangongYu_Name_002",
+        "DescKey": "AvatarSkin_NangongYu_Desc_002",
+        "Icon": "IconRole59_02",
+        "IsDefault": false
     }
 }

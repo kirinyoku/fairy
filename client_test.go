@@ -673,3 +673,81 @@ func TestClient_ErrorHandling(t *testing.T) {
 		}
 	})
 }
+
+func TestEnrichAgent_Patch33_SeverianAndPhoenix(t *testing.T) {
+	// 1. Severian (1631)
+	sevRaw := &zzz.AvatarData{
+		ID:    1631,
+		Level: 60,
+		Weapon: &zzz.Weapon{
+			ID:    14163,
+			Level: 60,
+		},
+	}
+
+	sevAgentEN, err := EnrichAgentWithLang(sevRaw, LangEN)
+	if err != nil {
+		t.Fatalf("EnrichAgentWithLang(Severian, EN) failed: %v", err)
+	}
+	if sevAgentEN.Name != "Severian" {
+		t.Errorf("expected Severian EN name 'Severian', got %q", sevAgentEN.Name)
+	}
+	if sevAgentEN.Attribute != AttributeWind {
+		t.Errorf("expected Severian attribute AttributeWind, got %v", sevAgentEN.Attribute)
+	}
+	if sevAgentEN.Specialty != SpecialtyAttack {
+		t.Errorf("expected Severian specialty SpecialtyAttack, got %v", sevAgentEN.Specialty)
+	}
+	if sevAgentEN.WEngine == nil || sevAgentEN.WEngine.Name != "Incarcerating Grip" {
+		t.Errorf("expected weapon name 'Incarcerating Grip', got %v", sevAgentEN.WEngine)
+	}
+
+	sevAgentRU, err := EnrichAgentWithLang(sevRaw, LangRU)
+	if err != nil {
+		t.Fatalf("EnrichAgentWithLang(Severian, RU) failed: %v", err)
+	}
+	if sevAgentRU.Name != "Севериан" {
+		t.Errorf("expected Severian RU name 'Севериан', got %q", sevAgentRU.Name)
+	}
+	if sevAgentRU.WEngine == nil || sevAgentRU.WEngine.Name != "Карательный захват" {
+		t.Errorf("expected weapon RU name 'Карательный захват', got %v", sevAgentRU.WEngine)
+	}
+
+	// 2. Phoenix (1641)
+	pheRaw := &zzz.AvatarData{
+		ID:    1641,
+		Level: 60,
+		Weapon: &zzz.Weapon{
+			ID:    14164,
+			Level: 60,
+		},
+	}
+
+	pheAgentEN, err := EnrichAgentWithLang(pheRaw, LangEN)
+	if err != nil {
+		t.Fatalf("EnrichAgentWithLang(Phoenix, EN) failed: %v", err)
+	}
+	if pheAgentEN.Name != "Phoenix" {
+		t.Errorf("expected Phoenix EN name 'Phoenix', got %q", pheAgentEN.Name)
+	}
+	if pheAgentEN.Attribute != AttributeFire {
+		t.Errorf("expected Phoenix attribute AttributeFire, got %v", pheAgentEN.Attribute)
+	}
+	if pheAgentEN.Specialty != SpecialtyAnomaly {
+		t.Errorf("expected Phoenix specialty SpecialtyAnomaly, got %v", pheAgentEN.Specialty)
+	}
+	if pheAgentEN.WEngine == nil || pheAgentEN.WEngine.Name != "Plume of Rebirth" {
+		t.Errorf("expected weapon name 'Plume of Rebirth', got %v", pheAgentEN.WEngine)
+	}
+
+	pheAgentRU, err := EnrichAgentWithLang(pheRaw, LangRU)
+	if err != nil {
+		t.Fatalf("EnrichAgentWithLang(Phoenix, RU) failed: %v", err)
+	}
+	if pheAgentRU.Name != "Феникс" {
+		t.Errorf("expected Phoenix RU name 'Феникс', got %q", pheAgentRU.Name)
+	}
+	if pheAgentRU.WEngine == nil || pheAgentRU.WEngine.Name != "Перо перерождения" {
+		t.Errorf("expected weapon RU name 'Перо перерождения', got %v", pheAgentRU.WEngine)
+	}
+}

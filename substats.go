@@ -186,6 +186,12 @@ var agentRecommendedSubStats = map[int][]PropertyID{
 
 	// 1621: Roxy (Stun) - ATK%, CRIT Rate, CRIT DMG
 	1621: {PropATKPercent, PropCritRate, PropCritDMG},
+
+	// 1631: Severian (Attack) - ATK%, CRIT Rate, CRIT DMG
+	1631: {PropATKPercent, PropCritRate, PropCritDMG},
+
+	// 1641: Phoenix (Anomaly) - ATK%, Anomaly Proficiency
+	1641: {PropATKPercent, PropAnomalyProficiency},
 }
 
 // AgentRecommendedSubStats returns the recommended Drive Disc sub-stat property IDs for the given agent ID,

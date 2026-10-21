@@ -15749,10 +15749,6 @@
         {
           "NameKey": "Common_Property_Desc_BreakStunRatio",
           "Formula": "{Skill:1621018, Prop:1002}"
-        },
-        {
-          "NameKey": "Common_Property_Desc_BreakStunRatio",
-          "Formula": "{Skill:1621017, Prop:1002}"
         }
       ]
     },
@@ -15795,6 +15791,10 @@
         {
           "NameKey": "Common_Property_Desc_DamageRatio",
           "Formula": "{Skill:1621017, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1621017, Prop:1002}"
         }
       ]
     },
@@ -15805,6 +15805,526 @@
     {
       "NameKey": "Pryce_MathSkill_Title",
       "DescKey": "Pryce_MathSkill_Desc"
+    }
+  ],
+  "1631": [
+    {
+      "NameKey": "Severian_Skill_Normal_Title",
+      "DescKey": "Severian_Skill_Normal_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_01",
+          "Formula": "{Skill:1631001, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_02",
+          "Formula": "{Skill:1631002, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_03",
+          "Formula": "{Skill:1631003, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_04",
+          "Formula": "{Skill:1631004, Prop:1001}"
+        },
+        {
+          "NameKey": "Severian_Property_Attack04_Desc_Dmg_01",
+          "Formula": "{Skill:1631020, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_01",
+          "Formula": "{Skill:1631001, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_02",
+          "Formula": "{Skill:1631002, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_03",
+          "Formula": "{Skill:1631003, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_04",
+          "Formula": "{Skill:1631004, Prop:1002}"
+        },
+        {
+          "NameKey": "Severian_Property_Attack04_Desc_Stun_01",
+          "Formula": "{Skill:1631020, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_Normal_04_Title",
+      "DescKey": "Severian_Skill_Normal_04_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1631005, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1631005, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_ChargeAttack_Title",
+      "DescKey": "Severian_Skill_ChargeAttack_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1631006, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1631006, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_Special_Title",
+      "DescKey": "Severian_Skill_Special_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1631007, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1631007, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_ExSpecial_Title",
+      "DescKey": "Severian_Skill_ExSpecial_Desc",
+      "Params": [
+        {
+          "NameKey": "Severian_Property_ExSpecial_Desc_Dmg_01",
+          "Formula": "{Skill:1631008, Prop:1001}"
+        },
+        {
+          "NameKey": "Severian_Property_ExSpecial_Desc_Stun_01",
+          "Formula": "{Skill:1631008, Prop:1002}"
+        },
+        {
+          "NameKey": "Severian_Property_ExSpecial_Desc_SpCost_01",
+          "Formula": "Severian_Property_ExSpecial_01_Desc_Value_01"
+        },
+        {
+          "NameKey": "Severian_Property_ExSpecial_Desc_Dmg_02",
+          "Formula": "{Skill:1631009, Prop:1001}"
+        },
+        {
+          "NameKey": "Severian_Property_ExSpecial_Desc_Stun_02",
+          "Formula": "{Skill:1631009, Prop:1002}"
+        },
+        {
+          "NameKey": "Severian_Property_ExSpecial_Desc_SpCost_02",
+          "Formula": "Severian_Property_ExSpecial_01_Desc_Value_02"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_Evade_Title",
+      "DescKey": "Severian_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Severian_Skill_Rush_Title",
+      "DescKey": "Severian_Skill_Rush_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1631010, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1631010, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_Counter_Title",
+      "DescKey": "Severian_Skill_Counter_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1631011, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1631011, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_Taunt_Title",
+      "DescKey": "Severian_Skill_Taunt_Desc"
+    },
+    {
+      "NameKey": "Severian_Skill_QTE_Title",
+      "DescKey": "Severian_Skill_QTE_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1631012, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1631012, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_ExQTE_Title",
+      "DescKey": "Severian_Skill_ExQTE_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1631013, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1631013, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_BeHitAid_Title",
+      "DescKey": "Severian_Skill_BeHitAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1631014, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1631014, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_ParryAid_Title",
+      "DescKey": "Severian_Skill_ParryAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_01",
+          "Formula": "{Skill:1631015, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_02",
+          "Formula": "{Skill:1631016, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_03",
+          "Formula": "{Skill:1631017, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_AssaultAid_Title",
+      "DescKey": "Severian_Skill_AssaultAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1631018, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1631018, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_Skill_Appear_Title",
+      "DescKey": "Severian_Skill_Appear_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1631019, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1631019, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Severian_UniqueSkill_Title",
+      "DescKey": "Severian_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Severian_MathSkill_Title",
+      "DescKey": "Severian_MathSkill_Desc"
+    }
+  ],
+  "1641": [
+    {
+      "NameKey": "Pheony_Skill_Normal_Title",
+      "DescKey": "Pheony_Skill_Normal_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_01",
+          "Formula": "{Skill:1641001, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_02",
+          "Formula": "{Skill:1641002, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_03",
+          "Formula": "{Skill:1641003, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Dmg_04",
+          "Formula": "{Skill:1641004, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_01",
+          "Formula": "{Skill:1641001, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_02",
+          "Formula": "{Skill:1641002, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_03",
+          "Formula": "{Skill:1641003, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Normal_Desc_Stun_04",
+          "Formula": "{Skill:1641004, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_Burst_Title",
+      "DescKey": "Pheony_Skill_Burst_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641005, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641005, Prop:1002}"
+        },
+        {
+          "NameKey": "Pheony_Property_Abloom_Desc",
+          "Formula": "Pheony_Property_Abloom_Desc_BurstValue"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_ChangeAttack_Title",
+      "DescKey": "Pheony_Skill_ChangeAttack_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641006, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641006, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_Special_01_Title",
+      "DescKey": "Pheony_Skill_Special_01_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641007, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641007, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_Special_Enhance_Title",
+      "DescKey": "Pheony_Skill_Special_Enhance_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641023, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641023, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_ExSpecial_01_Title",
+      "DescKey": "Pheony_Skill_ExSpecial_01_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641008, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641008, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_SpConsume",
+          "Formula": "Pheony_Property_ExSpecial_SpCostValue_01"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_ExSpecial_02_Title",
+      "DescKey": "Pheony_Skill_ExSpecial_02_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641009, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641009, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_SpConsume",
+          "Formula": "Pheony_Property_ExSpecial_SpCostValue_02"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_Evade_Title",
+      "DescKey": "Pheony_Skill_Evade_Desc"
+    },
+    {
+      "NameKey": "Pheony_Skill_Rush_Title",
+      "DescKey": "Pheony_Skill_Rush_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641010, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641010, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_Counter_Title",
+      "DescKey": "Pheony_Skill_Counter_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641011, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641011, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_QTE_Title",
+      "DescKey": "Pheony_Skill_QTE_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641012, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641012, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_ExQTE_Title",
+      "DescKey": "Pheony_Skill_ExQTE_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641013, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641013, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_FinishEx_Title",
+      "DescKey": "Pheony_Skill_FinishEx_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641019, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641019, Prop:1002}"
+        },
+        {
+          "NameKey": "Pheony_Property_Abloom_Desc",
+          "Formula": "Pheony_Property_Abloom_Desc_FinishExValue"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_BeHitAid_Title",
+      "DescKey": "Pheony_Skill_BeHitAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641014, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641014, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_ParryAid_Title",
+      "DescKey": "Pheony_Skill_ParryAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_01",
+          "Formula": "{Skill:1641015, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_02",
+          "Formula": "{Skill:1641016, Prop:1002}"
+        },
+        {
+          "NameKey": "Common_Property_ParryAid_Desc_Stun_03",
+          "Formula": "{Skill:1641017, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_Skill_AssaultAid_Title",
+      "DescKey": "Pheony_Skill_AssaultAid_Desc",
+      "Params": [
+        {
+          "NameKey": "Common_Property_Desc_DamageRatio",
+          "Formula": "{Skill:1641018, Prop:1001}"
+        },
+        {
+          "NameKey": "Common_Property_Desc_BreakStunRatio",
+          "Formula": "{Skill:1641018, Prop:1002}"
+        }
+      ]
+    },
+    {
+      "NameKey": "Pheony_UniqueSkill_Title",
+      "DescKey": "Pheony_UniqueSkill_01_Desc"
+    },
+    {
+      "NameKey": "Pheony_MathSkill_Title",
+      "DescKey": "Pheony_MathSkill_Desc"
     }
   ]
 }

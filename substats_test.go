@@ -154,8 +154,8 @@ func TestAllAgentRecommendedSubStats(t *testing.T) {
 	if len(all) == 0 {
 		t.Fatal("expected non-empty map from AllAgentRecommendedSubStats")
 	}
-	if len(all) != 60 {
-		t.Errorf("expected exactly 60 agents in AllAgentRecommendedSubStats, got %d", len(all))
+	if len(all) != 62 {
+		t.Errorf("expected exactly 62 agents in AllAgentRecommendedSubStats, got %d", len(all))
 	}
 	for id, stats := range all {
 		if len(stats) == 0 {
@@ -194,6 +194,16 @@ func TestNewAgents_RecommendedSubStats(t *testing.T) {
 			name:     "Roxy",
 			agentID:  1621,
 			expected: []fairy.PropertyID{fairy.PropATKPercent, fairy.PropCritRate, fairy.PropCritDMG},
+		},
+		{
+			name:     "Severian",
+			agentID:  1631,
+			expected: []fairy.PropertyID{fairy.PropATKPercent, fairy.PropCritRate, fairy.PropCritDMG},
+		},
+		{
+			name:     "Phoenix",
+			agentID:  1641,
+			expected: []fairy.PropertyID{fairy.PropATKPercent, fairy.PropAnomalyProficiency},
 		},
 	}
 

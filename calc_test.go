@@ -125,7 +125,7 @@ func TestCalcWEngineSecondaryStat(t *testing.T) {
 		breakLevel int
 		expected   int
 	}{
-		{"BreakLevel 5 (Max)", 5, 250}, // 100 * (1 + 15000/10000) = 250
+		{"BreakLevel 5 (Max)", 5, 250},  // 100 * (1 + 15000/10000) = 250
 		{"BreakLevel 0 (Base)", 0, 105}, // 100 * (1 + 500/10000) = 105
 	}
 
@@ -397,5 +397,77 @@ func TestCalculateAgentStats_Rina_PENRatio(t *testing.T) {
 	// Base PEN Ratio should be 14.4% (0.144)
 	if math.Abs(agent.BaseStats.PenRatio-0.144) > 1e-4 {
 		t.Errorf("expected Base PEN Ratio 0.144 for Rina, got %v", agent.BaseStats.PenRatio)
+	}
+}
+
+func TestCalculateAgentStats_Severian_WindAttack(t *testing.T) {
+	st, err := store.Default()
+	if err != nil {
+		t.Fatalf("failed to load default store: %v", err)
+	}
+
+	agent := &Agent{
+		ID:                   1631, // Severian
+		Level:                60,
+		Promotion:            6,
+		CoreSkillEnhancement: 6,
+		Specialty:            SpecialtyAttack,
+		Attribute:            AttributeWind,
+		WEngine: &WEngine{
+			ID:           14163, // Incarcerating Grip
+			Level:        60,
+			Phase:        1,
+			Modification: 1,
+		},
+	}
+
+	calculateAgentStats(agent, st)
+
+	// Base HP: 7826
+	if agent.BaseStats.HP != 7826 {
+		t.Errorf("expected Base HP 7826, got %v", agent.BaseStats.HP)
+	}
+
+	if agent.BaseStats.ATK <= 0 {
+		t.Errorf("expected positive Base ATK, got %v", agent.BaseStats.ATK)
+	}
+
+	// Base CritDMG: 50% + 28.8% (Core F) = 78.8%
+	if math.Abs(agent.BaseStats.CritDMG-0.788) > 1e-4 {
+		t.Errorf("expected Base CritDMG 0.788, got %v", agent.BaseStats.CritDMG)
+	}
+}
+
+func TestCalculateAgentStats_Phoenix_FireAnomaly(t *testing.T) {
+	st, err := store.Default()
+	if err != nil {
+		t.Fatalf("failed to load default store: %v", err)
+	}
+
+	agent := &Agent{
+		ID:                   1641, // Phoenix
+		Level:                60,
+		Promotion:            6,
+		CoreSkillEnhancement: 6,
+		Specialty:            SpecialtyAnomaly,
+		Attribute:            AttributeFire,
+		WEngine: &WEngine{
+			ID:           14164, // Plume of Rebirth
+			Level:        60,
+			Phase:        1,
+			Modification: 1,
+		},
+	}
+
+	calculateAgentStats(agent, st)
+
+	// Base HP: 7673
+	if agent.BaseStats.HP != 7673 {
+		t.Errorf("expected Base HP 7673, got %v", agent.BaseStats.HP)
+	}
+
+	// Base Anomaly Mastery: 86 + 36 (Core F) = 122
+	if agent.BaseStats.AnomalyMastery != 122 {
+		t.Errorf("expected Base Anomaly Mastery 122, got %v", agent.BaseStats.AnomalyMastery)
 	}
 }

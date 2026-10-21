@@ -1918,5 +1918,69 @@
             "TitleKey": "Pryce_Talent_06_Title",
             "DescKey": "Pryce_Talent_06_Desc_01"
         }
+    ],
+    "1631": [
+        {
+            "Rank": 1,
+            "TitleKey": "Severian_Talent_01_Title",
+            "DescKey": "Severian_Talent_01_Desc_01"
+        },
+        {
+            "Rank": 2,
+            "TitleKey": "Severian_Talent_02_Title",
+            "DescKey": "Severian_Talent_02_Desc_01"
+        },
+        {
+            "Rank": 3,
+            "TitleKey": "Severian_Talent_03_Title",
+            "DescKey": "Common_Talent_Desc"
+        },
+        {
+            "Rank": 4,
+            "TitleKey": "Severian_Talent_04_Title",
+            "DescKey": "Severian_Talent_04_Desc_01"
+        },
+        {
+            "Rank": 5,
+            "TitleKey": "Severian_Talent_05_Title",
+            "DescKey": "Common_Talent_Desc"
+        },
+        {
+            "Rank": 6,
+            "TitleKey": "Severian_Talent_06_Title",
+            "DescKey": "Severian_Talent_06_Desc_01"
+        }
+    ],
+    "1641": [
+        {
+            "Rank": 1,
+            "TitleKey": "Pheony_Talent_01_Title",
+            "DescKey": "Pheony_Talent_01_Desc_01"
+        },
+        {
+            "Rank": 2,
+            "TitleKey": "Pheony_Talent_02_Title",
+            "DescKey": "Pheony_Talent_02_Desc_01"
+        },
+        {
+            "Rank": 3,
+            "TitleKey": "Pheony_Talent_03_Title",
+            "DescKey": "Common_Talent_Desc"
+        },
+        {
+            "Rank": 4,
+            "TitleKey": "Pheony_Talent_04_Title",
+            "DescKey": "Pheony_Talent_04_Desc_01"
+        },
+        {
+            "Rank": 5,
+            "TitleKey": "Pheony_Talent_05_Title",
+            "DescKey": "Common_Talent_Desc"
+        },
+        {
+            "Rank": 6,
+            "TitleKey": "Pheony_Talent_06_Title",
+            "DescKey": "Pheony_Talent_06_Desc_01"
+        }
     ]
 }
