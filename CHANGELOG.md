@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.0] - 2026-10-21
+
+### Added
+- Added Zenless Zone Zero v3.3 patch support (metadata, icons, localizations across 13 languages).
+- Added metadata for new S-Rank agents: Severian (Wind / Attack) and Phoenix (Fire / Anomaly).
+- Added metadata for new W-Engines: Incarcerating Grip (S-Rank Attack), Plume of Rebirth (S-Rank Anomaly), and Candlelit Scheme (A-Rank Armorer).
+- Added recommended Drive Disc sub-stats and highlight props for Severian (ATK%, CRIT Rate, CRIT DMG) and Phoenix (ATK%, Anomaly Proficiency).
+- Added 12 new calling cards (namecards), 15 new medals, 10 new titles, and 9 new agent skins.
+
+### Changed
+- Updated extractor tool (`internal/tools/extractor`) to parse v3.3 obfuscated template tables with `IAEFFFFLKNB` root keys.
+- Upgraded `enkanetwork-go` dependency to `v1.1.4` for optional `MedalScore` pointer handling on badges without score metrics.
+
 ## [1.4.2] - 2026-10-02
 
 ### Fixed
